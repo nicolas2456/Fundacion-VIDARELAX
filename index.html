@@ -1,0 +1,1348 @@
+<!DOCTYPE html>
+<html>
+<head>
+            <style>.lw { font-size: 60px; }</style>
+        </head>
+        <body>
+            
+
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Fundación Refugio Casa Vida Relax - Albergue oncológico en Bucaramanga que brinda alojamiento digno y acompañamiento integral a pacientes oncológicos y sus familias">
+    <meta name="keywords" content="fundación oncológica, albergue oncológico Bucaramanga, apoyo pacientes cáncer, VIDARELAX">
+    <title>Fundación Refugio Casa Vida Relax - VIDARELAX</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&amp;family=Open+Sans:wght@300;400;600&amp;display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --turquesa: #4DB8AC;
+            --lavanda: #9B6FB5;
+            --dorado: #C8A962;
+            --negro: #1a1a1a;
+            --gris-claro: #f5f5f5;
+            --blanco: #ffffff;
+            --sombra: rgba(0,0,0,0.1);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Open Sans', sans-serif;
+            color: var(--negro);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        h1, h2, h3, h4, h5 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header y Navegación */
+       header {
+    background: var(--blanco);
+    box-shadow: 0 2px 10px var(--sombra);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    transition: all 0.3s ease;
+    min-height: 90px; /* Altura mínima para el logo grande */
+}
+        
+        nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 20px; /* Más espacio arriba/abajo */
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.logo img {
+    height: 90px; /* Logo grande */
+    width: auto;
+    object-fit: contain;
+    padding: 12px;
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 3px 12px rgba(77, 184, 172, 0.15); /* Sombra turquesa suave */
+    transition: transform 0.3s ease;
+}
+
+.logo img:hover {
+    transform: scale(1.05); /* Efecto al pasar el mouse */
+}f
+        
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--turquesa);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .logo i {
+            color: var(--lavanda);
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+            align-items: center;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: var(--negro);
+            font-weight: 500;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+        
+        .nav-links a:hover {
+            color: var(--turquesa);
+        }
+        
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background: var(--turquesa);
+            transition: width 0.3s ease;
+        }
+        
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+        
+        .btn-login {
+            background: linear-gradient(135deg, var(--turquesa), var(--lavanda));
+            color: var(--blanco) !important;
+            padding: 10px 25px;
+            border-radius: 25px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .btn-login:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(77, 184, 172, 0.3);
+        }
+        
+        .btn-login::after {
+            display: none;
+        }
+        
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 5px;
+        }
+        
+        .hamburger span {
+            width: 25px;
+            height: 3px;
+            background: var(--turquesa);
+            border-radius: 3px;
+            transition: all 0.3s ease;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, rgba(77, 184, 172, 0.9), rgba(155, 111, 181, 0.9)), 
+                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><rect fill="%23f5f5f5" width="1200" height="600"/></svg>');
+            background-size: cover;
+            background-position: center;
+            padding: 180px 20px 120px;
+            text-align: center;
+            color: var(--blanco);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 30% 50%, rgba(255,255,255,0.1) 0%, transparent 50%);
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            animation: fadeInUp 1s ease;
+        }
+        
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            font-weight: 700;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+        
+        .hero-subtitle {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            font-style: italic;
+            color: var(--dorado);
+            font-weight: 600;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto 30px;
+            line-height: 1.8;
+        }
+        
+        .btn-primary {
+            background: var(--dorado);
+            color: var(--blanco);
+            padding: 15px 40px;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: 600;
+            display: inline-block;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(200, 169, 98, 0.3);
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(200, 169, 98, 0.4);
+        }
+        
+        /* Secciones Generales */
+        section {
+            padding: 80px 20px;
+        }
+        
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: var(--turquesa);
+            position: relative;
+            padding-bottom: 15px;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--turquesa), var(--lavanda));
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 2px;
+        }
+        
+        .section-subtitle {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 50px;
+            color: #666;
+            font-size: 1.1rem;
+        }
+        
+        /* Quiénes Somos */
+        #quienes-somos {
+            background: var(--gris-claro);
+        }
+        
+        .about-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .about-card {
+            background: var(--blanco);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px var(--sombra);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .about-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 30px rgba(77, 184, 172, 0.2);
+        }
+        
+        .about-card h3 {
+            color: var(--lavanda);
+            margin-bottom: 15px;
+            font-size: 1.5rem;
+        }
+        
+        .about-card i {
+            font-size: 2.5rem;
+            color: var(--turquesa);
+            margin-bottom: 15px;
+        }
+        
+        /* Junta Directiva */
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 40px;
+            margin-top: 50px;
+        }
+        
+        .team-member {
+            text-align: center;
+            background: var(--blanco);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px var(--sombra);
+            transition: transform 0.3s ease;
+        }
+        
+        .team-member:hover {
+            transform: translateY(-5px);
+        }
+        
+        .team-photo {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--turquesa), var(--lavanda));
+            margin: 0 auto 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: var(--blanco);
+        }
+        
+        .team-member h3 {
+            color: var(--negro);
+            margin-bottom: 10px;
+        }
+        
+        .team-role {
+            color: var(--turquesa);
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+        
+        .team-id {
+            color: #666;
+            font-size: 0.9rem;
+        }
+        
+        /* Servicios */
+        #servicios {
+            background: var(--gris-claro);
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+        
+        .service-card {
+            background: var(--blanco);
+            padding: 40px 30px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 5px 20px var(--sombra);
+            transition: all 0.3s ease;
+            border-top: 4px solid var(--turquesa);
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 30px rgba(77, 184, 172, 0.3);
+            border-top-color: var(--lavanda);
+        }
+        
+        .service-card i {
+            font-size: 3rem;
+            color: var(--turquesa);
+            margin-bottom: 20px;
+            transition: color 0.3s ease;
+        }
+        
+        .service-card:hover i {
+            color: var(--lavanda);
+        }
+        
+        .service-card h3 {
+            color: var(--negro);
+            margin-bottom: 15px;
+        }
+        
+        /* Transparencia */
+        .documents-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-top: 50px;
+        }
+        
+        .document-card {
+            background: var(--blanco);
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 3px 15px var(--sombra);
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border-left: 4px solid var(--dorado);
+        }
+        
+        .document-card:hover {
+            transform: translateX(5px);
+            box-shadow: 0 5px 20px rgba(200, 169, 98, 0.3);
+        }
+        
+        .document-icon {
+            font-size: 2.5rem;
+            color: var(--dorado);
+        }
+        
+        .document-info h4 {
+            color: var(--negro);
+            margin-bottom: 5px;
+        }
+        
+        .document-info p {
+            color: #666;
+            font-size: 0.9rem;
+        }
+        
+        /* Cómo Ayudar */
+        #como-ayudar {
+            background: var(--gris-claro);
+        }
+        
+        .help-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+        
+        .help-card {
+            background: var(--blanco);
+            padding: 40px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 5px 20px var(--sombra);
+            transition: transform 0.3s ease;
+        }
+        
+        .help-card:hover {
+            transform: scale(1.05);
+        }
+        
+        .help-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--turquesa), var(--lavanda));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+        }
+        
+        .help-icon i {
+            font-size: 2rem;
+            color: var(--blanco);
+        }
+        
+        .help-card h3 {
+            color: var(--turquesa);
+            margin-bottom: 15px;
+        }
+        
+        /* Contacto */
+        .contact-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            margin-top: 50px;
+        }
+        
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 20px;
+        }
+        
+        .contact-item i {
+            font-size: 1.8rem;
+            color: var(--turquesa);
+            margin-top: 5px;
+        }
+        
+        .contact-item h3 {
+            color: var(--negro);
+            margin-bottom: 5px;
+        }
+        
+        .contact-form {
+            background: var(--gris-claro);
+            padding: 40px;
+            border-radius: 15px;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: var(--negro);
+            font-weight: 600;
+        }
+        
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            font-family: 'Open Sans', sans-serif;
+            transition: border-color 0.3s ease;
+        }
+        
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--turquesa);
+        }
+        
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+        
+        .btn-submit {
+            background: linear-gradient(135deg, var(--turquesa), var(--lavanda));
+            color: var(--blanco);
+            padding: 15px 40px;
+            border: none;
+            border-radius: 30px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            width: 100%;
+        }
+        
+        .btn-submit:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 20px rgba(77, 184, 172, 0.4);
+        }
+        
+        /* Footer */
+        footer {
+            background: var(--negro);
+            color: var(--blanco);
+            padding: 60px 20px 20px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            max-width: 1200px;
+            margin: 0 auto 40px;
+        }
+        
+        .footer-section h3 {
+            color: var(--turquesa);
+            margin-bottom: 20px;
+        }
+        
+        .footer-section ul {
+            list-style: none;
+        }
+        
+        .footer-section ul li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-section a {
+            color: var(--blanco);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-section a:hover {
+            color: var(--turquesa);
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .social-links a {
+            width: 40px;
+            height: 40px;
+            background: var(--turquesa);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+        
+        .social-links a:hover {
+            background: var(--lavanda);
+            transform: translateY(-3px);
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid #333;
+            color: #999;
+        }
+        
+        /* Botón WhatsApp Flotante */
+        .whatsapp-float {
+            position: fixed;
+            width: 60px;
+            height: 60px;
+            bottom: 30px;
+            right: 30px;
+            background: #25D366;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: var(--blanco);
+            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
+            z-index: 999;
+            transition: all 0.3s ease;
+            animation: pulse 2s infinite;
+        }
+        
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 20px rgba(37, 211, 102, 0.6);
+        }
+        
+        /* Animaciones */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.05);
+            }
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hamburger {
+                display: flex;
+            }
+            
+            .nav-links {
+                position: fixed;
+                top: 70px;
+                left: -100%;
+                flex-direction: column;
+                background: var(--blanco);
+                width: 100%;
+                padding: 30px;
+                box-shadow: 0 5px 10px var(--sombra);
+                transition: left 0.3s ease;
+            }
+            
+            .nav-links.active {
+                left: 0;
+            }
+            
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.2rem;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .contact-container {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        /* Modal Login */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 2000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.7);
+            animation: fadeIn 0.3s ease;
+        }
+        
+        .modal-content {
+            background: var(--blanco);
+            margin: 10% auto;
+            padding: 40px;
+            border-radius: 15px;
+            width: 90%;
+            max-width: 400px;
+            position: relative;
+            animation: slideDown 0.3s ease;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        @keyframes slideDown {
+            from { transform: translateY(-50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+        
+        .close-modal {
+            position: absolute;
+            right: 20px;
+            top: 20px;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: #999;
+            transition: color 0.3s ease;
+        }
+        
+        .close-modal:hover {
+            color: var(--negro);
+        }
+        
+        .modal h2 {
+            color: var(--turquesa);
+            margin-bottom: 30px;
+            text-align: center;
+        }
+    </style>
+
+
+    <!-- Header -->
+    <header style="box-shadow: rgba(0, 0, 0, 0.15) 0px 4px 20px;">
+        <nav>
+           <div class="logo">
+    <img src="https://i.imgur.com/ld93iFO.png" alt="Fundación Refugio Casa Vida Relax">
+</div>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#quienes-somos">Quiénes Somos</a></li>
+                <li><a href="#junta-directiva">Junta Directiva</a></li>
+                <li><a href="#servicios">Servicios</a></li>
+                <li><a href="#transparencia">Transparencia</a></li>
+                <li><a href="#como-ayudar">Cómo Ayudar</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+                <li><a href="#" class="btn-login" id="btnLogin">Acceso Administrativo</a></li>
+            </ul>
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="inicio">
+        <div class="hero-content">
+            <h1>Fundación Refugio Casa Vida Relax</h1>
+            <p class="hero-subtitle">Refugio para el cuerpo, alivio para el alma</p>
+            <p>Brindamos alojamiento digno, acompañamiento integral y servicios básicos a pacientes oncológicos y sus familias durante sus procesos de tratamiento en Bucaramanga</p>
+            <a href="#como-ayudar" class="btn-primary">Cómo Puedes Ayudar</a>
+        </div>
+    </section>
+
+    <!-- Quiénes Somos -->
+    <section id="quienes-somos">
+        <div class="container">
+            <h2 class="section-title">Quiénes Somos</h2>
+            <p class="section-subtitle">Una fundación comprometida con la dignidad y el bienestar de los pacientes oncológicos</p>
+            
+            <div class="about-grid">
+                <div class="about-card" style="opacity: 1; transform: translateY(0px); transition: 0.6s;">
+                    <i class="fas fa-bullseye"></i>
+                    <h3>Nuestra Misión</h3>
+                    <p>Brindar alojamiento digno, acompañamiento integral y servicios básicos a pacientes oncológicos y sus familias durante sus procesos de tratamiento, promoviendo la solidaridad, la dignidad humana y el acceso equitativo a condiciones que favorezcan su bienestar físico, emocional y espiritual.</p>
+                </div>
+                
+                <div class="about-card" style="opacity: 1; transform: translateY(0px); transition: 0.6s;">
+                    <i class="fas fa-eye"></i>
+                    <h3>Nuestra Visión</h3>
+                    <p>Ser reconocidos como la fundación líder en Santander y Colombia en la prestación de servicios de albergue y acompañamiento integral para pacientes oncológicos, creando un modelo sostenible, replicable y transformador que inspire esperanza y dignifique la vida durante la enfermedad.</p>
+                </div>
+                
+                <div class="about-card" style="opacity: 1; transform: translateY(0px); transition: 0.6s;">
+                    <i class="fas fa-heart"></i>
+                    <h3>Nuestros Valores</h3>
+                    <p>Actuamos guiados por la solidaridad, dignidad humana, empatía, inclusión, respeto por la vida, equidad, transparencia, sostenibilidad y servicio. Cada acción refleja nuestro compromiso con el bienestar integral de quienes atendemos.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Junta Directiva -->
+    <section id="junta-directiva">
+        <div class="container">
+            <h2 class="section-title">Junta Directiva</h2>
+            <p class="section-subtitle">Consejo Directivo Provisional de la Fundación</p>
+            
+            <div class="team-grid">
+                <div class="team-member" style="opacity: 1; transform: translateY(0px); transition: 0.6s;">
+                    <div class="team-photo">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <h3>Arq. Daniel Eduardo Moreno Lastra</h3>
+                    <p class="team-role">Presidente del Consejo Directivo y Representante Legal</p>
+                    <p class="team-id">C.C. 1.098.839.838 - Bucaramanga</p>
+                    <p style="margin-top: 15px; color: #666;">Fundador</p>
+                </div>
+                
+                <div class="team-member" style="opacity: 1; transform: translateY(0px); transition: 0.6s;">
+                    <div class="team-photo">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <h3>Judith Teresa de Jesús Febres Fajardo</h3>
+                    <p class="team-role">Secretaria del Consejo Directivo</p>
+                    <p class="team-id">C.C. 1.126.418.022 - Mérida (Venezuela)</p>
+                    <p style="margin-top: 15px; color: #666;">Fundadora</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Servicios -->
+    <section id="servicios">
+        <div class="container">
+            <h2 class="section-title">Nuestros Servicios</h2>
+            <p class="section-subtitle">Apoyo integral para pacientes oncológicos y sus familias</p>
+            
+            <div class="services-grid">
+                <div class="service-card" style="opacity: 1; transform: translateY(0px); transition: 0.6s;">
+                    <i class="fas fa-bed"></i>
+                    <h3>Alojamiento Digno</h3>
+                    <p>Espacios cómodos y seguros para pacientes y sus acompañantes durante el tratamiento</p>
+                </div>
+                
+                <div class="service-card" style="opacity: 1; transform: translateY(0px); transition: 0.6s;">
+                    <i class="fas fa-hands-holding-heart"></i>
+                    <h3>Acompañamiento Integral</h3>
+                    <p>Apoyo emocional, espiritual y psicosocial durante todo el proceso</p>
+                </div>
+                
+                <div class="service-card" style="opacity: 1; transform: translateY(0px); transition: 0.6s;">
+                    <i class="fas fa-utensils"></i>
+                    <h3>Alimentación</h3>
+                    <p>Servicio de alimentación comunitaria balanceada y nutritiva</p>
+                </div>
+                
+                <div class="service-card" style="opacity: 1; transform: translateY(0px); transition: 0.6s;">
+                    <i class="fas fa-soap"></i>
+                    <h3>Lavandería</h3>
+                    <p>Servicio de lavandería para comodidad de nuestros beneficiarios</p>
+                </div>
+                
+                <div class="service-card" style="opacity: 1; transform: translateY(0px); transition: 0.6s;">
+                    <i class="fas fa-wifi"></i>
+                    <h3>Internet</h3>
+                    <p>Conectividad para mantener comunicación con familiares y amigos</p>
+                </div>
+                
+                <div class="service-card" style="opacity: 1; transform: translateY(0px); transition: 0.6s;">
+                    <i class="fas fa-user-nurse"></i>
+                    <h3>Apoyo Médico Básico</h3>
+                    <p>Orientación y acompañamiento médico durante el tratamiento</p>
+                </div>
+                
+                <div class="service-card" style="opacity: 1; transform: translateY(0px); transition: 0.6s;">
+                    <i class="fas fa-users"></i>
+                    <h3>Programas de Voluntariado</h3>
+                    <p>Oportunidades para servir y acompañar a quienes más lo necesitan</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Transparencia -->
+    <section id="transparencia">
+        <div class="container">
+            <h2 class="section-title">Transparencia</h2>
+            <p class="section-subtitle">Documentos institucionales disponibles para consulta</p>
+            
+            <div class="documents-grid">
+                <div class="document-card" style="opacity: 1; transform: translateY(0px); transition: 0.6s;">
+                    <i class="fas fa-file-pdf document-icon"></i>
+                    <div class="document-info">
+                        <h4>Acta de Constitución</h4>
+                        <p>6 de octubre de 2025</p>
+                    </div>
+                </div>
+                
+                <div class="document-card" style="opacity: 1; transform: translateY(0px); transition: 0.6s;">
+                    <i class="fas fa-file-pdf document-icon"></i>
+                    <div class="document-info">
+                        <h4>Estatutos de la Fundación</h4>
+                        <p>Documento fundacional</p>
+                    </div>
+                </div>
+                
+                <div class="document-card" style="opacity: 1; transform: translateY(0px); transition: 0.6s;">
+                    <i class="fas fa-file-pdf document-icon"></i>
+                    <div class="document-info">
+                        <h4>Acta N.º 2 del Consejo Directivo</h4>
+                        <p>19 de octubre de 2025</p>
+                    </div>
+                </div>
+                
+                <div class="document-card" style="opacity: 1; transform: translateY(0px); transition: 0.6s;">
+                    <i class="fas fa-file-contract document-icon"></i>
+                    <div class="document-info">
+                        <h4>Reglamento Interno</h4>
+                        <p>Normativa de gestión interna</p>
+                    </div>
+                </div>
+                
+                <div class="document-card" style="opacity: 1; transform: translateY(0px); transition: 0.6s;">
+                    <i class="fas fa-shield-alt document-icon"></i>
+                    <div class="document-info">
+                        <h4>Política de Tratamiento de Datos</h4>
+                        <p>Conforme a la Ley 1581 de 2012</p>
+                    </div>
+                </div>
+                
+                <div class="document-card" style="opacity: 1; transform: translateY(0px); transition: 0.6s;">
+                    <i class="fas fa-balance-scale document-icon"></i>
+                    <div class="document-info">
+                        <h4>Código de Ética</h4>
+                        <p>Principios y valores institucionales</p>
+                    </div>
+                </div>
+                
+                <div class="document-card" style="opacity: 1; transform: translateY(0px); transition: 0.6s;">
+                    <i class="fas fa-landmark document-icon"></i>
+                    <div class="document-info">
+                        <h4>Código de Buen Gobierno</h4>
+                        <p>Buenas prácticas de gestión</p>
+                    </div>
+                </div>
+                
+                <div class="document-card" style="opacity: 1; transform: translateY(0px); transition: 0.6s;">
+                    <i class="fas fa-chart-line document-icon"></i>
+                    <div class="document-info">
+                        <h4>Informes de Gestión</h4>
+                        <p>Rendición de cuentas anual</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cómo Ayudar -->
+    <section id="como-ayudar">
+        <div class="container">
+            <h2 class="section-title">Cómo Puedes Ayudar</h2>
+            <p class="section-subtitle">Tu apoyo transforma vidas. Hay muchas formas de contribuir a nuestra misión</p>
+            
+            <div class="help-grid">
+                <div class="help-card" style="opacity: 1; transform: translateY(0px); transition: 0.6s;">
+                    <div class="help-icon">
+                        <i class="fas fa-hand-holding-heart"></i>
+                    </div>
+                    <h3>Donaciones</h3>
+                    <p>Tu aporte económico nos ayuda a brindar alojamiento y servicios a más pacientes. Cada contribución marca la diferencia.</p>
+                    <p style="margin-top: 15px; font-weight: 600; color: var(--turquesa);">Información bancaria próximamente disponible</p>
+                </div>
+                
+                <div class="help-card" style="opacity: 1; transform: translateY(0px); transition: 0.6s;">
+                    <div class="help-icon">
+                        <i class="fas fa-hands-helping"></i>
+                    </div>
+                    <h3>Voluntariado</h3>
+                    <p>Únete a nuestro equipo de voluntarios y comparte tu tiempo, habilidades y compañía con quienes más lo necesitan.</p>
+                    <p style="margin-top: 15px; font-weight: 600; color: var(--turquesa);">Contáctanos para más información</p>
+                </div>
+                
+                <div class="help-card" style="opacity: 1; transform: translateY(0px); transition: 0.6s;">
+                    <div class="help-icon">
+                        <i class="fas fa-building"></i>
+                    </div>
+                    <h3>Alianzas Corporativas</h3>
+                    <p>Si representas una empresa, podemos crear alianzas estratégicas que generen impacto social positivo.</p>
+                    <p style="margin-top: 15px; font-weight: 600; color: var(--turquesa);">Escribenos para explorar oportunidades</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contacto -->
+    <section id="contacto">
+        <div class="container">
+            <h2 class="section-title">Contacto</h2>
+            <p class="section-subtitle">Estamos aquí para atenderte. Comunícate con nosotros</p>
+            
+            <div class="contact-container">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <h3>Dirección</h3>
+                            <p>Carrera 25 #37-13, Barrio Bolívar<br>Bucaramanga, Santander<br>Colombia</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <div>
+                            <h3>Teléfono</h3>
+                            <p>+57 (314) 817 9078</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <h3>Correo Electrónico</h3>
+                            <p>cvidarelax@gmail.com</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <i class="fas fa-id-card"></i>
+                        <div>
+                            <h3>NIT</h3>
+                            <p>901.999.007-7</p>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <h3 style="margin-bottom: 15px;">Síguenos en Redes Sociales</h3>
+                        <div class="social-links">
+                            <a href="https://instagram.com/cvidarelax" target="_blank" title="Instagram">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                            <a href="#" target="_blank" title="Facebook">
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
+                            <a href="#" target="_blank" title="YouTube">
+                                <i class="fab fa-youtube"></i>
+                            </a>
+                            <a href="#" target="_blank" title="TikTok">
+                                <i class="fab fa-tiktok"></i>
+                            </a>
+                            <a href="#" target="_blank" title="LinkedIn">
+                                <i class="fab fa-linkedin-in"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="contact-form">
+                    <h3 style="margin-bottom: 25px; color: var(--turquesa);">Envíanos un Mensaje</h3>
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <label for="nombre">Nombre Completo *</label>
+                            <input type="text" id="nombre" name="nombre" required="">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">Correo Electrónico *</label>
+                            <input type="email" id="email" name="email" required="">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="telefono">Teléfono</label>
+                            <input type="tel" id="telefono" name="telefono">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="mensaje">Mensaje *</label>
+                            <textarea id="mensaje" name="mensaje" required=""></textarea>
+                        </div>
+                        
+                        <button type="submit" class="btn-submit">Enviar Mensaje</button>
+                    </form>
+                </div>
+            </div>
+            
+            <div style="margin-top: 50px; border-radius: 15px; overflow: hidden; box-shadow: 0 5px 20px var(--sombra);">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3959.3964!2d-73.1252!3d7.1195!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zN8KwMDcnMTAuMiJOIDczwrAwNyczMC43Ilc!5e0!3m2!1ses!2sco!4v1234567890" width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Fundación Refugio Casa Vida Relax</h3>
+                <p>VIDARELAX</p>
+                <p style="margin-top: 15px; font-style: italic; color: var(--dorado);">"Refugio para el cuerpo, alivio para el alma"</p>
+                <p style="margin-top: 15px;">NIT: 901.999.007-7</p>
+                <p>Entidad sin ánimo de lucro</p>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Enlaces Rápidos</h3>
+                <ul>
+                    <li><a href="#quienes-somos">Quiénes Somos</a></li>
+                    <li><a href="#junta-directiva">Junta Directiva</a></li>
+                    <li><a href="#servicios">Servicios</a></li>
+                    <li><a href="#transparencia">Transparencia</a></li>
+                    <li><a href="#como-ayudar">Cómo Ayudar</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Marco Legal</h3>
+                <ul>
+                    <li><a href="#">Ley 1384 de 2010</a></li>
+                    <li><a href="#">Ley 2360 de 2024</a></li>
+                    <li><a href="#">Decreto 2150 de 1995</a></li>
+                    <li><a href="#">Decreto 427 de 1996</a></li>
+                    <li><a href="#">Política de Privacidad</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Contacto</h3>
+                <ul>
+                    <li><i class="fas fa-map-marker-alt" style="color: var(--turquesa); margin-right: 10px;"></i>Carrera 25 #37-13, Bucaramanga</li>
+                    <li><i class="fas fa-phone" style="color: var(--turquesa); margin-right: 10px;"></i>+57 (314) 817 9078</li>
+                    <li><i class="fas fa-envelope" style="color: var(--turquesa); margin-right: 10px;"></i>cvidarelax@gmail.com</li>
+                </ul>
+                <div class="social-links">
+                    <a href="https://instagram.com/cvidarelax" target="_blank"><i class="fab fa-instagram"></i></a>
+                    <a href="#" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" target="_blank"><i class="fab fa-youtube"></i></a>
+                    <a href="#" target="_blank"><i class="fab fa-tiktok"></i></a>
+                    <a href="#" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>© 2025 Fundación Refugio Casa Vida Relax (VIDARELAX). Todos los derechos reservados.</p>
+            <p style="margin-top: 10px;">Constituida el 6 de octubre de 2025 en Bucaramanga, Santander, Colombia</p>
+        </div>
+    </footer>
+
+    <!-- Botón WhatsApp Flotante -->
+    <a href="https://wa.me/573148179078" target="_blank" class="whatsapp-float" title="Contáctanos por WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- Modal Login -->
+    <div id="loginModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" id="closeModal">×</span>
+            <h2>Acceso Administrativo</h2>
+            <form id="loginForm">
+                <div class="form-group">
+                    <label for="username">Usuario</label>
+                    <input type="text" id="username" name="username" required="">
+                </div>
+                
+                <div class="form-group">
+                    <label for="password">Contraseña</label>
+                    <input type="password" id="password" name="password" required="">
+                </div>
+                
+                <button type="submit" class="btn-submit">Iniciar Sesión</button>
+            </form>
+            <p style="text-align: center; margin-top: 20px; color: #666; font-size: 0.9rem;">
+                Acceso exclusivo para personal administrativo autorizado
+            </p>
+        </div>
+    </div>
+
+    <script>
+        // Menú hamburguesa
+        const hamburger = document.getElementById('hamburger');
+        const navLinks = document.getElementById('navLinks');
+        
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            hamburger.classList.toggle('active');
+        });
+        
+        // Cerrar menú al hacer clic en un enlace
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+            });
+        });
+        
+        // Scroll suave
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    const offsetTop = target.offsetTop - 80;
+                    window.scrollTo({
+                        top: offsetTop,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // Header con scroll
+        let lastScroll = 0;
+        const header = document.querySelector('header');
+        
+        window.addEventListener('scroll', () => {
+            const currentScroll = window.pageYOffset;
+            
+            if (currentScroll > 100) {
+                header.style.boxShadow = '0 4px 20px rgba(0,0,0,0.15)';
+            } else {
+                header.style.boxShadow = '0 2px 10px rgba(0,0,0,0.1)';
+            }
+            
+            lastScroll = currentScroll;
+        });
+        
+        // Modal Login
+        const btnLogin = document.getElementById('btnLogin');
+        const loginModal = document.getElementById('loginModal');
+        const closeModal = document.getElementById('closeModal');
+        
+        btnLogin.addEventListener('click', (e) => {
+            e.preventDefault();
+            loginModal.style.display = 'block';
+        });
+        
+        closeModal.addEventListener('click', () => {
+            loginModal.style.display = 'none';
+        });
+        
+        window.addEventListener('click', (e) => {
+            if (e.target === loginModal) {
+                loginModal.style.display = 'none';
+            }
+        });
+        
+        // Formulario de login
+        document.getElementById('loginForm').addEventListener('submit', (e) => {
+            e.preventDefault();
+            alert('Funcionalidad de inicio de sesión en desarrollo. Por favor, contacte al administrador del sistema.');
+            loginModal.style.display = 'none';
+        });
+        
+        // Formulario de contacto
+        document.getElementById('contactForm').addEventListener('submit', (e) => {
+            e.preventDefault();
+            const nombre = document.getElementById('nombre').value;
+            const email = document.getElementById('email').value;
+            const telefono = document.getElementById('telefono').value;
+            const mensaje = document.getElementById('mensaje').value;
+            
+            // Aquí se integraría con el backend
+            alert(`Gracias ${nombre}, tu mensaje ha sido enviado. Nos pondremos en contacto contigo pronto.`);
+            document.getElementById('contactForm').reset();
+        });
+        
+        // Animación de aparición al hacer scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+        
+        document.querySelectorAll('.about-card, .team-member, .service-card, .document-card, .help-card').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'all 0.6s ease';
+            observer.observe(el);
+        });
+        
+        // Click en documentos (simulado)
+        document.querySelectorAll('.document-card').forEach(card => {
+            card.addEventListener('click', () => {
+                alert('Descarga de documentos disponible próximamente. Funcionalidad en desarrollo.');
+            });
+        });
+    </script>
+
+
+            <script>// Write JavaScript here</script>
+        
+    
+</body>
