@@ -1,0 +1,194 @@
+# ═══════════════════════════════════════════════════════════════
+# CONFIGURACIÓN DE NETLIFY
+# Fundación Refugio Casa Vida Relax - VIDARELAX
+# ═══════════════════════════════════════════════════════════════
+
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+# CONFIGURACIÓN DE BUILD
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+[build]
+  # Directorio donde se encuentra el código fuente
+  publish = "."
+
+  # Comando de build (no necesario para sitios HTML estáticos)
+  command = ""
+
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+# CONFIGURACIÓN DE CONTEXTOS (Producción, Deploy Previews, Branch Deploys)
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+# Contexto de producción (rama main)
+[context.production]
+  command = ""
+
+# Contexto de deploy previews (Pull Requests)
+[context.deploy-preview]
+  command = ""
+
+# Contexto de branch deploys (otras ramas)
+[context.branch-deploy]
+  command = ""
+
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+# REDIRECTS Y REWRITES
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+# Página de éxito después de enviar el formulario
+[[redirects]]
+  from = "/success"
+  to = "/?success=true"
+  status = 302
+  force = false
+
+# Redirigir /admin/* para el CMS (con autenticación)
+# Esto permite que /admin funcione correctamente con Netlify Identity
+[[redirects]]
+  from = "/admin/*"
+  to = "/admin/index.html"
+  status = 200
+  force = false
+
+# Redirigir errores 404 a la página principal
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 404
+
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+# HEADERS DE SEGURIDAD Y OPTIMIZACIÓN
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+# Headers para todas las páginas
+[[headers]]
+  for = "/*"
+  [headers.values]
+    # Seguridad: Política de contenido
+    X-Frame-Options = "SAMEORIGIN"
+    X-XSS-Protection = "1; mode=block"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+
+    # Política de permisos
+    Permissions-Policy = "geolocation=(), microphone=(), camera=()"
+
+    # Cache para recursos estáticos (1 año)
+    Cache-Control = "public, max-age=31536000, immutable"
+
+# Headers específicos para HTML (sin cache agresivo)
+[[headers]]
+  for = "/*.html"
+  [headers.values]
+    Cache-Control = "public, max-age=0, must-revalidate"
+
+# Headers para el index.html principal
+[[headers]]
+  for = "/index.html"
+  [headers.values]
+    Cache-Control = "public, max-age=0, must-revalidate"
+
+# Headers para archivos CSS
+[[headers]]
+  for = "/*.css"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+    Content-Type = "text/css; charset=utf-8"
+
+# Headers para archivos JavaScript
+[[headers]]
+  for = "/*.js"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+    Content-Type = "application/javascript; charset=utf-8"
+
+# Headers para imágenes
+[[headers]]
+  for = "/*.png"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/*.jpg"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/*.jpeg"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/*.webp"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/*.svg"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+# Headers para PDFs
+[[headers]]
+  for = "/*.pdf"
+  [headers.values]
+    Cache-Control = "public, max-age=604800"  # 7 días
+    Content-Type = "application/pdf"
+
+# Headers para fonts
+[[headers]]
+  for = "/fonts/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+# PROCESSING Y OPTIMIZACIONES AUTOMÁTICAS
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+[build.processing]
+  # Omitir procesamiento (ya que CSS y JS están embebidos en HTML)
+  skip_processing = false
+
+[build.processing.css]
+  # Minificar CSS automáticamente
+  bundle = true
+  minify = true
+
+[build.processing.js]
+  # Minificar JavaScript automáticamente
+  bundle = true
+  minify = true
+
+[build.processing.html]
+  # Minificar HTML
+  pretty_urls = true
+
+[build.processing.images]
+  # Optimizar imágenes automáticamente
+  compress = true
+
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+# PLUGINS DE NETLIFY (Opcional - pueden instalarse desde el panel de Netlify)
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+# Ejemplo de plugins útiles (se pueden activar desde el panel de Netlify):
+# - netlify-plugin-submit-sitemap: Envía sitemap a motores de búsqueda
+# - netlify-plugin-minify-html: Minifica HTML adicional
+# - netlify-plugin-image-optim: Optimización avanzada de imágenes
+
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+# ENVIRONMENT VARIABLES (Variables de entorno - definir en el panel de Netlify)
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+# Nota: Las variables de entorno sensibles deben configurarse en el panel de Netlify
+# en: Site settings > Build & deploy > Environment > Environment variables
+
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+# FUNCIONES NETLIFY (Si se necesitan en el futuro)
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+[functions]
+  # Directorio de funciones serverless (si se necesitan)
+  directory = "netlify/functions"
+
+# ═══════════════════════════════════════════════════════════════
+# FIN DE CONFIGURACIÓN
+# ═══════════════════════════════════════════════════════════════

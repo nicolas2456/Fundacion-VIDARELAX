@@ -1,0 +1,235 @@
+# ═══════════════════════════════════════════════════════════════
+# CONFIGURACIÓN DE NETLIFY CMS
+# Fundación Refugio Casa Vida Relax - VIDARELAX
+# ═══════════════════════════════════════════════════════════════
+
+# Backend: Configuración de autenticación y almacenamiento
+backend:
+  name: git-gateway           # Utiliza Netlify Git Gateway para autenticación
+  branch: main                # Rama principal donde se guardarán los cambios
+  # Para desarrollo local, descomentar la siguiente línea:
+  # local_backend: true
+
+# Configuración de medios (imágenes, PDFs, etc.)
+media_folder: "assets/uploads"      # Carpeta donde se guardarán archivos subidos
+public_folder: "/assets/uploads"    # Ruta pública para acceder a los archivos
+
+# Idioma del panel administrativo
+locale: 'es'
+
+# ═══════════════════════════════════════════════════════════════
+# COLECCIONES EDITABLES
+# ═══════════════════════════════════════════════════════════════
+
+collections:
+  # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  # 1. INFORMACIÓN GENERAL DE LA FUNDACIÓN
+  # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  - name: "configuracion"
+    label: "⚙️ Configuración General"
+    files:
+      - name: "informacion_general"
+        label: "Información General"
+        file: "_data/general.json"
+        fields:
+          - {label: "Nombre de la Fundación", name: "nombre", widget: "string", default: "Fundación Refugio Casa Vida Relax"}
+          - {label: "Nombre Corto (Siglas)", name: "siglas", widget: "string", default: "VIDARELAX"}
+          - {label: "NIT", name: "nit", widget: "string", default: "901.999.007-7"}
+          - {label: "Eslogan", name: "eslogan", widget: "string", default: "Refugio para el cuerpo, alivio para el alma"}
+          - {label: "Logo (URL)", name: "logo_url", widget: "string", default: "https://i.imgur.com/ld93iFO.png"}
+          - {label: "Fecha de Constitución", name: "fecha_constitucion", widget: "date", format: "DD/MM/YYYY"}
+
+  # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  # 2. MISIÓN, VISIÓN Y VALORES
+  # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  - name: "identidad"
+    label: "🎯 Misión, Visión y Valores"
+    files:
+      - name: "mision_vision_valores"
+        label: "Misión, Visión y Valores"
+        file: "_data/identidad.json"
+        fields:
+          - label: "Nuestra Misión"
+            name: "mision"
+            widget: "object"
+            fields:
+              - {label: "Título", name: "titulo", widget: "string", default: "Nuestra Misión"}
+              - {label: "Descripción", name: "descripcion", widget: "text", default: "Brindar alojamiento digno, acompañamiento integral y servicios básicos a pacientes oncológicos y sus familias durante sus procesos de tratamiento, promoviendo la solidaridad, la dignidad humana y el acceso equitativo a condiciones que favorezcan su bienestar físico, emocional y espiritual."}
+              - {label: "Icono (Font Awesome)", name: "icono", widget: "string", default: "fas fa-bullseye", hint: "Ej: fas fa-heart, fas fa-bullseye"}
+
+          - label: "Nuestra Visión"
+            name: "vision"
+            widget: "object"
+            fields:
+              - {label: "Título", name: "titulo", widget: "string", default: "Nuestra Visión"}
+              - {label: "Descripción", name: "descripcion", widget: "text", default: "Ser reconocidos como la fundación líder en Santander y Colombia en la prestación de servicios de albergue y acompañamiento integral para pacientes oncológicos, creando un modelo sostenible, replicable y transformador que inspire esperanza y dignifique la vida durante la enfermedad."}
+              - {label: "Icono (Font Awesome)", name: "icono", widget: "string", default: "fas fa-eye"}
+
+          - label: "Nuestros Valores"
+            name: "valores"
+            widget: "object"
+            fields:
+              - {label: "Título", name: "titulo", widget: "string", default: "Nuestros Valores"}
+              - {label: "Descripción", name: "descripcion", widget: "text", default: "Actuamos guiados por la solidaridad, dignidad humana, empatía, inclusión, respeto por la vida, equidad, transparencia, sostenibilidad y servicio. Cada acción refleja nuestro compromiso con el bienestar integral de quienes atendemos."}
+              - {label: "Icono (Font Awesome)", name: "icono", widget: "string", default: "fas fa-heart"}
+
+  # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  # 3. JUNTA DIRECTIVA
+  # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  - name: "junta_directiva"
+    label: "👥 Junta Directiva"
+    folder: "_data/junta"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - {label: "Nombre Completo", name: "nombre", widget: "string"}
+      - {label: "Cargo", name: "cargo", widget: "string", hint: "Ej: Presidente del Consejo Directivo"}
+      - {label: "Cédula", name: "cedula", widget: "string", hint: "Ej: 1.098.839.838"}
+      - {label: "Ciudad de Expedición", name: "ciudad", widget: "string", default: "Bucaramanga"}
+      - {label: "Rol Adicional", name: "rol_adicional", widget: "string", required: false, hint: "Ej: Fundador, Fundadora"}
+      - {label: "Foto (URL o subir)", name: "foto", widget: "image", required: false, hint: "Opcional. Si no se sube, se mostrará un ícono de usuario"}
+      - {label: "Orden de Aparición", name: "orden", widget: "number", default: 1, value_type: "int", min: 1, max: 20}
+
+  # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  # 4. SERVICIOS OFRECIDOS
+  # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  - name: "servicios"
+    label: "🏥 Servicios Ofrecidos"
+    folder: "_data/servicios"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - {label: "Título del Servicio", name: "titulo", widget: "string", hint: "Ej: Alojamiento Digno"}
+      - {label: "Descripción", name: "descripcion", widget: "text"}
+      - {label: "Icono (Font Awesome)", name: "icono", widget: "string", default: "fas fa-heart", hint: "Ej: fas fa-bed, fas fa-utensils"}
+      - {label: "Orden de Aparición", name: "orden", widget: "number", default: 1, value_type: "int", min: 1, max: 20}
+
+  # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  # 5. DOCUMENTOS PDF (Transparencia)
+  # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  - name: "documentos"
+    label: "📄 Documentos Institucionales"
+    folder: "_data/documentos"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - {label: "Nombre del Documento", name: "nombre", widget: "string", hint: "Ej: Acta de Constitución"}
+      - {label: "Descripción/Fecha", name: "descripcion", widget: "string", hint: "Ej: 6 de octubre de 2025"}
+      - {label: "Archivo PDF", name: "archivo", widget: "file", allow_multiple: false, hint: "Sube el documento PDF"}
+      - {label: "Icono (Font Awesome)", name: "icono", widget: "string", default: "fas fa-file-pdf", hint: "Ej: fas fa-file-pdf, fas fa-file-contract"}
+      - {label: "Orden de Aparición", name: "orden", widget: "number", default: 1, value_type: "int", min: 1, max: 50}
+
+  # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  # 6. CÓMO AYUDAR (Donaciones, Voluntariado, Alianzas)
+  # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  - name: "como_ayudar"
+    label: "💝 Cómo Ayudar"
+    files:
+      - name: "informacion_bancaria"
+        label: "Información Bancaria"
+        file: "_data/donaciones.json"
+        fields:
+          - label: "Donaciones"
+            name: "donaciones"
+            widget: "object"
+            fields:
+              - {label: "Título", name: "titulo", widget: "string", default: "Donaciones"}
+              - {label: "Descripción", name: "descripcion", widget: "text", default: "Tu aporte económico nos ayuda a brindar alojamiento y servicios a más pacientes. Cada contribución marca la diferencia."}
+              - {label: "Icono", name: "icono", widget: "string", default: "fas fa-hand-holding-heart"}
+              - label: "Cuentas Bancarias"
+                name: "cuentas"
+                widget: "list"
+                required: false
+                fields:
+                  - {label: "Banco", name: "banco", widget: "string", hint: "Ej: Bancolombia"}
+                  - {label: "Tipo de Cuenta", name: "tipo", widget: "select", options: ["Ahorros", "Corriente"], default: "Ahorros"}
+                  - {label: "Número de Cuenta", name: "numero", widget: "string"}
+                  - {label: "A Nombre de", name: "titular", widget: "string", default: "Fundación Refugio Casa Vida Relax"}
+
+          - label: "Voluntariado"
+            name: "voluntariado"
+            widget: "object"
+            fields:
+              - {label: "Título", name: "titulo", widget: "string", default: "Voluntariado"}
+              - {label: "Descripción", name: "descripcion", widget: "text", default: "Únete a nuestro equipo de voluntarios y comparte tu tiempo, habilidades y compañía con quienes más lo necesitan."}
+              - {label: "Icono", name: "icono", widget: "string", default: "fas fa-hands-helping"}
+              - {label: "Texto de Contacto", name: "contacto", widget: "string", default: "Contáctanos para más información"}
+
+          - label: "Alianzas Corporativas"
+            name: "alianzas"
+            widget: "object"
+            fields:
+              - {label: "Título", name: "titulo", widget: "string", default: "Alianzas Corporativas"}
+              - {label: "Descripción", name: "descripcion", widget: "text", default: "Si representas una empresa, podemos crear alianzas estratégicas que generen impacto social positivo."}
+              - {label: "Icono", name: "icono", widget: "string", default: "fas fa-building"}
+              - {label: "Texto de Contacto", name: "contacto", widget: "string", default: "Escribenos para explorar oportunidades"}
+
+  # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  # 7. DATOS DE CONTACTO
+  # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  - name: "contacto"
+    label: "📞 Información de Contacto"
+    files:
+      - name: "datos_contacto"
+        label: "Datos de Contacto"
+        file: "_data/contacto.json"
+        fields:
+          - label: "Dirección"
+            name: "direccion"
+            widget: "object"
+            fields:
+              - {label: "Dirección Completa", name: "completa", widget: "string", default: "Carrera 25 #37-13, Barrio Bolívar"}
+              - {label: "Ciudad", name: "ciudad", widget: "string", default: "Bucaramanga"}
+              - {label: "Departamento", name: "departamento", widget: "string", default: "Santander"}
+              - {label: "País", name: "pais", widget: "string", default: "Colombia"}
+
+          - {label: "Teléfono Principal", name: "telefono", widget: "string", default: "+57 (314) 817 9078"}
+          - {label: "WhatsApp (solo número)", name: "whatsapp", widget: "string", default: "573148179078", hint: "Formato: 573148179078 (sin espacios ni símbolos)"}
+          - {label: "Correo Electrónico", name: "email", widget: "string", default: "cvidarelax@gmail.com"}
+
+          - label: "Redes Sociales"
+            name: "redes_sociales"
+            widget: "object"
+            fields:
+              - {label: "Instagram (URL completa)", name: "instagram", widget: "string", default: "https://instagram.com/cvidarelax", required: false}
+              - {label: "Facebook (URL completa)", name: "facebook", widget: "string", required: false}
+              - {label: "YouTube (URL completa)", name: "youtube", widget: "string", required: false}
+              - {label: "TikTok (URL completa)", name: "tiktok", widget: "string", required: false}
+              - {label: "LinkedIn (URL completa)", name: "linkedin", widget: "string", required: false}
+
+          - label: "Mapa de Google"
+            name: "mapa"
+            widget: "object"
+            fields:
+              - {label: "URL del iframe de Google Maps", name: "iframe_url", widget: "text", hint: "Pega aquí la URL del iframe de Google Maps embebido"}
+
+  # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  # 8. COLORES Y ESTILO VISUAL
+  # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  - name: "estilos"
+    label: "🎨 Colores y Estilo Visual"
+    files:
+      - name: "colores"
+        label: "Colores Institucionales"
+        file: "_data/estilos.json"
+        fields:
+          - {label: "Color Turquesa (Principal)", name: "turquesa", widget: "string", default: "#4DB8AC", hint: "Formato hexadecimal: #RRGGBB"}
+          - {label: "Color Lavanda (Secundario)", name: "lavanda", widget: "string", default: "#9B6FB5"}
+          - {label: "Color Dorado (Acento)", name: "dorado", widget: "string", default: "#C8A962"}
+          - {label: "Color Negro (Texto)", name: "negro", widget: "string", default: "#1a1a1a"}
+          - {label: "Color Gris Claro (Fondos)", name: "gris_claro", widget: "string", default: "#f5f5f5"}
+          - {label: "Color Blanco", name: "blanco", widget: "string", default: "#ffffff"}
+
+# ═══════════════════════════════════════════════════════════════
+# CONFIGURACIÓN ADICIONAL
+# ═══════════════════════════════════════════════════════════════
+
+# Permitir edición en el editor visual
+editor:
+  preview: false  # Desactivar vista previa (puede ser true si se configura)
+
+# Formato de guardado
+slug:
+  encoding: "ascii"
+  clean_accents: true
+  sanitize_replacement: "-"

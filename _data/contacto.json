@@ -1,0 +1,21 @@
+{
+  "direccion": {
+    "completa": "Carrera 25 #37-13, Barrio Bolívar",
+    "ciudad": "Bucaramanga",
+    "departamento": "Santander",
+    "pais": "Colombia"
+  },
+  "telefono": "+57 (314) 817 9078",
+  "whatsapp": "573148179078",
+  "email": "cvidarelax@gmail.com",
+  "redes_sociales": {
+    "instagram": "https://instagram.com/cvidarelax",
+    "facebook": "",
+    "youtube": "",
+    "tiktok": "",
+    "linkedin": ""
+  },
+  "mapa": {
+    "iframe_url": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3959.3964!2d-73.1252!3d7.1195!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zN8KwMDcnMTAuMiJOIDczwrAwNiczMC43Ilc!5e0!3m2!1ses!2sco!4v1234567890"
+  }
+}

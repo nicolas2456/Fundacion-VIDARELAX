@@ -1,0 +1,49 @@
+# ═══════════════════════════════════════════════════════════════
+# REDIRECTS Y REWRITES DE NETLIFY
+# Fundación Refugio Casa Vida Relax - VIDARELAX
+# ═══════════════════════════════════════════════════════════════
+
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+# SINTAXIS:
+# /ruta-origen    /ruta-destino    [código-status]
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+# Página de éxito después de enviar el formulario
+/success    /?success=true    302
+
+# Acceso al panel administrativo (Netlify CMS)
+/admin/*    /admin/index.html    200
+
+# Página de error 404 personalizada
+/*    /index.html    404
+
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+# REDIRECTS ADICIONALES (Ejemplos - descomentar si se necesitan)
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+# Redirigir desde www a dominio principal (descomentar cuando tengas dominio)
+# https://www.tudominio.com.co/*    https://tudominio.com.co/:splat    301!
+
+# Redirigir HTTP a HTTPS (Netlify lo hace automáticamente, pero se puede forzar)
+# http://tudominio.com.co/*    https://tudominio.com.co/:splat    301!
+
+# Redirects para redes sociales (ejemplo)
+# /instagram    https://instagram.com/cvidarelax    302
+# /facebook     https://facebook.com/cvidarelax     302
+# /whatsapp     https://wa.me/573148179078          302
+
+# ═══════════════════════════════════════════════════════════════
+# NOTAS IMPORTANTES:
+# ═══════════════════════════════════════════════════════════════
+# - Los códigos de status más comunes:
+#   * 200: Rewrite (mantiene URL original)
+#   * 301: Redirect permanente
+#   * 302: Redirect temporal
+#   * 404: Página no encontrada
+#
+# - El símbolo ! al final fuerza el redirect (no verifica si existe el archivo)
+#
+# - :splat captura todo lo que sigue después de /* y lo pega en el destino
+#
+# - Para más información: https://docs.netlify.com/routing/redirects/
+# ═══════════════════════════════════════════════════════════════
