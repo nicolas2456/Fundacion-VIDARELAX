@@ -1,0 +1,20 @@
+{
+  "donaciones": {
+    "titulo": "Donaciones",
+    "descripcion": "Tu aporte económico nos ayuda a brindar alojamiento y servicios a más pacientes. Cada contribución marca la diferencia.",
+    "icono": "fas fa-hand-holding-heart",
+    "cuentas": []
+  },
+  "voluntariado": {
+    "titulo": "Voluntariado",
+    "descripcion": "Únete a nuestro equipo de voluntarios y comparte tu tiempo, habilidades y compañía con quienes más lo necesitan.",
+    "icono": "fas fa-hands-helping",
+    "contacto": "Contáctanos para más información"
+  },
+  "alianzas": {
+    "titulo": "Alianzas Corporativas",
+    "descripcion": "Si representas una empresa, podemos crear alianzas estratégicas que generen impacto social positivo.",
+    "icono": "fas fa-building",
+    "contacto": "Escribenos para explorar oportunidades"
+  }
+}
