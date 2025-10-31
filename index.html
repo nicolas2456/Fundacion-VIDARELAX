@@ -64,7 +64,7 @@
     top: 0;
     z-index: 1000;
     transition: all 0.3s ease;
-    min-height: 90px; /* Altura mínima para el logo grande */
+    min-height: 110px; /* Altura ajustada para el logo más grande */
 }
         
         nav {
@@ -83,7 +83,7 @@
 }
 
 .logo img {
-    height: 90px; /* Logo grande */
+    height: 110px; /* Logo más grande según solicitud del cliente */
     width: auto;
     object-fit: contain;
     padding: 12px;
@@ -216,8 +216,13 @@
             font-size: 1.5rem;
             margin-bottom: 15px;
             font-style: italic;
-            color: var(--dorado);
-            font-weight: 600;
+            color: var(--blanco); /* Cambiado a blanco para mejor legibilidad */
+            font-weight: 700;
+            text-shadow: 3px 3px 6px rgba(0,0,0,0.4); /* Sombra más pronunciada para destacar */
+            background: linear-gradient(135deg, rgba(200, 169, 98, 0.3), rgba(200, 169, 98, 0.1)); /* Fondo dorado sutil */
+            padding: 10px 30px;
+            border-radius: 30px;
+            display: inline-block;
         }
         
         .hero p {
@@ -824,7 +829,7 @@
                     </div>
                     <h3>Arq. Daniel Eduardo Moreno Lastra</h3>
                     <p class="team-role">Presidente del Consejo Directivo y Representante Legal</p>
-                    <p class="team-id">C.C. 1.098.839.838 - Bucaramanga</p>
+                    <p class="team-id">C.C. 1.098.839.838</p>
                     <p style="margin-top: 15px; color: #666;">Fundador</p>
                 </div>
                 
@@ -834,7 +839,7 @@
                     </div>
                     <h3>Judith Teresa de Jesús Febres Fajardo</h3>
                     <p class="team-role">Secretaria del Consejo Directivo</p>
-                    <p class="team-id">C.C. 1.126.418.022 - Mérida (Venezuela)</p>
+                    <p class="team-id">C.C. 1.126.418.022</p>
                     <p style="margin-top: 15px; color: #666;">Fundadora</p>
                 </div>
             </div>
@@ -862,8 +867,14 @@
                 
                 <div class="service-card" style="opacity: 1; transform: translateY(0px); transition: 0.6s;">
                     <i class="fas fa-utensils"></i>
-                    <h3>Alimentación</h3>
+                    <h3>Alimentación Comunitaria</h3>
                     <p>Servicio de alimentación comunitaria balanceada y nutritiva</p>
+                </div>
+
+                <div class="service-card" style="opacity: 1; transform: translateY(0px); transition: 0.6s;">
+                    <i class="fas fa-fire-burner"></i>
+                    <h3>Zona de Autococina</h3>
+                    <p>Contamos con un área de cocina habilitada para el uso de nuestros beneficiarios. Este espacio permite preparar alimentos de manera independiente, saludable y económica, garantizando el bienestar y la inclusión alimentaria de todos</p>
                 </div>
                 
                 <div class="service-card" style="opacity: 1; transform: translateY(0px); transition: 0.6s;">
@@ -879,11 +890,17 @@
                 </div>
                 
                 <div class="service-card" style="opacity: 1; transform: translateY(0px); transition: 0.6s;">
-                    <i class="fas fa-user-nurse"></i>
-                    <h3>Apoyo Médico Básico</h3>
-                    <p>Orientación y acompañamiento médico durante el tratamiento</p>
+                    <i class="fas fa-user-doctor"></i>
+                    <h3>Apoyo Médico para Emergencias</h3>
+                    <p>Atención médica disponible para situaciones de emergencia y cuidado urgente de nuestros huéspedes</p>
                 </div>
-                
+
+                <div class="service-card" style="opacity: 1; transform: translateY(0px); transition: 0.6s;">
+                    <i class="fas fa-user-nurse"></i>
+                    <h3>Apoyo de Enfermería Básica</h3>
+                    <p>Atención básica de enfermería, monitoreo de signos vitales y asistencia para huéspedes que requieran ayuda en actividades cotidianas</p>
+                </div>
+
                 <div class="service-card" style="opacity: 1; transform: translateY(0px); transition: 0.6s;">
                     <i class="fas fa-users"></i>
                     <h3>Programas de Voluntariado</h3>
@@ -1032,7 +1049,7 @@
                         <i class="fas fa-envelope"></i>
                         <div>
                             <h3>Correo Electrónico</h3>
-                            <p>cvidarelax@gmail.com</p>
+                            <p>contactanos@vidarelax.com.co</p>
                         </div>
                     </div>
                     
@@ -1047,7 +1064,7 @@
                     <div>
                         <h3 style="margin-bottom: 15px;">Síguenos en Redes Sociales</h3>
                         <div class="social-links">
-                            <a href="https://instagram.com/cvidarelax" target="_blank" title="Instagram">
+                            <a href="https://www.instagram.com/cvidarelax?igsh=OThsMHdxZWNybXVm" target="_blank" title="Instagram">
                                 <i class="fab fa-instagram"></i>
                             </a>
                             <a href="#" target="_blank" title="Facebook">
@@ -1161,10 +1178,10 @@
                 <ul>
                     <li><i class="fas fa-map-marker-alt" style="color: var(--turquesa); margin-right: 10px;"></i>Carrera 25 #37-13, Bucaramanga</li>
                     <li><i class="fas fa-phone" style="color: var(--turquesa); margin-right: 10px;"></i>+57 (314) 817 9078</li>
-                    <li><i class="fas fa-envelope" style="color: var(--turquesa); margin-right: 10px;"></i>cvidarelax@gmail.com</li>
+                    <li><i class="fas fa-envelope" style="color: var(--turquesa); margin-right: 10px;"></i>contactanos@vidarelax.com.co</li>
                 </ul>
                 <div class="social-links">
-                    <a href="https://instagram.com/cvidarelax" target="_blank"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.instagram.com/cvidarelax?igsh=OThsMHdxZWNybXVm" target="_blank"><i class="fab fa-instagram"></i></a>
                     <a href="#" target="_blank"><i class="fab fa-facebook-f"></i></a>
                     <a href="#" target="_blank"><i class="fab fa-youtube"></i></a>
                     <a href="#" target="_blank"><i class="fab fa-tiktok"></i></a>
