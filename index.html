@@ -925,61 +925,53 @@
             <p class="section-subtitle">Documentos institucionales disponibles para consulta</p>
             
             <div class="documents-grid">
-                <div class="document-card" style="opacity: 1; transform: translateY(0px); transition: 0.6s;">
+                <a href="documentos/acta-constitutiva.pdf" download class="document-card" style="opacity: 1; transform: translateY(0px); transition: 0.6s; text-decoration: none; color: inherit; cursor: pointer;">
                     <i class="fas fa-file-pdf document-icon"></i>
                     <div class="document-info">
-                        <h4>Acta de Constitución</h4>
+                        <h4>Acta Constitutivas</h4>
                         <p>6 de octubre de 2025</p>
                     </div>
-                </div>
-                
-                <div class="document-card" style="opacity: 1; transform: translateY(0px); transition: 0.6s;">
+                </a>
+
+                <a href="documentos/codigo-buen-gobierno.pdf" download class="document-card" style="opacity: 1; transform: translateY(0px); transition: 0.6s; text-decoration: none; color: inherit; cursor: pointer;">
+                    <i class="fas fa-landmark document-icon"></i>
+                    <div class="document-info">
+                        <h4>Código Buen Gobierno</h4>
+                        <p>Buenas prácticas de gestión</p>
+                    </div>
+                </a>
+
+                <a href="documentos/estatutos.pdf" download class="document-card" style="opacity: 1; transform: translateY(0px); transition: 0.6s; text-decoration: none; color: inherit; cursor: pointer;">
                     <i class="fas fa-file-pdf document-icon"></i>
                     <div class="document-info">
-                        <h4>Estatutos de la Fundación</h4>
+                        <h4>Estatutos</h4>
                         <p>Documento fundacional</p>
                     </div>
-                </div>
+                </a>
 
-                <div class="document-card" style="opacity: 1; transform: translateY(0px); transition: 0.6s;">
-                    <i class="fas fa-file-contract document-icon"></i>
-                    <div class="document-info">
-                        <h4>Reglamento Interno</h4>
-                        <p>Normativa de gestión interna</p>
-                    </div>
-                </div>
-                
-                <div class="document-card" style="opacity: 1; transform: translateY(0px); transition: 0.6s;">
+                <a href="documentos/politica-tratamiento-datos.pdf" download class="document-card" style="opacity: 1; transform: translateY(0px); transition: 0.6s; text-decoration: none; color: inherit; cursor: pointer;">
                     <i class="fas fa-shield-alt document-icon"></i>
                     <div class="document-info">
-                        <h4>Política de Tratamiento de Datos</h4>
+                        <h4>Política de Tratamiento de Datos Personales</h4>
                         <p>Conforme a la Ley 1581 de 2012</p>
                     </div>
-                </div>
-                
-                <div class="document-card" style="opacity: 1; transform: translateY(0px); transition: 0.6s;">
+                </a>
+
+                <a href="documentos/codigo-etica.pdf" download class="document-card" style="opacity: 1; transform: translateY(0px); transition: 0.6s; text-decoration: none; color: inherit; cursor: pointer;">
                     <i class="fas fa-balance-scale document-icon"></i>
                     <div class="document-info">
                         <h4>Código de Ética</h4>
                         <p>Principios y valores institucionales</p>
                     </div>
-                </div>
-                
-                <div class="document-card" style="opacity: 1; transform: translateY(0px); transition: 0.6s;">
-                    <i class="fas fa-landmark document-icon"></i>
+                </a>
+
+                <a href="documentos/reglamento-interno-vidarelax.pdf" download class="document-card" style="opacity: 1; transform: translateY(0px); transition: 0.6s; text-decoration: none; color: inherit; cursor: pointer;">
+                    <i class="fas fa-file-contract document-icon"></i>
                     <div class="document-info">
-                        <h4>Código de Buen Gobierno</h4>
-                        <p>Buenas prácticas de gestión</p>
+                        <h4>Reglamento Interno VidaRelax</h4>
+                        <p>Normativa de gestión interna</p>
                     </div>
-                </div>
-                
-                <div class="document-card" style="opacity: 1; transform: translateY(0px); transition: 0.6s;">
-                    <i class="fas fa-chart-line document-icon"></i>
-                    <div class="document-info">
-                        <h4>Informes de Gestión</h4>
-                        <p>Rendición de cuentas anual</p>
-                    </div>
-                </div>
+                </a>
             </div>
         </div>
     </section>
@@ -1297,12 +1289,7 @@
             observer.observe(el);
         });
         
-        // Click en documentos (simulado)
-        document.querySelectorAll('.document-card').forEach(card => {
-            card.addEventListener('click', () => {
-                alert('Descarga de documentos disponible próximamente. Funcionalidad en desarrollo.');
-            });
-        });
+        // Los documentos ahora son enlaces directos de descarga
     </script>
 
 
