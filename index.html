@@ -352,6 +352,14 @@
             justify-content: center;
             font-size: 3rem;
             color: var(--blanco);
+            overflow: hidden; /* Para que la imagen se recorte circularmente */
+        }
+
+        .team-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* La imagen cubrirá todo el círculo */
+            border-radius: 50%;
         }
         
         .team-member h3 {
@@ -825,7 +833,7 @@
             <div class="team-grid">
                 <div class="team-member" style="opacity: 1; transform: translateY(0px); transition: 0.6s;">
                     <div class="team-photo">
-                        <i class="fas fa-user"></i>
+                        <img src="https://i.imgur.com/wAzB438.jpeg" alt="Arq. Daniel Eduardo Moreno Lastra" loading="lazy">
                     </div>
                     <h3>Arq. Daniel Eduardo Moreno Lastra</h3>
                     <p class="team-role">Presidente del Consejo Directivo y Representante Legal</p>
@@ -835,7 +843,7 @@
                 
                 <div class="team-member" style="opacity: 1; transform: translateY(0px); transition: 0.6s;">
                     <div class="team-photo">
-                        <i class="fas fa-user"></i>
+                        <img src="https://i.imgur.com/MWzRNkq.jpeg" alt="Judith Teresa de Jesús Febres Fajardo" loading="lazy">
                     </div>
                     <h3>Judith Teresa de Jesús Febres Fajardo</h3>
                     <p class="team-role">Secretaria del Consejo Directivo</p>
@@ -917,69 +925,53 @@
             <p class="section-subtitle">Documentos institucionales disponibles para consulta</p>
             
             <div class="documents-grid">
-                <div class="document-card" style="opacity: 1; transform: translateY(0px); transition: 0.6s;">
+                <a href="documentos/acta-constitutiva.pdf" download class="document-card" style="opacity: 1; transform: translateY(0px); transition: 0.6s; text-decoration: none; color: inherit; cursor: pointer;">
                     <i class="fas fa-file-pdf document-icon"></i>
                     <div class="document-info">
-                        <h4>Acta de Constitución</h4>
+                        <h4>Acta Constitutivas</h4>
                         <p>6 de octubre de 2025</p>
                     </div>
-                </div>
-                
-                <div class="document-card" style="opacity: 1; transform: translateY(0px); transition: 0.6s;">
+                </a>
+
+                <a href="documentos/codigo-buen-gobierno.pdf" download class="document-card" style="opacity: 1; transform: translateY(0px); transition: 0.6s; text-decoration: none; color: inherit; cursor: pointer;">
+                    <i class="fas fa-landmark document-icon"></i>
+                    <div class="document-info">
+                        <h4>Código Buen Gobierno</h4>
+                        <p>Buenas prácticas de gestión</p>
+                    </div>
+                </a>
+
+                <a href="documentos/estatutos.pdf" download class="document-card" style="opacity: 1; transform: translateY(0px); transition: 0.6s; text-decoration: none; color: inherit; cursor: pointer;">
                     <i class="fas fa-file-pdf document-icon"></i>
                     <div class="document-info">
-                        <h4>Estatutos de la Fundación</h4>
+                        <h4>Estatutos</h4>
                         <p>Documento fundacional</p>
                     </div>
-                </div>
-                
-                <div class="document-card" style="opacity: 1; transform: translateY(0px); transition: 0.6s;">
-                    <i class="fas fa-file-pdf document-icon"></i>
-                    <div class="document-info">
-                        <h4>Acta N.º 2 del Consejo Directivo</h4>
-                        <p>19 de octubre de 2025</p>
-                    </div>
-                </div>
-                
-                <div class="document-card" style="opacity: 1; transform: translateY(0px); transition: 0.6s;">
-                    <i class="fas fa-file-contract document-icon"></i>
-                    <div class="document-info">
-                        <h4>Reglamento Interno</h4>
-                        <p>Normativa de gestión interna</p>
-                    </div>
-                </div>
-                
-                <div class="document-card" style="opacity: 1; transform: translateY(0px); transition: 0.6s;">
+                </a>
+
+                <a href="documentos/politica-tratamiento-datos.pdf" download class="document-card" style="opacity: 1; transform: translateY(0px); transition: 0.6s; text-decoration: none; color: inherit; cursor: pointer;">
                     <i class="fas fa-shield-alt document-icon"></i>
                     <div class="document-info">
-                        <h4>Política de Tratamiento de Datos</h4>
+                        <h4>Política de Tratamiento de Datos Personales</h4>
                         <p>Conforme a la Ley 1581 de 2012</p>
                     </div>
-                </div>
-                
-                <div class="document-card" style="opacity: 1; transform: translateY(0px); transition: 0.6s;">
+                </a>
+
+                <a href="documentos/codigo-etica.pdf" download class="document-card" style="opacity: 1; transform: translateY(0px); transition: 0.6s; text-decoration: none; color: inherit; cursor: pointer;">
                     <i class="fas fa-balance-scale document-icon"></i>
                     <div class="document-info">
                         <h4>Código de Ética</h4>
                         <p>Principios y valores institucionales</p>
                     </div>
-                </div>
-                
-                <div class="document-card" style="opacity: 1; transform: translateY(0px); transition: 0.6s;">
-                    <i class="fas fa-landmark document-icon"></i>
+                </a>
+
+                <a href="documentos/reglamento-interno-vidarelax.pdf" download class="document-card" style="opacity: 1; transform: translateY(0px); transition: 0.6s; text-decoration: none; color: inherit; cursor: pointer;">
+                    <i class="fas fa-file-contract document-icon"></i>
                     <div class="document-info">
-                        <h4>Código de Buen Gobierno</h4>
-                        <p>Buenas prácticas de gestión</p>
+                        <h4>Reglamento Interno VidaRelax</h4>
+                        <p>Normativa de gestión interna</p>
                     </div>
-                </div>
-                
-                <div class="document-card" style="opacity: 1; transform: translateY(0px); transition: 0.6s;">
-                    <i class="fas fa-chart-line document-icon"></i>
-                    <div class="document-info">
-                        <h4>Informes de Gestión</h4>
-                        <p>Rendición de cuentas anual</p>
-                    </div>
-                </div>
+                </a>
             </div>
         </div>
     </section>
@@ -1079,6 +1071,15 @@
                             <a href="#" target="_blank" title="LinkedIn">
                                 <i class="fab fa-linkedin-in"></i>
                             </a>
+                        </div>
+
+                        <!-- QR Instagram -->
+                        <div style="margin-top: 25px; text-align: center;">
+                            <p style="margin-bottom: 10px; font-weight: 600; color: var(--turquesa);">Escanea para seguirnos en Instagram</p>
+                            <a href="https://www.instagram.com/cvidarelax?igsh=MWUzeXFhZnB6aXE5ag==" target="_blank" title="Escanea o haz clic para seguirnos en Instagram">
+                                <img src="https://i.imgur.com/3Tkk0qL.jpeg" alt="QR Instagram @cvidarelax" style="width: 150px; height: 150px; border-radius: 10px; box-shadow: 0 3px 10px rgba(0,0,0,0.15); transition: transform 0.3s ease; cursor: pointer;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+                            </a>
+                            <p style="margin-top: 8px; font-size: 0.9rem; color: #666;">@cvidarelax</p>
                         </div>
                     </div>
                 </div>
@@ -1288,12 +1289,7 @@
             observer.observe(el);
         });
         
-        // Click en documentos (simulado)
-        document.querySelectorAll('.document-card').forEach(card => {
-            card.addEventListener('click', () => {
-                alert('Descarga de documentos disponible próximamente. Funcionalidad en desarrollo.');
-            });
-        });
+        // Los documentos ahora son enlaces directos de descarga
     </script>
 
 
