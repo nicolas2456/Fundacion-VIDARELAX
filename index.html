@@ -1083,22 +1083,23 @@
                 <div class="contact-form">
                     <h3 style="margin-bottom: 25px; color: var(--turquesa);">Envíanos un Mensaje</h3>
 
-                    <!-- ===== NETLIFY FORMS: Formulario de contacto funcional ===== -->
+                    <!-- ===== WEB3FORMS: Formulario de contacto funcional (alternativa gratuita a Netlify Forms) ===== -->
                     <form
                         id="contactForm"
-                        name="contacto"
+                        action="https://api.web3forms.com/submit"
                         method="POST"
-                        data-netlify="true"
-                        netlify-honeypot="bot-field"
-                        action="/success"
                     >
-                        <!-- Campo oculto requerido por Netlify Forms -->
-                        <input type="hidden" name="form-name" value="contacto">
+                        <!-- Access Key de Web3Forms (gratuito, 250 envíos/mes) -->
+                        <input type="hidden" name="access_key" value="YOUR_WEB3FORMS_ACCESS_KEY">
+
+                        <!-- Email de destino -->
+                        <input type="hidden" name="email" value="contactanos@vidarelax.com.co">
+
+                        <!-- Configuración de redirección después del envío -->
+                        <input type="hidden" name="redirect" value="https://fundacion-vidarelax.vercel.app/?success=true">
 
                         <!-- Honeypot anti-spam (campo oculto para bots) -->
-                        <p style="display: none;">
-                            <label>No llenes esto si eres humano: <input name="bot-field"></label>
-                        </p>
+                        <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
 
                         <div class="form-group">
                             <label for="nombre">Nombre Completo *</label>
@@ -1106,8 +1107,8 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="email">Correo Electrónico *</label>
-                            <input type="email" id="email" name="email" required="">
+                            <label for="email_usuario">Correo Electrónico *</label>
+                            <input type="email" id="email_usuario" name="email_usuario" required="">
                         </div>
 
                         <div class="form-group">

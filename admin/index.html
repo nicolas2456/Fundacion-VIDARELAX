@@ -5,9 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Panel Administrativo - Fundación VIDARELAX</title>
 
-    <!-- ===== NETLIFY IDENTITY: Widget de autenticación ===== -->
-    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
-
     <!-- Estilos personalizados para el login -->
     <style>
         body {
@@ -90,26 +87,13 @@
         <p style="margin-top: 20px; font-size: 0.95rem;">Cargando sistema de gestión...</p>
 
         <div class="footer-info">
-            <p><i class="fas fa-shield-alt"></i> Acceso seguro mediante Netlify Identity</p>
+            <p><i class="fas fa-shield-alt"></i> Acceso seguro mediante GitHub OAuth</p>
             <p>Solo personal autorizado puede acceder a este panel</p>
         </div>
     </div>
 
-    <!-- ===== NETLIFY CMS: Sistema de gestión de contenido ===== -->
-    <script src="https://unpkg.com/netlify-cms@^2.0.0/dist/netlify-cms.js"></script>
-
-    <!-- ===== SCRIPT: Integración con Netlify Identity ===== -->
-    <script>
-        // Redirigir automáticamente después del login
-        if (window.netlifyIdentity) {
-            window.netlifyIdentity.on("init", user => {
-                if (!user) {
-                    window.netlifyIdentity.on("login", () => {
-                        document.location.href = "/admin/";
-                    });
-                }
-            });
-        }
-    </script>
+    <!-- ===== DECAP CMS: Sistema de gestión de contenido (antes Netlify CMS) ===== -->
+    <!-- Funciona exactamente igual que Netlify CMS pero de forma independiente -->
+    <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
 </body>
 </html>

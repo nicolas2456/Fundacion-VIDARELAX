@@ -1,11 +1,12 @@
 # ═══════════════════════════════════════════════════════════════
-# CONFIGURACIÓN DE NETLIFY CMS
+# CONFIGURACIÓN DE DECAP CMS (antes Netlify CMS)
 # Fundación Refugio Casa Vida Relax - VIDARELAX
 # ═══════════════════════════════════════════════════════════════
 
 # Backend: Configuración de autenticación y almacenamiento
 backend:
-  name: git-gateway           # Utiliza Netlify Git Gateway para autenticación
+  name: github                # Utiliza GitHub OAuth para autenticación
+  repo: nicolas2456/Fundacion-VIDARELAX  # Tu repositorio de GitHub
   branch: main                # Rama principal donde se guardarán los cambios
   # Para desarrollo local, descomentar la siguiente línea:
   # local_backend: true
