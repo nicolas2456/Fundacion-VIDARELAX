@@ -92,8 +92,25 @@
         </div>
     </div>
 
+    <!-- ===== NETLIFY IDENTITY WIDGET: Login simple con email/password ===== -->
+    <!-- Permite a los administradores acceder sin necesidad de cuenta GitHub -->
+    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+
     <!-- ===== DECAP CMS: Sistema de gestión de contenido (antes Netlify CMS) ===== -->
     <!-- Funciona exactamente igual que Netlify CMS pero de forma independiente -->
     <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
+
+    <!-- Script para redirigir después del login -->
+    <script>
+        if (window.netlifyIdentity) {
+            window.netlifyIdentity.on("init", user => {
+                if (!user) {
+                    window.netlifyIdentity.on("login", () => {
+                        document.location.href = "/admin/";
+                    });
+                }
+            });
+        }
+    </script>
 </body>
 </html>
