@@ -92,6 +92,12 @@ He configurado un panel administrativo MUY SIMPLE donde ustedes podrán:
 
 Les enviaré invitaciones a esos emails para que creen sus contraseñas y accedan.
 
+**Nota técnica (opcional de leer):**
+- El panel usa un servicio de autenticación gratuito llamado Netlify Identity
+- Es una cuenta NUEVA (diferente a la anterior que tuvo problemas)
+- Solo se usa para login (la página sigue en Vercel)
+- 100% gratis, sin límites para este uso
+
 **Incluí una guía completa de configuración** en el archivo `CONFIGURACION_ADMIN.md` del proyecto.
 
 ---

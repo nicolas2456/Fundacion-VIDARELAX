@@ -13,33 +13,56 @@ El panel administrativo ahora utiliza **Netlify Identity** para autenticación s
 
 ---
 
+## ⚠️ IMPORTANTE: Cuenta NUEVA de Netlify
+
+**¿Por qué cuenta nueva?**
+- Ya tuviste problemas de límite de crédito en la cuenta anterior de Netlify
+- Esta cuenta nueva **SOLO se usará para Identity (autenticación)**
+- **NO vamos a desplegar nada** en Netlify (el hosting sigue en Vercel)
+- Es un servicio separado = no hay problema de límites
+
+**Opciones de email para la cuenta nueva:**
+- Email personal del cliente/fundador
+- Tu email secundario
+- Crear un Gmail nuevo: `vidarelax.admin@gmail.com`
+- Cualquier email diferente al que usaste en la cuenta anterior
+
+---
+
 ## 📋 Pasos de Configuración (Una sola vez)
 
-### **PASO 1: Crear Sitio en Netlify** (5 minutos)
+### **PASO 1: Crear NUEVA Cuenta en Netlify** (5 minutos)
 
-Aunque la página está en Vercel, necesitamos Netlify SOLO para el servicio de autenticación (es gratis).
+⚠️ **MUY IMPORTANTE:** Usa un email **DIFERENTE** al de la cuenta anterior que tuvo problemas.
 
 1. **Ve a Netlify**:
    - Abre: https://app.netlify.com/signup
-   - Regístrate con tu cuenta de **GitHub** (la misma del repositorio)
-   - Es **TOTALMENTE GRATIS**
+   - **Regístrate con un EMAIL NUEVO** (no el que usaste antes)
+   - Puedes usar:
+     - Email del cliente
+     - Tu email secundario
+     - Crear Gmail nuevo ahora mismo
+   - Es **TOTALMENTE GRATIS** y sin límites para Identity
 
-2. **Importa el repositorio**:
+2. **Importa el repositorio** (solo para conectar con GitHub):
    - Click en **"Add new site"** → **"Import an existing project"**
    - Click en **"GitHub"**
    - Autoriza a Netlify acceso a tus repositorios
    - Busca y selecciona: **nicolas2456/Fundacion-VIDARELAX**
 
-3. **Configura el sitio**:
+3. **Configura el sitio** (NO te preocupes por el despliegue):
    - **Site name**: `vidarelax-identity` (o el que prefieras)
    - **Branch to deploy**: `main`
    - **Build command**: (déjalo vacío)
    - **Publish directory**: `.` (punto)
    - Click en **"Deploy site"**
 
-4. **Anota la URL**:
+   ℹ️ **NOTA:** El sitio se desplegará pero NO lo vamos a usar. Solo necesitamos que exista para activar Identity. La página real sigue en Vercel.
+
+4. **Anota la URL del sitio Netlify**:
    - Te dará una URL como: `https://vidarelax-identity.netlify.app`
-   - **Guarda esta URL**, la necesitarás en el siguiente paso
+   - **Guarda esta URL**, la necesitarás en el PASO 5
+   - ⚠️ **NO compartas esta URL con nadie** - es solo para configuración interna
 
 ---
 
@@ -196,13 +219,64 @@ Para que el panel `/admin` en tu sitio de Vercel funcione con Netlify Identity:
 
 ---
 
+## ❓ Preguntas Frecuentes (FAQ)
+
+### **¿No habíamos tenido problemas con Netlify por límite de crédito?**
+
+**Sí**, pero esta solución NO tiene ese problema porque:
+
+1. ✅ **Cuenta NUEVA** - Usamos un email diferente = cuenta nueva sin límites consumidos
+2. ✅ **Solo Identity** - NO usamos hosting de Netlify (el que consume créditos)
+3. ✅ **Identity es gratis** - Hasta 1000 usuarios, sin cargos ni límites de bandwidth
+4. ✅ **Hosting en Vercel** - La página sigue en Vercel (ilimitado y gratis)
+
+**En resumen:**
+- Cuenta anterior: Usaba hosting + forms + CMS = consumió créditos ❌
+- Cuenta nueva: Solo usa Identity (autenticación) = 0 consumo ✅
+
+### **¿Por qué no usar solo GitHub para login?**
+
+GitHub requiere que los fundadores:
+- Creen cuenta GitHub
+- Entiendan conceptos técnicos
+- Sepan qué es un repositorio
+
+Con Netlify Identity:
+- Solo necesitan email y contraseña (como cualquier sitio web)
+- Interfaz familiar y simple
+- No necesitan saber de programación
+
+### **¿Cuánto cuesta Netlify Identity?**
+
+**GRATIS** hasta 1000 usuarios activos al mes.
+- Fundación tendrá 2-3 usuarios máximo
+- Muy por debajo del límite gratuito
+- No hay cargos ocultos
+
+### **¿Qué pasa si la cuenta nueva también se queda sin créditos?**
+
+**No pasará** porque:
+- NO vamos a usar hosting en esta cuenta
+- Solo usamos Identity (servicio separado, sin límites)
+- El tráfico de la página va a Vercel (ilimitado)
+
+### **¿Los visitantes del sitio verán algo de Netlify?**
+
+**NO**. Solo los administradores verán el login de Netlify Identity en `/admin`.
+Los visitantes normales solo ven la página de Vercel en www.vidarelax.com.co
+
+---
+
 ## 📞 Soporte
 
 Si tienes algún problema durante la configuración:
 1. Revisa cada paso cuidadosamente
 2. Verifica que Git Gateway esté activado
 3. Asegúrate de que las variables de entorno estén configuradas
+4. Confirma que estás usando una cuenta NUEVA de Netlify
 
 ---
 
 **¡Tu panel administrativo ahora es súper simple y accesible para todos los fundadores!** 🎉
+
+**Resumen:** Netlify = Solo login | Vercel = Toda la página ✅
