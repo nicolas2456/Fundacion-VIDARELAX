@@ -4,9 +4,9 @@
 # ═══════════════════════════════════════════════════════════════
 
 # Backend: Configuración de autenticación y almacenamiento
+# Usando git-gateway + Netlify Identity para login simple con email/password
 backend:
-  name: github                # Utiliza GitHub OAuth para autenticación
-  repo: nicolas2456/Fundacion-VIDARELAX  # Tu repositorio de GitHub
+  name: git-gateway           # Permite login con email/password (sin necesidad de GitHub para usuarios)
   branch: main                # Rama principal donde se guardarán los cambios
   # Para desarrollo local, descomentar la siguiente línea:
   # local_backend: true
