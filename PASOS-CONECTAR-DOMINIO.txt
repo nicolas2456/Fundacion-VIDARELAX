@@ -1,0 +1,75 @@
+PASOS RÁPIDOS PARA CONECTAR vidarelax.com.co A VERCEL
+=====================================================================
+
+PASO 1 - EN VERCEL:
+-------------------
+1. Ir a https://vercel.com → Iniciar sesión
+2. Abrir proyecto: Fundacion-VIDARELAX
+3. Ir a: Settings → Domains
+4. Click "Add Domain"
+5. Escribir: vidarelax.com.co → Add
+6. Repetir con: www.vidarelax.com.co → Add
+7. COPIAR los registros DNS que Vercel te muestre (algo como):
+
+   Tipo A:     @ → 76.76.21.21
+   Tipo CNAME: www → cname.vercel-dns.com
+
+
+PASO 2 - EN M.ICOM.CO:
+----------------------
+1. Ir a https://m.icom.co → Iniciar sesión
+2. Ir a: Mis Dominios → vidarelax.com.co
+3. Buscar sección: DNS / Zona DNS / DNS Settings
+4. ELIMINAR registros A y CNAME existentes (si hay)
+5. AGREGAR estos registros:
+
+   Registro A:
+   -----------
+   Tipo: A
+   Host: @ (o dejar vacío)
+   Valor: 76.76.21.21 ← (usar el que Vercel te dio)
+   TTL: 3600
+
+   Registro CNAME:
+   ---------------
+   Tipo: CNAME
+   Host: www
+   Valor: cname.vercel-dns.com ← (usar el que Vercel te dio)
+   TTL: 3600
+
+6. GUARDAR cambios
+
+
+PASO 3 - ESPERAR Y VERIFICAR:
+------------------------------
+1. Esperar 1-4 horas (puede ser hasta 48h)
+2. Verificar en: https://dnschecker.org
+   - Buscar: vidarelax.com.co
+   - Debe mostrar la IP de Vercel
+3. Volver a Vercel → Domains
+   - Debe aparecer ✅ "Valid" junto al dominio
+4. Probar en navegador: https://vidarelax.com.co
+   - Debe cargar el sitio
+   - Debe tener candado 🔒 (SSL activo)
+
+
+CHECKLIST:
+----------
+[ ] Agregar dominios en Vercel (vidarelax.com.co y www)
+[ ] Copiar registros DNS de Vercel
+[ ] Configurar registros en m.icom.co
+[ ] Esperar propagación (1-4 horas)
+[ ] Verificar en dnschecker.org
+[ ] Verificar estado "Valid" en Vercel
+[ ] Probar el sitio en navegador
+[ ] Verificar SSL activo (candado)
+
+
+IMPORTANTE:
+-----------
+- Usa los valores EXACTOS que Vercel te muestre
+- La IP 76.76.21.21 es referencial, puede cambiar
+- Si después de 48h no funciona, revisar soporte
+
+
+Ver GUIA-CONFIGURACION-DOMINIO.md para detalles completos.
