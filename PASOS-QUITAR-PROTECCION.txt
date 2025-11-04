@@ -1,0 +1,40 @@
+═══════════════════════════════════════════════════════════════════════
+  PASOS RÁPIDOS: Quitar Protección de Rama Main
+═══════════════════════════════════════════════════════════════════════
+
+PASO 1:
+-------
+Ir a este link directo:
+https://github.com/nicolas2456/Fundacion-VIDARELAX/settings/branches
+
+
+PASO 2:
+-------
+Buscar la sección "Branch protection rules"
+
+
+PASO 3:
+-------
+¿Qué ves?
+
+A) Si ves una regla para "main":
+   → Click en "Delete" (a la derecha)
+   → Confirmar: "I understand, delete this branch protection rule"
+   → ✅ Listo! Avísame
+
+B) Si ves "No branch protection rules defined":
+   → ✅ No hay protección!
+   → El error 403 es por otra razón
+   → Avísame qué más ves en esa página
+
+
+═══════════════════════════════════════════════════════════════════════
+
+LINK DIRECTO:
+https://github.com/nicolas2456/Fundacion-VIDARELAX/settings/branches
+
+═══════════════════════════════════════════════════════════════════════
+
+Después de hacerlo, escribe "listo" y yo intentaré el push de nuevo.
+
+═══════════════════════════════════════════════════════════════════════

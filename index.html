@@ -1811,7 +1811,7 @@
 
             <!-- CTA -->
             <div class="cta-container">
-                <a href="#contacto" class="btn-primary">Formar alianza corporativa</a>
+                <a href="#contacto-alianza" class="btn-primary">Formar alianza corporativa</a>
                 <p style="margin-top: 20px; color: #666;">
                     <i class="fas fa-envelope" style="color: var(--turquesa); margin-right: 8px;"></i>
                     O escríbenos a: <strong>donaciones@vidarelax.com.co</strong>
@@ -2022,7 +2022,7 @@
 
             <!-- CTA -->
             <div class="cta-container">
-                <a href="#contacto" class="btn-primary">Inscribirme para prácticas</a>
+                <a href="#contacto-voluntariado" class="btn-primary">Inscribirme para prácticas</a>
                 <p style="margin-top: 20px; color: #666;">
                     <i class="fas fa-envelope" style="color: var(--turquesa); margin-right: 8px;"></i>
                     O escríbenos a: <strong>voluntarios@vidarelax.com.co</strong>
@@ -2188,7 +2188,7 @@
 
             <!-- CTA -->
             <div class="cta-container">
-                <a href="#contacto" class="btn-primary">Donar ahora</a>
+                <a href="#contacto-donacion" class="btn-primary">Donar ahora</a>
                 <a href="documentos/manual-donaciones.pdf" download class="btn-secondary">📄 Descargar Manual de Donaciones</a>
                 <p style="margin-top: 20px; color: #666;">
                     <i class="fas fa-envelope" style="color: var(--turquesa); margin-right: 8px;"></i>
@@ -3641,6 +3641,58 @@
                 });
             });
         }
+
+        // ===== ACTIVAR TAB DEL FORMULARIO SEGÚN HASH EN URL =====
+
+        // Función para activar tab específico y hacer scroll
+        function activateFormTab(formType) {
+            // Primero hacer scroll a la sección de contacto
+            const contactSection = document.getElementById('contacto');
+            if (contactSection) {
+                contactSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+
+            // Esperar un poco para que termine el scroll, luego activar el tab
+            setTimeout(() => {
+                switchForm(formType);
+            }, 300);
+        }
+
+        // Detectar hash en la URL al cargar la página
+        window.addEventListener('load', function() {
+            const hash = window.location.hash;
+
+            if (hash === '#contacto-voluntariado') {
+                activateFormTab('voluntariado');
+            } else if (hash === '#contacto-donacion') {
+                activateFormTab('donacion');
+            } else if (hash === '#contacto-alianza') {
+                activateFormTab('alianza');
+            }
+        });
+
+        // También detectar cuando se hace clic en enlaces con estos hashes
+        document.addEventListener('click', function(e) {
+            const link = e.target.closest('a[href^="#contacto-"]');
+            if (link) {
+                const hash = link.getAttribute('href');
+
+                // Prevenir comportamiento por defecto temporalmente
+                e.preventDefault();
+
+                // Actualizar URL
+                window.location.hash = hash;
+
+                // Activar el tab correspondiente
+                if (hash === '#contacto-voluntariado') {
+                    activateFormTab('voluntariado');
+                } else if (hash === '#contacto-donacion') {
+                    activateFormTab('donacion');
+                } else if (hash === '#contacto-alianza') {
+                    activateFormTab('alianza');
+                }
+            }
+        });
     </script>
 
 

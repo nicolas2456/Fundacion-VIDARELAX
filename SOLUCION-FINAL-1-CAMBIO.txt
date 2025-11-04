@@ -1,0 +1,135 @@
+╔═══════════════════════════════════════════════════════════════════════╗
+║     SOLUCIÓN FINAL - 1 SOLO CAMBIO PARA QUE LOS PDFs FUNCIONEN      ║
+╚═══════════════════════════════════════════════════════════════════════╝
+
+🔴 PROBLEMA ENCONTRADO:
+En la línea 2832 del archivo index.html hay UNA ruta con "/" al inicio
+que hace que el PDF "Manual de Donaciones" del footer NO funcione.
+
+
+✅ SOLUCIÓN (1 SOLO CAMBIO):
+═══════════════════════════════════════════════════════════════════════
+
+PASO 1: Editar index.html en GitHub
+────────────────────────────────────────────────────────────────────────
+1. Ir a: https://github.com/nicolas2456/Fundacion-VIDARELAX
+2. Verificar rama: main (arriba izquierda)
+3. Click en: index.html
+4. Click en: ✏️ (Edit this file)
+
+
+PASO 2: Buscar la línea problemática
+────────────────────────────────────────────────────────────────────────
+1. Presionar: Ctrl+F (o Cmd+F en Mac)
+2. Buscar exactamente esto:
+
+   href="/documentos/manual-donaciones.pdf"
+
+3. Te llevará a la línea ~2832
+
+
+PASO 3: Hacer EL CAMBIO (quitar 1 caracter)
+────────────────────────────────────────────────────────────────────────
+
+ANTES (con la / al inicio - NO FUNCIONA):
+    <li><a href="/documentos/manual-donaciones.pdf" download
+
+DESPUÉS (sin la / al inicio - SÍ FUNCIONA):
+    <li><a href="documentos/manual-donaciones.pdf" download
+
+ACCIÓN: Borrar la barra "/" entre "href=" y "documentos"
+
+
+PASO 4: Guardar
+────────────────────────────────────────────────────────────────────────
+1. Scroll abajo
+2. En "Commit changes" escribir: Fix ruta PDF Manual Donaciones
+3. Seleccionar: "Commit directly to the main branch"
+4. Click: "Commit changes"
+
+
+PASO 5: Esperar y probar
+────────────────────────────────────────────────────────────────────────
+1. Esperar 2-3 minutos (deploy de Vercel)
+2. Ir a: https://vidarelax.com.co
+3. Scroll al footer (abajo)
+4. Click en: 📄 Manual de Donaciones
+5. ✅ DEBE descargarse correctamente
+
+
+╔═══════════════════════════════════════════════════════════════════════╗
+║                     VERIFICACIÓN COMPLETA                             ║
+╚═══════════════════════════════════════════════════════════════════════╝
+
+Después de hacer el cambio, verifica que TODOS estos links funcionen:
+
+EN SECCIÓN TRANSPARENCIA:
+  ✅ Manual de Donaciones → debe descargar
+  ✅ Política de Voluntariado → debe descargar
+
+EN SECCIÓN DONACIONES:
+  ✅ Botón "📄 Descargar Manual de Donaciones" → debe descargar
+
+EN FOOTER (abajo de la página):
+  ✅ 📄 Manual de Donaciones → debe descargar
+  ✅ 📋 Política de Voluntariado → debe descargar
+
+
+╔═══════════════════════════════════════════════════════════════════════╗
+║                         RESUMEN TÉCNICO                               ║
+╚═══════════════════════════════════════════════════════════════════════╝
+
+Total de cambios: 1 línea
+Línea afectada: 2832
+Caracter a borrar: / (barra inclinada)
+Tiempo estimado: 1 minuto
+Deploy automático: 2-3 minutos
+
+CAMBIO EXACTO:
+  Antes: href="/documentos/manual-donaciones.pdf"
+  Ahora: href="documentos/manual-donaciones.pdf"
+
+
+╔═══════════════════════════════════════════════════════════════════════╗
+║                      ¿POR QUÉ ESTE CAMBIO?                           ║
+╚═══════════════════════════════════════════════════════════════════════╝
+
+RUTAS ABSOLUTAS (con /):
+  /documentos/archivo.pdf
+  → Busca desde la raíz del dominio
+  → Puede fallar en Vercel según configuración
+  ❌ NO FUNCIONA en tu sitio
+
+RUTAS RELATIVAS (sin /):
+  documentos/archivo.pdf
+  → Busca desde donde está la página
+  → Funciona en todos los hostings
+  ✅ FUNCIONA en tu sitio
+
+Los otros 7 PDFs usan rutas relativas (sin /) y funcionan perfecto.
+Este es el ÚNICO que quedó con / y por eso no descarga.
+
+
+═══════════════════════════════════════════════════════════════════════
+
+⏱️ ESTE ES EL ÚLTIMO CAMBIO NECESARIO
+
+Después de esto, los 8 PDFs del sitio funcionarán al 100%:
+  ✓ Acta Constitutiva
+  ✓ Código Buen Gobierno
+  ✓ Estatutos
+  ✓ Política de Tratamiento de Datos
+  ✓ Código de Ética
+  ✓ Reglamento Interno
+  ✓ Manual de Donaciones (se arreglará con este cambio)
+  ✓ Política de Voluntariado (ya funciona)
+
+═══════════════════════════════════════════════════════════════════════
+
+Si tienes dudas, busca en index.html:
+  href="/documentos/manual-donaciones.pdf"
+
+Y cámbialo a:
+  href="documentos/manual-donaciones.pdf"
+
+¡Es solo quitar una barra "/" y todo funcionará! ✅

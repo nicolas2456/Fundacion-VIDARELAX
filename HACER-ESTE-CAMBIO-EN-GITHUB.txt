@@ -1,0 +1,33 @@
+═══════════════════════════════════════════════════════════════════════
+  INSTRUCCIONES URGENTES - ARREGLAR DESCARGA DE PDF
+═══════════════════════════════════════════════════════════════════════
+
+HAZ ESTE CAMBIO EN GITHUB AHORA:
+
+1. Ve a: https://github.com/nicolas2456/Fundacion-VIDARELAX/blob/main/index.html
+
+2. Click en el lápiz ✏️ (esquina derecha) "Edit this file"
+
+3. Presiona Ctrl+F y busca:
+   href="/documentos/manual-donaciones.pdf"
+
+4. Encontrarás 1 resultado en la línea 2832
+
+5. BORRA LA BARRA / entre las comillas y "documentos"
+
+   ANTES: href="/documentos/manual-donaciones.pdf"
+   AHORA: href="documentos/manual-donaciones.pdf"
+
+6. Scroll abajo, escribe en el mensaje: "Fix ruta PDF"
+
+7. Click "Commit changes"
+
+8. Espera 2-3 minutos y prueba en vidarelax.com.co
+
+═══════════════════════════════════════════════════════════════════════
+
+ES SOLO 1 CARACTER A BORRAR: la barra /
+
+Después de esto el PDF se descargará correctamente.
+
+═══════════════════════════════════════════════════════════════════════
