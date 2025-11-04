@@ -9,8 +9,8 @@
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Fundación Refugio Casa Vida Relax - Albergue oncológico en Bucaramanga que brinda alojamiento digno y acompañamiento integral a pacientes oncológicos y sus familias">
-    <meta name="keywords" content="fundación oncológica, albergue oncológico Bucaramanga, apoyo pacientes cáncer, VIDARELAX">
+    <meta name="description" content="Fundación VIDARELAX brinda refugio y acompañamiento integral a pacientes oncológicos en Bucaramanga. Únete como voluntario, haz una donación o forma una alianza corporativa. ¡Juntos transformamos vidas!">
+    <meta name="keywords" content="fundación oncológica, albergue oncológico Bucaramanga, apoyo pacientes cáncer, VIDARELAX, voluntariado, donaciones, alianzas corporativas">
     <title>Fundación Refugio Casa Vida Relax - VIDARELAX</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
@@ -753,6 +753,391 @@
         }
         
         /* ===== OPTIMIZACIONES NETLIFY ===== */
+
+        /* ===== NUEVAS SECCIONES: Voluntariado, Alianzas, Donaciones ===== */
+
+        /* Tabs */
+        .tabs-container {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .tab-btn {
+            padding: 12px 25px;
+            background: var(--blanco);
+            border: 2px solid var(--turquesa);
+            border-radius: 25px;
+            color: var(--turquesa);
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .tab-btn:hover {
+            background: var(--turquesa);
+            color: var(--blanco);
+            transform: translateY(-2px);
+        }
+
+        .tab-btn.active {
+            background: var(--turquesa);
+            color: var(--blanco);
+        }
+
+        .tab-content {
+            display: none;
+            animation: fadeInUp 0.5s ease;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        /* Process Steps */
+        .process-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .process-step {
+            text-align: center;
+            position: relative;
+        }
+
+        .step-number {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--turquesa), var(--lavanda));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 15px;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--blanco);
+        }
+
+        .process-step h4 {
+            color: var(--turquesa);
+            margin-bottom: 10px;
+        }
+
+        /* Icon Lists */
+        .icon-list {
+            list-style: none;
+            margin-top: 20px;
+        }
+
+        .icon-list li {
+            padding: 12px 0;
+            padding-left: 35px;
+            position: relative;
+            color: #666;
+        }
+
+        .icon-list li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--turquesa);
+            font-weight: 700;
+            font-size: 1.2rem;
+        }
+
+        /* Modality Cards */
+        .modality-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-top: 40px;
+        }
+
+        .modality-card {
+            background: var(--blanco);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px var(--sombra);
+            border-top: 4px solid var(--turquesa);
+            transition: all 0.3s ease;
+        }
+
+        .modality-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 30px rgba(77, 184, 172, 0.3);
+        }
+
+        .modality-card .icon {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+
+        .modality-card h4 {
+            color: var(--turquesa);
+            margin-bottom: 15px;
+            font-size: 1.2rem;
+        }
+
+        /* Info Boxes */
+        .info-box {
+            background: var(--gris-claro);
+            padding: 25px;
+            border-radius: 10px;
+            margin: 30px 0;
+            border-left: 4px solid var(--dorado);
+        }
+
+        .info-box h4 {
+            color: var(--turquesa);
+            margin-bottom: 15px;
+        }
+
+        /* Rights List */
+        .rights-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 25px;
+        }
+
+        .right-item {
+            background: var(--blanco);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 3px 10px var(--sombra);
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+        }
+
+        .right-item i {
+            color: var(--turquesa);
+            font-size: 1.5rem;
+            margin-top: 5px;
+        }
+
+        /* CTA Buttons */
+        .cta-container {
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        .btn-secondary {
+            background: var(--lavanda);
+            color: var(--blanco);
+            padding: 15px 40px;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: 600;
+            display: inline-block;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(155, 111, 181, 0.3);
+            margin: 10px;
+        }
+
+        .btn-secondary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(155, 111, 181, 0.4);
+        }
+
+        /* Benefits Grid */
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-top: 40px;
+        }
+
+        .benefit-item {
+            background: var(--blanco);
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 3px 15px var(--sombra);
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+            transition: transform 0.3s ease;
+        }
+
+        .benefit-item:hover {
+            transform: translateX(5px);
+        }
+
+        .benefit-item i {
+            color: var(--dorado);
+            font-size: 1.8rem;
+            margin-top: 5px;
+        }
+
+        /* Donation Types */
+        .donation-types {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .donation-card {
+            background: var(--blanco);
+            padding: 35px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px var(--sombra);
+            border-top: 5px solid var(--dorado);
+        }
+
+        .donation-card h4 {
+            color: var(--turquesa);
+            margin-bottom: 20px;
+            font-size: 1.4rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .donation-card h4 i {
+            font-size: 1.8rem;
+        }
+
+        /* Transparency Principles */
+        .principles-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .principle-item {
+            background: linear-gradient(135deg, rgba(77, 184, 172, 0.1), rgba(155, 111, 181, 0.1));
+            padding: 20px;
+            border-radius: 10px;
+            border-left: 4px solid var(--turquesa);
+        }
+
+        .principle-item i {
+            color: var(--turquesa);
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+
+        /* Reject List */
+        .reject-list {
+            list-style: none;
+            margin-top: 20px;
+        }
+
+        .reject-list li {
+            padding: 12px 0;
+            padding-left: 35px;
+            position: relative;
+            color: #666;
+        }
+
+        .reject-list li::before {
+            content: '✗';
+            position: absolute;
+            left: 0;
+            color: #e74c3c;
+            font-weight: 700;
+            font-size: 1.2rem;
+        }
+
+        /* Alliance Process */
+        .alliance-process {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-top: 40px;
+        }
+
+        .process-card {
+            background: var(--blanco);
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 3px 15px var(--sombra);
+            text-align: center;
+            position: relative;
+        }
+
+        .process-card .number {
+            width: 40px;
+            height: 40px;
+            background: var(--dorado);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 15px;
+            color: var(--blanco);
+            font-weight: 700;
+        }
+
+        .process-card h5 {
+            color: var(--turquesa);
+            margin-bottom: 10px;
+        }
+
+        /* Contact Tabs */
+        .contact-type-selector {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+
+        .contact-type-btn {
+            flex: 1;
+            min-width: 150px;
+            padding: 12px 20px;
+            background: var(--gris-claro);
+            border: 2px solid transparent;
+            border-radius: 10px;
+            color: var(--negro);
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+
+        .contact-type-btn:hover {
+            border-color: var(--turquesa);
+        }
+
+        .contact-type-btn.active {
+            background: var(--turquesa);
+            color: var(--blanco);
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .tabs-container {
+                flex-direction: column;
+            }
+
+            .tab-btn {
+                width: 100%;
+            }
+
+            .process-steps {
+                grid-template-columns: 1fr;
+            }
+
+            .modality-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .benefits-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .donation-types {
+                grid-template-columns: 1fr;
+            }
+        }
     </style>
 
 
@@ -770,6 +1155,9 @@
                 <li><a href="#servicios">Servicios</a></li>
                 <li><a href="#transparencia">Transparencia</a></li>
                 <li><a href="#como-ayudar">Cómo Ayudar</a></li>
+                <li><a href="#voluntariado">Voluntariado</a></li>
+                <li><a href="#alianzas">Alianzas</a></li>
+                <li><a href="#donaciones">Donaciones</a></li>
                 <li><a href="#contacto">Contacto</a></li>
                 <!-- ===== NETLIFY CMS: Acceso al panel administrativo ===== -->
                 <li><a href="/admin" class="btn-login">Acceso Administrativo</a></li>
@@ -815,6 +1203,24 @@
                     <i class="fas fa-heart"></i>
                     <h3>Nuestros Valores</h3>
                     <p>Actuamos guiados por la solidaridad, dignidad humana, empatía, inclusión, respeto por la vida, equidad, transparencia, sostenibilidad y servicio. Cada acción refleja nuestro compromiso con el bienestar integral de quienes atendemos.</p>
+                </div>
+            </div>
+
+            <!-- Marco Legal -->
+            <div class="info-box" style="margin-top: 50px;">
+                <h4><i class="fas fa-balance-scale" style="margin-right: 10px;"></i>Marco Legal y Normativo</h4>
+                <p style="margin-bottom: 15px;">VIDARELAX opera bajo estricto cumplimiento del marco jurídico colombiano para entidades sin ánimo de lucro:</p>
+                <ul style="color: #666; line-height: 2;">
+                    <li><strong>Ley 1819 de 2016:</strong> Régimen Tributario Especial (RTE)</li>
+                    <li><strong>Ley 222 de 1995:</strong> Transparencia y rendición de cuentas</li>
+                    <li><strong>Ley 1474 de 2011:</strong> Estatuto Anticorrupción</li>
+                    <li><strong>Ley 1581 de 2012:</strong> Protección de datos personales</li>
+                    <li><strong>Ley 720 de 2001:</strong> Régimen de Voluntariado</li>
+                    <li><strong>Código de Buen Gobierno VIDARELAX:</strong> Ética y trazabilidad financiera</li>
+                </ul>
+                <div style="margin-top: 20px; padding-top: 20px; border-top: 1px solid #ddd;">
+                    <p><strong>NIT:</strong> 901.999.007-7</p>
+                    <p><strong>Registro:</strong> Cámara de Comercio de Bucaramanga</p>
                 </div>
             </div>
         </div>
@@ -909,6 +1315,12 @@
                     <i class="fas fa-users"></i>
                     <h3>Programas de Voluntariado</h3>
                     <p>Oportunidades para servir y acompañar a quienes más lo necesitan</p>
+                </div>
+
+                <div class="service-card" style="opacity: 1; transform: translateY(0px); transition: 0.6s;">
+                    <i class="fas fa-graduation-cap"></i>
+                    <h3>Formación y Capacitación</h3>
+                    <p>Fortalecemos capacidades a través de talleres de autocuidado para pacientes y cuidadores, capacitaciones para voluntarios activos, prácticas universitarias en impacto social y alianzas educativas</p>
                 </div>
             </div>
         </div>
@@ -1023,12 +1435,741 @@
         </div>
     </section>
 
+    <!-- Voluntariado -->
+    <section id="voluntariado">
+        <div class="container">
+            <h2 class="section-title">Únete como Voluntario</h2>
+            <p class="section-subtitle">Transforma vidas mientras transformas la tuya</p>
+
+            <p style="text-align: center; max-width: 800px; margin: 0 auto 40px; font-size: 1.1rem; color: #666;">
+                En VIDARELAX, cada gesto solidario cuenta. Personas como tú hacen posible que pacientes oncológicos y sus familias encuentren refugio, alivio y esperanza.
+            </p>
+
+            <!-- ¿A quién buscamos? -->
+            <div class="info-box">
+                <h4><i class="fas fa-search" style="margin-right: 10px;"></i>¿A quién buscamos?</h4>
+                <p style="margin-bottom: 15px;">No necesitas experiencia previa, solo un corazón dispuesto a servir. Buscamos personas con:</p>
+                <ul class="icon-list">
+                    <li>Empatía y sensibilidad hacia pacientes oncológicos</li>
+                    <li>Compromiso con horarios y tareas asignadas</li>
+                    <li>Respeto por la diversidad y confidencialidad</li>
+                    <li>Capacidad de trabajo en equipo</li>
+                    <li>Puntualidad y responsabilidad</li>
+                </ul>
+            </div>
+
+            <!-- Modalidades de Voluntariado -->
+            <h3 style="text-align: center; color: var(--turquesa); margin-top: 60px; margin-bottom: 30px; font-size: 2rem;">Modalidades de Voluntariado</h3>
+
+            <div class="modality-grid">
+                <div class="modality-card">
+                    <div class="icon">🤝</div>
+                    <h4>Acompañamiento Emocional</h4>
+                    <p>Brinda apoyo moral, escucha activa y contención espiritual a pacientes y familias. Visitas presenciales bajo supervisión del equipo.</p>
+                </div>
+
+                <div class="modality-card">
+                    <div class="icon">🏠</div>
+                    <h4>Apoyo Operativo</h4>
+                    <p>Colabora en tareas cotidianas: cocina, lavandería, limpieza, mantenimiento o logística de eventos.</p>
+                </div>
+
+                <div class="modality-card">
+                    <div class="icon">👨‍⚕️</div>
+                    <h4>Voluntariado Profesional</h4>
+                    <p>¿Eres médico, psicólogo, nutricionista, abogado o trabajador social? Dona tu conocimiento profesional en jornadas específicas.</p>
+                </div>
+
+                <div class="modality-card">
+                    <div class="icon">💻</div>
+                    <h4>Voluntariado Digital</h4>
+                    <p>Apoya desde cualquier lugar: acompañamiento telefónico, diseño gráfico, gestión de redes sociales, traducción o soporte tecnológico.</p>
+                </div>
+
+                <div class="modality-card">
+                    <div class="icon">🏢</div>
+                    <h4>Voluntariado Corporativo</h4>
+                    <p>Empresas que promueven jornadas solidarias con sus empleados para apoyar proyectos específicos de la Fundación.</p>
+                </div>
+            </div>
+
+            <!-- Cómo ser voluntario -->
+            <h3 style="text-align: center; color: var(--turquesa); margin-top: 60px; margin-bottom: 30px; font-size: 2rem;">Cómo ser voluntario</h3>
+            <p style="text-align: center; max-width: 700px; margin: 0 auto 40px; color: #666;">Proceso en 6 pasos:</p>
+
+            <div class="process-steps">
+                <div class="process-step">
+                    <div class="step-number">1</div>
+                    <h4>Inscríbete</h4>
+                    <p>Completa el formulario con tus datos y disponibilidad</p>
+                </div>
+
+                <div class="process-step">
+                    <div class="step-number">2</div>
+                    <h4>Entrevista</h4>
+                    <p>Conversamos sobre tus intereses y habilidades</p>
+                </div>
+
+                <div class="process-step">
+                    <div class="step-number">3</div>
+                    <h4>Documentación</h4>
+                    <p>Presenta tu identificación y referencias</p>
+                </div>
+
+                <div class="process-step">
+                    <div class="step-number">4</div>
+                    <h4>Firma tu compromiso</h4>
+                    <p>Acta ética y de confidencialidad</p>
+                </div>
+
+                <div class="process-step">
+                    <div class="step-number">5</div>
+                    <h4>Inducción</h4>
+                    <p>Conoce nuestra historia, valores y protocolos</p>
+                </div>
+
+                <div class="process-step">
+                    <div class="step-number">6</div>
+                    <h4>¡Comienza a servir!</h4>
+                    <p>Te asignamos un área y un tutor</p>
+                </div>
+            </div>
+
+            <!-- Tus derechos como voluntario -->
+            <h3 style="text-align: center; color: var(--turquesa); margin-top: 60px; margin-bottom: 30px; font-size: 2rem;">Tus derechos como voluntario</h3>
+
+            <div class="rights-grid">
+                <div class="right-item">
+                    <i class="fas fa-user-tie"></i>
+                    <div>
+                        <h4 style="color: var(--negro); margin-bottom: 5px;">Orientación</h4>
+                        <p>Recibir orientación y acompañamiento constante</p>
+                    </div>
+                </div>
+
+                <div class="right-item">
+                    <i class="fas fa-shield-alt"></i>
+                    <div>
+                        <h4 style="color: var(--negro); margin-bottom: 5px;">Ambiente Seguro</h4>
+                        <p>Trabajar en un ambiente seguro, respetuoso e inclusivo</p>
+                    </div>
+                </div>
+
+                <div class="right-item">
+                    <i class="fas fa-graduation-cap"></i>
+                    <div>
+                        <h4 style="color: var(--negro); margin-bottom: 5px;">Capacitación</h4>
+                        <p>Participar en capacitaciones y actividades de bienestar</p>
+                    </div>
+                </div>
+
+                <div class="right-item">
+                    <i class="fas fa-certificate"></i>
+                    <div>
+                        <h4 style="color: var(--negro); margin-bottom: 5px;">Certificación</h4>
+                        <p>Obtener certificación oficial de tu servicio</p>
+                    </div>
+                </div>
+
+                <div class="right-item">
+                    <i class="fas fa-lock"></i>
+                    <div>
+                        <h4 style="color: var(--negro); margin-bottom: 5px;">Confidencialidad</h4>
+                        <p>Confidencialidad de tus datos personales (Ley 1581 de 2012)</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Normativa -->
+            <div class="info-box" style="margin-top: 40px;">
+                <h4><i class="fas fa-balance-scale" style="margin-right: 10px;"></i>Normativa</h4>
+                <p>Todo voluntario está protegido bajo la <strong>Ley 720 de 2001</strong> (Régimen de Voluntariado en Colombia) y las políticas internas de VIDARELAX. Al unirte, firmarás un Acta de Compromiso Ético y Confidencialidad.</p>
+            </div>
+
+            <!-- CTA -->
+            <div class="cta-container">
+                <a href="#contacto" class="btn-primary">Quiero ser voluntario</a>
+                <p style="margin-top: 20px; color: #666;">
+                    <i class="fas fa-envelope" style="color: var(--turquesa); margin-right: 8px;"></i>
+                    O escríbenos a: <strong>voluntarios@vidarelax.com.co</strong>
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Alianzas Corporativas -->
+    <section id="alianzas" style="background: var(--gris-claro);">
+        <div class="container">
+            <h2 class="section-title">Alianzas Corporativas</h2>
+            <p class="section-subtitle">Juntos multiplicamos el impacto</p>
+
+            <p style="text-align: center; max-width: 800px; margin: 0 auto 40px; font-size: 1.1rem; color: #666;">
+                Las empresas socialmente responsables encuentran en VIDARELAX un aliado estratégico para generar valor compartido y transformar vidas.
+            </p>
+
+            <!-- Formas de colaboración -->
+            <h3 style="text-align: center; color: var(--turquesa); margin-top: 40px; margin-bottom: 30px; font-size: 2rem;">Formas de colaboración</h3>
+
+            <div class="modality-grid">
+                <div class="modality-card">
+                    <div class="icon">💰</div>
+                    <h4>Donaciones</h4>
+                    <ul style="text-align: left; color: #666; line-height: 1.8;">
+                        <li>En dinero o especie: alimentos, insumos médicos, ropa de cama, materiales de aseo</li>
+                        <li>Donaciones únicas o recurrentes</li>
+                    </ul>
+                </div>
+
+                <div class="modality-card">
+                    <div class="icon">🤝</div>
+                    <h4>Convenios de cooperación</h4>
+                    <ul style="text-align: left; color: #666; line-height: 1.8;">
+                        <li>Apoyo técnico: transporte, mantenimiento, soporte informático</li>
+                        <li>Servicios especializados: comunicación, legal, contable</li>
+                    </ul>
+                </div>
+
+                <div class="modality-card">
+                    <div class="icon">🌟</div>
+                    <h4>Responsabilidad Social Empresarial (RSE)</h4>
+                    <ul style="text-align: left; color: #666; line-height: 1.8;">
+                        <li>Apadrinamiento de habitaciones o pacientes</li>
+                        <li>Jornadas solidarias con empleados</li>
+                        <li>Cofinanciación de proyectos específicos</li>
+                    </ul>
+                </div>
+
+                <div class="modality-card">
+                    <div class="icon">👥</div>
+                    <h4>Voluntariado Corporativo</h4>
+                    <p>Tus empleados pueden participar en jornadas de mantenimiento, recreación o acompañamiento</p>
+                </div>
+            </div>
+
+            <!-- Beneficios para tu empresa -->
+            <h3 style="text-align: center; color: var(--turquesa); margin-top: 60px; margin-bottom: 30px; font-size: 2rem;">Beneficios para tu empresa</h3>
+
+            <div class="benefits-grid">
+                <div class="benefit-item">
+                    <i class="fas fa-trophy"></i>
+                    <div>
+                        <h4 style="color: var(--negro); margin-bottom: 5px;">Reconocimiento público</h4>
+                        <p>En nuestras redes sociales y sitio web</p>
+                    </div>
+                </div>
+
+                <div class="benefit-item">
+                    <i class="fas fa-certificate"></i>
+                    <div>
+                        <h4 style="color: var(--negro); margin-bottom: 5px;">Certificación oficial</h4>
+                        <p>Alianza firmada por VIDARELAX</p>
+                    </div>
+                </div>
+
+                <div class="benefit-item">
+                    <i class="fas fa-hand-holding-usd"></i>
+                    <div>
+                        <h4 style="color: var(--negro); margin-bottom: 5px;">Beneficio tributario</h4>
+                        <p>Donaciones deducibles de impuestos (Art. 125 Estatuto Tributario)</p>
+                    </div>
+                </div>
+
+                <div class="benefit-item">
+                    <i class="fas fa-chart-line"></i>
+                    <div>
+                        <h4 style="color: var(--negro); margin-bottom: 5px;">Impacto verificable</h4>
+                        <p>Informes anuales de resultados</p>
+                    </div>
+                </div>
+
+                <div class="benefit-item">
+                    <i class="fas fa-bullhorn"></i>
+                    <div>
+                        <h4 style="color: var(--negro); margin-bottom: 5px;">Posicionamiento de marca</h4>
+                        <p>En programas de alto impacto social</p>
+                    </div>
+                </div>
+
+                <div class="benefit-item">
+                    <i class="fas fa-users-cog"></i>
+                    <div>
+                        <h4 style="color: var(--negro); margin-bottom: 5px;">Involucramiento de equipos</h4>
+                        <p>En actividades significativas</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Proceso de alianza -->
+            <h3 style="text-align: center; color: var(--turquesa); margin-top: 60px; margin-bottom: 30px; font-size: 2rem;">Proceso de alianza</h3>
+
+            <div class="alliance-process">
+                <div class="process-card">
+                    <div class="number">1</div>
+                    <h5>Contacto inicial</h5>
+                    <p>Completa el formulario de alianzas</p>
+                </div>
+
+                <div class="process-card">
+                    <div class="number">2</div>
+                    <h5>Reunión diagnóstica</h5>
+                    <p>Definimos tipo de colaboración ideal</p>
+                </div>
+
+                <div class="process-card">
+                    <div class="number">3</div>
+                    <h5>Formalización</h5>
+                    <p>Firma de Carta de Intención o Convenio</p>
+                </div>
+
+                <div class="process-card">
+                    <div class="number">4</div>
+                    <h5>Ejecución</h5>
+                    <p>Implementación del proyecto acordado</p>
+                </div>
+
+                <div class="process-card">
+                    <div class="number">5</div>
+                    <h5>Seguimiento</h5>
+                    <p>Informes periódicos y reconocimiento público</p>
+                </div>
+            </div>
+
+            <!-- CTA -->
+            <div class="cta-container">
+                <a href="#contacto" class="btn-primary">Formar alianza corporativa</a>
+                <p style="margin-top: 20px; color: #666;">
+                    <i class="fas fa-envelope" style="color: var(--turquesa); margin-right: 8px;"></i>
+                    O escríbenos a: <strong>alianzas@vidarelax.com.co</strong>
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Prácticas Universitarias -->
+    <section id="practicas">
+        <div class="container">
+            <h2 class="section-title">Prácticas Universitarias y Servicio Social</h2>
+            <p class="section-subtitle">Aprende sirviendo, transforma mientras te formas</p>
+
+            <p style="text-align: center; max-width: 800px; margin: 0 auto 40px; font-size: 1.1rem; color: #666;">
+                VIDARELAX abre sus puertas a estudiantes universitarios, técnicos y tecnológicos que desean completar su práctica profesional en un entorno real de impacto social.
+            </p>
+
+            <!-- ¿Por qué hacer tu práctica con nosotros? -->
+            <h3 style="text-align: center; color: var(--turquesa); margin-top: 40px; margin-bottom: 30px; font-size: 2rem;">¿Por qué hacer tu práctica con nosotros?</h3>
+
+            <div class="benefits-grid">
+                <div class="benefit-item">
+                    <i class="fas fa-hands-helping"></i>
+                    <div>
+                        <h4 style="color: var(--negro); margin-bottom: 5px;">Experiencia real</h4>
+                        <p>Aplica tus conocimientos en proyectos con beneficiarios directos</p>
+                    </div>
+                </div>
+
+                <div class="benefit-item">
+                    <i class="fas fa-user-graduate"></i>
+                    <div>
+                        <h4 style="color: var(--negro); margin-bottom: 5px;">Formación integral</h4>
+                        <p>Desarrolla habilidades técnicas y humanas</p>
+                    </div>
+                </div>
+
+                <div class="benefit-item">
+                    <i class="fas fa-chart-line"></i>
+                    <div>
+                        <h4 style="color: var(--negro); margin-bottom: 5px;">Impacto verificable</h4>
+                        <p>Participa en programas que transforman vidas</p>
+                    </div>
+                </div>
+
+                <div class="benefit-item">
+                    <i class="fas fa-network-wired"></i>
+                    <div>
+                        <h4 style="color: var(--negro); margin-bottom: 5px;">Networking solidario</h4>
+                        <p>Conecta con profesionales del sector social y salud</p>
+                    </div>
+                </div>
+
+                <div class="benefit-item">
+                    <i class="fas fa-certificate"></i>
+                    <div>
+                        <h4 style="color: var(--negro); margin-bottom: 5px;">Certificación oficial</h4>
+                        <p>Reconocida por universidades y empresas</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Áreas disponibles -->
+            <h3 style="text-align: center; color: var(--turquesa); margin-top: 60px; margin-bottom: 30px; font-size: 2rem;">Áreas disponibles</h3>
+
+            <div class="modality-grid">
+                <div class="modality-card">
+                    <div class="icon">🤝</div>
+                    <h4>Área Social y Comunitaria</h4>
+                    <p style="margin-bottom: 10px;"><strong>Carreras:</strong> Trabajo Social, Psicología, Sociología, Educación</p>
+                    <p><strong>Actividades:</strong> Acompañamiento a pacientes, diagnóstico de necesidades, desarrollo de proyectos sociales</p>
+                </div>
+
+                <div class="modality-card">
+                    <div class="icon">📊</div>
+                    <h4>Área Administrativa</h4>
+                    <p style="margin-bottom: 10px;"><strong>Carreras:</strong> Administración, Contaduría, Finanzas, Gestión Pública</p>
+                    <p><strong>Actividades:</strong> Inventarios, registro de donaciones, logística institucional</p>
+                </div>
+
+                <div class="modality-card">
+                    <div class="icon">📱</div>
+                    <h4>Área de Comunicación</h4>
+                    <p style="margin-bottom: 10px;"><strong>Carreras:</strong> Comunicación Social, Diseño Gráfico, Mercadeo, Publicidad</p>
+                    <p><strong>Actividades:</strong> Contenido para redes, campañas solidarias, diseño institucional</p>
+                </div>
+
+                <div class="modality-card">
+                    <div class="icon">⚕️</div>
+                    <h4>Área de Salud</h4>
+                    <p style="margin-bottom: 10px;"><strong>Carreras:</strong> Enfermería, Fisioterapia, Nutrición, Medicina (según nivel)</p>
+                    <p><strong>Actividades:</strong> Campañas de prevención, acompañamiento educativo, jornadas de salud</p>
+                </div>
+
+                <div class="modality-card">
+                    <div class="icon">💻</div>
+                    <h4>Área Tecnológica</h4>
+                    <p style="margin-bottom: 10px;"><strong>Carreras:</strong> Sistemas, Desarrollo Web, Soporte Técnico</p>
+                    <p><strong>Actividades:</strong> Gestión de bases de datos, automatización, soporte IT</p>
+                </div>
+            </div>
+
+            <!-- Requisitos -->
+            <h3 style="text-align: center; color: var(--turquesa); margin-top: 60px; margin-bottom: 30px; font-size: 2rem;">Requisitos</h3>
+
+            <div class="info-box">
+                <ul class="icon-list">
+                    <li>Estar matriculado en institución reconocida por el MinEducación</li>
+                    <li>Carta de presentación de la universidad</li>
+                    <li>Seguro estudiantil vigente</li>
+                    <li>Hoja de vida y documento de identidad</li>
+                    <li>Disponibilidad mínima: 160 horas (según reglamento académico)</li>
+                </ul>
+            </div>
+
+            <!-- Tus derechos como practicante -->
+            <h3 style="text-align: center; color: var(--turquesa); margin-top: 60px; margin-bottom: 30px; font-size: 2rem;">Tus derechos como practicante</h3>
+
+            <div class="rights-grid">
+                <div class="right-item">
+                    <i class="fas fa-user-tie"></i>
+                    <div>
+                        <h4 style="color: var(--negro); margin-bottom: 5px;">Supervisión</h4>
+                        <p>Tutor institucional asignado</p>
+                    </div>
+                </div>
+
+                <div class="right-item">
+                    <i class="fas fa-shield-alt"></i>
+                    <div>
+                        <h4 style="color: var(--negro); margin-bottom: 5px;">Ambiente seguro</h4>
+                        <p>Respetuoso e inclusivo</p>
+                    </div>
+                </div>
+
+                <div class="right-item">
+                    <i class="fas fa-graduation-cap"></i>
+                    <div>
+                        <h4 style="color: var(--negro); margin-bottom: 5px;">Formación</h4>
+                        <p>Actividades formativas</p>
+                    </div>
+                </div>
+
+                <div class="right-item">
+                    <i class="fas fa-certificate"></i>
+                    <div>
+                        <h4 style="color: var(--negro); margin-bottom: 5px;">Certificación</h4>
+                        <p>Con evaluación de desempeño</p>
+                    </div>
+                </div>
+
+                <div class="right-item">
+                    <i class="fas fa-users"></i>
+                    <div>
+                        <h4 style="color: var(--negro); margin-bottom: 5px;">Vinculación posterior</h4>
+                        <p>Posibilidad como voluntario</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Proceso de vinculación -->
+            <h3 style="text-align: center; color: var(--turquesa); margin-top: 60px; margin-bottom: 30px; font-size: 2rem;">Proceso de vinculación</h3>
+
+            <div class="process-steps">
+                <div class="process-step">
+                    <div class="step-number">1</div>
+                    <h4>Inscripción</h4>
+                    <p>Formulario web o correo</p>
+                </div>
+
+                <div class="process-step">
+                    <div class="step-number">2</div>
+                    <h4>Entrevista</h4>
+                    <p>Coordinación evalúa perfil</p>
+                </div>
+
+                <div class="process-step">
+                    <div class="step-number">3</div>
+                    <h4>Convenio</h4>
+                    <p>Universidad + estudiante + VIDARELAX</p>
+                </div>
+
+                <div class="process-step">
+                    <div class="step-number">4</div>
+                    <h4>Inducción</h4>
+                    <p>Historia, valores, protocolos</p>
+                </div>
+
+                <div class="process-step">
+                    <div class="step-number">5</div>
+                    <h4>Inicio</h4>
+                    <p>Asignación de área y tutor</p>
+                </div>
+
+                <div class="process-step">
+                    <div class="step-number">6</div>
+                    <h4>Certificación</h4>
+                    <p>Informe final y certificado</p>
+                </div>
+            </div>
+
+            <!-- Marco legal -->
+            <div class="info-box" style="margin-top: 40px;">
+                <h4><i class="fas fa-balance-scale" style="margin-right: 10px;"></i>Marco Legal</h4>
+                <p>Prácticas reguladas por: <strong>Ley 30 de 1992</strong>, <strong>Decreto 1330 de 2019</strong>, <strong>Ley 2221 de 2022</strong></p>
+            </div>
+
+            <!-- CTA -->
+            <div class="cta-container">
+                <a href="#contacto" class="btn-primary">Inscribirme para prácticas</a>
+                <p style="margin-top: 20px; color: #666;">
+                    <i class="fas fa-envelope" style="color: var(--turquesa); margin-right: 8px;"></i>
+                    O escríbenos a: <strong>cvidarelax@gmail.com</strong>
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Donaciones -->
+    <section id="donaciones">
+        <div class="container">
+            <h2 class="section-title">Tu Generosidad Salva Vidas</h2>
+            <p class="section-subtitle">Cada donación es una semilla de esperanza</p>
+
+            <p style="text-align: center; max-width: 800px; margin: 0 auto 40px; font-size: 1.1rem; color: #666;">
+                En VIDARELAX, cada aporte —grande o pequeño— transforma el dolor en alivio y la soledad en compañía para pacientes oncológicos y sus familias.
+            </p>
+
+            <!-- Tipos de donación -->
+            <h3 style="text-align: center; color: var(--turquesa); margin-top: 40px; margin-bottom: 30px; font-size: 2rem;">Tipos de donación</h3>
+
+            <div class="donation-types">
+                <div class="donation-card">
+                    <h4><i class="fas fa-dollar-sign"></i> Donación en dinero</h4>
+                    <ul style="color: #666; line-height: 1.8; margin-bottom: 20px;">
+                        <li>Única o recurrente (mensual, trimestral, anual)</li>
+                        <li>100% transparente: registros contables públicos</li>
+                        <li>Deducible de impuestos (Ley 1819 de 2016)</li>
+                        <li>Métodos: transferencia bancaria, PSE, Nequi, Daviplata</li>
+                    </ul>
+
+                    <div style="margin-top: 20px; padding: 20px; background: linear-gradient(135deg, rgba(77, 184, 172, 0.1), rgba(155, 111, 181, 0.1)); border-radius: 10px; border-left: 4px solid var(--turquesa);">
+                        <p style="font-weight: 600; color: var(--turquesa); margin-bottom: 10px;">
+                            <i class="fas fa-mobile-alt"></i> Donaciones por Nequi:
+                        </p>
+                        <p style="font-size: 1.3rem; font-weight: 700; color: var(--negro); margin-bottom: 5px;">
+                            314 817 9078
+                        </p>
+                        <p style="font-size: 0.9rem; color: #666;">
+                            A nombre de: Daniel Moreno
+                        </p>
+                        <p style="margin-top: 10px; font-size: 0.85rem; font-style: italic; color: #888;">
+                            Información bancaria disponible próximamente
+                        </p>
+                    </div>
+                </div>
+
+                <div class="donation-card">
+                    <h4><i class="fas fa-box"></i> Donación en especie</h4>
+                    <p style="margin-bottom: 15px; color: #666;">Aceptamos bienes en buen estado:</p>
+                    <ul style="color: #666; line-height: 1.8;">
+                        <li>Alimentos no perecederos</li>
+                        <li>Medicamentos e insumos médicos</li>
+                        <li>Ropa de cama y toallas</li>
+                        <li>Artículos de aseo personal</li>
+                        <li>Mobiliario y electrodomésticos</li>
+                        <li>Materiales de construcción</li>
+                    </ul>
+                    <div class="info-box" style="margin-top: 20px;">
+                        <p style="font-size: 0.9rem;"><strong>Requisitos:</strong> Los bienes deben estar en buen estado, dentro de fecha de vencimiento (alimentos/medicinas) y cumplir normas sanitarias.</p>
+                    </div>
+                </div>
+
+                <div class="donation-card">
+                    <h4><i class="fas fa-tools"></i> Donación en servicios</h4>
+                    <p style="margin-bottom: 15px; color: #666;">¿Tienes una empresa de servicios? Dona:</p>
+                    <ul style="color: #666; line-height: 1.8;">
+                        <li>Asesorías jurídicas, médicas, psicológicas</li>
+                        <li>Mantenimiento y reparaciones</li>
+                        <li>Transporte y logística</li>
+                        <li>Diseño y comunicación</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Principios de transparencia -->
+            <h3 style="text-align: center; color: var(--turquesa); margin-top: 60px; margin-bottom: 30px; font-size: 2rem;">Principios de transparencia</h3>
+
+            <div class="principles-grid">
+                <div class="principle-item">
+                    <i class="fas fa-check-double"></i>
+                    <h4 style="color: var(--negro); margin-bottom: 5px;">Trazabilidad total</h4>
+                    <p>Cada donación tiene acta de recepción y registro contable</p>
+                </div>
+
+                <div class="principle-item">
+                    <i class="fas fa-file-invoice-dollar"></i>
+                    <h4 style="color: var(--negro); margin-bottom: 5px;">Certificación legal</h4>
+                    <p>Emitimos certificado deducible de impuestos</p>
+                </div>
+
+                <div class="principle-item">
+                    <i class="fas fa-search-dollar"></i>
+                    <h4 style="color: var(--negro); margin-bottom: 5px;">Auditoría anual</h4>
+                    <p>Nuestros registros son verificados por entidades externas</p>
+                </div>
+
+                <div class="principle-item">
+                    <i class="fas fa-chart-pie"></i>
+                    <h4 style="color: var(--negro); margin-bottom: 5px;">Informe público</h4>
+                    <p>Publicamos reporte anual de gestión y transparencia</p>
+                </div>
+
+                <div class="principle-item">
+                    <i class="fas fa-hand-holding-heart"></i>
+                    <h4 style="color: var(--negro); margin-bottom: 5px;">Uso exclusivo</h4>
+                    <p>100% destinado al objeto social de la Fundación</p>
+                </div>
+            </div>
+
+            <!-- ¿Qué rechazamos? -->
+            <h3 style="text-align: center; color: #e74c3c; margin-top: 60px; margin-bottom: 30px; font-size: 2rem;">¿Qué rechazamos?</h3>
+
+            <div class="info-box" style="border-left-color: #e74c3c;">
+                <ul class="reject-list">
+                    <li>Donaciones de origen ilícito o no comprobado</li>
+                    <li>Aportes con condiciones políticas, religiosas o comerciales</li>
+                    <li>Bienes deteriorados, vencidos o peligrosos</li>
+                    <li>Donaciones que comprometan nuestra independencia institucional</li>
+                </ul>
+            </div>
+
+            <!-- Proceso de donación -->
+            <h3 style="text-align: center; color: var(--turquesa); margin-top: 60px; margin-bottom: 30px; font-size: 2rem;">Proceso de donación</h3>
+
+            <div class="process-steps">
+                <div class="process-step">
+                    <div class="step-number">1</div>
+                    <h4>Registra tu donación</h4>
+                    <p>Formulario web o correo: donativos@vidarelax.com.co</p>
+                </div>
+
+                <div class="process-step">
+                    <div class="step-number">2</div>
+                    <h4>Verificamos</h4>
+                    <p>Evaluamos legalidad y pertinencia</p>
+                </div>
+
+                <div class="process-step">
+                    <div class="step-number">3</div>
+                    <h4>Recibimos</h4>
+                    <p>Emitimos acta de recepción con número consecutivo</p>
+                </div>
+
+                <div class="process-step">
+                    <div class="step-number">4</div>
+                    <h4>Registramos</h4>
+                    <p>Ingreso contable bajo normas NIIF</p>
+                </div>
+
+                <div class="process-step">
+                    <div class="step-number">5</div>
+                    <h4>Certificamos</h4>
+                    <p>Enviamos certificado oficial (si aplica)</p>
+                </div>
+
+                <div class="process-step">
+                    <div class="step-number">6</div>
+                    <h4>Agradecemos</h4>
+                    <p>Reconocimiento institucional</p>
+                </div>
+            </div>
+
+            <!-- CTA -->
+            <div class="cta-container">
+                <a href="#contacto" class="btn-primary">Donar ahora</a>
+                <a href="#" class="btn-secondary">Conoce nuestro Manual de Donaciones</a>
+                <p style="margin-top: 20px; color: #666;">
+                    <i class="fas fa-envelope" style="color: var(--turquesa); margin-right: 8px;"></i>
+                    O escríbenos a: <strong>donativos@vidarelax.com.co</strong>
+                </p>
+            </div>
+        </div>
+    </section>
+
     <!-- Contacto -->
-    <section id="contacto">
+    <section id="contacto" style="background: var(--gris-claro);">
         <div class="container">
             <h2 class="section-title">Contacto</h2>
             <p class="section-subtitle">Estamos aquí para atenderte. Comunícate con nosotros</p>
             
+            <!-- Canales de contacto por área -->
+            <div style="margin-bottom: 50px;">
+                <h3 style="text-align: center; color: var(--turquesa); margin-bottom: 30px; font-size: 1.8rem;">Canales de contacto por área</h3>
+
+                <div class="benefits-grid">
+                    <div class="benefit-item">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <h4 style="color: var(--negro); margin-bottom: 5px;">Contacto General</h4>
+                            <p style="margin-bottom: 5px;"><strong>Email:</strong> cvidarelax@gmail.com</p>
+                            <p style="margin-bottom: 5px;"><strong>Teléfono:</strong> +57 (314) 817 9078</p>
+                            <p><strong>Dirección:</strong> Kra 25 #37-13, Bucaramanga</p>
+                        </div>
+                    </div>
+
+                    <div class="benefit-item">
+                        <i class="fas fa-hands-helping"></i>
+                        <div>
+                            <h4 style="color: var(--negro); margin-bottom: 5px;">Voluntariado</h4>
+                            <p><strong>Email:</strong> voluntarios@vidarelax.com.co</p>
+                        </div>
+                    </div>
+
+                    <div class="benefit-item">
+                        <i class="fas fa-hand-holding-heart"></i>
+                        <div>
+                            <h4 style="color: var(--negro); margin-bottom: 5px;">Donaciones</h4>
+                            <p><strong>Email:</strong> donativos@vidarelax.com.co</p>
+                        </div>
+                    </div>
+
+                    <div class="benefit-item">
+                        <i class="fas fa-handshake"></i>
+                        <div>
+                            <h4 style="color: var(--negro); margin-bottom: 5px;">Alianzas Corporativas</h4>
+                            <p><strong>Email:</strong> alianzas@vidarelax.com.co</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
             <div class="contact-container">
                 <div class="contact-info">
                     <div class="contact-item">
@@ -1038,7 +2179,7 @@
                             <p>Carrera 25 #37-13, Barrio Bolívar<br>Bucaramanga, Santander<br>Colombia</p>
                         </div>
                     </div>
-                    
+
                     <div class="contact-item">
                         <i class="fas fa-phone"></i>
                         <div>
@@ -1046,15 +2187,15 @@
                             <p>+57 (314) 817 9078</p>
                         </div>
                     </div>
-                    
+
                     <div class="contact-item">
                         <i class="fas fa-envelope"></i>
                         <div>
                             <h3>Correo Electrónico</h3>
-                            <p>contactanos@vidarelax.com.co</p>
+                            <p>cvidarelax@gmail.com</p>
                         </div>
                     </div>
-                    
+
                     <div class="contact-item">
                         <i class="fas fa-id-card"></i>
                         <div>
@@ -1107,7 +2248,7 @@
                         <input type="hidden" name="access_key" value="YOUR_WEB3FORMS_ACCESS_KEY">
 
                         <!-- Email de destino -->
-                        <input type="hidden" name="email" value="contactanos@vidarelax.com.co">
+                        <input type="hidden" name="email" value="cvidarelax@gmail.com">
 
                         <!-- Configuración de redirección después del envío -->
                         <input type="hidden" name="redirect" value="https://fundacion-vidarelax.vercel.app/?success=true">
@@ -1181,7 +2322,18 @@
                     <li><a href="#">Ley 2360 de 2024</a></li>
                     <li><a href="#">Decreto 2150 de 1995</a></li>
                     <li><a href="#">Decreto 427 de 1996</a></li>
-                    <li><a href="#">Política de Privacidad</a></li>
+                    <li><a href="documentos/politica-tratamiento-datos.pdf" download>Política de Privacidad</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h3>Documentos</h3>
+                <ul>
+                    <li><a href="documentos/politica-tratamiento-datos.pdf" download>Política de Tratamiento de Datos</a></li>
+                    <li><a href="#" download>Manual de Donaciones</a></li>
+                    <li><a href="#" download>Política de Voluntariado</a></li>
+                    <li><a href="documentos/codigo-etica.pdf" download>Código de Ética</a></li>
+                    <li><a href="#" download>Términos y Condiciones</a></li>
                 </ul>
             </div>
             
@@ -1190,7 +2342,7 @@
                 <ul>
                     <li><i class="fas fa-map-marker-alt" style="color: var(--turquesa); margin-right: 10px;"></i>Carrera 25 #37-13, Bucaramanga</li>
                     <li><i class="fas fa-phone" style="color: var(--turquesa); margin-right: 10px;"></i>+57 (314) 817 9078</li>
-                    <li><i class="fas fa-envelope" style="color: var(--turquesa); margin-right: 10px;"></i>contactanos@vidarelax.com.co</li>
+                    <li><i class="fas fa-envelope" style="color: var(--turquesa); margin-right: 10px;"></i>cvidarelax@gmail.com</li>
                 </ul>
                 <div class="social-links">
                     <a href="https://www.instagram.com/cvidarelax?igsh=OThsMHdxZWNybXVm" target="_blank"><i class="fab fa-instagram"></i></a>
