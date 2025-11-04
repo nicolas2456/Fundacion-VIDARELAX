@@ -1,0 +1,132 @@
+═══════════════════════════════════════════════════════════════════════
+  CHECKLIST VISUAL - Conectar vidarelax.com.co en Vercel
+═══════════════════════════════════════════════════════════════════════
+
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃ PASO 1: AGREGAR DOMINIO PRINCIPAL                                ┃
+┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
+
+En Vercel → Settings → Domains:
+
+1. [ ] Click: [Add Domain]
+
+2. [ ] En el modal que aparece:
+       ┌────────────────────────────────┐
+       │ vidarelax.com.co               │ ← Escribir SIN www
+       └────────────────────────────────┘
+
+3. [ ] Seleccionar: ◉ Connect to an environment
+
+4. [ ] Dejar en: [🎯 Production ▼]
+
+5. [ ] Click: [Save]
+
+6. [ ] COPIAR Y ANOTAR la IP que Vercel muestre:
+
+       IP: _____________________ ← ANOTAR AQUÍ
+
+       Ejemplo: 76.76.21.21 (tu IP puede ser diferente)
+
+
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃ PASO 2: AGREGAR SUBDOMINIO WWW                                   ┃
+┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
+
+1. [ ] Click nuevamente: [Add Domain]
+
+2. [ ] En el modal:
+       ┌────────────────────────────────┐
+       │ www.vidarelax.com.co           │ ← Escribir CON www
+       └────────────────────────────────┘
+
+3. [ ] Seleccionar: ◉ Redirect to Another Domain
+
+4. [ ] Dejar en: [308 Permanent Redirect ▼]
+
+5. [ ] Vercel sugiere automáticamente: vidarelax.com.co ← Dejar así
+
+6. [ ] Click: [Save]
+
+7. [ ] COPIAR Y ANOTAR el CNAME:
+
+       CNAME: cname.vercel-dns.com  ← (casi siempre es este)
+
+
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃ RESUMEN - Valores que debes tener anotados                       ┃
+┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
+
+✅ IP del registro A: _____________________
+
+✅ CNAME: cname.vercel-dns.com
+
+
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃ PASO 3: CONFIGURAR EN M.ICOM.CO                                  ┃
+┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
+
+En m.icom.co → Configuración DNS:
+
+A. REGISTROS A:
+   [ ] Pestaña: Registros A
+   [ ] Subdominio: @
+   [ ] IP Destino: _____________________ ← Pegar IP de Vercel
+   [ ] Click: [Crear]
+
+B. REGISTROS CNAME:
+   [ ] Pestaña: Registros CNAME
+   [ ] Subdominio: www
+   [ ] Destino: cname.vercel-dns.com
+   [ ] Click: [Crear]
+
+
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃ PASO 4: VERIFICAR                                                ┃
+┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
+
+[ ] Esperar: 1-4 horas (a veces 15 min, máximo 48h)
+
+[ ] Verificar en Vercel:
+    Volver a Settings → Domains
+    Debe aparecer: ✓ Valid Configuration
+
+[ ] Probar en navegador:
+    https://vidarelax.com.co → Debe cargar
+    https://www.vidarelax.com.co → Debe redirigir al anterior
+
+[ ] Verificar SSL:
+    Debe aparecer candado 🔒 en la barra del navegador
+
+
+═══════════════════════════════════════════════════════════════════════
+
+ESTADO ESPERADO EN VERCEL (antes de configurar DNS):
+────────────────────────────────────────────────────
+⏳ vidarelax.com.co              Invalid Configuration
+⏳ www.vidarelax.com.co          Invalid Configuration
+
+Esto es NORMAL. Cambiará a ✓ después de configurar DNS.
+
+
+ESTADO ESPERADO EN VERCEL (después de DNS propagado):
+──────────────────────────────────────────────────────
+✓ vidarelax.com.co               Valid Configuration
+✓ www.vidarelax.com.co           Valid Configuration
+
+
+═══════════════════════════════════════════════════════════════════════
+
+¿PROBLEMAS?
+
+❌ No aparece opción de "Production" al agregar dominio
+   → Verificar que estás en el proyecto correcto (Fundacion-VIDARELAX)
+
+❌ No me muestra la IP después de dar Save
+   → Buscar en la lista de dominios, click en vidarelax.com.co
+   → Ahí verás los DNS records
+
+❌ www no me da opción de Redirect
+   → Primero agrega el dominio principal (sin www)
+   → Luego agrega www (Vercel detectará automáticamente)
+
+═══════════════════════════════════════════════════════════════════════
