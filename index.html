@@ -2114,7 +2114,7 @@
             <!-- CTA -->
             <div class="cta-container">
                 <a href="#contacto" class="btn-primary">Donar ahora</a>
-                <a href="#" class="btn-secondary">Conoce nuestro Manual de Donaciones</a>
+                <a href="/documentos/manual-donaciones.pdf" download class="btn-secondary">📄 Descargar Manual de Donaciones</a>
                 <p style="margin-top: 20px; color: #666;">
                     <i class="fas fa-envelope" style="color: var(--turquesa); margin-right: 8px;"></i>
                     O escríbenos a: <strong>donativos@vidarelax.com.co</strong>
@@ -2236,54 +2236,537 @@
                 </div>
                 
                 <div class="contact-form">
-                    <h3 style="margin-bottom: 25px; color: var(--turquesa);">Envíanos un Mensaje</h3>
+                    <h3 style="margin-bottom: 25px; color: var(--turquesa); text-align: center;">Selecciona el tipo de contacto</h3>
 
-                    <!-- ===== WEB3FORMS: Formulario de contacto funcional (alternativa gratuita a Netlify Forms) ===== -->
-                    <form
-                        id="contactForm"
-                        action="https://api.web3forms.com/submit"
-                        method="POST"
-                    >
-                        <!-- Access Key de Web3Forms (gratuito, 250 envíos/mes) -->
-                        <input type="hidden" name="access_key" value="YOUR_WEB3FORMS_ACCESS_KEY">
+                    <!-- ===== SISTEMA DE TABS PARA FORMULARIOS ===== -->
+                    <div class="tabs-container">
+                        <button class="tab-btn active" onclick="switchForm('general')">
+                            <i class="fas fa-envelope"></i> Contacto General
+                        </button>
+                        <button class="tab-btn" onclick="switchForm('voluntariado')">
+                            <i class="fas fa-hands-helping"></i> Voluntariado
+                        </button>
+                        <button class="tab-btn" onclick="switchForm('donacion')">
+                            <i class="fas fa-hand-holding-heart"></i> Donaciones
+                        </button>
+                        <button class="tab-btn" onclick="switchForm('alianza')">
+                            <i class="fas fa-handshake"></i> Alianzas
+                        </button>
+                    </div>
 
-                        <!-- Email de destino -->
-                        <input type="hidden" name="email" value="cvidarelax@gmail.com">
-
-                        <!-- Configuración de redirección después del envío -->
-                        <input type="hidden" name="redirect" value="https://fundacion-vidarelax.vercel.app/?success=true">
-
-                        <!-- Honeypot anti-spam (campo oculto para bots) -->
+                    <!-- FORMULARIO 1: CONTACTO GENERAL -->
+                    <form id="form-general" class="tab-content active" action="https://api.web3forms.com/submit" method="POST">
+                        <input type="hidden" name="access_key" value="YOUR_WEB3FORMS_ACCESS_KEY_GENERAL">
+                        <input type="hidden" name="subject" value="Contacto web - Consulta general">
+                        <input type="hidden" name="from_name" value="Fundación VIDARELAX">
                         <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
 
                         <div class="form-group">
-                            <label for="nombre">Nombre Completo *</label>
-                            <input type="text" id="nombre" name="nombre" required="">
+                            <label for="gen_nombre">Nombre completo *</label>
+                            <input type="text" id="gen_nombre" name="nombre" placeholder="Ej: Carlos Andrés López" required minlength="3">
                         </div>
 
                         <div class="form-group">
-                            <label for="email_usuario">Correo Electrónico *</label>
-                            <input type="email" id="email_usuario" name="email_usuario" required="">
+                            <label for="gen_email">Correo electrónico *</label>
+                            <input type="email" id="gen_email" name="email" placeholder="Ej: carlos@email.com" required>
                         </div>
 
                         <div class="form-group">
-                            <label for="telefono">Teléfono</label>
-                            <input type="tel" id="telefono" name="telefono">
+                            <label for="gen_telefono">Teléfono</label>
+                            <input type="tel" id="gen_telefono" name="telefono" placeholder="Ej: 3201234567" pattern="[0-9]{10}">
                         </div>
 
                         <div class="form-group">
-                            <label for="mensaje">Mensaje *</label>
-                            <textarea id="mensaje" name="mensaje" required=""></textarea>
+                            <label for="gen_asunto">Asunto *</label>
+                            <select id="gen_asunto" name="asunto" required>
+                                <option value="">Seleccione...</option>
+                                <option value="Información general sobre la Fundación">Información general sobre la Fundación</option>
+                                <option value="Consulta sobre pacientes y familias">Consulta sobre pacientes y familias</option>
+                                <option value="Prácticas universitarias o servicio social">Prácticas universitarias o servicio social</option>
+                                <option value="Medios de comunicación / Prensa">Medios de comunicación / Prensa</option>
+                                <option value="Otro">Otro</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="gen_mensaje">Mensaje *</label>
+                            <textarea id="gen_mensaje" name="mensaje" placeholder="Escribe tu mensaje aquí..." required minlength="20" maxlength="1000"></textarea>
+                        </div>
+
+                        <div class="form-group">
+                            <label style="display: flex; align-items: flex-start; gap: 10px; cursor: pointer;">
+                                <input type="checkbox" name="autorizacion" required style="margin-top: 4px;">
+                                <span style="font-size: 0.9rem;">Autorizo el tratamiento de mis datos personales de acuerdo con la Ley 1581 de 2012</span>
+                            </label>
                         </div>
 
                         <button type="submit" class="btn-submit">Enviar Mensaje</button>
 
-                        <!-- Mensaje de confirmación (se mostrará después del envío) -->
-                        <div id="formSuccess" style="display: none; margin-top: 20px; padding: 15px; background: #d4edda; color: #155724; border-radius: 8px; text-align: center;">
+                        <div class="form-success" style="display: none; margin-top: 20px; padding: 15px; background: #d4edda; color: #155724; border-radius: 8px; text-align: center;">
                             <i class="fas fa-check-circle" style="margin-right: 10px;"></i>
-                            ¡Gracias! Tu mensaje ha sido enviado exitosamente. Nos pondremos en contacto contigo pronto.
+                            ¡Gracias! Tu mensaje ha sido enviado. Te responderemos pronto.
                         </div>
                     </form>
+
+                    <!-- FORMULARIO 2: VOLUNTARIADO -->
+                    <form id="form-voluntariado" class="tab-content" action="https://api.web3forms.com/submit" method="POST" style="display: none;">
+                        <input type="hidden" name="access_key" value="YOUR_WEB3FORMS_ACCESS_KEY_VOLUNTARIADO">
+                        <input type="hidden" name="subject" value="Nueva solicitud de voluntariado">
+                        <input type="hidden" name="redirect" value="https://vidarelax.com.co/contacto?success=voluntariado">
+                        <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
+
+                        <div class="form-group">
+                            <label for="vol_nombre">Nombre completo *</label>
+                            <input type="text" id="vol_nombre" name="nombre" placeholder="Ej: María Fernanda Gómez" required minlength="3">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="vol_documento">Documento de identidad *</label>
+                            <input type="text" id="vol_documento" name="documento" placeholder="Ej: 1098765432" required pattern="[0-9]{7,10}">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="vol_telefono">Teléfono/WhatsApp *</label>
+                            <input type="tel" id="vol_telefono" name="telefono" placeholder="Ej: 3201234567" required pattern="[0-9]{10}">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="vol_email">Correo electrónico *</label>
+                            <input type="email" id="vol_email" name="email" placeholder="Ej: maria.gomez@email.com" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="vol_edad">Edad *</label>
+                            <input type="number" id="vol_edad" name="edad" placeholder="Ej: 25" required min="16" max="100">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="vol_ciudad">Ciudad de residencia *</label>
+                            <input type="text" id="vol_ciudad" name="ciudad" placeholder="Ej: Bucaramanga" value="Bucaramanga" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="vol_tipo">Tipo de voluntariado *</label>
+                            <select id="vol_tipo" name="tipo_voluntariado" required>
+                                <option value="">Seleccione...</option>
+                                <option value="Acompañamiento Emocional y Espiritual">Acompañamiento Emocional y Espiritual</option>
+                                <option value="Apoyo Operativo (cocina, aseo, mantenimiento)">Apoyo Operativo (cocina, aseo, mantenimiento)</option>
+                                <option value="Voluntariado Profesional (médico, psicólogo, etc.)">Voluntariado Profesional (médico, psicólogo, etc.)</option>
+                                <option value="Voluntariado Digital (redes, diseño, tecnología)">Voluntariado Digital (redes, diseño, tecnología)</option>
+                                <option value="Voluntariado Corporativo">Voluntariado Corporativo</option>
+                                <option value="No estoy seguro/a, quiero orientación">No estoy seguro/a, quiero orientación</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="vol_profesion">Profesión u ocupación</label>
+                            <input type="text" id="vol_profesion" name="profesion" placeholder="Ej: Estudiante de Psicología / Ingeniero / Ama de casa">
+                        </div>
+
+                        <div class="form-group">
+                            <label>Disponibilidad horaria * (selecciona todas las que apliquen)</label>
+                            <div style="display: flex; flex-direction: column; gap: 8px;">
+                                <label style="display: flex; align-items: center; gap: 10px; cursor: pointer;">
+                                    <input type="checkbox" name="disponibilidad[]" value="Lunes a Viernes - Mañanas (8am-12pm)">
+                                    <span>Lunes a Viernes - Mañanas (8am-12pm)</span>
+                                </label>
+                                <label style="display: flex; align-items: center; gap: 10px; cursor: pointer;">
+                                    <input type="checkbox" name="disponibilidad[]" value="Lunes a Viernes - Tardes (2pm-6pm)">
+                                    <span>Lunes a Viernes - Tardes (2pm-6pm)</span>
+                                </label>
+                                <label style="display: flex; align-items: center; gap: 10px; cursor: pointer;">
+                                    <input type="checkbox" name="disponibilidad[]" value="Sábados - Mañanas">
+                                    <span>Sábados - Mañanas</span>
+                                </label>
+                                <label style="display: flex; align-items: center; gap: 10px; cursor: pointer;">
+                                    <input type="checkbox" name="disponibilidad[]" value="Sábados - Tardes">
+                                    <span>Sábados - Tardes</span>
+                                </label>
+                                <label style="display: flex; align-items: center; gap: 10px; cursor: pointer;">
+                                    <input type="checkbox" name="disponibilidad[]" value="Domingos y festivos">
+                                    <span>Domingos y festivos</span>
+                                </label>
+                                <label style="display: flex; align-items: center; gap: 10px; cursor: pointer;">
+                                    <input type="checkbox" name="disponibilidad[]" value="Virtual/Remoto (sin horario fijo)">
+                                    <span>Virtual/Remoto (sin horario fijo)</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="vol_horas">Horas disponibles por semana *</label>
+                            <select id="vol_horas" name="horas_semana" required>
+                                <option value="">Seleccione...</option>
+                                <option value="2-4 horas">2-4 horas</option>
+                                <option value="5-8 horas">5-8 horas</option>
+                                <option value="9-12 horas">9-12 horas</option>
+                                <option value="Más de 12 horas">Más de 12 horas</option>
+                                <option value="Flexible según necesidad">Flexible según necesidad</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="vol_motivacion">¿Por qué quieres ser voluntario en VIDARELAX? *</label>
+                            <textarea id="vol_motivacion" name="motivacion" placeholder="Cuéntanos tu motivación..." required minlength="50" maxlength="500"></textarea>
+                        </div>
+
+                        <div class="form-group">
+                            <label>¿Tienes experiencia previa en voluntariado o trabajo social? *</label>
+                            <div style="display: flex; flex-direction: column; gap: 10px;">
+                                <label style="display: flex; align-items: center; gap: 10px; cursor: pointer;">
+                                    <input type="radio" name="experiencia" value="Si" onclick="document.getElementById('vol_exp_desc').style.display='block'" required>
+                                    <span>Sí, tengo experiencia</span>
+                                </label>
+                                <label style="display: flex; align-items: center; gap: 10px; cursor: pointer;">
+                                    <input type="radio" name="experiencia" value="No" onclick="document.getElementById('vol_exp_desc').style.display='none'">
+                                    <span>No, pero estoy dispuesto/a a aprender</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="form-group" id="vol_exp_desc" style="display: none;">
+                            <label for="vol_exp_detalle">Describe brevemente tu experiencia</label>
+                            <textarea id="vol_exp_detalle" name="experiencia_detalle" placeholder="Describe tu experiencia previa..." maxlength="300"></textarea>
+                        </div>
+
+                        <div class="form-group">
+                            <label style="display: flex; align-items: flex-start; gap: 10px; cursor: pointer;">
+                                <input type="checkbox" name="autorizacion" required style="margin-top: 4px;">
+                                <span style="font-size: 0.9rem;">Autorizo el tratamiento de mis datos personales de acuerdo con la Ley 1581 de 2012 y la Política de Privacidad de VIDARELAX</span>
+                            </label>
+                        </div>
+
+                        <div class="form-group">
+                            <label style="display: flex; align-items: flex-start; gap: 10px; cursor: pointer;">
+                                <input type="checkbox" name="compromiso_etico" required style="margin-top: 4px;">
+                                <span style="font-size: 0.9rem;">Me comprometo a respetar los principios éticos, la confidencialidad y las normas internas de la Fundación</span>
+                            </label>
+                        </div>
+
+                        <button type="submit" class="btn-submit">Enviar Solicitud</button>
+
+                        <div class="form-success" style="display: none; margin-top: 20px; padding: 20px; background: #d4edda; color: #155724; border-radius: 8px; text-align: center;">
+                            <i class="fas fa-check-circle" style="margin-right: 10px; font-size: 1.5rem;"></i>
+                            <h4 style="margin: 10px 0;">¡Gracias por querer ser parte de VIDARELAX!</h4>
+                            <p>Tu solicitud ha sido recibida. Nuestro equipo de coordinación revisará tu perfil y se pondrá en contacto contigo en las próximas 48-72 horas.</p>
+                            <p style="margin-top: 15px;">Mientras tanto, te invitamos a seguirnos en Instagram @cvidarelax para conocer más sobre nuestro trabajo.</p>
+                            <p style="margin-top: 15px; font-weight: 600;">¡Bienvenido/a a la familia VIDARELAX! 💙</p>
+                        </div>
+                    </form>
+
+                    <!-- FORMULARIO 3: DONACIONES -->
+                    <form id="form-donacion" class="tab-content" action="https://api.web3forms.com/submit" method="POST" style="display: none;">
+                        <input type="hidden" name="access_key" value="YOUR_WEB3FORMS_ACCESS_KEY_DONACIONES">
+                        <input type="hidden" name="subject" value="Nueva donación registrada">
+                        <input type="hidden" name="redirect" value="https://vidarelax.com.co/contacto?success=donacion">
+                        <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
+
+                        <div class="form-group">
+                            <label>Tipo de donante *</label>
+                            <div style="display: flex; gap: 20px;">
+                                <label style="display: flex; align-items: center; gap: 10px; cursor: pointer;">
+                                    <input type="radio" name="tipo_donante" value="Persona Natural" onclick="updateDonorLabels('persona')" required>
+                                    <span>Persona Natural</span>
+                                </label>
+                                <label style="display: flex; align-items: center; gap: 10px; cursor: pointer;">
+                                    <input type="radio" name="tipo_donante" value="Empresa/Organización" onclick="updateDonorLabels('empresa')">
+                                    <span>Empresa/Organización</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="don_nombre" id="label_don_nombre">Nombre completo / Razón social *</label>
+                            <input type="text" id="don_nombre" name="nombre" placeholder="Ingrese su nombre" required minlength="3">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="don_documento" id="label_don_documento">Documento / NIT *</label>
+                            <input type="text" id="don_documento" name="documento" placeholder="Ingrese su documento" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="don_telefono">Teléfono de contacto *</label>
+                            <input type="tel" id="don_telefono" name="telefono" placeholder="Ej: 3201234567" required pattern="[0-9]{10}">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="don_email">Correo electrónico *</label>
+                            <input type="email" id="don_email" name="email" placeholder="Ej: contacto@email.com" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="don_ciudad">Ciudad *</label>
+                            <input type="text" id="don_ciudad" name="ciudad" placeholder="Ej: Bucaramanga" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="don_tipo">Tipo de donación *</label>
+                            <select id="don_tipo" name="tipo_donacion" onchange="handleDonationType()" required>
+                                <option value="">Seleccione...</option>
+                                <option value="Donación en dinero">Donación en dinero</option>
+                                <option value="Donación en especie">Donación en especie (alimentos, insumos, ropa)</option>
+                                <option value="Donación en servicios">Donación en servicios (profesionales, mantenimiento)</option>
+                                <option value="Otra">Otra (especificar)</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group" id="don_otra_tipo" style="display: none;">
+                            <label for="don_especificar">Especificar tipo *</label>
+                            <input type="text" id="don_especificar" name="tipo_especificar" placeholder="Especifique el tipo de donación">
+                        </div>
+
+                        <div class="form-group" id="don_valor_dinero" style="display: none;">
+                            <label for="don_valor">Valor aproximado de la donación</label>
+                            <input type="number" id="don_valor" name="valor" placeholder="Ej: 100000" min="0">
+                            <small style="color: #666; font-size: 0.9rem;">En pesos colombianos (COP)</small>
+                        </div>
+
+                        <div class="form-group" id="don_desc_especie" style="display: none;">
+                            <label for="don_bienes">Descripción de los bienes *</label>
+                            <textarea id="don_bienes" name="descripcion_bienes" placeholder="Ej: 10 mercados con alimentos no perecederos, 5 cobijas nuevas..." minlength="20"></textarea>
+                        </div>
+
+                        <div class="form-group" id="don_desc_servicio" style="display: none;">
+                            <label for="don_servicio">Descripción del servicio *</label>
+                            <textarea id="don_servicio" name="descripcion_servicio" placeholder="Ej: Asesoría jurídica gratuita, mantenimiento de instalaciones..."></textarea>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Periodicidad *</label>
+                            <div style="display: flex; flex-direction: column; gap: 8px;">
+                                <label style="display: flex; align-items: center; gap: 10px; cursor: pointer;">
+                                    <input type="radio" name="periodicidad" value="Única" required>
+                                    <span>Donación única</span>
+                                </label>
+                                <label style="display: flex; align-items: center; gap: 10px; cursor: pointer;">
+                                    <input type="radio" name="periodicidad" value="Mensual">
+                                    <span>Mensual</span>
+                                </label>
+                                <label style="display: flex; align-items: center; gap: 10px; cursor: pointer;">
+                                    <input type="radio" name="periodicidad" value="Trimestral">
+                                    <span>Trimestral</span>
+                                </label>
+                                <label style="display: flex; align-items: center; gap: 10px; cursor: pointer;">
+                                    <input type="radio" name="periodicidad" value="Anual">
+                                    <span>Anual</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label>¿Requiere certificado de donación deducible de impuestos? *</label>
+                            <div style="display: flex; gap: 20px;">
+                                <label style="display: flex; align-items: center; gap: 10px; cursor: pointer;">
+                                    <input type="radio" name="certificado" value="Si" required>
+                                    <span>Sí, necesito certificado</span>
+                                </label>
+                                <label style="display: flex; align-items: center; gap: 10px; cursor: pointer;">
+                                    <input type="radio" name="certificado" value="No">
+                                    <span>No, no necesito certificado</span>
+                                </label>
+                            </div>
+                            <small style="color: #666; font-size: 0.85rem; margin-top: 5px; display: block;">El certificado es válido para deducción de impuestos según Art. 125 del Estatuto Tributario</small>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="don_observaciones">Observaciones o mensaje</label>
+                            <textarea id="don_observaciones" name="observaciones" placeholder="¿Hay algo más que quieras contarnos?" maxlength="300"></textarea>
+                        </div>
+
+                        <div class="form-group">
+                            <label style="display: flex; align-items: flex-start; gap: 10px; cursor: pointer;">
+                                <input type="checkbox" name="autorizacion" required style="margin-top: 4px;">
+                                <span style="font-size: 0.9rem;">Autorizo el tratamiento de mis datos personales de acuerdo con la Ley 1581 de 2012 y la Política de Privacidad de VIDARELAX</span>
+                            </label>
+                        </div>
+
+                        <div class="form-group">
+                            <label style="display: flex; align-items: flex-start; gap: 10px; cursor: pointer;">
+                                <input type="checkbox" name="terminos_donacion" required style="margin-top: 4px;">
+                                <span style="font-size: 0.9rem;">Acepto que la donación será destinada exclusivamente al objeto social de la Fundación según el Manual de Donaciones</span>
+                            </label>
+                        </div>
+
+                        <button type="submit" class="btn-submit">Registrar Donación</button>
+
+                        <div class="form-success" style="display: none; margin-top: 20px; padding: 20px; background: #d4edda; color: #155724; border-radius: 8px; text-align: center;">
+                            <i class="fas fa-check-circle" style="margin-right: 10px; font-size: 1.5rem;"></i>
+                            <h4 style="margin: 10px 0;">¡Tu generosidad transforma vidas!</h4>
+                            <p>Hemos recibido tu registro de donación. Nuestro equipo se comunicará contigo dentro de las próximas 24-48 horas para coordinar los detalles.</p>
+                            <p style="margin-top: 15px;">Si marcaste que necesitas certificado, lo recibirás una vez se formalice la donación.</p>
+                            <p style="margin-top: 15px; font-weight: 600;">Gracias por creer en nuestra misión. 🙏</p>
+                        </div>
+                    </form>
+
+                    <!-- FORMULARIO 4: ALIANZAS CORPORATIVAS -->
+                    <form id="form-alianza" class="tab-content" action="https://api.web3forms.com/submit" method="POST" style="display: none;">
+                        <input type="hidden" name="access_key" value="YOUR_WEB3FORMS_ACCESS_KEY_ALIANZAS">
+                        <input type="hidden" name="subject" value="Nueva propuesta de alianza corporativa">
+                        <input type="hidden" name="redirect" value="https://vidarelax.com.co/contacto?success=alianza">
+                        <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
+
+                        <div class="form-group">
+                            <label for="ali_empresa">Nombre de la empresa/organización *</label>
+                            <input type="text" id="ali_empresa" name="empresa" placeholder="Ej: Comercializadora ABC S.A.S." required minlength="3">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="ali_nit">NIT *</label>
+                            <input type="text" id="ali_nit" name="nit" placeholder="Ej: 900123456-7" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="ali_sector">Sector/Industria *</label>
+                            <select id="ali_sector" name="sector" required>
+                                <option value="">Seleccione...</option>
+                                <option value="Salud y farmacéutica">Salud y farmacéutica</option>
+                                <option value="Alimentos y bebidas">Alimentos y bebidas</option>
+                                <option value="Tecnología e informática">Tecnología e informática</option>
+                                <option value="Construcción e ingeniería">Construcción e ingeniería</option>
+                                <option value="Educación">Educación</option>
+                                <option value="Comercio y retail">Comercio y retail</option>
+                                <option value="Servicios financieros">Servicios financieros</option>
+                                <option value="Manufactura">Manufactura</option>
+                                <option value="Transporte y logística">Transporte y logística</option>
+                                <option value="Comunicación y medios">Comunicación y medios</option>
+                                <option value="Otro">Otro</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="ali_web">Sitio web</label>
+                            <input type="url" id="ali_web" name="sitio_web" placeholder="https://www.ejemplo.com">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="ali_representante">Nombre del representante legal / Contacto principal *</label>
+                            <input type="text" id="ali_representante" name="representante" placeholder="Ej: Laura Martínez Ruiz" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="ali_cargo">Cargo del contacto *</label>
+                            <input type="text" id="ali_cargo" name="cargo" placeholder="Ej: Gerente de RSE / Director General" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="ali_telefono">Teléfono empresarial *</label>
+                            <input type="tel" id="ali_telefono" name="telefono" placeholder="Ej: 6071234567 o 3201234567" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="ali_email">Correo electrónico corporativo *</label>
+                            <input type="email" id="ali_email" name="email" placeholder="Ej: contacto@empresa.com" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="ali_ciudad">Ciudad/Municipio *</label>
+                            <input type="text" id="ali_ciudad" name="ciudad" placeholder="Ej: Bucaramanga" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Tipo de colaboración de interés * (selecciona todas las que apliquen)</label>
+                            <div style="display: flex; flex-direction: column; gap: 8px;">
+                                <label style="display: flex; align-items: center; gap: 10px; cursor: pointer;">
+                                    <input type="checkbox" name="colaboracion[]" value="Donaciones en dinero">
+                                    <span>Donaciones en dinero (únicas o recurrentes)</span>
+                                </label>
+                                <label style="display: flex; align-items: center; gap: 10px; cursor: pointer;">
+                                    <input type="checkbox" name="colaboracion[]" value="Donaciones en especie">
+                                    <span>Donaciones en especie (productos o insumos)</span>
+                                </label>
+                                <label style="display: flex; align-items: center; gap: 10px; cursor: pointer;">
+                                    <input type="checkbox" name="colaboracion[]" value="Convenio de cooperación">
+                                    <span>Convenio de cooperación técnica/logística</span>
+                                </label>
+                                <label style="display: flex; align-items: center; gap: 10px; cursor: pointer;">
+                                    <input type="checkbox" name="colaboracion[]" value="Apadrinamiento">
+                                    <span>Apadrinamiento de habitaciones o pacientes</span>
+                                </label>
+                                <label style="display: flex; align-items: center; gap: 10px; cursor: pointer;">
+                                    <input type="checkbox" name="colaboracion[]" value="Voluntariado corporativo">
+                                    <span>Voluntariado corporativo (empleados)</span>
+                                </label>
+                                <label style="display: flex; align-items: center; gap: 10px; cursor: pointer;">
+                                    <input type="checkbox" name="colaboracion[]" value="Servicios pro bono">
+                                    <span>Servicios profesionales pro bono</span>
+                                </label>
+                                <label style="display: flex; align-items: center; gap: 10px; cursor: pointer;">
+                                    <input type="checkbox" name="colaboracion[]" value="Cofinanciación">
+                                    <span>Cofinanciación de proyectos específicos</span>
+                                </label>
+                                <label style="display: flex; align-items: center; gap: 10px; cursor: pointer;">
+                                    <input type="checkbox" name="colaboracion[]" value="Otra">
+                                    <span>Otra (especificar en la descripción)</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="ali_propuesta">Descripción de la propuesta de alianza *</label>
+                            <textarea id="ali_propuesta" name="propuesta" placeholder="Cuéntanos cómo tu empresa quiere apoyar a VIDARELAX y qué valor esperan generar juntos..." required minlength="100" maxlength="1000"></textarea>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="ali_presupuesto">Presupuesto aproximado o recursos disponibles</label>
+                            <textarea id="ali_presupuesto" name="presupuesto" placeholder="Ej: Donación anual de $5.000.000 / 100 kits de alimentos mensuales / 20 horas de voluntariado corporativo al mes"></textarea>
+                        </div>
+
+                        <div class="form-group">
+                            <label>¿Han realizado alianzas similares antes? *</label>
+                            <div style="display: flex; flex-direction: column; gap: 8px;">
+                                <label style="display: flex; align-items: center; gap: 10px; cursor: pointer;">
+                                    <input type="radio" name="experiencia_rse" value="Sí, tenemos experiencia en RSE" required>
+                                    <span>Sí, tenemos experiencia en RSE</span>
+                                </label>
+                                <label style="display: flex; align-items: center; gap: 10px; cursor: pointer;">
+                                    <input type="radio" name="experiencia_rse" value="No, esta sería nuestra primera alianza social">
+                                    <span>No, esta sería nuestra primera alianza social</span>
+                                </label>
+                                <label style="display: flex; align-items: center; gap: 10px; cursor: pointer;">
+                                    <input type="radio" name="experiencia_rse" value="Estamos explorando opciones">
+                                    <span>Estamos explorando opciones</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="ali_conocimiento">¿Cómo conocieron a VIDARELAX?</label>
+                            <select id="ali_conocimiento" name="como_conocio">
+                                <option value="">Seleccione...</option>
+                                <option value="Redes sociales">Redes sociales</option>
+                                <option value="Recomendación de otra empresa">Recomendación de otra empresa</option>
+                                <option value="Búsqueda en Google">Búsqueda en Google</option>
+                                <option value="Evento o actividad presencial">Evento o actividad presencial</option>
+                                <option value="Medios de comunicación">Medios de comunicación</option>
+                                <option value="Otro">Otro</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label style="display: flex; align-items: flex-start; gap: 10px; cursor: pointer;">
+                                <input type="checkbox" name="autorizacion" required style="margin-top: 4px;">
+                                <span style="font-size: 0.9rem;">Autorizo el tratamiento de mis datos personales y empresariales de acuerdo con la Ley 1581 de 2012 y la Política de Privacidad de VIDARELAX</span>
+                            </label>
+                        </div>
+
+                        <div class="form-group">
+                            <label style="display: flex; align-items: flex-start; gap: 10px; cursor: pointer;">
+                                <input type="checkbox" name="compromiso_etico" required style="margin-top: 4px;">
+                                <span style="font-size: 0.9rem;">Nuestra empresa se compromete a mantener prácticas éticas y transparentes en concordancia con los valores de VIDARELAX</span>
+                            </label>
+                        </div>
+
+                        <button type="submit" class="btn-submit">Enviar Propuesta</button>
+
+                        <div class="form-success" style="display: none; margin-top: 20px; padding: 20px; background: #d4edda; color: #155724; border-radius: 8px; text-align: center;">
+                            <i class="fas fa-check-circle" style="margin-right: 10px; font-size: 1.5rem;"></i>
+                            <h4 style="margin: 10px 0;">¡Gracias por querer ser aliado estratégico!</h4>
+                            <p>Tu propuesta ha sido recibida por nuestro equipo de alianzas. Evaluaremos la información y nos pondremos en contacto en un plazo máximo de 5 días hábiles para agendar una reunión.</p>
+                            <p style="margin-top: 15px; font-weight: 600;">Juntos multiplicaremos el impacto. 🤝</p>
+                        </div>
+                    </form>
+
                 </div>
             </div>
             
@@ -2330,10 +2813,10 @@
                 <h3>Documentos</h3>
                 <ul>
                     <li><a href="documentos/politica-tratamiento-datos.pdf" download>Política de Tratamiento de Datos</a></li>
-                    <li><a href="#" download>Manual de Donaciones</a></li>
-                    <li><a href="#" download>Política de Voluntariado</a></li>
+                    <li><a href="/documentos/manual-donaciones.pdf" download style="color: var(--turquesa);">📄 Manual de Donaciones</a></li>
+                    <li><a href="/documentos/politica-voluntariado.pdf" download style="color: var(--turquesa);">📋 Política de Voluntariado</a></li>
                     <li><a href="documentos/codigo-etica.pdf" download>Código de Ética</a></li>
-                    <li><a href="#" download>Términos y Condiciones</a></li>
+                    <li><span style="color: #999; font-style: italic;">Términos y Condiciones (próximamente)</span></li>
                 </ul>
             </div>
             
@@ -2421,15 +2904,143 @@
 
         // Detectar si venimos de un envío exitoso (parámetro en URL)
         const urlParams = new URLSearchParams(window.location.search);
-        if (urlParams.has('success') || window.location.pathname === '/success') {
-            const formSuccess = document.getElementById('formSuccess');
-            if (formSuccess) {
-                formSuccess.style.display = 'block';
-                // Scroll al formulario
-                document.querySelector('#contacto').scrollIntoView({ behavior: 'smooth' });
+        if (urlParams.has('success')) {
+            const successType = urlParams.get('success');
+            let formId;
+
+            // Determinar qué formulario mostrar según el parámetro
+            switch(successType) {
+                case 'voluntariado':
+                    formId = 'form-voluntariado';
+                    switchForm('voluntariado');
+                    break;
+                case 'donacion':
+                    formId = 'form-donacion';
+                    switchForm('donacion');
+                    break;
+                case 'alianza':
+                    formId = 'form-alianza';
+                    switchForm('alianza');
+                    break;
+                default:
+                    formId = 'form-general';
+                    switchForm('general');
+            }
+
+            // Mostrar mensaje de éxito
+            setTimeout(() => {
+                const form = document.getElementById(formId);
+                if (form) {
+                    const successMsg = form.querySelector('.form-success');
+                    if (successMsg) {
+                        successMsg.style.display = 'block';
+                        document.querySelector('#contacto').scrollIntoView({ behavior: 'smooth' });
+                    }
+                }
+            }, 500);
+        }
+
+        // ===== FUNCIONES DE FORMULARIOS =====
+
+        // Cambiar entre tabs de formularios
+        function switchForm(formType) {
+            // Ocultar todos los formularios
+            document.querySelectorAll('.tab-content').forEach(form => {
+                form.style.display = 'none';
+                form.classList.remove('active');
+            });
+
+            // Desactivar todos los botones de tab
+            document.querySelectorAll('.tab-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+
+            // Mostrar el formulario seleccionado
+            const selectedForm = document.getElementById('form-' + formType);
+            if (selectedForm) {
+                selectedForm.style.display = 'block';
+                selectedForm.classList.add('active');
+            }
+
+            // Activar el botón correspondiente
+            const buttons = document.querySelectorAll('.tab-btn');
+            buttons.forEach(btn => {
+                if (btn.onclick && btn.onclick.toString().includes(formType)) {
+                    btn.classList.add('active');
+                }
+            });
+        }
+
+        // Actualizar labels del formulario de donaciones según tipo de donante
+        function updateDonorLabels(tipo) {
+            const labelNombre = document.getElementById('label_don_nombre');
+            const labelDocumento = document.getElementById('label_don_documento');
+            const inputNombre = document.getElementById('don_nombre');
+            const inputDocumento = document.getElementById('don_documento');
+
+            if (tipo === 'persona') {
+                labelNombre.textContent = 'Nombre completo *';
+                labelDocumento.textContent = 'Cédula de ciudadanía *';
+                inputNombre.placeholder = 'Ej: Juan Carlos Pérez';
+                inputDocumento.placeholder = 'Ej: 1098765432';
+            } else {
+                labelNombre.textContent = 'Razón social *';
+                labelDocumento.textContent = 'NIT *';
+                inputNombre.placeholder = 'Ej: Empresa XYZ S.A.S.';
+                inputDocumento.placeholder = 'Ej: 900123456-7';
             }
         }
-        
+
+        // Manejar campos condicionales del formulario de donaciones
+        function handleDonationType() {
+            const tipoSelect = document.getElementById('don_tipo');
+            const valor = tipoSelect.value;
+
+            // Ocultar todos los campos condicionales
+            document.getElementById('don_otra_tipo').style.display = 'none';
+            document.getElementById('don_valor_dinero').style.display = 'none';
+            document.getElementById('don_desc_especie').style.display = 'none';
+            document.getElementById('don_desc_servicio').style.display = 'none';
+
+            // Mostrar campos según el tipo seleccionado
+            if (valor === 'Donación en dinero') {
+                document.getElementById('don_valor_dinero').style.display = 'block';
+            } else if (valor === 'Donación en especie') {
+                document.getElementById('don_desc_especie').style.display = 'block';
+            } else if (valor === 'Donación en servicios') {
+                document.getElementById('don_desc_servicio').style.display = 'block';
+            } else if (valor === 'Otra') {
+                document.getElementById('don_otra_tipo').style.display = 'block';
+            }
+        }
+
+        // Validación de checkboxes en formularios
+        document.querySelectorAll('form').forEach(form => {
+            form.addEventListener('submit', function(e) {
+                // Validar disponibilidad horaria en formulario de voluntariado
+                if (form.id === 'form-voluntariado') {
+                    const checkboxes = form.querySelectorAll('input[name="disponibilidad[]"]');
+                    const checked = Array.from(checkboxes).some(cb => cb.checked);
+                    if (!checked) {
+                        e.preventDefault();
+                        alert('Por favor selecciona al menos una opción de disponibilidad horaria');
+                        return false;
+                    }
+                }
+
+                // Validar colaboración en formulario de alianzas
+                if (form.id === 'form-alianza') {
+                    const checkboxes = form.querySelectorAll('input[name="colaboracion[]"]');
+                    const checked = Array.from(checkboxes).some(cb => cb.checked);
+                    if (!checked) {
+                        e.preventDefault();
+                        alert('Por favor selecciona al menos un tipo de colaboración');
+                        return false;
+                    }
+                }
+            });
+        });
+
         // Animación de aparición al hacer scroll
         const observerOptions = {
             threshold: 0.1,
