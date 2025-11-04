@@ -921,6 +921,40 @@
             margin-top: 5px;
         }
 
+        /* PQRS Types Grid */
+        .pqrs-types-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+
+        .pqrs-type-card {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+
+        .pqrs-type-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+        }
+
+        .pqrs-icon {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 2rem;
+            color: white;
+        }
+
         /* CTA Buttons */
         .cta-container {
             text-align: center;
@@ -1158,6 +1192,7 @@
                 <li><a href="#voluntariado">Voluntariado</a></li>
                 <li><a href="#alianzas">Alianzas</a></li>
                 <li><a href="#donaciones">Donaciones</a></li>
+                <li><a href="#pqrs">PQRS</a></li>
                 <li><a href="#contacto">Contacto</a></li>
                 <!-- ===== NETLIFY CMS: Acceso al panel administrativo ===== -->
                 <li><a href="/admin" class="btn-login">Acceso Administrativo</a></li>
@@ -1755,7 +1790,7 @@
                 <a href="#contacto" class="btn-primary">Formar alianza corporativa</a>
                 <p style="margin-top: 20px; color: #666;">
                     <i class="fas fa-envelope" style="color: var(--turquesa); margin-right: 8px;"></i>
-                    O escríbenos a: <strong>alianzas@vidarelax.com.co</strong>
+                    O escríbenos a: <strong>donaciones@vidarelax.com.co</strong>
                 </p>
             </div>
         </div>
@@ -1966,7 +2001,7 @@
                 <a href="#contacto" class="btn-primary">Inscribirme para prácticas</a>
                 <p style="margin-top: 20px; color: #666;">
                     <i class="fas fa-envelope" style="color: var(--turquesa); margin-right: 8px;"></i>
-                    O escríbenos a: <strong>cvidarelax@gmail.com</strong>
+                    O escríbenos a: <strong>voluntarios@vidarelax.com.co</strong>
                 </p>
             </div>
         </div>
@@ -2093,7 +2128,7 @@
                 <div class="process-step">
                     <div class="step-number">1</div>
                     <h4>Registra tu donación</h4>
-                    <p>Formulario web o correo: donativos@vidarelax.com.co</p>
+                    <p>Formulario web o correo: donaciones@vidarelax.com.co</p>
                 </div>
 
                 <div class="process-step">
@@ -2133,7 +2168,281 @@
                 <a href="/documentos/manual-donaciones.pdf" download class="btn-secondary">📄 Descargar Manual de Donaciones</a>
                 <p style="margin-top: 20px; color: #666;">
                     <i class="fas fa-envelope" style="color: var(--turquesa); margin-right: 8px;"></i>
-                    O escríbenos a: <strong>donativos@vidarelax.com.co</strong>
+                    O escríbenos a: <strong>donaciones@vidarelax.com.co</strong>
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- PQRS -->
+    <section id="pqrs" style="background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);">
+        <div class="container">
+            <h2 class="section-title">PQRS</h2>
+            <p class="section-subtitle">Peticiones, Quejas, Reclamos y Sugerencias</p>
+
+            <!-- Intro -->
+            <div class="info-box" style="background: white; padding: 30px; margin-bottom: 40px; border-left: 5px solid var(--turquesa);">
+                <p style="font-size: 1.1rem; line-height: 1.8; color: #333;">
+                    En VIDARELAX valoramos tu opinión y estamos comprometidos con la transparencia y la mejora continua.
+                    Este canal te permite comunicarte directamente con nosotros sobre cualquier situación relacionada con nuestros servicios.
+                </p>
+            </div>
+
+            <!-- ¿Qué es cada tipo? -->
+            <h3 style="text-align: center; color: var(--turquesa); margin-top: 50px; margin-bottom: 30px; font-size: 2rem;">¿Qué puedes presentar?</h3>
+
+            <div class="pqrs-types-grid">
+                <div class="pqrs-type-card">
+                    <div class="pqrs-icon" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);">
+                        <i class="fas fa-file-alt"></i>
+                    </div>
+                    <h4 style="color: var(--negro); margin-bottom: 10px;">Petición</h4>
+                    <p style="color: #666; font-size: 0.95rem; line-height: 1.6;">
+                        Solicitud de información, documentos, copias o cualquier actuación de la Fundación.
+                        También para solicitar el ejercicio de derechos legales (hábeas data, rectificación de datos, etc.).
+                    </p>
+                </div>
+
+                <div class="pqrs-type-card">
+                    <div class="pqrs-icon" style="background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);">
+                        <i class="fas fa-exclamation-triangle"></i>
+                    </div>
+                    <h4 style="color: var(--negro); margin-bottom: 10px;">Queja</h4>
+                    <p style="color: #666; font-size: 0.95rem; line-height: 1.6;">
+                        Inconformidad sobre un servicio prestado, demora injustificada, atención inadecuada,
+                        incumplimiento de compromisos o cualquier irregularidad en nuestros procesos.
+                    </p>
+                </div>
+
+                <div class="pqrs-type-card">
+                    <div class="pqrs-icon" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);">
+                        <i class="fas fa-balance-scale"></i>
+                    </div>
+                    <h4 style="color: var(--negro); margin-bottom: 10px;">Reclamo</h4>
+                    <p style="color: #666; font-size: 0.95rem; line-height: 1.6;">
+                        Expresión de insatisfacción que requiere una solución o resarcimiento por un derecho vulnerado,
+                        servicio deficiente, pérdida de bienes donados o cualquier perjuicio causado por la Fundación.
+                    </p>
+                </div>
+
+                <div class="pqrs-type-card">
+                    <div class="pqrs-icon" style="background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);">
+                        <i class="fas fa-lightbulb"></i>
+                    </div>
+                    <h4 style="color: var(--negro); margin-bottom: 10px;">Sugerencia</h4>
+                    <p style="color: #666; font-size: 0.95rem; line-height: 1.6;">
+                        Ideas, recomendaciones u opiniones constructivas para mejorar nuestros servicios, procesos,
+                        programas o cualquier aspecto de la gestión de la Fundación.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Tus derechos -->
+            <h3 style="text-align: center; color: var(--turquesa); margin-top: 60px; margin-bottom: 30px; font-size: 2rem;">Tus derechos al presentar una PQRS</h3>
+
+            <div class="rights-grid">
+                <div class="right-item">
+                    <i class="fas fa-clock"></i>
+                    <div>
+                        <h4 style="color: var(--negro); margin-bottom: 5px;">Respuesta oportuna</h4>
+                        <p>Máximo 15 días hábiles desde la radicación</p>
+                    </div>
+                </div>
+
+                <div class="right-item">
+                    <i class="fas fa-shield-alt"></i>
+                    <div>
+                        <h4 style="color: var(--negro); margin-bottom: 5px;">Confidencialidad</h4>
+                        <p>Tus datos serán tratados con total reserva</p>
+                    </div>
+                </div>
+
+                <div class="right-item">
+                    <i class="fas fa-receipt"></i>
+                    <div>
+                        <h4 style="color: var(--negro); margin-bottom: 5px;">Número de radicado</h4>
+                        <p>Recibirás comprobante con código de seguimiento</p>
+                    </div>
+                </div>
+
+                <div class="right-item">
+                    <i class="fas fa-ban"></i>
+                    <div>
+                        <h4 style="color: var(--negro); margin-bottom: 5px;">No represalias</h4>
+                        <p>Sin consecuencias negativas por presentar PQRS</p>
+                    </div>
+                </div>
+
+                <div class="right-item">
+                    <i class="fas fa-reply"></i>
+                    <div>
+                        <h4 style="color: var(--negro); margin-bottom: 5px;">Respuesta de fondo</h4>
+                        <p>Clara, completa y motivada jurídicamente</p>
+                    </div>
+                </div>
+
+                <div class="right-item">
+                    <i class="fas fa-redo-alt"></i>
+                    <div>
+                        <h4 style="color: var(--negro); margin-bottom: 5px;">Recursos</h4>
+                        <p>Derecho a insistir o acudir a autoridades</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Marco legal -->
+            <div class="info-box" style="background: white; padding: 25px; margin-top: 50px; margin-bottom: 40px;">
+                <h4 style="color: var(--turquesa); margin-bottom: 15px; font-size: 1.3rem;">
+                    <i class="fas fa-gavel" style="margin-right: 10px;"></i>Marco legal
+                </h4>
+                <ul style="list-style: none; padding: 0; color: #555; line-height: 2;">
+                    <li style="margin-bottom: 8px;">
+                        <i class="fas fa-check" style="color: var(--turquesa); margin-right: 10px;"></i>
+                        <strong>Ley 1755 de 2015:</strong> Derecho fundamental de petición
+                    </li>
+                    <li style="margin-bottom: 8px;">
+                        <i class="fas fa-check" style="color: var(--turquesa); margin-right: 10px;"></i>
+                        <strong>Ley 1437 de 2011:</strong> Código de Procedimiento Administrativo (CPACA)
+                    </li>
+                    <li style="margin-bottom: 8px;">
+                        <i class="fas fa-check" style="color: var(--turquesa); margin-right: 10px;"></i>
+                        <strong>Ley 1581 de 2012:</strong> Protección de datos personales (habeas data)
+                    </li>
+                    <li>
+                        <i class="fas fa-check" style="color: var(--turquesa); margin-right: 10px;"></i>
+                        <strong>Constitución Política:</strong> Artículo 23 (derecho de petición)
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Formulario PQRS -->
+            <div style="background: white; padding: 40px; border-radius: 15px; box-shadow: 0 5px 20px rgba(0,0,0,0.1); max-width: 800px; margin: 0 auto;">
+                <h3 style="margin-bottom: 25px; color: var(--turquesa); text-align: center;">
+                    <i class="fas fa-edit"></i> Formulario PQRS
+                </h3>
+
+                <form id="form-pqrs" action="https://api.web3forms.com/submit" method="POST">
+                    <input type="hidden" name="access_key" value="YOUR_WEB3FORMS_ACCESS_KEY_PQRS">
+                    <input type="hidden" name="subject" value="Nueva PQRS - Fundación VIDARELAX">
+                    <input type="hidden" name="from_name" value="Sistema PQRS - VIDARELAX">
+                    <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
+
+                    <!-- Tipo de solicitud -->
+                    <div class="form-group">
+                        <label for="pqrs_tipo">Tipo de solicitud *</label>
+                        <select id="pqrs_tipo" name="tipo_solicitud" required>
+                            <option value="">Seleccione una opción...</option>
+                            <option value="Petición">📄 Petición (solicitud de información o documento)</option>
+                            <option value="Queja">⚠️ Queja (inconformidad con un servicio)</option>
+                            <option value="Reclamo">⚖️ Reclamo (solicitud de solución o resarcimiento)</option>
+                            <option value="Sugerencia">💡 Sugerencia (propuesta de mejora)</option>
+                        </select>
+                    </div>
+
+                    <!-- Nombre completo -->
+                    <div class="form-group">
+                        <label for="pqrs_nombre">Nombre completo *</label>
+                        <input type="text" id="pqrs_nombre" name="nombre" placeholder="Ej: Ana María Rodríguez Pérez" required minlength="5">
+                    </div>
+
+                    <!-- Documento de identidad -->
+                    <div class="form-group">
+                        <label for="pqrs_documento">Documento de identidad *</label>
+                        <input type="text" id="pqrs_documento" name="documento" placeholder="Ej: CC 1234567890" required minlength="5">
+                    </div>
+
+                    <!-- Email -->
+                    <div class="form-group">
+                        <label for="pqrs_email">Correo electrónico *</label>
+                        <input type="email" id="pqrs_email" name="email" placeholder="Ej: ana.rodriguez@email.com" required>
+                    </div>
+
+                    <!-- Teléfono -->
+                    <div class="form-group">
+                        <label for="pqrs_telefono">Teléfono de contacto *</label>
+                        <input type="tel" id="pqrs_telefono" name="telefono" placeholder="Ej: 3001234567" required pattern="[0-9]{10}">
+                    </div>
+
+                    <!-- Ciudad -->
+                    <div class="form-group">
+                        <label for="pqrs_ciudad">Ciudad *</label>
+                        <input type="text" id="pqrs_ciudad" name="ciudad" placeholder="Ej: Bogotá" required minlength="3">
+                    </div>
+
+                    <!-- Asunto -->
+                    <div class="form-group">
+                        <label for="pqrs_asunto">Asunto *</label>
+                        <input type="text" id="pqrs_asunto" name="asunto" placeholder="Resumen breve de tu solicitud (ej: Solicitud de certificado de donación)" required minlength="10" maxlength="150">
+                    </div>
+
+                    <!-- Descripción detallada -->
+                    <div class="form-group">
+                        <label for="pqrs_descripcion">Descripción detallada *</label>
+                        <textarea id="pqrs_descripcion" name="descripcion" placeholder="Describe tu solicitud con el mayor detalle posible. Incluye fechas, nombres, situaciones específicas y cualquier información relevante." required minlength="50" maxlength="2000" rows="6"></textarea>
+                        <small style="display: block; margin-top: 5px; color: #888;">Mínimo 50 caracteres. <span id="char-count">0</span>/2000</small>
+                    </div>
+
+                    <!-- ¿Actúas en representación? -->
+                    <div class="form-group">
+                        <label for="pqrs_representacion">¿Actúas en representación de otra persona o entidad? *</label>
+                        <select id="pqrs_representacion" name="actua_representacion" required onchange="toggleRepresentacionFields()">
+                            <option value="">Seleccione...</option>
+                            <option value="No">No, actúo a título personal</option>
+                            <option value="Sí">Sí, actúo en representación</option>
+                        </select>
+                    </div>
+
+                    <!-- Campo condicional: Nombre del representado -->
+                    <div id="representacion-fields" class="form-group" style="display: none;">
+                        <label for="pqrs_representado">Nombre de la persona o entidad que representas</label>
+                        <input type="text" id="pqrs_representado" name="nombre_representado" placeholder="Ej: Fundación XYZ o Juan Pérez">
+                        <small style="display: block; margin-top: 5px; color: #888;">
+                            <i class="fas fa-info-circle"></i> Deberás adjuntar poder o autorización por correo electrónico
+                        </small>
+                    </div>
+
+                    <!-- Adjuntar archivo (opcional) -->
+                    <div class="form-group">
+                        <label for="pqrs_archivo">Adjuntar documento (opcional)</label>
+                        <input type="file" id="pqrs_archivo" name="attachment" accept=".pdf,.jpg,.jpeg,.png,.doc,.docx" style="padding: 10px; border: 2px dashed #ddd; border-radius: 8px; cursor: pointer;">
+                        <small style="display: block; margin-top: 5px; color: #888;">
+                            Formatos aceptados: PDF, JPG, PNG, DOC, DOCX (máx. 5MB)
+                        </small>
+                    </div>
+
+                    <!-- Autorización de datos -->
+                    <div class="form-group">
+                        <label style="display: flex; align-items: flex-start; gap: 10px; cursor: pointer;">
+                            <input type="checkbox" name="autorizacion_datos" required style="margin-top: 4px;">
+                            <span style="font-size: 0.9rem;">
+                                Autorizo el tratamiento de mis datos personales de acuerdo con la
+                                <strong>Ley 1581 de 2012</strong> y acepto que mi PQRS sea procesada
+                                conforme a la normativa vigente. *
+                            </span>
+                        </label>
+                    </div>
+
+                    <!-- Botón de envío -->
+                    <button type="submit" class="btn-submit">
+                        <i class="fas fa-paper-plane"></i> Enviar PQRS
+                    </button>
+
+                    <!-- Mensaje de éxito -->
+                    <div class="form-success" style="display: none; margin-top: 20px; padding: 15px; background: #d4edda; color: #155724; border-radius: 8px; text-align: center;">
+                        <i class="fas fa-check-circle" style="margin-right: 10px;"></i>
+                        ¡Tu PQRS ha sido radicada exitosamente! Recibirás un correo con tu número de radicado. Te responderemos en máximo 15 días hábiles.
+                    </div>
+                </form>
+            </div>
+
+            <!-- Nota final -->
+            <div class="info-box" style="background: #fff3cd; border-left-color: #ffc107; margin-top: 40px;">
+                <p style="margin: 0; color: #856404;">
+                    <i class="fas fa-info-circle" style="margin-right: 8px;"></i>
+                    <strong>Importante:</strong> Para consultas generales o información sobre nuestros programas,
+                    por favor usa la sección de <a href="#contacto" style="color: var(--turquesa); text-decoration: underline;">Contacto</a>.
+                    Este canal de PQRS está destinado exclusivamente para ejercer derechos legales o presentar
+                    inconformidades formales.
                 </p>
             </div>
         </div>
@@ -2147,40 +2456,167 @@
             
             <!-- Canales de contacto por área -->
             <div style="margin-bottom: 50px;">
-                <h3 style="text-align: center; color: var(--turquesa); margin-bottom: 30px; font-size: 1.8rem;">Canales de contacto por área</h3>
+                <h3 style="text-align: center; color: var(--turquesa); margin-bottom: 30px; font-size: 1.8rem;">Canales de contacto</h3>
 
-                <div class="benefits-grid">
-                    <div class="benefit-item">
-                        <i class="fas fa-envelope"></i>
-                        <div>
-                            <h4 style="color: var(--negro); margin-bottom: 5px;">Contacto General</h4>
-                            <p style="margin-bottom: 5px;"><strong>Email:</strong> cvidarelax@gmail.com</p>
-                            <p style="margin-bottom: 5px;"><strong>Teléfono:</strong> +57 (314) 817 9078</p>
-                            <p><strong>Dirección:</strong> Kra 25 #37-13, Bucaramanga</p>
+                <!-- Grid de 2 columnas: Correos corporativos + Otros canales -->
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 30px; margin-top: 30px;">
+
+                    <!-- Columna 1: Correos Corporativos -->
+                    <div style="background: white; padding: 30px; border-radius: 15px; box-shadow: 0 5px 20px rgba(0,0,0,0.08);">
+                        <h4 style="color: var(--turquesa); margin-bottom: 20px; font-size: 1.3rem; text-align: center;">
+                            <i class="fas fa-envelope-open-text"></i> Correos Corporativos
+                        </h4>
+
+                        <div style="display: flex; flex-direction: column; gap: 15px;">
+                            <div style="padding: 12px; background: #f8f9fa; border-radius: 8px; border-left: 4px solid var(--turquesa);">
+                                <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 5px;">
+                                    <i class="fas fa-info-circle" style="color: var(--turquesa);"></i>
+                                    <strong style="color: var(--negro);">Contacto General</strong>
+                                </div>
+                                <p style="margin: 0; padding-left: 24px; color: #555;">
+                                    <a href="mailto:contactanos@vidarelax.com.co" style="color: var(--turquesa); text-decoration: none;">
+                                        contactanos@vidarelax.com.co
+                                    </a>
+                                </p>
+                            </div>
+
+                            <div style="padding: 12px; background: #f8f9fa; border-radius: 8px; border-left: 4px solid var(--turquesa);">
+                                <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 5px;">
+                                    <i class="fas fa-hands-helping" style="color: var(--turquesa);"></i>
+                                    <strong style="color: var(--negro);">Voluntariado y Prácticas</strong>
+                                </div>
+                                <p style="margin: 0; padding-left: 24px; color: #555;">
+                                    <a href="mailto:voluntarios@vidarelax.com.co" style="color: var(--turquesa); text-decoration: none;">
+                                        voluntarios@vidarelax.com.co
+                                    </a>
+                                </p>
+                            </div>
+
+                            <div style="padding: 12px; background: #f8f9fa; border-radius: 8px; border-left: 4px solid var(--dorado);">
+                                <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 5px;">
+                                    <i class="fas fa-hand-holding-heart" style="color: var(--dorado);"></i>
+                                    <strong style="color: var(--negro);">Donaciones y Alianzas</strong>
+                                </div>
+                                <p style="margin: 0; padding-left: 24px; color: #555;">
+                                    <a href="mailto:donaciones@vidarelax.com.co" style="color: var(--turquesa); text-decoration: none;">
+                                        donaciones@vidarelax.com.co
+                                    </a>
+                                </p>
+                            </div>
+
+                            <div style="padding: 12px; background: #f8f9fa; border-radius: 8px; border-left: 4px solid var(--lavanda);">
+                                <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 5px;">
+                                    <i class="fas fa-file-signature" style="color: var(--lavanda);"></i>
+                                    <strong style="color: var(--negro);">PQRS</strong>
+                                </div>
+                                <p style="margin: 0; padding-left: 24px; color: #555;">
+                                    <a href="mailto:pqrs@vidarelax.com.co" style="color: var(--turquesa); text-decoration: none;">
+                                        pqrs@vidarelax.com.co
+                                    </a>
+                                </p>
+                                <p style="margin: 5px 0 0 24px; font-size: 0.85rem; color: #888;">
+                                    <a href="#pqrs" style="color: var(--lavanda); text-decoration: none;">
+                                        <i class="fas fa-arrow-right"></i> Usa el formulario PQRS
+                                    </a>
+                                </p>
+                            </div>
+
+                            <div style="padding: 12px; background: #f8f9fa; border-radius: 8px; border-left: 4px solid #6c757d;">
+                                <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 5px;">
+                                    <i class="fas fa-gavel" style="color: #6c757d;"></i>
+                                    <strong style="color: var(--negro);">Asuntos Jurídicos</strong>
+                                </div>
+                                <p style="margin: 0; padding-left: 24px; color: #555;">
+                                    <a href="mailto:juridico@vidarelax.com.co" style="color: var(--turquesa); text-decoration: none;">
+                                        juridico@vidarelax.com.co
+                                    </a>
+                                </p>
+                            </div>
                         </div>
                     </div>
 
-                    <div class="benefit-item">
-                        <i class="fas fa-hands-helping"></i>
-                        <div>
-                            <h4 style="color: var(--negro); margin-bottom: 5px;">Voluntariado</h4>
-                            <p><strong>Email:</strong> voluntarios@vidarelax.com.co</p>
-                        </div>
-                    </div>
+                    <!-- Columna 2: Otros Canales -->
+                    <div style="background: white; padding: 30px; border-radius: 15px; box-shadow: 0 5px 20px rgba(0,0,0,0.08);">
+                        <h4 style="color: var(--turquesa); margin-bottom: 20px; font-size: 1.3rem; text-align: center;">
+                            <i class="fas fa-comments"></i> Otros Canales
+                        </h4>
 
-                    <div class="benefit-item">
-                        <i class="fas fa-hand-holding-heart"></i>
-                        <div>
-                            <h4 style="color: var(--negro); margin-bottom: 5px;">Donaciones</h4>
-                            <p><strong>Email:</strong> donativos@vidarelax.com.co</p>
-                        </div>
-                    </div>
+                        <div style="display: flex; flex-direction: column; gap: 20px;">
+                            <!-- Teléfono -->
+                            <div>
+                                <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 8px;">
+                                    <i class="fas fa-phone" style="color: var(--turquesa); font-size: 1.2rem;"></i>
+                                    <strong style="color: var(--negro);">Teléfono</strong>
+                                </div>
+                                <p style="margin: 0; padding-left: 30px; color: #555; font-size: 1.1rem;">
+                                    +57 (314) 817 9078
+                                </p>
+                            </div>
 
-                    <div class="benefit-item">
-                        <i class="fas fa-handshake"></i>
-                        <div>
-                            <h4 style="color: var(--negro); margin-bottom: 5px;">Alianzas Corporativas</h4>
-                            <p><strong>Email:</strong> alianzas@vidarelax.com.co</p>
+                            <!-- Dirección -->
+                            <div>
+                                <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 8px;">
+                                    <i class="fas fa-map-marker-alt" style="color: var(--turquesa); font-size: 1.2rem;"></i>
+                                    <strong style="color: var(--negro);">Dirección</strong>
+                                </div>
+                                <p style="margin: 0; padding-left: 30px; color: #555;">
+                                    Kra 25 #37-13<br>
+                                    Bucaramanga, Santander<br>
+                                    Colombia
+                                </p>
+                            </div>
+
+                            <!-- Redes Sociales -->
+                            <div>
+                                <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 12px;">
+                                    <i class="fas fa-share-alt" style="color: var(--turquesa); font-size: 1.2rem;"></i>
+                                    <strong style="color: var(--negro);">Síguenos</strong>
+                                </div>
+                                <div style="display: flex; gap: 15px; padding-left: 30px;">
+                                    <a href="https://www.instagram.com/cvidarelax?igsh=MWUzeXFhZnB6aXE5ag=="
+                                       target="_blank"
+                                       title="Instagram"
+                                       style="width: 40px; height: 40px; background: linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%);
+                                              border-radius: 50%; display: flex; align-items: center; justify-content: center;
+                                              color: white; text-decoration: none; transition: transform 0.3s ease;"
+                                       onmouseover="this.style.transform='scale(1.1)'"
+                                       onmouseout="this.style.transform='scale(1)'">
+                                        <i class="fab fa-instagram"></i>
+                                    </a>
+                                    <a href="https://www.facebook.com/profile.php?id=61569576968729&mibextid=ZbWKwL"
+                                       target="_blank"
+                                       title="Facebook"
+                                       style="width: 40px; height: 40px; background: #1877f2;
+                                              border-radius: 50%; display: flex; align-items: center; justify-content: center;
+                                              color: white; text-decoration: none; transition: transform 0.3s ease;"
+                                       onmouseover="this.style.transform='scale(1.1)'"
+                                       onmouseout="this.style.transform='scale(1)'">
+                                        <i class="fab fa-facebook-f"></i>
+                                    </a>
+                                    <a href="https://www.linkedin.com/in/fundacion-para-la-vida-vidarelax-951912340/"
+                                       target="_blank"
+                                       title="LinkedIn"
+                                       style="width: 40px; height: 40px; background: #0077b5;
+                                              border-radius: 50%; display: flex; align-items: center; justify-content: center;
+                                              color: white; text-decoration: none; transition: transform 0.3s ease;"
+                                       onmouseover="this.style.transform='scale(1.1)'"
+                                       onmouseout="this.style.transform='scale(1)'">
+                                        <i class="fab fa-linkedin-in"></i>
+                                    </a>
+                                </div>
+                            </div>
+
+                            <!-- Horario -->
+                            <div>
+                                <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 8px;">
+                                    <i class="fas fa-clock" style="color: var(--turquesa); font-size: 1.2rem;"></i>
+                                    <strong style="color: var(--negro);">Horario</strong>
+                                </div>
+                                <p style="margin: 0; padding-left: 30px; color: #555;">
+                                    Lunes a Viernes<br>
+                                    8:00 AM - 5:00 PM
+                                </p>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -2208,7 +2644,7 @@
                         <i class="fas fa-envelope"></i>
                         <div>
                             <h3>Correo Electrónico</h3>
-                            <p>cvidarelax@gmail.com</p>
+                            <p>contactanos@vidarelax.com.co</p>
                         </div>
                     </div>
 
@@ -2817,8 +3253,10 @@
             <div class="footer-section">
                 <h3>Marco Legal</h3>
                 <ul>
-                    <li><a href="#">Ley 1384 de 2010</a></li>
-                    <li><a href="#">Ley 2360 de 2024</a></li>
+                    <li><a href="documentos/ley-sandra-ceballos.pdf" download style="color: var(--turquesa);">📜 Ley Sandra Ceballos (1257/2008)</a></li>
+                    <li><a href="documentos/ley-2360-2024.pdf" download style="color: var(--turquesa);">📜 Ley 2360 de 2024</a></li>
+                    <li><a href="documentos/constitucion-colombia.pdf" download style="color: var(--turquesa);">📜 Constitución Política de Colombia</a></li>
+                    <li><a href="#">Ley 1384 de 2010 (Sandra Ceballos)</a></li>
                     <li><a href="#">Decreto 2150 de 1995</a></li>
                     <li><a href="#">Decreto 427 de 1996</a></li>
                     <li><a href="documentos/politica-tratamiento-datos.pdf" download>Política de Privacidad</a></li>
@@ -2841,7 +3279,7 @@
                 <ul>
                     <li><i class="fas fa-map-marker-alt" style="color: var(--turquesa); margin-right: 10px;"></i>Carrera 25 #37-13, Bucaramanga</li>
                     <li><i class="fas fa-phone" style="color: var(--turquesa); margin-right: 10px;"></i>+57 (314) 817 9078</li>
-                    <li><i class="fas fa-envelope" style="color: var(--turquesa); margin-right: 10px;"></i>cvidarelax@gmail.com</li>
+                    <li><i class="fas fa-envelope" style="color: var(--turquesa); margin-right: 10px;"></i>contactanos@vidarelax.com.co</li>
                 </ul>
                 <div class="social-links">
                     <a href="https://www.instagram.com/cvidarelax?igsh=OThsMHdxZWNybXVm" target="_blank"><i class="fab fa-instagram"></i></a>
@@ -3078,8 +3516,101 @@
             el.style.transition = 'all 0.6s ease';
             observer.observe(el);
         });
-        
+
         // Los documentos ahora son enlaces directos de descarga
+
+        // ===== FUNCIONES PARA FORMULARIO PQRS =====
+
+        // Toggle para campos condicionales de representación
+        function toggleRepresentacionFields() {
+            const representacionSelect = document.getElementById('pqrs_representacion');
+            const representacionFields = document.getElementById('representacion-fields');
+            const representadoInput = document.getElementById('pqrs_representado');
+
+            if (representacionSelect.value === 'Sí') {
+                representacionFields.style.display = 'block';
+                representadoInput.setAttribute('required', 'required');
+            } else {
+                representacionFields.style.display = 'none';
+                representadoInput.removeAttribute('required');
+                representadoInput.value = '';
+            }
+        }
+
+        // Contador de caracteres para descripción
+        const pqrsDescripcion = document.getElementById('pqrs_descripcion');
+        const charCount = document.getElementById('char-count');
+
+        if (pqrsDescripcion && charCount) {
+            pqrsDescripcion.addEventListener('input', function() {
+                charCount.textContent = this.value.length;
+
+                // Cambiar color según mínimo
+                if (this.value.length < 50) {
+                    charCount.style.color = '#e74c3c';
+                } else {
+                    charCount.style.color = '#27ae60';
+                }
+            });
+        }
+
+        // Manejar envío del formulario PQRS
+        const formPqrs = document.getElementById('form-pqrs');
+        if (formPqrs) {
+            formPqrs.addEventListener('submit', function(e) {
+                e.preventDefault();
+
+                const submitBtn = this.querySelector('button[type="submit"]');
+                const successMsg = this.querySelector('.form-success');
+
+                // Deshabilitar botón durante el envío
+                submitBtn.disabled = true;
+                submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Enviando...';
+
+                // Enviar formulario usando FormData
+                const formData = new FormData(this);
+
+                fetch('https://api.web3forms.com/submit', {
+                    method: 'POST',
+                    body: formData
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        // Mostrar mensaje de éxito
+                        successMsg.style.display = 'block';
+
+                        // Limpiar formulario
+                        formPqrs.reset();
+
+                        // Ocultar campos condicionales
+                        document.getElementById('representacion-fields').style.display = 'none';
+
+                        // Resetear contador
+                        if (charCount) charCount.textContent = '0';
+
+                        // Scroll al mensaje de éxito
+                        successMsg.scrollIntoView({ behavior: 'smooth', block: 'center' });
+
+                        // Ocultar mensaje después de 10 segundos
+                        setTimeout(() => {
+                            successMsg.style.display = 'none';
+                        }, 10000);
+                    } else {
+                        alert('Hubo un error al enviar tu PQRS. Por favor intenta nuevamente o contáctanos directamente a pqrs@vidarelax.com.co');
+                    }
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    alert('Hubo un error al enviar tu PQRS. Por favor intenta nuevamente o contáctanos directamente a pqrs@vidarelax.com.co');
+                })
+                .finally(() => {
+                    // Rehabilitar botón
+                    submitBtn.disabled = false;
+                    submitBtn.innerHTML = '<i class="fas fa-paper-plane"></i> Enviar PQRS';
+                });
+            });
+        }
     </script>
 
 
