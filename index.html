@@ -143,7 +143,93 @@
         .nav-links a:hover::after {
             width: 100%;
         }
-        
+
+        /* ===== DROPDOWN STYLES ===== */
+        .dropdown {
+            position: relative;
+        }
+
+        .dropbtn {
+            display: flex;
+            align-items: center;
+            gap: 0.25rem;
+            cursor: pointer;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: white;
+            min-width: 250px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            border-radius: 8px;
+            padding: 0.5rem 0;
+            margin-top: 0.5rem;
+            z-index: 1001;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+            animation: fadeIn 0.3s ease-in-out;
+        }
+
+        .dropdown-content a {
+            display: block;
+            padding: 0.75rem 1.5rem;
+            color: #333;
+            transition: all 0.2s;
+            border-radius: 0;
+        }
+
+        .dropdown-content a:hover {
+            background: var(--turquesa);
+            color: white;
+        }
+
+        .dropdown-content a::after {
+            display: none;
+        }
+
+        .arrow {
+            font-size: 0.75rem;
+            transition: transform 0.3s;
+        }
+
+        .dropdown:hover .arrow {
+            transform: rotate(180deg);
+        }
+
+        /* ===== ADMIN ACCESS BUTTON ===== */
+        .admin-access {
+            margin-left: 1rem;
+        }
+
+        .btn-admin {
+            background: linear-gradient(135deg, #4A7C7E 0%, #6B9FA1 100%) !important;
+            color: white !important;
+            padding: 0.75rem 1.5rem !important;
+            border-radius: 8px !important;
+            font-weight: 600;
+            box-shadow: 0 2px 8px rgba(74, 124, 126, 0.3);
+            white-space: nowrap;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .btn-admin:hover {
+            background: linear-gradient(135deg, #3A6C6E 0%, #5B8F91 100%) !important;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(74, 124, 126, 0.4);
+        }
+
+        .btn-admin::after {
+            display: none;
+        }
+
         .btn-login {
             background: linear-gradient(135deg, var(--turquesa), var(--lavanda));
             color: var(--blanco) !important;
@@ -254,15 +340,20 @@
             padding: 80px 20px;
         }
         
+        /* ===== TÍTULOS MEJORADOS CON CLAMP() ===== */
         .section-title {
             text-align: center;
-            font-size: 2.5rem;
+            font-size: clamp(1.75rem, 4vw, 2.5rem);
+            line-height: 1.3;
             margin-bottom: 20px;
             color: var(--turquesa);
             position: relative;
             padding-bottom: 15px;
+            max-width: 100%;
+            word-wrap: break-word;
+            hyphens: auto;
         }
-        
+
         .section-title::after {
             content: '';
             position: absolute;
@@ -274,13 +365,70 @@
             transform: translateX(-50%);
             border-radius: 2px;
         }
-        
+
         .section-subtitle {
             text-align: center;
-            max-width: 700px;
+            max-width: 900px;
             margin: 0 auto 50px;
             color: #666;
-            font-size: 1.1rem;
+            font-size: clamp(1rem, 2.5vw, 1.25rem);
+            line-height: 1.6;
+            word-wrap: break-word;
+        }
+
+        /* Títulos generales de página */
+        .page-section h1,
+        .page-section h2 {
+            font-size: clamp(1.75rem, 4vw, 2.5rem);
+            line-height: 1.3;
+            margin-bottom: 1rem;
+            color: #2c3e50;
+            font-weight: 700;
+            max-width: 100%;
+            word-wrap: break-word;
+            hyphens: auto;
+        }
+
+        .page-section h3 {
+            font-size: clamp(1.25rem, 3vw, 1.75rem);
+            line-height: 1.4;
+            margin-bottom: 0.75rem;
+            color: #34495e;
+            font-weight: 600;
+        }
+
+        /* Hero mejorado */
+        .hero h1 {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-subtitle {
+            font-size: clamp(1.25rem, 3vw, 1.75rem);
+            font-style: italic;
+            color: var(--turquesa);
+            margin-bottom: 1rem;
+            line-height: 1.5;
+        }
+
+        .hero-content p {
+            font-size: clamp(1rem, 2vw, 1.125rem);
+            line-height: 1.7;
+            max-width: 800px;
+            margin: 0 auto 2rem;
+        }
+
+        /* Contenedores de sección */
+        .page-section {
+            padding: 4rem 2rem;
+            min-height: 100vh;
+        }
+
+        .page-section .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
         }
         
         /* Quiénes Somos */
@@ -734,7 +882,50 @@
             .nav-links.active {
                 left: 0;
             }
-            
+
+            /* Dropdowns en móvil */
+            .dropdown-content {
+                position: static;
+                box-shadow: none;
+                display: none;
+                background: #f8f9fa;
+                margin: 10px 0;
+                border-radius: 8px;
+            }
+
+            .dropdown.active .dropdown-content {
+                display: block;
+            }
+
+            .dropdown-content a {
+                padding: 12px 20px;
+                font-size: 0.95rem;
+            }
+
+            .admin-access {
+                margin-left: 0;
+                margin-top: 10px;
+                width: 100%;
+            }
+
+            .btn-admin {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .page-section {
+                padding: 2rem 1rem;
+            }
+
+            .page-section h1,
+            .page-section h2 {
+                text-align: center;
+            }
+
+            .section-subtitle {
+                text-align: center;
+            }
+
             .hero h1 {
                 font-size: 2rem;
             }
@@ -1231,18 +1422,49 @@
 </div>
             <ul class="nav-links" id="navLinks">
                 <li><a href="#inicio" data-section="inicio">Inicio</a></li>
-                <li><a href="#quienes-somos" data-section="quienes-somos">Quiénes Somos</a></li>
-                <li><a href="#junta-directiva" data-section="junta-directiva">Junta Directiva</a></li>
+
+                <li class="dropdown">
+                    <a href="#" class="dropbtn">
+                        Nosotros <span class="arrow">▾</span>
+                    </a>
+                    <div class="dropdown-content">
+                        <a href="#quienes-somos" data-section="quienes-somos">Quiénes Somos</a>
+                        <a href="#junta-directiva" data-section="junta-directiva">Junta Directiva</a>
+                    </div>
+                </li>
+
                 <li><a href="#servicios" data-section="servicios">Servicios</a></li>
+
+                <li class="dropdown">
+                    <a href="#" class="dropbtn">
+                        Involúcrate <span class="arrow">▾</span>
+                    </a>
+                    <div class="dropdown-content">
+                        <a href="#donaciones" data-section="donaciones">Donaciones</a>
+                        <a href="#voluntariado" data-section="voluntariado">Voluntariado</a>
+                        <a href="#alianzas" data-section="alianzas">Alianzas Corporativas</a>
+                        <a href="#practicas" data-section="practicas">Prácticas Universitarias</a>
+                    </div>
+                </li>
+
                 <li><a href="#transparencia" data-section="transparencia">Transparencia</a></li>
-                <li><a href="#voluntariado" data-section="voluntariado">Voluntariado</a></li>
-                <li><a href="#alianzas" data-section="alianzas">Alianzas</a></li>
-                <li><a href="#practicas" data-section="practicas">Prácticas</a></li>
-                <li><a href="#donaciones" data-section="donaciones">Donaciones</a></li>
-                <li><a href="#pqrs" data-section="pqrs">PQRS</a></li>
-                <li><a href="#contacto" data-section="contacto">Contacto</a></li>
+
+                <li class="dropdown">
+                    <a href="#" class="dropbtn">
+                        Contacto <span class="arrow">▾</span>
+                    </a>
+                    <div class="dropdown-content">
+                        <a href="#contacto" data-section="contacto">Formulario de Contacto</a>
+                        <a href="#pqrs" data-section="pqrs">PQRS</a>
+                    </div>
+                </li>
+
                 <!-- ===== NETLIFY CMS: Acceso al panel administrativo ===== -->
-                <li><a href="/admin" class="btn-login">Acceso Administrativo</a></li>
+                <li class="admin-access">
+                    <a href="/admin" class="btn-admin">
+                        🔐 Acceso Administrativo
+                    </a>
+                </li>
             </ul>
             <div class="hamburger" id="hamburger">
                 <span></span>
@@ -3575,7 +3797,54 @@
             
             lastScroll = currentScroll;
         });
-        
+
+        // ===== DROPDOWN NAVIGATION: Funcionalidad para menús desplegables =====
+
+        // Asegurar que los dropdowns funcionen en móvil con clic
+        document.querySelectorAll('.dropdown > .dropbtn').forEach(btn => {
+            btn.addEventListener('click', function(e) {
+                if (window.innerWidth <= 768) {
+                    e.preventDefault();
+                    const dropdown = this.parentElement;
+
+                    // Cerrar otros dropdowns
+                    document.querySelectorAll('.dropdown').forEach(d => {
+                        if (d !== dropdown) {
+                            d.classList.remove('active');
+                        }
+                    });
+
+                    dropdown.classList.toggle('active');
+                }
+            });
+        });
+
+        // Cerrar dropdowns al hacer clic fuera
+        document.addEventListener('click', function(e) {
+            if (!e.target.closest('.dropdown')) {
+                document.querySelectorAll('.dropdown').forEach(dropdown => {
+                    dropdown.classList.remove('active');
+                });
+            }
+        });
+
+        // Asegurar que los enlaces de dropdown naveguen correctamente con el sistema SPA
+        document.querySelectorAll('.dropdown-content a[data-section]').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const sectionId = this.dataset.section;
+                if (sectionId) {
+                    showSection(sectionId);
+                    window.location.hash = sectionId;
+
+                    // Cerrar el dropdown en móvil
+                    if (window.innerWidth <= 768) {
+                        this.closest('.dropdown').classList.remove('active');
+                    }
+                }
+            });
+        });
+
         // ===== NETLIFY FORMS: Manejo del formulario de contacto =====
         // El formulario ahora es manejado por Netlify Forms automáticamente
         // Al enviar, Netlify procesa los datos y envía notificaciones por email
