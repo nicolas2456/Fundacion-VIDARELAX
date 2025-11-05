@@ -1252,18 +1252,176 @@
         </nav>
     </header>
 
-    <!-- Hero Section -->
-    <section class="hero" id="inicio">
-        <div class="hero-content">
-            <h1>Fundación Refugio Casa Vida Relax</h1>
-            <p class="hero-subtitle">Refugio para el cuerpo, alivio para el alma</p>
-            <p>Brindamos alojamiento digno, acompañamiento integral y servicios básicos a pacientes oncológicos y sus familias durante sus procesos de tratamiento en Bucaramanga</p>
-            <a href="#como-ayudar" class="btn-primary">Cómo Puedes Ayudar</a>
-        </div>
+    <!-- ===== SECCIÓN: INICIO (Página Principal Resumida) ===== -->
+    <section id="inicio" class="page-section active">
+        <!-- Hero -->
+        <section class="hero">
+            <div class="hero-content">
+                <h1>Fundación Refugio Casa Vida Relax</h1>
+                <p class="hero-subtitle">Refugio para el cuerpo, alivio para el alma</p>
+                <p>Brindamos alojamiento digno, acompañamiento integral y servicios básicos a pacientes oncológicos y sus familias durante sus procesos de tratamiento en Bucaramanga</p>
+                <div style="display: flex; gap: 15px; justify-content: center; flex-wrap: wrap; margin-top: 30px;">
+                    <a href="#quienes-somos" data-section="quienes-somos" class="btn-primary">Conocer Más</a>
+                    <a href="#donaciones" data-section="donaciones" class="btn-secondary">Donar Ahora</a>
+                    <a href="#contacto" data-section="contacto" class="btn-primary">Contacto</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Quiénes Somos - Resumen -->
+        <section style="background: var(--gris-claro); padding: 80px 0;">
+            <div class="container">
+                <h2 class="section-title">Quiénes Somos</h2>
+                <p style="text-align: center; max-width: 900px; margin: 0 auto 50px; font-size: 1.1rem; color: #555; line-height: 1.8;">
+                    Somos una fundación sin ánimo de lucro comprometida con la dignidad y el bienestar de pacientes oncológicos.
+                    Ofrecemos alojamiento, acompañamiento integral y servicios básicos durante sus tratamientos en Bucaramanga.
+                </p>
+
+                <div class="about-grid" style="margin-bottom: 40px;">
+                    <div class="about-card">
+                        <i class="fas fa-bullseye"></i>
+                        <h3>Nuestra Misión</h3>
+                        <p>Brindar alojamiento digno y acompañamiento integral a pacientes oncológicos, promoviendo solidaridad y bienestar físico, emocional y espiritual.</p>
+                    </div>
+
+                    <div class="about-card">
+                        <i class="fas fa-eye"></i>
+                        <h3>Nuestra Visión</h3>
+                        <p>Ser la fundación líder en Santander en albergue y acompañamiento para pacientes oncológicos, con un modelo sostenible y transformador.</p>
+                    </div>
+
+                    <div class="about-card">
+                        <i class="fas fa-heart"></i>
+                        <h3>Nuestros Valores</h3>
+                        <p>Solidaridad, dignidad humana, empatía, inclusión, transparencia y servicio guían cada una de nuestras acciones.</p>
+                    </div>
+                </div>
+
+                <div style="text-align: center;">
+                    <a href="#quienes-somos" data-section="quienes-somos" class="btn-secondary">Ver Más Información</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Servicios - Resumen -->
+        <section style="padding: 80px 0;">
+            <div class="container">
+                <h2 class="section-title">Nuestros Servicios</h2>
+                <p class="section-subtitle">Apoyo integral para pacientes oncológicos y sus familias</p>
+
+                <div class="services-grid">
+                    <div class="service-card">
+                        <i class="fas fa-bed"></i>
+                        <h3>Alojamiento Digno</h3>
+                        <p>Espacios cómodos y seguros durante el tratamiento</p>
+                    </div>
+
+                    <div class="service-card">
+                        <i class="fas fa-hands-helping"></i>
+                        <h3>Acompañamiento Integral</h3>
+                        <p>Apoyo emocional, espiritual y práctico</p>
+                    </div>
+
+                    <div class="service-card">
+                        <i class="fas fa-utensils"></i>
+                        <h3>Servicios Básicos</h3>
+                        <p>Alimentación, higiene y transporte</p>
+                    </div>
+
+                    <div class="service-card">
+                        <i class="fas fa-users"></i>
+                        <h3>Apoyo Familiar</h3>
+                        <p>Acompañamiento para familiares y cuidadores</p>
+                    </div>
+                </div>
+
+                <div style="text-align: center; margin-top: 40px;">
+                    <a href="#servicios" data-section="servicios" class="btn-secondary">Ver Todos los Servicios</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Cómo Ayudar - Cards Grandes -->
+        <section style="background: var(--gris-claro); padding: 80px 0;">
+            <div class="container">
+                <h2 class="section-title">Cómo Puedes Ayudar</h2>
+                <p class="section-subtitle">Tu apoyo transforma vidas. Hay muchas formas de contribuir</p>
+
+                <div class="help-grid">
+                    <div class="help-card">
+                        <div class="help-icon">
+                            <i class="fas fa-hand-holding-heart"></i>
+                        </div>
+                        <h3>Donaciones</h3>
+                        <p>Tu aporte económico nos ayuda a brindar alojamiento y servicios a más pacientes.</p>
+                        <a href="#donaciones" data-section="donaciones" class="btn-primary" style="margin-top: 20px; display: inline-block;">Donar Ahora</a>
+                    </div>
+
+                    <div class="help-card">
+                        <div class="help-icon">
+                            <i class="fas fa-hands-helping"></i>
+                        </div>
+                        <h3>Voluntariado</h3>
+                        <p>Únete a nuestro equipo y comparte tu tiempo y habilidades con quienes más lo necesitan.</p>
+                        <a href="#voluntariado" data-section="voluntariado" class="btn-primary" style="margin-top: 20px; display: inline-block;">Ser Voluntario</a>
+                    </div>
+
+                    <div class="help-card">
+                        <div class="help-icon">
+                            <i class="fas fa-building"></i>
+                        </div>
+                        <h3>Alianzas Corporativas</h3>
+                        <p>Si representas una empresa, crea alianzas estratégicas de impacto social positivo.</p>
+                        <a href="#alianzas" data-section="alianzas" class="btn-primary" style="margin-top: 20px; display: inline-block;">Crear Alianza</a>
+                    </div>
+
+                    <div class="help-card">
+                        <div class="help-icon">
+                            <i class="fas fa-graduation-cap"></i>
+                        </div>
+                        <h3>Prácticas Profesionales</h3>
+                        <p>Completa tu práctica universitaria en un entorno real de impacto social.</p>
+                        <a href="#practicas" data-section="practicas" class="btn-primary" style="margin-top: 20px; display: inline-block;">Aplicar</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contacto Rápido -->
+        <section style="padding: 80px 0;">
+            <div class="container">
+                <h2 class="section-title">Contacto</h2>
+                <p class="section-subtitle">Estamos aquí para atenderte</p>
+
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; max-width: 900px; margin: 0 auto;">
+                    <div style="text-align: center; padding: 30px; background: white; border-radius: 10px; box-shadow: 0 3px 15px rgba(0,0,0,0.1);">
+                        <i class="fas fa-phone" style="font-size: 2.5rem; color: var(--turquesa); margin-bottom: 15px;"></i>
+                        <h4 style="color: var(--negro); margin-bottom: 10px;">Teléfono</h4>
+                        <p style="color: #666;">+57 (314) 817 9078</p>
+                    </div>
+
+                    <div style="text-align: center; padding: 30px; background: white; border-radius: 10px; box-shadow: 0 3px 15px rgba(0,0,0,0.1);">
+                        <i class="fas fa-envelope" style="font-size: 2.5rem; color: var(--turquesa); margin-bottom: 15px;"></i>
+                        <h4 style="color: var(--negro); margin-bottom: 10px;">Email</h4>
+                        <p style="color: #666;">contactanos@vidarelax.com.co</p>
+                    </div>
+
+                    <div style="text-align: center; padding: 30px; background: white; border-radius: 10px; box-shadow: 0 3px 15px rgba(0,0,0,0.1);">
+                        <i class="fas fa-map-marker-alt" style="font-size: 2.5rem; color: var(--turquesa); margin-bottom: 15px;"></i>
+                        <h4 style="color: var(--negro); margin-bottom: 10px;">Dirección</h4>
+                        <p style="color: #666;">Kra 25 #37-13, Bucaramanga</p>
+                    </div>
+                </div>
+
+                <div style="text-align: center; margin-top: 40px;">
+                    <a href="#contacto" data-section="contacto" class="btn-primary">Ver Formularios de Contacto</a>
+                </div>
+            </div>
+        </section>
     </section>
 
-    <!-- Quiénes Somos -->
-    <section id="quienes-somos">
+    <!-- ===== SECCIÓN: QUIÉNES SOMOS (Completa) ===== -->
+    <section id="quienes-somos" class="page-section">
         <div class="container">
             <h2 class="section-title">Quiénes Somos</h2>
             <p class="section-subtitle">Una fundación comprometida con la dignidad y el bienestar de los pacientes oncológicos</p>
@@ -1308,8 +1466,8 @@
         </div>
     </section>
 
-    <!-- Junta Directiva -->
-    <section id="junta-directiva">
+    <!-- ===== SECCIÓN: JUNTA DIRECTIVA ===== -->
+    <section id="junta-directiva" class="page-section">
         <div class="container">
             <h2 class="section-title">Junta Directiva</h2>
             <p class="section-subtitle">Consejo Directivo Provisional de la Fundación</p>
@@ -1338,8 +1496,8 @@
         </div>
     </section>
 
-    <!-- Servicios -->
-    <section id="servicios">
+    <!-- ===== SECCIÓN: SERVICIOS ===== -->
+    <section id="servicios" class="page-section">
         <div class="container">
             <h2 class="section-title">Nuestros Servicios</h2>
             <p class="section-subtitle">Apoyo integral para pacientes oncológicos y sus familias</p>
@@ -1408,8 +1566,8 @@
         </div>
     </section>
 
-    <!-- Transparencia -->
-    <section id="transparencia">
+    <!-- ===== SECCIÓN: TRANSPARENCIA ===== -->
+    <section id="transparencia" class="page-section">
         <div class="container">
             <h2 class="section-title">Transparencia</h2>
             <p class="section-subtitle">Documentos institucionales disponibles para consulta</p>
@@ -1506,59 +1664,8 @@
         </div>
     </section>
 
-    <!-- Cómo Ayudar -->
-    <section id="como-ayudar">
-        <div class="container">
-            <h2 class="section-title">Cómo Puedes Ayudar</h2>
-            <p class="section-subtitle">Tu apoyo transforma vidas. Hay muchas formas de contribuir a nuestra misión</p>
-            
-            <div class="help-grid">
-                <div class="help-card" style="opacity: 1; transform: translateY(0px); transition: 0.6s;">
-                    <div class="help-icon">
-                        <i class="fas fa-hand-holding-heart"></i>
-                    </div>
-                    <h3>Donaciones</h3>
-                    <p>Tu aporte económico nos ayuda a brindar alojamiento y servicios a más pacientes. Cada contribución marca la diferencia.</p>
-
-                    <div style="margin-top: 20px; padding: 20px; background: linear-gradient(135deg, rgba(77, 184, 172, 0.1), rgba(155, 111, 181, 0.1)); border-radius: 10px; border-left: 4px solid var(--turquesa);">
-                        <p style="font-weight: 600; color: var(--turquesa); margin-bottom: 10px;">
-                            <i class="fas fa-mobile-alt"></i> Donaciones por Nequi:
-                        </p>
-                        <p style="font-size: 1.3rem; font-weight: 700; color: var(--negro); margin-bottom: 5px;">
-                            314 817 9078
-                        </p>
-                        <p style="font-size: 0.9rem; color: #666;">
-                            A nombre de: Daniel Moreno
-                        </p>
-                        <p style="margin-top: 10px; font-size: 0.85rem; font-style: italic; color: #888;">
-                            Información bancaria disponible próximamente
-                        </p>
-                    </div>
-                </div>
-                
-                <div class="help-card" style="opacity: 1; transform: translateY(0px); transition: 0.6s;">
-                    <div class="help-icon">
-                        <i class="fas fa-hands-helping"></i>
-                    </div>
-                    <h3>Voluntariado</h3>
-                    <p>Únete a nuestro equipo de voluntarios y comparte tu tiempo, habilidades y compañía con quienes más lo necesitan.</p>
-                    <p style="margin-top: 15px; font-weight: 600; color: var(--turquesa);">Contáctanos para más información</p>
-                </div>
-                
-                <div class="help-card" style="opacity: 1; transform: translateY(0px); transition: 0.6s;">
-                    <div class="help-icon">
-                        <i class="fas fa-building"></i>
-                    </div>
-                    <h3>Alianzas Corporativas</h3>
-                    <p>Si representas una empresa, podemos crear alianzas estratégicas que generen impacto social positivo.</p>
-                    <p style="margin-top: 15px; font-weight: 600; color: var(--turquesa);">Escribenos para explorar oportunidades</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Voluntariado -->
-    <section id="voluntariado">
+    <!-- ===== SECCIÓN: VOLUNTARIADO ===== -->
+    <section id="voluntariado" class="page-section">
         <div class="container">
             <h2 class="section-title">Únete como Voluntario</h2>
             <p class="section-subtitle">Transforma vidas mientras transformas la tuya</p>
@@ -1719,8 +1826,8 @@
         </div>
     </section>
 
-    <!-- Alianzas Corporativas -->
-    <section id="alianzas" style="background: var(--gris-claro);">
+    <!-- ===== SECCIÓN: ALIANZAS CORPORATIVAS ===== -->
+    <section id="alianzas" class="page-section" style="background: var(--gris-claro);">
         <div class="container">
             <h2 class="section-title">Alianzas Corporativas</h2>
             <p class="section-subtitle">Juntos multiplicamos el impacto</p>
@@ -1867,8 +1974,8 @@
         </div>
     </section>
 
-    <!-- Prácticas Universitarias -->
-    <section id="practicas">
+    <!-- ===== SECCIÓN: PRÁCTICAS UNIVERSITARIAS ===== -->
+    <section id="practicas" class="page-section">
         <div class="container">
             <h2 class="section-title">Prácticas Universitarias y Servicio Social</h2>
             <p class="section-subtitle">Aprende sirviendo, transforma mientras te formas</p>
@@ -2078,8 +2185,8 @@
         </div>
     </section>
 
-    <!-- Donaciones -->
-    <section id="donaciones">
+    <!-- ===== SECCIÓN: DONACIONES ===== -->
+    <section id="donaciones" class="page-section">
         <div class="container">
             <h2 class="section-title">Tu Generosidad Salva Vidas</h2>
             <p class="section-subtitle">Cada donación es una semilla de esperanza</p>
@@ -2245,8 +2352,8 @@
         </div>
     </section>
 
-    <!-- PQRS -->
-    <section id="pqrs" style="background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);">
+    <!-- ===== SECCIÓN: PQRS ===== -->
+    <section id="pqrs" class="page-section" style="background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);">
         <div class="container">
             <h2 class="section-title">PQRS</h2>
             <p class="section-subtitle">Peticiones, Quejas, Reclamos y Sugerencias</p>
@@ -2519,8 +2626,8 @@
         </div>
     </section>
 
-    <!-- Contacto -->
-    <section id="contacto" style="background: var(--gris-claro);">
+    <!-- ===== SECCIÓN: CONTACTO ===== -->
+    <section id="contacto" class="page-section" style="background: var(--gris-claro);">
         <div class="container">
             <h2 class="section-title">Contacto</h2>
             <p class="section-subtitle">Estamos aquí para atenderte. Comunícate con nosotros</p>
