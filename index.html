@@ -166,26 +166,55 @@
             box-shadow: 0 4px 12px rgba(0,0,0,0.15);
             border-radius: 8px;
             padding: 0.5rem 0;
-            margin-top: 0.5rem;
+            margin-top: 0.25rem; /* Reducido para menor gap */
             z-index: 1001;
+            opacity: 0;
+            transform: translateY(-10px);
+            transition: opacity 0.3s ease, transform 0.3s ease;
+        }
+
+        /* Área invisible para mantener hover activo */
+        .dropdown::after {
+            content: '';
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            height: 10px;
+            background: transparent;
+            z-index: 1000;
         }
 
         .dropdown:hover .dropdown-content {
             display: block;
-            animation: fadeIn 0.3s ease-in-out;
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         .dropdown-content a {
             display: block;
-            padding: 0.75rem 1.5rem;
+            padding: 0.875rem 1.5rem;
             color: #333;
             transition: all 0.2s;
             border-radius: 0;
+            text-decoration: none;
         }
 
         .dropdown-content a:hover {
-            background: var(--turquesa);
+            background: #4A7C7E;
             color: white;
+            padding-left: 2rem; /* Efecto de indent al hover */
         }
 
         .dropdown-content a::after {
@@ -407,9 +436,11 @@
         .hero-subtitle {
             font-size: clamp(1.25rem, 3vw, 1.75rem);
             font-style: italic;
-            color: var(--turquesa);
+            color: #C4A962; /* Dorado para mejor contraste */
+            font-weight: 600;
             margin-bottom: 1rem;
             line-height: 1.5;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.1);
         }
 
         .hero-content p {
@@ -571,8 +602,22 @@
         }
         
         .service-card h3 {
-            color: var(--negro);
-            margin-bottom: 15px;
+            font-size: 1.5rem;
+            color: #2c3e50;
+            margin-bottom: 1rem;
+            font-weight: 600;
+            line-height: 1.3;
+            min-height: 60px; /* Asegurar altura uniforme */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .service-card p {
+            font-size: 1rem;
+            color: #666;
+            line-height: 1.6;
+            margin: 0;
         }
         
         /* Transparencia */
@@ -2577,8 +2622,8 @@
     <!-- ===== SECCIÓN: PQRS ===== -->
     <section id="pqrs" class="page-section" style="background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);">
         <div class="container">
-            <h2 class="section-title">PQRS</h2>
-            <p class="section-subtitle">Peticiones, Quejas, Reclamos y Sugerencias</p>
+            <h2 class="section-title">PQRS - Peticiones, Quejas, Reclamos y Sugerencias</h2>
+            <p class="section-subtitle">Tu opinión nos ayuda a mejorar. Comunícate con nosotros</p>
 
             <!-- Intro -->
             <div class="info-box" style="background: white; padding: 30px; margin-bottom: 40px; border-left: 5px solid var(--turquesa);">
@@ -2851,8 +2896,8 @@
     <!-- ===== SECCIÓN: CONTACTO ===== -->
     <section id="contacto" class="page-section" style="background: var(--gris-claro);">
         <div class="container">
-            <h2 class="section-title">Contacto</h2>
-            <p class="section-subtitle">Estamos aquí para atenderte. Comunícate con nosotros</p>
+            <h2 class="section-title">Estamos aquí para ti</h2>
+            <p class="section-subtitle">Comunícate con nosotros. Te responderemos a la brevedad</p>
             
             <!-- Canales de contacto por área -->
             <div style="margin-bottom: 50px;">
