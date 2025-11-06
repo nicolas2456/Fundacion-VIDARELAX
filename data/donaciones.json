@@ -1,0 +1,27 @@
+{
+  "donaciones": {
+    "titulo": "Donaciones",
+    "descripcion": "Tu aporte económico nos ayuda a brindar alojamiento y servicios a más pacientes. Cada contribución marca la diferencia.",
+    "icono": "fas fa-hand-holding-heart",
+    "cuentas": [
+      {
+        "banco": "Bancolombia",
+        "tipo": "Ahorros",
+        "numero": "123-456789-00",
+        "titular": "Fundación Refugio Casa Vida Relax"
+      }
+    ]
+  },
+  "voluntariado": {
+    "titulo": "Voluntariado",
+    "descripcion": "Únete a nuestro equipo de voluntarios y comparte tu tiempo, habilidades y compañía con quienes más lo necesitan.",
+    "icono": "fas fa-hands-helping",
+    "contacto": "Contáctanos para más información"
+  },
+  "alianzas": {
+    "titulo": "Alianzas Corporativas",
+    "descripcion": "Si representas una empresa, podemos crear alianzas estratégicas que generen impacto social positivo.",
+    "icono": "fas fa-building",
+    "contacto": "Escríbenos para explorar oportunidades"
+  }
+}
