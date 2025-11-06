@@ -1,116 +1,227 @@
-<!DOCTYPE html>
-<html lang="es">
+<!doctype html>
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Panel Administrativo - Fundación VIDARELAX</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex" />
+  <title>Admin - VIDARELAX</title>
+  <link rel="icon" type="image/png" href="../imagenes/logo.png" />
 
-    <!-- Estilos personalizados para el login -->
-    <style>
-        body {
-            font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-            background: linear-gradient(135deg, #4DB8AC 0%, #9B6FB5 100%);
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0;
-        }
+  <!-- Netlify Identity -->
+  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
 
-        .admin-container {
-            text-align: center;
-            color: white;
-            padding: 40px;
-        }
+  <!-- Estilos personalizados para el CMS -->
+  <style>
+    /* Ocultar el loading screen predeterminado */
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+      background: #f8f9fa;
+    }
 
-        .admin-logo {
-            width: 120px;
-            height: 120px;
-            background: white;
-            border-radius: 50%;
-            margin: 0 auto 30px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.3);
-        }
+    /* Loader personalizado (minimalista) */
+    #nc-root::before {
+      content: '';
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(135deg, #4A7C7E 0%, #6B9FA1 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 9999;
+      opacity: 1;
+      transition: opacity 0.5s ease;
+    }
 
-        .admin-logo i {
-            font-size: 60px;
-            color: #4DB8AC;
-        }
+    #nc-root.loaded::before {
+      opacity: 0;
+      pointer-events: none;
+    }
 
-        h1 {
-            font-size: 2.5rem;
-            margin-bottom: 15px;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
-        }
+    /* Personalización del CMS */
+    :root {
+      --primary-color: #4A7C7E;
+      --secondary-color: #C4A962;
+      --accent-color: #6B9FA1;
+      --text-color: #2c3e50;
+      --bg-color: #ffffff;
+      --sidebar-bg: #f8f9fa;
+    }
 
-        p {
-            font-size: 1.1rem;
-            margin-bottom: 30px;
-            opacity: 0.95;
-        }
+    /* Header del CMS */
+    [class*="AppHeader"] {
+      background: linear-gradient(135deg, #4A7C7E 0%, #6B9FA1 100%) !important;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1) !important;
+    }
 
-        .loading {
-            display: inline-block;
-            width: 40px;
-            height: 40px;
-            border: 4px solid rgba(255,255,255,0.3);
-            border-radius: 50%;
-            border-top-color: white;
-            animation: spin 1s ease-in-out infinite;
-        }
+    /* Sidebar */
+    [class*="Sidebar"] {
+      background: var(--sidebar-bg) !important;
+      border-right: 1px solid #e0e0e0 !important;
+    }
 
-        @keyframes spin {
-            to { transform: rotate(360deg); }
-        }
+    /* Botones primarios */
+    button[class*="Button-primary"],
+    a[class*="Button-primary"] {
+      background: var(--primary-color) !important;
+      border-color: var(--primary-color) !important;
+      transition: all 0.3s ease !important;
+    }
 
-        .footer-info {
-            margin-top: 50px;
-            font-size: 0.9rem;
-            opacity: 0.8;
-        }
-    </style>
+    button[class*="Button-primary"]:hover,
+    a[class*="Button-primary"]:hover {
+      background: var(--accent-color) !important;
+      border-color: var(--accent-color) !important;
+      transform: translateY(-2px) !important;
+      box-shadow: 0 4px 12px rgba(74, 124, 126, 0.3) !important;
+    }
 
-    <!-- Font Awesome para iconos -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    /* Enlaces y elementos activos */
+    [class*="SidebarItem-active"],
+    [class*="NavLink-active"] {
+      background: var(--primary-color) !important;
+      color: white !important;
+    }
+
+    /* Cards de colección */
+    [class*="CollectionCard"] {
+      border-radius: 12px !important;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08) !important;
+      transition: all 0.3s ease !important;
+    }
+
+    [class*="CollectionCard"]:hover {
+      transform: translateY(-4px) !important;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.12) !important;
+    }
+
+    /* Inputs y formularios */
+    input[type="text"],
+    input[type="email"],
+    input[type="password"],
+    textarea,
+    select {
+      border: 1px solid #e0e0e0 !important;
+      border-radius: 8px !important;
+      padding: 0.75rem !important;
+      transition: all 0.3s ease !important;
+    }
+
+    input:focus,
+    textarea:focus,
+    select:focus {
+      border-color: var(--primary-color) !important;
+      box-shadow: 0 0 0 3px rgba(74, 124, 126, 0.1) !important;
+      outline: none !important;
+    }
+
+    /* Tabs */
+    [class*="Tab"] {
+      border-radius: 8px 8px 0 0 !important;
+    }
+
+    [class*="Tab-active"] {
+      background: var(--primary-color) !important;
+      color: white !important;
+    }
+
+    /* Tooltips y popups */
+    [class*="Tooltip"],
+    [class*="Popup"] {
+      border-radius: 8px !important;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.15) !important;
+    }
+
+    /* Widget de markdown */
+    [class*="MarkdownControl"] {
+      border-radius: 8px !important;
+    }
+
+    /* Scrollbar personalizada */
+    ::-webkit-scrollbar {
+      width: 10px;
+      height: 10px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: #f1f1f1;
+      border-radius: 10px;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: var(--primary-color);
+      border-radius: 10px;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+      background: var(--accent-color);
+    }
+
+    /* Animación de entrada */
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    #nc-root {
+      animation: fadeIn 0.5s ease;
+    }
+
+    /* Responsive: pantalla completa en móviles */
+    @media (max-width: 768px) {
+      [class*="Sidebar"] {
+        transform: translateX(-100%);
+      }
+
+      [class*="Sidebar-open"] {
+        transform: translateX(0);
+      }
+    }
+  </style>
 </head>
 <body>
-    <div class="admin-container">
-        <div class="admin-logo">
-            <i class="fas fa-hand-holding-heart"></i>
-        </div>
-        <h1>Panel Administrativo</h1>
-        <p>Fundación Refugio Casa Vida Relax - VIDARELAX</p>
-        <div class="loading"></div>
-        <p style="margin-top: 20px; font-size: 0.95rem;">Cargando sistema de gestión...</p>
+  <!-- Decap CMS -->
+  <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
 
-        <div class="footer-info">
-            <p><i class="fas fa-shield-alt"></i> Acceso seguro mediante GitHub OAuth</p>
-            <p>Solo personal autorizado puede acceder a este panel</p>
-        </div>
-    </div>
-
-    <!-- ===== NETLIFY IDENTITY WIDGET: Login simple con email/password ===== -->
-    <!-- Permite a los administradores acceder sin necesidad de cuenta GitHub -->
-    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
-
-    <!-- ===== DECAP CMS: Sistema de gestión de contenido (antes Netlify CMS) ===== -->
-    <!-- Funciona exactamente igual que Netlify CMS pero de forma independiente -->
-    <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
-
-    <!-- Script para redirigir después del login -->
-    <script>
-        if (window.netlifyIdentity) {
-            window.netlifyIdentity.on("init", user => {
-                if (!user) {
-                    window.netlifyIdentity.on("login", () => {
-                        document.location.href = "/admin/";
-                    });
-                }
-            });
+  <!-- Scripts de autenticación -->
+  <script>
+    // Manejar autenticación
+    if (window.netlifyIdentity) {
+      window.netlifyIdentity.on("init", user => {
+        if (!user) {
+          window.netlifyIdentity.on("login", () => {
+            document.location.href = "/admin/";
+          });
         }
-    </script>
+      });
+    }
+
+    // Ocultar loader cuando el CMS esté listo
+    window.addEventListener('load', () => {
+      setTimeout(() => {
+        const root = document.getElementById('nc-root');
+        if (root) {
+          root.classList.add('loaded');
+        }
+      }, 500);
+    });
+
+    // Configuración personalizada del CMS
+    CMS.init({
+      config: {
+        load_config_file: true
+      }
+    });
+  </script>
 </body>
 </html>

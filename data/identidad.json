@@ -1,0 +1,17 @@
+{
+  "mision": {
+    "titulo": "Nuestra Misión",
+    "descripcion": "Brindar alojamiento digno, acompañamiento integral y servicios básicos a pacientes oncológicos y sus familias durante sus procesos de tratamiento, promoviendo la solidaridad, la dignidad humana y el acceso equitativo a condiciones que favorezcan su bienestar físico, emocional y espiritual.",
+    "icono": "fas fa-bullseye"
+  },
+  "vision": {
+    "titulo": "Nuestra Visión",
+    "descripcion": "Ser reconocidos como la fundación líder en Santander y Colombia en la prestación de servicios de albergue y acompañamiento integral para pacientes oncológicos, creando un modelo sostenible, replicable y transformador que inspire esperanza y dignifique la vida durante la enfermedad.",
+    "icono": "fas fa-eye"
+  },
+  "valores": {
+    "titulo": "Nuestros Valores",
+    "descripcion": "Actuamos guiados por la solidaridad, dignidad humana, empatía, inclusión, respeto por la vida, equidad, transparencia, sostenibilidad y servicio. Cada acción refleja nuestro compromiso con el bienestar integral de quienes atendemos.",
+    "icono": "fas fa-heart"
+  }
+}

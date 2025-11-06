@@ -4,19 +4,19 @@
 # ═══════════════════════════════════════════════════════════════
 
 # Backend: Configuración de autenticación y almacenamiento
-# Usando git-gateway + Netlify Identity para login simple con email/password
 backend:
-  name: git-gateway           # Permite login con email/password (sin necesidad de GitHub para usuarios)
-  branch: main                # Rama principal donde se guardarán los cambios
-  # Para desarrollo local, descomentar la siguiente línea:
-  # local_backend: true
+  name: git-gateway
+  branch: main
 
-# Configuración de medios (imágenes, PDFs, etc.)
-media_folder: "assets/uploads"      # Carpeta donde se guardarán archivos subidos
-public_folder: "/assets/uploads"    # Ruta pública para acceder a los archivos
+# Configuración de medios
+media_folder: "images/uploads"
+public_folder: "/images/uploads"
 
-# Idioma del panel administrativo
-locale: 'es'
+# Idioma del CMS
+locale: es
+
+# Logo personalizado
+logo_url: /imagenes/logo.png
 
 # ═══════════════════════════════════════════════════════════════
 # COLECCIONES EDITABLES
@@ -31,7 +31,7 @@ collections:
     files:
       - name: "informacion_general"
         label: "Información General"
-        file: "_data/general.json"
+        file: "data/general.json"
         fields:
           - {label: "Nombre de la Fundación", name: "nombre", widget: "string", default: "Fundación Refugio Casa Vida Relax"}
           - {label: "Nombre Corto (Siglas)", name: "siglas", widget: "string", default: "VIDARELAX"}
@@ -48,7 +48,7 @@ collections:
     files:
       - name: "mision_vision_valores"
         label: "Misión, Visión y Valores"
-        file: "_data/identidad.json"
+        file: "data/identidad.json"
         fields:
           - label: "Nuestra Misión"
             name: "mision"
@@ -79,7 +79,7 @@ collections:
   # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
   - name: "junta_directiva"
     label: "👥 Junta Directiva"
-    folder: "_data/junta"
+    folder: "data/junta"
     create: true
     slug: "{{slug}}"
     fields:
@@ -96,7 +96,7 @@ collections:
   # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
   - name: "servicios"
     label: "🏥 Servicios Ofrecidos"
-    folder: "_data/servicios"
+    folder: "data/servicios"
     create: true
     slug: "{{slug}}"
     fields:
@@ -110,7 +110,7 @@ collections:
   # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
   - name: "documentos"
     label: "📄 Documentos Institucionales"
-    folder: "_data/documentos"
+    folder: "data/documentos"
     create: true
     slug: "{{slug}}"
     fields:
@@ -128,7 +128,7 @@ collections:
     files:
       - name: "informacion_bancaria"
         label: "Información Bancaria"
-        file: "_data/donaciones.json"
+        file: "data/donaciones.json"
         fields:
           - label: "Donaciones"
             name: "donaciones"
@@ -173,7 +173,7 @@ collections:
     files:
       - name: "datos_contacto"
         label: "Datos de Contacto"
-        file: "_data/contacto.json"
+        file: "data/contacto.json"
         fields:
           - label: "Dirección"
             name: "direccion"
@@ -212,14 +212,14 @@ collections:
     files:
       - name: "colores"
         label: "Colores Institucionales"
-        file: "_data/estilos.json"
+        file: "data/estilos.json"
         fields:
-          - {label: "Color Turquesa (Principal)", name: "turquesa", widget: "string", default: "#4DB8AC", hint: "Formato hexadecimal: #RRGGBB"}
-          - {label: "Color Lavanda (Secundario)", name: "lavanda", widget: "string", default: "#9B6FB5"}
-          - {label: "Color Dorado (Acento)", name: "dorado", widget: "string", default: "#C8A962"}
-          - {label: "Color Negro (Texto)", name: "negro", widget: "string", default: "#1a1a1a"}
-          - {label: "Color Gris Claro (Fondos)", name: "gris_claro", widget: "string", default: "#f5f5f5"}
-          - {label: "Color Blanco", name: "blanco", widget: "string", default: "#ffffff"}
+          - {label: "Color Turquesa (Principal)", name: "turquesa", widget: "color", default: "#4DB8AC", hint: "Color principal de la marca"}
+          - {label: "Color Lavanda (Secundario)", name: "lavanda", widget: "color", default: "#9B6FB5"}
+          - {label: "Color Dorado (Acento)", name: "dorado", widget: "color", default: "#C8A962"}
+          - {label: "Color Negro (Texto)", name: "negro", widget: "color", default: "#1a1a1a"}
+          - {label: "Color Gris Claro (Fondos)", name: "gris_claro", widget: "color", default: "#f5f5f5"}
+          - {label: "Color Blanco", name: "blanco", widget: "color", default: "#ffffff"}
 
 # ═══════════════════════════════════════════════════════════════
 # CONFIGURACIÓN ADICIONAL
