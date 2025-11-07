@@ -6,11 +6,17 @@
 # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 # CONFIGURACIÓN DE BUILD
 # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+# IMPORTANTE: Este sitio usa Netlify SOLO para Identity (autenticación)
+# El hosting real está en Vercel. Por eso desactivamos los builds automáticos
+# para NO consumir el límite de builds de Netlify.
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 [build]
-  # Directorio donde se encuentra el código fuente
-  publish = "."
+  # Desactivar builds automáticos - solo usamos Netlify Identity
+  ignore = "exit 1"
 
-  # Comando de build (no necesario para sitios HTML estáticos)
+  # Si alguna vez necesitas hacer un build manual, usa:
+  # netlify deploy --prod --dir=.
+  publish = "."
   command = ""
 
 # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
