@@ -7,7 +7,19 @@
   <title>Admin - VIDARELAX</title>
   <link rel="icon" type="image/png" href="../imagenes/logo.png" />
 
-  <!-- Netlify Identity -->
+  <!-- CONFIGURACIÓN NETLIFY IDENTITY CORREGIDA -->
+  <script>
+    // Configurar Netlify Identity ANTES de cargar el widget
+    if (window.location.hostname === 'vidarelax.com.co') {
+      // Si están accediendo desde el dominio personalizado,
+      // forzar que use la URL de Netlify
+      window.netlifyIdentityConfig = {
+        url: 'https://radiant-kashata-fa9673.netlify.app/.netlify/identity'
+      };
+    }
+  </script>
+  
+  <!-- Netlify Identity Widget -->
   <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
 
   <!-- Estilos personalizados para el CMS -->
@@ -266,8 +278,18 @@ div[class*="Loading"] {
   <!-- Decap CMS - VERSIÓN ESTABLE -->
   <script src="https://unpkg.com/decap-cms@^3.1.2/dist/decap-cms.js"></script>
 
-  <!-- Scripts de autenticación y redirección -->
+  <!-- Scripts de autenticación y redirección CORREGIDOS -->
   <script>
+// Configurar Netlify Identity con la URL correcta
+if (window.netlifyIdentity) {
+  // Configurar la URL base si estamos en el dominio personalizado
+  if (window.location.hostname === 'vidarelax.com.co') {
+    window.netlifyIdentity.init({
+      APIUrl: 'https://radiant-kashata-fa9673.netlify.app/.netlify/identity'
+    });
+  }
+}
+
 // Esperar a que Netlify Identity se cargue completamente
 function setupNetlifyIdentity() {
   if (window.netlifyIdentity) {
@@ -385,3 +407,5 @@ setTimeout(() => {
   }
 }, 1000);
 </script>
+</body>
+</html>
