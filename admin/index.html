@@ -268,32 +268,93 @@ div[class*="Loading"] {
 
   <!-- Scripts de autenticación y redirección -->
   <script>
-// Manejar autenticación
-if (window.netlifyIdentity) {
-  window.netlifyIdentity.on("init", user => {
-    if (!user) {
-      window.netlifyIdentity.on("login", () => {
-        document.location.href = "/admin/";
-      });
-    }
-  });
-  
-  // Redirección al cerrar sesión CON MENSAJE
-  window.netlifyIdentity.on("logout", () => {
-    // Mostrar mensaje amigable
-    alert("Sesión cerrada. Regresando a la página principal de VIDARELAX...");
+// Esperar a que Netlify Identity se cargue completamente
+function setupNetlifyIdentity() {
+  if (window.netlifyIdentity) {
+    console.log("Netlify Identity detected");
     
-    // Redirigir después de 1 segundo
-    setTimeout(() => {
-      window.location.href = "https://vidarelax.com.co";
-    }, 1000);
-  });
+    // Configurar eventos de autenticación
+    window.netlifyIdentity.on("init", user => {
+      console.log("Identity initialized", user);
+      if (!user) {
+        window.netlifyIdentity.on("login", () => {
+          console.log("User logged in, redirecting to admin");
+          document.location.href = "/admin/";
+        });
+      }
+    });
+    
+    // Configurar logout con múltiples métodos
+    window.netlifyIdentity.on("logout", () => {
+      console.log("Logout event detected");
+      handleLogout();
+    });
+    
+    // Backup: detectar cambio en el estado del usuario
+    window.netlifyIdentity.on("init", user => {
+      if (!user) {
+        // Si no hay usuario, podría ser que acabó de hacer logout
+        setTimeout(() => {
+          const currentUser = window.netlifyIdentity.currentUser();
+          if (!currentUser && window.location.pathname.includes('/admin')) {
+            console.log("No user found, handling logout");
+            handleLogout();
+          }
+        }, 100);
+      }
+    });
+    
+  } else {
+    console.log("Netlify Identity not ready, retrying...");
+    setTimeout(setupNetlifyIdentity, 500);
+  }
 }
+
+// Función para manejar el logout
+function handleLogout() {
+  console.log("Processing logout...");
+  
+  // Mostrar mensaje
+  alert("Sesión cerrada. Regresando a la página principal de VIDARELAX...");
+  
+  // Redirigir después de un momento
+  setTimeout(() => {
+    console.log("Redirecting to main website");
+    window.location.href = "https://vidarelax.com.co";
+  }, 1000);
+}
+
+// Inicializar cuando se cargue la página
+window.addEventListener('load', () => {
+  setTimeout(setupNetlifyIdentity, 1000);
+});
+
+// Backup: detectar clicks en botones de logout
+document.addEventListener('click', (event) => {
+  const target = event.target;
+  
+  // Buscar si el click fue en un botón de logout
+  if (target.textContent?.includes('Cerrar') || 
+      target.textContent?.includes('Logout') ||
+      target.textContent?.includes('Sign out') ||
+      target.closest('[class*="logout"]') ||
+      target.closest('[class*="signout"]')) {
+    
+    console.log("Logout button clicked detected");
+    
+    // Esperar un momento y verificar si el usuario sigue logueado
+    setTimeout(() => {
+      if (window.netlifyIdentity?.currentUser && !window.netlifyIdentity.currentUser()) {
+        console.log("User no longer logged in, triggering logout handler");
+        handleLogout();
+      }
+    }, 500);
+  }
+});
 
 // Aplicar estilos después de que se cargue el CMS
 window.addEventListener('load', () => {
   setTimeout(() => {
-    // Asegurar que los estilos se apliquen
     const root = document.getElementById('nc-root');
     if (root) {
       root.classList.add('loaded');
@@ -324,5 +385,3 @@ setTimeout(() => {
   }
 }, 1000);
 </script>
-</body>
-</html>
