@@ -12,168 +12,140 @@
 
   <!-- Estilos personalizados para el CMS -->
   <style>
-    /* Mantener todos tus estilos personalizados */
-    body {
-      margin: 0;
-      padding: 0;
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-      background: #f8f9fa;
-    }
+body {
+  margin: 0;
+  padding: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif !important;
+  background: #f8f9fa !important;
+}
 
-    #nc-root::before {
-      content: '';
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background: linear-gradient(135deg, #4A7C7E 0%, #6B9FA1 100%);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      z-index: 9999;
-      opacity: 1;
-      transition: opacity 0.5s ease;
-    }
+:root {
+  --primary-color: #4A7C7E;
+  --secondary-color: #C4A962;
+  --accent-color: #6B9FA1;
+  --text-color: #2c3e50;
+  --bg-color: #ffffff;
+  --sidebar-bg: #f8f9fa;
+}
 
-    #nc-root.loaded::before {
-      opacity: 0;
-      pointer-events: none;
-    }
+/* FORZAR estilos con !important y selectores más específicos */
+div[class*="App"] {
+  background: linear-gradient(135deg, #4A7C7E 0%, #6B9FA1 100%) !important;
+}
 
-    :root {
-      --primary-color: #4A7C7E;
-      --secondary-color: #C4A962;
-      --accent-color: #6B9FA1;
-      --text-color: #2c3e50;
-      --bg-color: #ffffff;
-      --sidebar-bg: #f8f9fa;
-    }
+div[class*="AppHeader"], 
+header[class*="AppHeader"] {
+  background: linear-gradient(135deg, #4A7C7E 0%, #6B9FA1 100%) !important;
+  color: white !important;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1) !important;
+}
 
-    [class*="AppHeader"] {
-      background: linear-gradient(135deg, #4A7C7E 0%, #6B9FA1 100%) !important;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1) !important;
-    }
+nav[class*="Sidebar"], 
+div[class*="Sidebar"] {
+  background: #f8f9fa !important;
+  border-right: 1px solid #e0e0e0 !important;
+}
 
-    [class*="Sidebar"] {
-      background: var(--sidebar-bg) !important;
-      border-right: 1px solid #e0e0e0 !important;
-    }
+/* Texto del sidebar en colores VIDARELAX */
+nav[class*="Sidebar"] a,
+nav[class*="Sidebar"] span {
+  color: #4A7C7E !important;
+}
 
-    button[class*="Button-primary"],
-    a[class*="Button-primary"] {
-      background: var(--primary-color) !important;
-      border-color: var(--primary-color) !important;
-      transition: all 0.3s ease !important;
-    }
+/* Elementos activos del sidebar */
+nav[class*="Sidebar"] a[aria-current="page"],
+nav[class*="Sidebar"] a.active,
+div[class*="SidebarItem-active"] {
+  background: #4A7C7E !important;
+  color: white !important;
+}
 
-    button[class*="Button-primary"]:hover,
-    a[class*="Button-primary"]:hover {
-      background: var(--accent-color) !important;
-      border-color: var(--accent-color) !important;
-      transform: translateY(-2px) !important;
-      box-shadow: 0 4px 12px rgba(74, 124, 126, 0.3) !important;
-    }
+/* Botones primarios */
+button, 
+input[type="submit"],
+a[class*="Button"] {
+  background: #4A7C7E !important;
+  border-color: #4A7C7E !important;
+  color: white !important;
+  border-radius: 8px !important;
+  transition: all 0.3s ease !important;
+}
 
-    [class*="SidebarItem-active"],
-    [class*="NavLink-active"] {
-      background: var(--primary-color) !important;
-      color: white !important;
-    }
+button:hover,
+input[type="submit"]:hover,
+a[class*="Button"]:hover {
+  background: #6B9FA1 !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 4px 12px rgba(74, 124, 126, 0.3) !important;
+}
 
-    [class*="CollectionCard"] {
-      border-radius: 12px !important;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.08) !important;
-      transition: all 0.3s ease !important;
-    }
+/* Cards de colecciones */
+div[class*="CollectionCard"],
+div[class*="Card"] {
+  border-radius: 12px !important;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08) !important;
+  transition: all 0.3s ease !important;
+}
 
-    [class*="CollectionCard"]:hover {
-      transform: translateY(-4px) !important;
-      box-shadow: 0 4px 16px rgba(0,0,0,0.12) !important;
-    }
+div[class*="CollectionCard"]:hover,
+div[class*="Card"]:hover {
+  transform: translateY(-4px) !important;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.12) !important;
+}
 
-    input[type="text"],
-    input[type="email"],
-    input[type="password"],
-    textarea,
-    select {
-      border: 1px solid #e0e0e0 !important;
-      border-radius: 8px !important;
-      padding: 0.75rem !important;
-      transition: all 0.3s ease !important;
-    }
+/* Inputs y formularios */
+input, textarea, select {
+  border: 1px solid #e0e0e0 !important;
+  border-radius: 8px !important;
+  padding: 0.75rem !important;
+}
 
-    input:focus,
-    textarea:focus,
-    select:focus {
-      border-color: var(--primary-color) !important;
-      box-shadow: 0 0 0 3px rgba(74, 124, 126, 0.1) !important;
-      outline: none !important;
-    }
+input:focus, textarea:focus, select:focus {
+  border-color: #4A7C7E !important;
+  box-shadow: 0 0 0 3px rgba(74, 124, 126, 0.1) !important;
+  outline: none !important;
+}
 
-    [class*="Tab"] {
-      border-radius: 8px 8px 0 0 !important;
-    }
+/* Área principal de contenido */
+main, 
+div[class*="MainContent"] {
+  background: white !important;
+}
 
-    [class*="Tab-active"] {
-      background: var(--primary-color) !important;
-      color: white !important;
-    }
+/* Logo en la sidebar */
+div[class*="SidebarIcon"] {
+  background: #4A7C7E !important;
+  border-radius: 50% !important;
+}
 
-    [class*="Tooltip"],
-    [class*="Popup"] {
-      border-radius: 8px !important;
-      box-shadow: 0 4px 16px rgba(0,0,0,0.15) !important;
-    }
+/* Scrollbar personalizada */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
 
-    [class*="MarkdownControl"] {
-      border-radius: 8px !important;
-    }
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 10px;
+}
 
-    ::-webkit-scrollbar {
-      width: 10px;
-      height: 10px;
-    }
+::-webkit-scrollbar-thumb {
+  background: #4A7C7E;
+  border-radius: 10px;
+}
 
-    ::-webkit-scrollbar-track {
-      background: #f1f1f1;
-      border-radius: 10px;
-    }
+::-webkit-scrollbar-thumb:hover {
+  background: #6B9FA1;
+}
 
-    ::-webkit-scrollbar-thumb {
-      background: var(--primary-color);
-      border-radius: 10px;
-    }
+/* Animación de carga */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
 
-    ::-webkit-scrollbar-thumb:hover {
-      background: var(--accent-color);
-    }
-
-    @keyframes fadeIn {
-      from {
-        opacity: 0;
-        transform: translateY(20px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    #nc-root {
-      animation: fadeIn 0.5s ease;
-    }
-
-    @media (max-width: 768px) {
-      [class*="Sidebar"] {
-        transform: translateX(-100%);
-      }
-
-      [class*="Sidebar-open"] {
-        transform: translateX(0);
-      }
-    }
-  </style>
+body { animation: fadeIn 0.5s ease !important; }
+</style>
 </head>
 <body>
   <!-- Decap CMS - VERSIÓN CORREGIDA -->
