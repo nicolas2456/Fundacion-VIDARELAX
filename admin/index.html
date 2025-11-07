@@ -12,7 +12,7 @@
 
   <!-- Estilos personalizados para el CMS -->
   <style>
-    /* Ocultar el loading screen predeterminado */
+    /* Mantener todos tus estilos personalizados */
     body {
       margin: 0;
       padding: 0;
@@ -20,7 +20,6 @@
       background: #f8f9fa;
     }
 
-    /* Loader personalizado (minimalista) */
     #nc-root::before {
       content: '';
       position: fixed;
@@ -42,7 +41,6 @@
       pointer-events: none;
     }
 
-    /* Personalización del CMS */
     :root {
       --primary-color: #4A7C7E;
       --secondary-color: #C4A962;
@@ -52,19 +50,16 @@
       --sidebar-bg: #f8f9fa;
     }
 
-    /* Header del CMS */
     [class*="AppHeader"] {
       background: linear-gradient(135deg, #4A7C7E 0%, #6B9FA1 100%) !important;
       box-shadow: 0 2px 8px rgba(0,0,0,0.1) !important;
     }
 
-    /* Sidebar */
     [class*="Sidebar"] {
       background: var(--sidebar-bg) !important;
       border-right: 1px solid #e0e0e0 !important;
     }
 
-    /* Botones primarios */
     button[class*="Button-primary"],
     a[class*="Button-primary"] {
       background: var(--primary-color) !important;
@@ -80,14 +75,12 @@
       box-shadow: 0 4px 12px rgba(74, 124, 126, 0.3) !important;
     }
 
-    /* Enlaces y elementos activos */
     [class*="SidebarItem-active"],
     [class*="NavLink-active"] {
       background: var(--primary-color) !important;
       color: white !important;
     }
 
-    /* Cards de colección */
     [class*="CollectionCard"] {
       border-radius: 12px !important;
       box-shadow: 0 2px 8px rgba(0,0,0,0.08) !important;
@@ -99,7 +92,6 @@
       box-shadow: 0 4px 16px rgba(0,0,0,0.12) !important;
     }
 
-    /* Inputs y formularios */
     input[type="text"],
     input[type="email"],
     input[type="password"],
@@ -119,7 +111,6 @@
       outline: none !important;
     }
 
-    /* Tabs */
     [class*="Tab"] {
       border-radius: 8px 8px 0 0 !important;
     }
@@ -129,19 +120,16 @@
       color: white !important;
     }
 
-    /* Tooltips y popups */
     [class*="Tooltip"],
     [class*="Popup"] {
       border-radius: 8px !important;
       box-shadow: 0 4px 16px rgba(0,0,0,0.15) !important;
     }
 
-    /* Widget de markdown */
     [class*="MarkdownControl"] {
       border-radius: 8px !important;
     }
 
-    /* Scrollbar personalizada */
     ::-webkit-scrollbar {
       width: 10px;
       height: 10px;
@@ -161,7 +149,6 @@
       background: var(--accent-color);
     }
 
-    /* Animación de entrada */
     @keyframes fadeIn {
       from {
         opacity: 0;
@@ -177,7 +164,6 @@
       animation: fadeIn 0.5s ease;
     }
 
-    /* Responsive: pantalla completa en móviles */
     @media (max-width: 768px) {
       [class*="Sidebar"] {
         transform: translateX(-100%);
@@ -190,10 +176,10 @@
   </style>
 </head>
 <body>
-  <!-- Decap CMS -->
-  <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
+  <!-- Decap CMS - VERSIÓN CORREGIDA -->
+  <script src="https://unpkg.com/decap-cms@^3.1.2/dist/decap-cms.js"></script>
 
-  <!-- Scripts de autenticación -->
+  <!-- Scripts de autenticación - SIN CMS.init() -->
   <script>
     // Manejar autenticación
     if (window.netlifyIdentity) {
@@ -216,12 +202,7 @@
       }, 500);
     });
 
-    // Configuración personalizada del CMS
-    CMS.init({
-      config: {
-        load_config_file: true
-      }
-    });
+    // ❌ REMOVIDO: CMS.init() - Decap se auto-inicializa
   </script>
 </body>
 </html>
