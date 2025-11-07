@@ -152,29 +152,38 @@ body { animation: fadeIn 0.5s ease !important; }
   <script src="https://unpkg.com/decap-cms@^3.1.2/dist/decap-cms.js"></script>
 
   <!-- Scripts de autenticación - SIN CMS.init() -->
-  <script>
-    // Manejar autenticación
-    if (window.netlifyIdentity) {
-      window.netlifyIdentity.on("init", user => {
-        if (!user) {
-          window.netlifyIdentity.on("login", () => {
-            document.location.href = "/admin/";
-          });
-        }
+ <script>
+// Manejar autenticación
+if (window.netlifyIdentity) {
+  window.netlifyIdentity.on("init", user => {
+    if (!user) {
+      window.netlifyIdentity.on("login", () => {
+        document.location.href = "/admin/";
       });
     }
+  });
+  
+  // NUEVO: Redirección al cerrar sesión CON MENSAJE
+  window.netlifyIdentity.on("logout", () => {
+    // Mostrar mensaje amigable
+    alert("Sesión cerrada. Regresando a la página principal de VIDARELAX...");
+    
+    // Redirigir después de 1 segundo
+    setTimeout(() => {
+      window.location.href = "https://vidarelax.com.co";
+    }, 1000);
+  });
+}
 
-    // Ocultar loader cuando el CMS esté listo
-    window.addEventListener('load', () => {
-      setTimeout(() => {
-        const root = document.getElementById('nc-root');
-        if (root) {
-          root.classList.add('loaded');
-        }
-      }, 500);
-    });
-
-    // ❌ REMOVIDO: CMS.init() - Decap se auto-inicializa
-  </script>
+// Ocultar loader cuando el CMS esté listo
+window.addEventListener('load', () => {
+  setTimeout(() => {
+    const root = document.getElementById('nc-root');
+    if (root) {
+      root.classList.add('loaded');
+    }
+  }, 500);
+});
+</script>
 </body>
 </html>
