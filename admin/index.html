@@ -1,5 +1,5 @@
 <!doctype html>
-<html class="vidarelax-theme">
+<html class="vidarelax-forced-theme">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -7,7 +7,464 @@
   <title>Admin - VIDARELAX</title>
   <link rel="icon" type="image/png" href="../imagenes/logo.png" />
 
-  <!-- CONFIGURACIÓN NETLIFY IDENTITY -->
+  <!-- ══════════════════════════════════════════════════════════════════════════ -->
+  <!-- 🎨 ESTILOS VIDARELAX ULTRA-AGRESIVOS Y PERMANENTES 🎨 -->
+  <!-- ══════════════════════════════════════════════════════════════════════════ -->
+  <style id="vidarelax-permanent-styles">
+/* ╔══════════════════════════════════════════════════════════════════════════╗ */
+/* ║                     🚀 VARIABLES VIDARELAX ABSOLUTAS 🚀                  ║ */
+/* ╚══════════════════════════════════════════════════════════════════════════╝ */
+
+:root {
+  --vidarelax-primary: #4A7C7E !important;
+  --vidarelax-secondary: #C4A962 !important;
+  --vidarelax-accent: #6B9FA1 !important;
+  --vidarelax-gradient: linear-gradient(135deg, #4A7C7E 0%, #6B9FA1 100%) !important;
+  --vidarelax-sidebar-bg: rgba(248, 249, 250, 0.95) !important;
+  --vidarelax-white: #ffffff !important;
+  --vidarelax-shadow: rgba(0, 0, 0, 0.1) !important;
+}
+
+/* ╔══════════════════════════════════════════════════════════════════════════╗ */
+/* ║                       🌍 BASE UNIVERSAL FORZADA 🌍                       ║ */
+/* ╚══════════════════════════════════════════════════════════════════════════╝ */
+
+html.vidarelax-forced-theme,
+html.vidarelax-forced-theme body,
+html.vidarelax-forced-theme *,
+body.vidarelax-loaded,
+body.vidarelax-loaded * {
+  box-sizing: border-box !important;
+}
+
+html.vidarelax-forced-theme,
+html.vidarelax-forced-theme body {
+  margin: 0 !important;
+  padding: 0 !important;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif !important;
+  background: var(--vidarelax-gradient) !important;
+  min-height: 100vh !important;
+  width: 100% !important;
+  overflow-x: hidden !important;
+}
+
+/* ╔══════════════════════════════════════════════════════════════════════════╗ */
+/* ║                   🏗️ CONTENEDORES PRINCIPALES TOTALES 🏗️                ║ */
+/* ╚══════════════════════════════════════════════════════════════════════════╝ */
+
+html.vidarelax-forced-theme #nc-root,
+html.vidarelax-forced-theme div[data-testid="nc-app"],
+html.vidarelax-forced-theme div[class*="App"],
+html.vidarelax-forced-theme div[role="application"],
+html.vidarelax-forced-theme body > div,
+html.vidarelax-forced-theme body > div:first-child,
+html.vidarelax-forced-theme body > div:last-child,
+html.vidarelax-forced-theme .cms-wrapper,
+html.vidarelax-forced-theme #root,
+html.vidarelax-forced-theme [class*="cms"],
+html.vidarelax-forced-theme [class*="app"],
+html.vidarelax-forced-theme [data-testid*="app"],
+html.vidarelax-forced-theme [data-testid*="cms"],
+body.vidarelax-loaded #nc-root,
+body.vidarelax-loaded div[data-testid="nc-app"],
+body.vidarelax-loaded div[class*="App"],
+body.vidarelax-loaded div[role="application"],
+body.vidarelax-loaded > div {
+  background: var(--vidarelax-gradient) !important;
+  min-height: 100vh !important;
+  width: 100% !important;
+  position: relative !important;
+}
+
+/* ╔══════════════════════════════════════════════════════════════════════════╗ */
+/* ║                     🎩 HEADERS ULTRA-ESPECÍFICOS 🎩                      ║ */
+/* ╚══════════════════════════════════════════════════════════════════════════╝ */
+
+html.vidarelax-forced-theme div[class*="AppHeader"],
+html.vidarelax-forced-theme header[class*="AppHeader"],
+html.vidarelax-forced-theme div[class*="TopBar"],
+html.vidarelax-forced-theme nav[role="banner"],
+html.vidarelax-forced-theme header,
+html.vidarelax-forced-theme .header,
+html.vidarelax-forced-theme [data-testid*="header"],
+html.vidarelax-forced-theme [class*="header"],
+html.vidarelax-forced-theme [class*="top"],
+html.vidarelax-forced-theme [class*="nav"]:not([class*="Sidebar"]),
+body.vidarelax-loaded div[class*="AppHeader"],
+body.vidarelax-loaded header[class*="AppHeader"],
+body.vidarelax-loaded div[class*="TopBar"],
+body.vidarelax-loaded nav[role="banner"],
+body.vidarelax-loaded header,
+body.vidarelax-loaded .header {
+  background: var(--vidarelax-gradient) !important;
+  color: var(--vidarelax-white) !important;
+  box-shadow: 0 2px 8px var(--vidarelax-shadow) !important;
+  border-bottom: none !important;
+  border: none !important;
+  border-radius: 0 !important;
+}
+
+/* TEXTO DE HEADERS */
+html.vidarelax-forced-theme div[class*="AppHeader"] *,
+html.vidarelax-forced-theme header[class*="AppHeader"] *,
+html.vidarelax-forced-theme nav[role="banner"] *,
+html.vidarelax-forced-theme header *,
+html.vidarelax-forced-theme .header *,
+html.vidarelax-forced-theme [data-testid*="header"] *,
+html.vidarelax-forced-theme [class*="header"] *,
+html.vidarelax-forced-theme [class*="top"] *,
+body.vidarelax-loaded div[class*="AppHeader"] *,
+body.vidarelax-loaded header[class*="AppHeader"] *,
+body.vidarelax-loaded nav[role="banner"] *,
+body.vidarelax-loaded header *,
+body.vidarelax-loaded .header * {
+  color: var(--vidarelax-white) !important;
+  text-shadow: none !important;
+}
+
+/* ╔══════════════════════════════════════════════════════════════════════════╗ */
+/* ║                    📂 SIDEBARS ULTRA-ESPECÍFICOS 📂                      ║ */
+/* ╚══════════════════════════════════════════════════════════════════════════╝ */
+
+html.vidarelax-forced-theme nav[class*="Sidebar"],
+html.vidarelax-forced-theme div[class*="Sidebar"],
+html.vidarelax-forced-theme aside[class*="Sidebar"],
+html.vidarelax-forced-theme nav[role="navigation"],
+html.vidarelax-forced-theme .sidebar,
+html.vidarelax-forced-theme aside,
+html.vidarelax-forced-theme [data-testid*="sidebar"],
+html.vidarelax-forced-theme [class*="sidebar"],
+html.vidarelax-forced-theme [class*="navigation"],
+body.vidarelax-loaded nav[class*="Sidebar"],
+body.vidarelax-loaded div[class*="Sidebar"],
+body.vidarelax-loaded aside[class*="Sidebar"],
+body.vidarelax-loaded nav[role="navigation"],
+body.vidarelax-loaded .sidebar,
+body.vidarelax-loaded aside {
+  background: var(--vidarelax-sidebar-bg) !important;
+  backdrop-filter: blur(10px) !important;
+  -webkit-backdrop-filter: blur(10px) !important;
+  border-right: 1px solid rgba(74, 124, 126, 0.2) !important;
+  box-shadow: 2px 0 10px var(--vidarelax-shadow) !important;
+  border: none !important;
+  border-right: 1px solid rgba(74, 124, 126, 0.2) !important;
+  border-radius: 0 !important;
+}
+
+/* TÍTULOS DEL SIDEBAR */
+html.vidarelax-forced-theme div[class*="SidebarTitle"],
+html.vidarelax-forced-theme h1[class*="SidebarTitle"],
+html.vidarelax-forced-theme h2[class*="SidebarTitle"],
+html.vidarelax-forced-theme nav[class*="Sidebar"] h1,
+html.vidarelax-forced-theme nav[class*="Sidebar"] h2,
+html.vidarelax-forced-theme nav[class*="Sidebar"] h3,
+html.vidarelax-forced-theme aside h1,
+html.vidarelax-forced-theme aside h2,
+html.vidarelax-forced-theme aside h3,
+body.vidarelax-loaded div[class*="SidebarTitle"],
+body.vidarelax-loaded h1[class*="SidebarTitle"],
+body.vidarelax-loaded h2[class*="SidebarTitle"],
+body.vidarelax-loaded nav[class*="Sidebar"] h1,
+body.vidarelax-loaded nav[class*="Sidebar"] h2,
+body.vidarelax-loaded nav[class*="Sidebar"] h3,
+body.vidarelax-loaded aside h1,
+body.vidarelax-loaded aside h2,
+body.vidarelax-loaded aside h3 {
+  color: var(--vidarelax-primary) !important;
+  font-weight: 600 !important;
+  text-shadow: none !important;
+}
+
+/* ENLACES DEL SIDEBAR */
+html.vidarelax-forced-theme nav[class*="Sidebar"] a,
+html.vidarelax-forced-theme nav[class*="Sidebar"] button,
+html.vidarelax-forced-theme nav[class*="Sidebar"] span,
+html.vidarelax-forced-theme div[class*="Sidebar"] a,
+html.vidarelax-forced-theme aside[class*="Sidebar"] a,
+html.vidarelax-forced-theme .sidebar a,
+html.vidarelax-forced-theme aside a,
+html.vidarelax-forced-theme nav[role="navigation"] a,
+html.vidarelax-forced-theme [class*="sidebar"] a,
+html.vidarelax-forced-theme [class*="navigation"] a,
+body.vidarelax-loaded nav[class*="Sidebar"] a,
+body.vidarelax-loaded nav[class*="Sidebar"] button,
+body.vidarelax-loaded nav[class*="Sidebar"] span,
+body.vidarelax-loaded div[class*="Sidebar"] a,
+body.vidarelax-loaded aside a,
+body.vidarelax-loaded nav[role="navigation"] a {
+  color: var(--vidarelax-primary) !important;
+  transition: all 0.3s ease !important;
+  text-decoration: none !important;
+  text-shadow: none !important;
+}
+
+/* ENLACES ACTIVOS DEL SIDEBAR */
+html.vidarelax-forced-theme nav[class*="Sidebar"] a[aria-current="page"],
+html.vidarelax-forced-theme nav[class*="Sidebar"] a.active,
+html.vidarelax-forced-theme div[class*="SidebarItem-active"],
+html.vidarelax-forced-theme li[class*="active"],
+html.vidarelax-forced-theme a[aria-current="page"],
+html.vidarelax-forced-theme nav[class*="Sidebar"] [class*="active"],
+html.vidarelax-forced-theme aside [class*="active"],
+body.vidarelax-loaded nav[class*="Sidebar"] a[aria-current="page"],
+body.vidarelax-loaded nav[class*="Sidebar"] a.active,
+body.vidarelax-loaded div[class*="SidebarItem-active"],
+body.vidarelax-loaded li[class*="active"],
+body.vidarelax-loaded a[aria-current="page"],
+body.vidarelax-loaded nav[class*="Sidebar"] [class*="active"] {
+  background: var(--vidarelax-primary) !important;
+  color: var(--vidarelax-white) !important;
+  border-radius: 8px !important;
+  margin: 2px 8px !important;
+  text-shadow: none !important;
+}
+
+/* HOVER EN SIDEBAR */
+html.vidarelax-forced-theme nav[class*="Sidebar"] a:hover,
+html.vidarelax-forced-theme nav[class*="Sidebar"] button:hover,
+html.vidarelax-forced-theme div[class*="Sidebar"] a:hover,
+html.vidarelax-forced-theme aside a:hover,
+html.vidarelax-forced-theme [class*="sidebar"] a:hover,
+body.vidarelax-loaded nav[class*="Sidebar"] a:hover,
+body.vidarelax-loaded nav[class*="Sidebar"] button:hover,
+body.vidarelax-loaded div[class*="Sidebar"] a:hover,
+body.vidarelax-loaded aside a:hover {
+  background: rgba(74, 124, 126, 0.1) !important;
+  border-radius: 6px !important;
+  transform: translateX(4px) !important;
+  text-shadow: none !important;
+}
+
+/* ╔══════════════════════════════════════════════════════════════════════════╗ */
+/* ║                   📄 ÁREA PRINCIPAL ULTRA-ESPECÍFICA 📄                  ║ */
+/* ╚══════════════════════════════════════════════════════════════════════════╝ */
+
+html.vidarelax-forced-theme main,
+html.vidarelax-forced-theme div[class*="MainContent"],
+html.vidarelax-forced-theme div[class*="Content"],
+html.vidarelax-forced-theme section[role="main"],
+html.vidarelax-forced-theme .main-content,
+html.vidarelax-forced-theme [data-testid*="main"],
+html.vidarelax-forced-theme [class*="main"]:not([class*="Sidebar"]),
+html.vidarelax-forced-theme [class*="content"]:not([class*="Sidebar"]),
+body.vidarelax-loaded main,
+body.vidarelax-loaded div[class*="MainContent"],
+body.vidarelax-loaded div[class*="Content"],
+body.vidarelax-loaded section[role="main"],
+body.vidarelax-loaded .main-content {
+  background: var(--vidarelax-white) !important;
+  border-radius: 12px 0 0 0 !important;
+  box-shadow: -2px 0 10px var(--vidarelax-shadow) !important;
+  margin-left: 0 !important;
+  position: relative !important;
+}
+
+/* ╔══════════════════════════════════════════════════════════════════════════╗ */
+/* ║                    🔘 BOTONES ULTRA-ESPECÍFICOS 🔘                       ║ */
+/* ╚══════════════════════════════════════════════════════════════════════════╝ */
+
+html.vidarelax-forced-theme button,
+html.vidarelax-forced-theme input[type="submit"],
+html.vidarelax-forced-theme a[class*="Button"],
+html.vidarelax-forced-theme button[class*="Button"],
+html.vidarelax-forced-theme button[type="button"],
+html.vidarelax-forced-theme .button,
+html.vidarelax-forced-theme [role="button"],
+html.vidarelax-forced-theme input[type="button"],
+body.vidarelax-loaded button,
+body.vidarelax-loaded input[type="submit"],
+body.vidarelax-loaded a[class*="Button"],
+body.vidarelax-loaded button[class*="Button"],
+body.vidarelax-loaded button[type="button"],
+body.vidarelax-loaded .button,
+body.vidarelax-loaded [role="button"] {
+  background: var(--vidarelax-primary) !important;
+  border-color: var(--vidarelax-primary) !important;
+  color: var(--vidarelax-white) !important;
+  border-radius: 8px !important;
+  transition: all 0.3s ease !important;
+  font-weight: 500 !important;
+  padding: 8px 16px !important;
+  border: 1px solid var(--vidarelax-primary) !important;
+  cursor: pointer !important;
+  text-shadow: none !important;
+  box-shadow: none !important;
+}
+
+/* HOVER EN BOTONES */
+html.vidarelax-forced-theme button:hover,
+html.vidarelax-forced-theme input[type="submit"]:hover,
+html.vidarelax-forced-theme a[class*="Button"]:hover,
+html.vidarelax-forced-theme button[class*="Button"]:hover,
+html.vidarelax-forced-theme .button:hover,
+html.vidarelax-forced-theme [role="button"]:hover,
+body.vidarelax-loaded button:hover,
+body.vidarelax-loaded input[type="submit"]:hover,
+body.vidarelax-loaded a[class*="Button"]:hover,
+body.vidarelax-loaded button[class*="Button"]:hover,
+body.vidarelax-loaded .button:hover,
+body.vidarelax-loaded [role="button"]:hover {
+  background: var(--vidarelax-accent) !important;
+  border-color: var(--vidarelax-accent) !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 4px 12px rgba(74, 124, 126, 0.3) !important;
+  text-shadow: none !important;
+}
+
+/* ╔══════════════════════════════════════════════════════════════════════════╗ */
+/* ║                   📦 CARDS Y ELEMENTOS DIVERSOS 📦                       ║ */
+/* ╚══════════════════════════════════════════════════════════════════════════╝ */
+
+html.vidarelax-forced-theme div[class*="CollectionCard"],
+html.vidarelax-forced-theme div[class*="Card"],
+html.vidarelax-forced-theme div[class*="FileCard"],
+html.vidarelax-forced-theme article,
+html.vidarelax-forced-theme .card,
+html.vidarelax-forced-theme [class*="card"]:not([class*="Sidebar"]),
+body.vidarelax-loaded div[class*="CollectionCard"],
+body.vidarelax-loaded div[class*="Card"],
+body.vidarelax-loaded div[class*="FileCard"],
+body.vidarelax-loaded article,
+body.vidarelax-loaded .card {
+  background: var(--vidarelax-white) !important;
+  border-radius: 12px !important;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08) !important;
+  transition: all 0.3s ease !important;
+  border: 1px solid rgba(74, 124, 126, 0.1) !important;
+}
+
+/* HOVER EN CARDS */
+html.vidarelax-forced-theme div[class*="CollectionCard"]:hover,
+html.vidarelax-forced-theme div[class*="Card"]:hover,
+html.vidarelax-forced-theme div[class*="FileCard"]:hover,
+html.vidarelax-forced-theme article:hover,
+html.vidarelax-forced-theme .card:hover,
+body.vidarelax-loaded div[class*="CollectionCard"]:hover,
+body.vidarelax-loaded div[class*="Card"]:hover,
+body.vidarelax-loaded div[class*="FileCard"]:hover,
+body.vidarelax-loaded article:hover,
+body.vidarelax-loaded .card:hover {
+  transform: translateY(-4px) !important;
+  box-shadow: 0 8px 24px rgba(74, 124, 126, 0.2) !important;
+  border-color: var(--vidarelax-primary) !important;
+}
+
+/* ╔══════════════════════════════════════════════════════════════════════════╗ */
+/* ║                   📝 INPUTS Y FORMULARIOS DIVERSOS 📝                    ║ */
+/* ╚══════════════════════════════════════════════════════════════════════════╝ */
+
+html.vidarelax-forced-theme input,
+html.vidarelax-forced-theme textarea,
+html.vidarelax-forced-theme select,
+body.vidarelax-loaded input,
+body.vidarelax-loaded textarea,
+body.vidarelax-loaded select {
+  border: 1px solid #e0e0e0 !important;
+  border-radius: 8px !important;
+  padding: 0.75rem !important;
+  transition: all 0.3s ease !important;
+  background: var(--vidarelax-white) !important;
+  color: #333 !important;
+  box-shadow: none !important;
+}
+
+html.vidarelax-forced-theme input:focus,
+html.vidarelax-forced-theme textarea:focus,
+html.vidarelax-forced-theme select:focus,
+body.vidarelax-loaded input:focus,
+body.vidarelax-loaded textarea:focus,
+body.vidarelax-loaded select:focus {
+  border-color: var(--vidarelax-primary) !important;
+  box-shadow: 0 0 0 3px rgba(74, 124, 126, 0.1) !important;
+  outline: none !important;
+}
+
+/* ╔══════════════════════════════════════════════════════════════════════════╗ */
+/* ║                    📜 SCROLLBAR PERSONALIZADA 📜                         ║ */
+/* ╚══════════════════════════════════════════════════════════════════════════╝ */
+
+html.vidarelax-forced-theme ::-webkit-scrollbar,
+body.vidarelax-loaded ::-webkit-scrollbar {
+  width: 10px !important;
+  height: 10px !important;
+}
+
+html.vidarelax-forced-theme ::-webkit-scrollbar-track,
+body.vidarelax-loaded ::-webkit-scrollbar-track {
+  background: #f1f1f1 !important;
+  border-radius: 10px !important;
+}
+
+html.vidarelax-forced-theme ::-webkit-scrollbar-thumb,
+body.vidarelax-loaded ::-webkit-scrollbar-thumb {
+  background: var(--vidarelax-primary) !important;
+  border-radius: 10px !important;
+}
+
+html.vidarelax-forced-theme ::-webkit-scrollbar-thumb:hover,
+body.vidarelax-loaded ::-webkit-scrollbar-thumb:hover {
+  background: var(--vidarelax-accent) !important;
+}
+
+/* ╔══════════════════════════════════════════════════════════════════════════╗ */
+/* ║                       ✨ ANIMACIONES Y EFECTOS ✨                        ║ */
+/* ╚══════════════════════════════════════════════════════════════════════════╝ */
+
+@keyframes vidarelaxFadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+html.vidarelax-forced-theme #nc-root,
+body.vidarelax-loaded #nc-root {
+  animation: vidarelaxFadeIn 0.5s ease !important;
+}
+
+/* ╔══════════════════════════════════════════════════════════════════════════╗ */
+/* ║                           📱 RESPONSIVE 📱                               ║ */
+/* ╚══════════════════════════════════════════════════════════════════════════╝ */
+
+@media (max-width: 768px) {
+  html.vidarelax-forced-theme nav[class*="Sidebar"],
+  body.vidarelax-loaded nav[class*="Sidebar"] {
+    transform: translateX(-100%) !important;
+    transition: transform 0.3s ease !important;
+  }
+
+  html.vidarelax-forced-theme nav[class*="Sidebar-open"],
+  body.vidarelax-loaded nav[class*="Sidebar-open"] {
+    transform: translateX(0) !important;
+  }
+}
+
+/* ╔══════════════════════════════════════════════════════════════════════════╗ */
+/* ║                    🔥 CLASES DE PROTECCIÓN EXTRA 🔥                      ║ */
+/* ╚══════════════════════════════════════════════════════════════════════════╝ */
+
+.vidarelax-protection-active,
+.vidarelax-protection-active * {
+  transition: all 0.3s ease !important;
+}
+
+.vidarelax-force-background {
+  background: var(--vidarelax-gradient) !important;
+  min-height: 100vh !important;
+}
+
+.vidarelax-force-sidebar {
+  background: var(--vidarelax-sidebar-bg) !important;
+  backdrop-filter: blur(10px) !important;
+}
+
+.vidarelax-force-main {
+  background: var(--vidarelax-white) !important;
+  border-radius: 12px 0 0 0 !important;
+}
+</style>
+
+  <!-- ══════════════════════════════════════════════════════════════════════════ -->
+  <!-- 🚀 CONFIGURACIÓN NETLIFY IDENTITY TEMPRANA 🚀 -->
+  <!-- ══════════════════════════════════════════════════════════════════════════ -->
   <script>
     if (window.location.hostname === 'vidarelax.com.co') {
       window.netlifyIdentityConfig = {
@@ -16,372 +473,407 @@
     }
   </script>
 
-  <!-- 🎨 ESTILOS VIDARELAX SÚPER AGRESIVOS 🎨 -->
-  <style id="vidarelax-master-styles">
-/* ═══════════════════════════════════════════════════════════ */
-/* 🚀 APLICACIÓN INMEDIATA Y UNIVERSAL 🚀 */
-/* ═══════════════════════════════════════════════════════════ */
-
-/* Variables absolutas */
-:root {
-  --vidarelax-primary: #4A7C7E !important;
-  --vidarelax-accent: #6B9FA1 !important;
-  --vidarelax-bg: linear-gradient(135deg, #4A7C7E 0%, #6B9FA1 100%) !important;
-  --vidarelax-sidebar: rgba(248, 249, 250, 0.95) !important;
-}
-
-/* FORZAR DESDE EL INICIO */
-html, body {
-  margin: 0 !important;
-  padding: 0 !important;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif !important;
-  background: var(--vidarelax-bg) !important;
-  min-height: 100vh !important;
-  box-sizing: border-box !important;
-}
-
-*, *::before, *::after {
-  box-sizing: border-box !important;
-}
-
-/* TODOS LOS CONTENEDORES POSIBLES */
-#nc-root,
-div[data-testid="nc-app"],
-div[class*="App"],
-div[role="application"],
-body > div,
-body > div:first-child,
-body > div:last-child,
-.cms-wrapper,
-#root,
-[class*="cms"],
-[class*="app"],
-[data-testid*="app"] {
-  background: var(--vidarelax-bg) !important;
-  min-height: 100vh !important;
-  width: 100% !important;
-}
-
-/* HEADERS - TODOS */
-div[class*="AppHeader"],
-header[class*="AppHeader"],
-div[class*="TopBar"],
-nav[role="banner"],
-header,
-.header,
-[data-testid*="header"],
-[class*="header"],
-[class*="top"],
-[class*="nav"] {
-  background: var(--vidarelax-bg) !important;
-  color: white !important;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1) !important;
-  border-bottom: none !important;
-  border: none !important;
-}
-
-/* TEXTO DE HEADERS */
-div[class*="AppHeader"] *,
-header[class*="AppHeader"] *,
-nav[role="banner"] *,
-header *,
-.header *,
-[data-testid*="header"] *,
-[class*="header"] *,
-[class*="top"] *,
-[class*="nav"] * {
-  color: white !important;
-}
-
-/* SIDEBARS - TODOS */
-nav[class*="Sidebar"],
-div[class*="Sidebar"],
-aside[class*="Sidebar"],
-nav[role="navigation"],
-.sidebar,
-aside,
-[data-testid*="sidebar"],
-[class*="sidebar"],
-[class*="nav"],
-[class*="menu"] {
-  background: var(--vidarelax-sidebar) !important;
-  backdrop-filter: blur(10px) !important;
-  border-right: 1px solid rgba(74, 124, 126, 0.2) !important;
-  box-shadow: 2px 0 10px rgba(0,0,0,0.1) !important;
-  border: none !important;
-  border-right: 1px solid rgba(74, 124, 126, 0.2) !important;
-}
-
-/* TÍTULOS DEL SIDEBAR */
-div[class*="SidebarTitle"],
-h1[class*="SidebarTitle"],
-h2[class*="SidebarTitle"],
-nav h1, nav h2, nav h3, aside h1, aside h2, aside h3 {
-  color: var(--vidarelax-primary) !important;
-  font-weight: 600 !important;
-}
-
-/* ENLACES DEL SIDEBAR */
-nav a, nav button, nav span,
-aside a, aside button, aside span,
-[class*="sidebar"] a,
-[class*="menu"] a {
-  color: var(--vidarelax-primary) !important;
-  transition: all 0.3s ease !important;
-  text-decoration: none !important;
-}
-
-/* ENLACES ACTIVOS */
-nav a[aria-current="page"],
-nav a.active,
-aside a[aria-current="page"],
-aside a.active,
-[class*="active"],
-[aria-current="page"] {
-  background: var(--vidarelax-primary) !important;
-  color: white !important;
-  border-radius: 8px !important;
-  margin: 2px 8px !important;
-}
-
-/* HOVER EN SIDEBAR */
-nav a:hover, nav button:hover,
-aside a:hover, aside button:hover,
-[class*="sidebar"] a:hover,
-[class*="menu"] a:hover {
-  background: rgba(74, 124, 126, 0.1) !important;
-  border-radius: 6px !important;
-  transform: translateX(4px) !important;
-}
-
-/* ÁREA PRINCIPAL */
-main,
-div[class*="MainContent"],
-div[class*="Content"],
-section[role="main"],
-.main-content,
-[data-testid*="main"],
-[class*="main"],
-[class*="content"] {
-  background: white !important;
-  border-radius: 12px 0 0 0 !important;
-  box-shadow: -2px 0 10px rgba(0,0,0,0.1) !important;
-  margin-left: 0 !important;
-}
-
-/* BOTONES - TODOS */
-button,
-input[type="submit"],
-a[class*="Button"],
-button[class*="Button"],
-button[type="button"],
-.button,
-[role="button"],
-input[type="button"] {
-  background: var(--vidarelax-primary) !important;
-  border-color: var(--vidarelax-primary) !important;
-  color: white !important;
-  border-radius: 8px !important;
-  transition: all 0.3s ease !important;
-  font-weight: 500 !important;
-  padding: 8px 16px !important;
-  border: 1px solid var(--vidarelax-primary) !important;
-  cursor: pointer !important;
-}
-
-/* HOVER EN BOTONES */
-button:hover,
-input[type="submit"]:hover,
-a[class*="Button"]:hover,
-button[class*="Button"]:hover,
-.button:hover,
-[role="button"]:hover {
-  background: var(--vidarelax-accent) !important;
-  border-color: var(--vidarelax-accent) !important;
-  transform: translateY(-2px) !important;
-  box-shadow: 0 4px 12px rgba(74, 124, 126, 0.3) !important;
-}
-
-/* CARDS */
-div[class*="CollectionCard"],
-div[class*="Card"],
-div[class*="FileCard"],
-article,
-.card,
-[class*="card"] {
-  background: white !important;
-  border-radius: 12px !important;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.08) !important;
-  transition: all 0.3s ease !important;
-  border: 1px solid rgba(74, 124, 126, 0.1) !important;
-}
-
-/* INPUTS */
-input, textarea, select {
-  border: 1px solid #e0e0e0 !important;
-  border-radius: 8px !important;
-  padding: 0.75rem !important;
-  transition: all 0.3s ease !important;
-  background: white !important;
-}
-
-input:focus, textarea:focus, select:focus {
-  border-color: var(--vidarelax-primary) !important;
-  box-shadow: 0 0 0 3px rgba(74, 124, 126, 0.1) !important;
-  outline: none !important;
-}
-
-/* SCROLLBAR */
-::-webkit-scrollbar {
-  width: 10px !important;
-  height: 10px !important;
-}
-
-::-webkit-scrollbar-track {
-  background: #f1f1f1 !important;
-  border-radius: 10px !important;
-}
-
-::-webkit-scrollbar-thumb {
-  background: var(--vidarelax-primary) !important;
-  border-radius: 10px !important;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: var(--vidarelax-accent) !important;
-}
-
-/* ANIMACIÓN */
-@keyframes vidarelaxFadeIn {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-#nc-root {
-  animation: vidarelaxFadeIn 0.5s ease !important;
-}
-</style>
-
-  <!-- 🚀 SCRIPT ULTRA-TEMPRANO 🚀 -->
+  <!-- ══════════════════════════════════════════════════════════════════════════ -->
+  <!-- 🎯 APLICACIÓN SÚPER-TEMPRANA DE ESTILOS 🎯 -->
+  <!-- ══════════════════════════════════════════════════════════════════════════ -->
   <script>
 (function() {
   'use strict';
   
+  // CONFIGURACIÓN VIDARELAX
+  const VIDARELAX = {
+    gradient: 'linear-gradient(135deg, #4A7C7E 0%, #6B9FA1 100%)',
+    primary: '#4A7C7E',
+    accent: '#6B9FA1',
+    sidebar: 'rgba(248, 249, 250, 0.95)',
+    white: '#ffffff'
+  };
+
   // APLICAR TEMA INMEDIATAMENTE
-  function applyTheme() {
-    document.documentElement.className = 'vidarelax-theme';
-    document.documentElement.style.cssText = 'background: linear-gradient(135deg, #4A7C7E 0%, #6B9FA1 100%) !important; min-height: 100vh !important;';
-    document.body.style.cssText = 'background: linear-gradient(135deg, #4A7C7E 0%, #6B9FA1 100%) !important; min-height: 100vh !important; margin: 0 !important; padding: 0 !important;';
+  function applyThemeInstantly() {
+    document.documentElement.className = 'vidarelax-forced-theme';
+    document.documentElement.style.cssText = `
+      background: ${VIDARELAX.gradient} !important;
+      min-height: 100vh !important;
+      margin: 0 !important;
+      padding: 0 !important;
+    `;
+    
+    if (document.body) {
+      document.body.className = 'vidarelax-loaded vidarelax-protection-active';
+      document.body.style.cssText = `
+        background: ${VIDARELAX.gradient} !important;
+        min-height: 100vh !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif !important;
+      `;
+    }
+  }
+
+  // APLICAR CADA 50ms POR 10 SEGUNDOS
+  applyThemeInstantly();
+  let instantCount = 0;
+  const instantInterval = setInterval(() => {
+    applyThemeInstantly();
+    instantCount++;
+    if (instantCount >= 200) { // 10 segundos
+      clearInterval(instantInterval);
+    }
+  }, 50);
+
+  // EVENTOS TEMPRANOS
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', applyThemeInstantly);
   }
   
-  applyTheme();
-  
-  // Aplicar en intervalos cortos
-  const fastInterval = setInterval(applyTheme, 100);
-  
-  // Detener después de 10 segundos
-  setTimeout(() => clearInterval(fastInterval), 10000);
-  
+  window.addEventListener('load', applyThemeInstantly);
+  window.addEventListener('focus', applyThemeInstantly);
+
 })();
 </script>
 
   <!-- Netlify Identity Widget -->
   <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
 </head>
-<body>
-  <!-- 🎯 SCRIPT ANTES DEL CMS 🎯 -->
+
+<body class="vidarelax-loaded vidarelax-protection-active">
+
+  <!-- ══════════════════════════════════════════════════════════════════════════ -->
+  <!-- 🎯 SISTEMA MEGA-AGRESIVO DE APLICACIÓN DE ESTILOS 🎯 -->
+  <!-- ══════════════════════════════════════════════════════════════════════════ -->
   <script>
 (function() {
   'use strict';
-  
-  const CONFIG = {
+
+  // ═══════════════════════════════════════════════════════════════════════
+  // 🛡️ CONFIGURACIÓN VIDARELAX ULTRA-COMPLETA 🛡️
+  // ═══════════════════════════════════════════════════════════════════════
+
+  const VIDARELAX_CONFIG = {
     gradient: 'linear-gradient(135deg, #4A7C7E 0%, #6B9FA1 100%)',
     primary: '#4A7C7E',
     accent: '#6B9FA1',
-    sidebar: 'rgba(248, 249, 250, 0.95)'
+    sidebar: 'rgba(248, 249, 250, 0.95)',
+    white: '#ffffff',
+    shadow: 'rgba(0, 0, 0, 0.1)',
+    borderColor: 'rgba(74, 124, 126, 0.2)'
   };
 
-  function forceStyles() {
-    // HTML y BODY
-    document.documentElement.className = 'vidarelax-theme';
-    document.documentElement.style.background = CONFIG.gradient;
-    document.body.style.background = CONFIG.gradient;
-    document.body.style.margin = '0';
-    document.body.style.padding = '0';
-    document.body.style.minHeight = '100vh';
+  // ═══════════════════════════════════════════════════════════════════════
+  // 🚀 FUNCIÓN ULTRA-AGRESIVA DE APLICACIÓN DE ESTILOS 🚀
+  // ═══════════════════════════════════════════════════════════════════════
+
+  function forceVidarelaxStylesUltraAggressive() {
+    // PASO 1: APLICAR CLASES Y ESTILOS BASE
+    document.documentElement.className = 'vidarelax-forced-theme';
+    document.documentElement.style.cssText = `
+      background: ${VIDARELAX_CONFIG.gradient} !important;
+      min-height: 100vh !important;
+      margin: 0 !important;
+      padding: 0 !important;
+      box-sizing: border-box !important;
+    `;
     
-    // Contenedores
-    const containers = document.querySelectorAll('body > div, #nc-root, [data-testid*="app"], [class*="App"]');
+    document.body.className = 'vidarelax-loaded vidarelax-protection-active';
+    document.body.style.cssText = `
+      background: ${VIDARELAX_CONFIG.gradient} !important;
+      min-height: 100vh !important;
+      margin: 0 !important;
+      padding: 0 !important;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif !important;
+      box-sizing: border-box !important;
+      overflow-x: hidden !important;
+    `;
+
+    // PASO 2: APLICAR A CONTENEDORES PRINCIPALES
+    const containers = document.querySelectorAll(`
+      #nc-root, 
+      [data-testid="nc-app"], 
+      [class*="App"], 
+      [role="application"],
+      body > div,
+      body > div:first-child,
+      .cms-wrapper,
+      #root,
+      [class*="cms"],
+      [data-testid*="app"]
+    `);
+    
     containers.forEach(el => {
       if (el) {
-        el.style.background = CONFIG.gradient;
-        el.style.minHeight = '100vh';
-        el.style.width = '100%';
+        el.classList.add('vidarelax-force-background');
+        el.style.cssText += `
+          background: ${VIDARELAX_CONFIG.gradient} !important;
+          min-height: 100vh !important;
+          width: 100% !important;
+          position: relative !important;
+        `;
       }
     });
+
+    // PASO 3: APLICAR A HEADERS
+    const headers = document.querySelectorAll(`
+      [class*="AppHeader"], 
+      header, 
+      [role="banner"],
+      [class*="TopBar"],
+      [data-testid*="header"],
+      [class*="header"],
+      [class*="top"]
+    `);
     
-    // Sidebars
-    const sidebars = document.querySelectorAll('[class*="Sidebar"], nav, aside');
-    sidebars.forEach(el => {
-      if (el && el.offsetWidth < 400) { // Es probablemente un sidebar
-        el.style.background = CONFIG.sidebar;
-        el.style.backdropFilter = 'blur(10px)';
-        el.style.borderRight = '1px solid rgba(74, 124, 126, 0.2)';
-        el.style.boxShadow = '2px 0 10px rgba(0,0,0,0.1)';
-      }
-    });
-    
-    // Headers
-    const headers = document.querySelectorAll('header, [class*="Header"], [class*="TopBar"]');
     headers.forEach(el => {
       if (el) {
-        el.style.background = CONFIG.gradient;
-        el.style.color = 'white';
-        el.style.boxShadow = '0 2px 8px rgba(0,0,0,0.1)';
+        el.style.cssText += `
+          background: ${VIDARELAX_CONFIG.gradient} !important;
+          color: ${VIDARELAX_CONFIG.white} !important;
+          box-shadow: 0 2px 8px ${VIDARELAX_CONFIG.shadow} !important;
+          border: none !important;
+          border-radius: 0 !important;
+        `;
+        
+        // Aplicar color blanco a todos los elementos hijos
+        const headerChildren = el.querySelectorAll('*');
+        headerChildren.forEach(child => {
+          child.style.color = `${VIDARELAX_CONFIG.white} !important`;
+          child.style.textShadow = 'none !important';
+        });
       }
     });
+
+    // PASO 4: APLICAR A SIDEBARS (DETECCIÓN INTELIGENTE)
+    const allNavElements = document.querySelectorAll(`
+      nav, aside, 
+      [class*="Sidebar"], 
+      [role="navigation"],
+      [data-testid*="sidebar"],
+      [class*="sidebar"],
+      [class*="navigation"]
+    `);
     
-    // Área principal
-    const mains = document.querySelectorAll('main, [class*="MainContent"], [class*="Content"]');
-    mains.forEach(el => {
-      if (el && el.offsetWidth > 400) { // Es probablemente contenido principal
-        el.style.background = 'white';
-        el.style.borderRadius = '12px 0 0 0';
-        el.style.boxShadow = '-2px 0 10px rgba(0,0,0,0.1)';
+    allNavElements.forEach(el => {
+      if (el && (
+        el.offsetWidth < 400 || 
+        el.classList.toString().includes('Sidebar') ||
+        el.classList.toString().includes('sidebar') ||
+        el.getAttribute('role') === 'navigation'
+      )) {
+        el.classList.add('vidarelax-force-sidebar');
+        el.style.cssText += `
+          background: ${VIDARELAX_CONFIG.sidebar} !important;
+          backdrop-filter: blur(10px) !important;
+          -webkit-backdrop-filter: blur(10px) !important;
+          border-right: 1px solid ${VIDARELAX_CONFIG.borderColor} !important;
+          box-shadow: 2px 0 10px ${VIDARELAX_CONFIG.shadow} !important;
+          border-radius: 0 !important;
+        `;
+
+        // Aplicar estilos a enlaces del sidebar
+        const sidebarLinks = el.querySelectorAll('a, button, span');
+        sidebarLinks.forEach(link => {
+          link.style.cssText += `
+            color: ${VIDARELAX_CONFIG.primary} !important;
+            text-decoration: none !important;
+            text-shadow: none !important;
+            transition: all 0.3s ease !important;
+          `;
+        });
+
+        // Aplicar estilos a elementos activos
+        const activeElements = el.querySelectorAll('[aria-current="page"], .active, [class*="active"]');
+        activeElements.forEach(active => {
+          active.style.cssText += `
+            background: ${VIDARELAX_CONFIG.primary} !important;
+            color: ${VIDARELAX_CONFIG.white} !important;
+            border-radius: 8px !important;
+            margin: 2px 8px !important;
+            text-shadow: none !important;
+          `;
+        });
+
+        // Aplicar estilos a títulos del sidebar
+        const sidebarTitles = el.querySelectorAll('h1, h2, h3, [class*="Title"]');
+        sidebarTitles.forEach(title => {
+          title.style.cssText += `
+            color: ${VIDARELAX_CONFIG.primary} !important;
+            font-weight: 600 !important;
+            text-shadow: none !important;
+          `;
+        });
+      }
+    });
+
+    // PASO 5: APLICAR A ÁREA PRINCIPAL (DETECCIÓN INTELIGENTE)
+    const mainAreas = document.querySelectorAll(`
+      main, 
+      [class*="MainContent"], 
+      [class*="Content"], 
+      [role="main"],
+      [data-testid*="main"],
+      [class*="main"]
+    `);
+    
+    mainAreas.forEach(el => {
+      if (el && !el.classList.toString().includes('Sidebar') && el.offsetWidth > 400) {
+        el.classList.add('vidarelax-force-main');
+        el.style.cssText += `
+          background: ${VIDARELAX_CONFIG.white} !important;
+          border-radius: 12px 0 0 0 !important;
+          box-shadow: -2px 0 10px ${VIDARELAX_CONFIG.shadow} !important;
+          position: relative !important;
+        `;
+      }
+    });
+
+    // PASO 6: APLICAR A BOTONES
+    const buttons = document.querySelectorAll(`
+      button, 
+      input[type="submit"], 
+      input[type="button"],
+      [role="button"],
+      a[class*="Button"],
+      button[class*="Button"],
+      .button
+    `);
+    
+    buttons.forEach(btn => {
+      if (btn) {
+        btn.style.cssText += `
+          background: ${VIDARELAX_CONFIG.primary} !important;
+          border-color: ${VIDARELAX_CONFIG.primary} !important;
+          color: ${VIDARELAX_CONFIG.white} !important;
+          border-radius: 8px !important;
+          font-weight: 500 !important;
+          padding: 8px 16px !important;
+          border: 1px solid ${VIDARELAX_CONFIG.primary} !important;
+          cursor: pointer !important;
+          text-shadow: none !important;
+          transition: all 0.3s ease !important;
+        `;
+      }
+    });
+
+    // PASO 7: APLICAR A CARDS
+    const cards = document.querySelectorAll(`
+      [class*="Card"], 
+      [class*="CollectionCard"], 
+      [class*="FileCard"],
+      article,
+      .card
+    `);
+    
+    cards.forEach(card => {
+      if (card && !card.classList.toString().includes('Sidebar')) {
+        card.style.cssText += `
+          background: ${VIDARELAX_CONFIG.white} !important;
+          border-radius: 12px !important;
+          box-shadow: 0 2px 8px rgba(0,0,0,0.08) !important;
+          border: 1px solid ${VIDARELAX_CONFIG.borderColor} !important;
+          transition: all 0.3s ease !important;
+        `;
+      }
+    });
+
+    // PASO 8: APLICAR A INPUTS
+    const inputs = document.querySelectorAll('input, textarea, select');
+    inputs.forEach(input => {
+      if (input) {
+        input.style.cssText += `
+          border: 1px solid #e0e0e0 !important;
+          border-radius: 8px !important;
+          padding: 0.75rem !important;
+          background: ${VIDARELAX_CONFIG.white} !important;
+          color: #333 !important;
+          transition: all 0.3s ease !important;
+        `;
       }
     });
   }
 
-  // Aplicar estilos inmediatamente y constantemente
-  forceStyles();
-  
-  // Cada 500ms por 30 segundos
-  let counter = 0;
-  const interval = setInterval(() => {
-    forceStyles();
-    counter++;
-    if (counter >= 60) { // 30 segundos
-      clearInterval(interval);
-      // Continuar cada 2 segundos
-      setInterval(forceStyles, 2000);
-    }
-  }, 500);
+  // ═══════════════════════════════════════════════════════════════════════
+  // 🔄 OBSERVADOR MEGA-PODEROSO 🔄
+  // ═══════════════════════════════════════════════════════════════════════
 
-  // Observador de cambios
-  const observer = new MutationObserver(() => {
-    setTimeout(forceStyles, 50);
+  const megaObserver = new MutationObserver((mutations) => {
+    let shouldApply = false;
+    
+    mutations.forEach((mutation) => {
+      if (mutation.type === 'childList' && mutation.addedNodes.length > 0) {
+        shouldApply = true;
+      }
+      if (mutation.type === 'attributes') {
+        shouldApply = true;
+      }
+    });
+    
+    if (shouldApply) {
+      setTimeout(forceVidarelaxStylesUltraAggressive, 25);
+    }
   });
 
-  observer.observe(document.documentElement, {
+  // ═══════════════════════════════════════════════════════════════════════
+  // 🚀 INICIALIZACIÓN MEGA-COMPLETA 🚀
+  // ═══════════════════════════════════════════════════════════════════════
+
+  // APLICAR INMEDIATAMENTE
+  forceVidarelaxStylesUltraAggressive();
+
+  // APLICAR CADA 200ms POR 60 SEGUNDOS
+  let megaCounter = 0;
+  const megaInterval = setInterval(() => {
+    forceVidarelaxStylesUltraAggressive();
+    megaCounter++;
+    
+    if (megaCounter >= 300) { // 60 segundos
+      clearInterval(megaInterval);
+      // Continuar cada 3 segundos indefinidamente
+      setInterval(forceVidarelaxStylesUltraAggressive, 3000);
+    }
+  }, 200);
+
+  // OBSERVAR CAMBIOS
+  megaObserver.observe(document.documentElement, {
     childList: true,
     subtree: true,
-    attributes: true
+    attributes: true,
+    attributeFilter: ['class', 'style', 'id']
   });
 
-  // Eventos
-  ['DOMContentLoaded', 'load', 'focus', 'resize'].forEach(event => {
-    window.addEventListener(event, forceStyles);
+  // EVENTOS MÚLTIPLES
+  [
+    'DOMContentLoaded', 'load', 'focus', 'resize', 'scroll',
+    'hashchange', 'popstate', 'beforeunload'
+  ].forEach(event => {
+    window.addEventListener(event, forceVidarelaxStylesUltraAggressive);
   });
+
+  // INTERCEPTAR setAttribute para prevenir cambios
+  const originalSetAttribute = Element.prototype.setAttribute;
+  Element.prototype.setAttribute = function(name, value) {
+    const result = originalSetAttribute.call(this, name, value);
+    
+    if (name === 'style' || name === 'class') {
+      setTimeout(forceVidarelaxStylesUltraAggressive, 5);
+    }
+    
+    return result;
+  };
+
+  // PROTEGER LOS ESTILOS PRINCIPALES
+  const styleElement = document.getElementById('vidarelax-permanent-styles');
+  if (styleElement) {
+    const styleProtector = new MutationObserver(() => {
+      if (!document.getElementById('vidarelax-permanent-styles')) {
+        console.warn('🚨 VIDARELAX: Estilos principales eliminados - recargando página');
+        location.reload();
+      }
+    });
+    
+    styleProtector.observe(document.head, { childList: true });
+  }
+
+  console.log('🎨 VIDARELAX MEGA-THEME SYSTEM ACTIVADO - Protección Ultra-Completa Aplicada');
 
 })();
 </script>
@@ -389,13 +881,17 @@ input:focus, textarea:focus, select:focus {
   <!-- Decap CMS -->
   <script src="https://unpkg.com/decap-cms@^3.1.2/dist/decap-cms.js"></script>
 
-  <!-- 🔧 CONFIGURACIÓN NETLIFY IDENTITY 🔧 -->
+  <!-- ══════════════════════════════════════════════════════════════════════════ -->
+  <!-- 🔧 CONFIGURACIÓN NETLIFY IDENTITY FINAL 🔧 -->
+  <!-- ══════════════════════════════════════════════════════════════════════════ -->
   <script>
 (function() {
   'use strict';
 
-  function setupIdentity() {
+  function setupNetlifyIdentityComplete() {
     if (window.netlifyIdentity) {
+      console.log('🔐 Configurando Netlify Identity...');
+      
       // Configurar dominio personalizado
       if (window.location.hostname === 'vidarelax.com.co') {
         window.netlifyIdentity.init({
@@ -403,31 +899,47 @@ input:focus, textarea:focus, select:focus {
         });
       }
 
-      // Eventos
+      // Configurar eventos
       window.netlifyIdentity.on("init", user => {
+        console.log('🔐 Identity inicializado:', user ? 'Usuario logueado' : 'Sin usuario');
+        
         if (!user) {
           window.netlifyIdentity.on("login", () => {
+            console.log('✅ Login exitoso - redirigiendo...');
             document.location.href = "/admin/";
           });
         }
       });
       
+      // Logout con redirección
       window.netlifyIdentity.on("logout", () => {
+        console.log('👋 Logout detectado - redirigiendo...');
         alert("Sesión cerrada. Regresando a la página principal de VIDARELAX...");
         setTimeout(() => {
           window.location.href = "https://www.vidarelax.com.co/";
         }, 1000);
       });
+      
+      console.log('✅ Netlify Identity configurado completamente');
     } else {
-      setTimeout(setupIdentity, 500);
+      console.log('⏳ Esperando Netlify Identity...');
+      setTimeout(setupNetlifyIdentityComplete, 500);
     }
   }
 
-  setupIdentity();
+  // Inicializar Identity
+  setupNetlifyIdentityComplete();
 
-  console.log('🎨 VIDARELAX Admin - Sistema de estilos indestructible activado');
+  // Mensaje final
+  setTimeout(() => {
+    console.log('🎉 VIDARELAX Admin Panel - Sistema Completo Activado');
+    console.log('🎨 Tema: Indestructible');
+    console.log('🔐 Identity: Configurado');
+    console.log('🚀 Estado: Totalmente Operativo');
+  }, 2000);
 
 })();
 </script>
+
 </body>
 </html>
