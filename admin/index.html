@@ -11,8 +11,6 @@
   <script>
     // Configurar Netlify Identity ANTES de cargar el widget
     if (window.location.hostname === 'vidarelax.com.co') {
-      // Si están accediendo desde el dominio personalizado,
-      // forzar que use la URL de Netlify
       window.netlifyIdentityConfig = {
         url: 'https://radiant-kashata-fa9673.netlify.app/.netlify/identity'
       };
@@ -22,7 +20,7 @@
   <!-- Netlify Identity Widget -->
   <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
 
-  <!-- Estilos personalizados para el CMS -->
+  <!-- Estilos personalizados MEJORADOS para el CMS -->
   <style>
 /* Variables globales */
 :root {
@@ -34,7 +32,11 @@
   --sidebar-bg: #f8f9fa;
 }
 
-/* Reset básico */
+/* Reset básico FORZADO */
+* {
+  box-sizing: border-box;
+}
+
 body {
   margin: 0 !important;
   padding: 0 !important;
@@ -42,18 +44,20 @@ body {
   background: #f8f9fa !important;
 }
 
-/* Contenedor principal del CMS */
+/* Contenedor principal del CMS - MÁS ESPECÍFICO */
 #nc-root,
 div[data-testid="nc-app"],
-div[class*="App"] {
+div[class*="App"],
+div[role="application"] {
   background: linear-gradient(135deg, #4A7C7E 0%, #6B9FA1 100%) !important;
   min-height: 100vh !important;
 }
 
-/* Header superior */
+/* Header superior - MÁS ESPECÍFICO */
 div[class*="AppHeader"],
 header[class*="AppHeader"],
-div[class*="TopBar"] {
+div[class*="TopBar"],
+nav[role="banner"] {
   background: linear-gradient(135deg, #4A7C7E 0%, #6B9FA1 100%) !important;
   color: white !important;
   box-shadow: 0 2px 8px rgba(0,0,0,0.1) !important;
@@ -62,14 +66,16 @@ div[class*="TopBar"] {
 
 /* Texto del header */
 div[class*="AppHeader"] *,
-header[class*="AppHeader"] * {
+header[class*="AppHeader"] *,
+nav[role="banner"] * {
   color: white !important;
 }
 
-/* Sidebar/Panel lateral */
+/* Sidebar/Panel lateral - MÁS ESPECÍFICO */
 nav[class*="Sidebar"],
 div[class*="Sidebar"],
-aside[class*="Sidebar"] {
+aside[class*="Sidebar"],
+nav[role="navigation"] {
   background: rgba(248, 249, 250, 0.95) !important;
   backdrop-filter: blur(10px) !important;
   border-right: 1px solid rgba(74, 124, 126, 0.2) !important;
@@ -78,15 +84,18 @@ aside[class*="Sidebar"] {
 
 /* Título del panel lateral */
 div[class*="SidebarTitle"],
-h1[class*="SidebarTitle"] {
+h1[class*="SidebarTitle"],
+h2[class*="SidebarTitle"] {
   color: #4A7C7E !important;
   font-weight: 600 !important;
 }
 
-/* Enlaces del sidebar */
+/* Enlaces del sidebar - MÁS ESPECÍFICO */
 nav[class*="Sidebar"] a,
 nav[class*="Sidebar"] button,
-nav[class*="Sidebar"] span {
+nav[class*="Sidebar"] span,
+div[class*="Sidebar"] a,
+aside[class*="Sidebar"] a {
   color: #4A7C7E !important;
   transition: all 0.3s ease !important;
 }
@@ -95,7 +104,8 @@ nav[class*="Sidebar"] span {
 nav[class*="Sidebar"] a[aria-current="page"],
 nav[class*="Sidebar"] a.active,
 div[class*="SidebarItem-active"],
-li[class*="active"] {
+li[class*="active"],
+a[aria-current="page"] {
   background: #4A7C7E !important;
   color: white !important;
   border-radius: 8px !important;
@@ -104,7 +114,8 @@ li[class*="active"] {
 
 /* Hover en elementos del sidebar */
 nav[class*="Sidebar"] a:hover,
-nav[class*="Sidebar"] button:hover {
+nav[class*="Sidebar"] button:hover,
+div[class*="Sidebar"] a:hover {
   background: rgba(74, 124, 126, 0.1) !important;
   border-radius: 6px !important;
   transform: translateX(4px) !important;
@@ -113,24 +124,27 @@ nav[class*="Sidebar"] button:hover {
 /* Área principal de contenido */
 main,
 div[class*="MainContent"],
-div[class*="Content"] {
+div[class*="Content"],
+section[role="main"] {
   background: white !important;
   border-radius: 12px 0 0 0 !important;
   box-shadow: -2px 0 10px rgba(0,0,0,0.1) !important;
   margin-left: 0 !important;
 }
 
-/* Botones primarios */
+/* Botones primarios - MÁS ESPECÍFICO */
 button,
 input[type="submit"],
 a[class*="Button"],
-button[class*="Button"] {
+button[class*="Button"],
+button[type="button"] {
   background: #4A7C7E !important;
   border-color: #4A7C7E !important;
   color: white !important;
   border-radius: 8px !important;
   transition: all 0.3s ease !important;
   font-weight: 500 !important;
+  padding: 8px 16px !important;
 }
 
 /* Hover en botones */
@@ -147,7 +161,8 @@ button[class*="Button"]:hover {
 /* Cards de colecciones */
 div[class*="CollectionCard"],
 div[class*="Card"],
-div[class*="FileCard"] {
+div[class*="FileCard"],
+article {
   background: white !important;
   border-radius: 12px !important;
   box-shadow: 0 2px 8px rgba(0,0,0,0.08) !important;
@@ -261,6 +276,19 @@ div[class*="Loading"] {
   color: white !important;
 }
 
+/* FORZAR estilos después de carga */
+.cms-loaded {
+  background: linear-gradient(135deg, #4A7C7E 0%, #6B9FA1 100%) !important;
+}
+
+.cms-loaded [class*="Sidebar"] {
+  background: rgba(248, 249, 250, 0.95) !important;
+}
+
+.cms-loaded [class*="MainContent"] {
+  background: white !important;
+}
+
 /* Responsive */
 @media (max-width: 768px) {
   nav[class*="Sidebar"] {
@@ -278,11 +306,10 @@ div[class*="Loading"] {
   <!-- Decap CMS - VERSIÓN ESTABLE -->
   <script src="https://unpkg.com/decap-cms@^3.1.2/dist/decap-cms.js"></script>
 
-  <!-- Scripts de autenticación y redirección CORREGIDOS -->
+  <!-- Scripts de autenticación y estilos MEJORADOS -->
   <script>
 // Configurar Netlify Identity con la URL correcta
 if (window.netlifyIdentity) {
-  // Configurar la URL base si estamos en el dominio personalizado
   if (window.location.hostname === 'vidarelax.com.co') {
     window.netlifyIdentity.init({
       APIUrl: 'https://radiant-kashata-fa9673.netlify.app/.netlify/identity'
@@ -290,12 +317,11 @@ if (window.netlifyIdentity) {
   }
 }
 
-// Esperar a que Netlify Identity se cargue completamente
+// Configurar autenticación
 function setupNetlifyIdentity() {
   if (window.netlifyIdentity) {
     console.log("Netlify Identity detected");
     
-    // Configurar eventos de autenticación
     window.netlifyIdentity.on("init", user => {
       console.log("Identity initialized", user);
       if (!user) {
@@ -306,7 +332,7 @@ function setupNetlifyIdentity() {
       }
     });
     
-    // Configurar logout con múltiples métodos
+    // LOGOUT CON REDIRECCIÓN CORREGIDA
     window.netlifyIdentity.on("logout", () => {
       console.log("Logout event detected");
       handleLogout();
@@ -315,7 +341,6 @@ function setupNetlifyIdentity() {
     // Backup: detectar cambio en el estado del usuario
     window.netlifyIdentity.on("init", user => {
       if (!user) {
-        // Si no hay usuario, podría ser que acabó de hacer logout
         setTimeout(() => {
           const currentUser = window.netlifyIdentity.currentUser();
           if (!currentUser && window.location.pathname.includes('/admin')) {
@@ -332,30 +357,24 @@ function setupNetlifyIdentity() {
   }
 }
 
-// Función para manejar el logout
+// Función para manejar el logout CON REDIRECCIÓN CORREGIDA
 function handleLogout() {
   console.log("Processing logout...");
   
   // Mostrar mensaje
   alert("Sesión cerrada. Regresando a la página principal de VIDARELAX...");
   
-  // Redirigir después de un momento
+  // Redirigir después de un momento - URL CORREGIDA
   setTimeout(() => {
     console.log("Redirecting to main website");
-    window.location.href = "https://vidarelax.com.co";
+    window.location.href = "https://www.vidarelax.com.co/";
   }, 1000);
 }
-
-// Inicializar cuando se cargue la página
-window.addEventListener('load', () => {
-  setTimeout(setupNetlifyIdentity, 1000);
-});
 
 // Backup: detectar clicks en botones de logout
 document.addEventListener('click', (event) => {
   const target = event.target;
   
-  // Buscar si el click fue en un botón de logout
   if (target.textContent?.includes('Cerrar') || 
       target.textContent?.includes('Logout') ||
       target.textContent?.includes('Sign out') ||
@@ -364,7 +383,6 @@ document.addEventListener('click', (event) => {
     
     console.log("Logout button clicked detected");
     
-    // Esperar un momento y verificar si el usuario sigue logueado
     setTimeout(() => {
       if (window.netlifyIdentity?.currentUser && !window.netlifyIdentity.currentUser()) {
         console.log("User no longer logged in, triggering logout handler");
@@ -374,36 +392,57 @@ document.addEventListener('click', (event) => {
   }
 });
 
-// Aplicar estilos después de que se cargue el CMS
+// FORZAR aplicación de estilos
+function forceStyles() {
+  const root = document.getElementById('nc-root') || document.querySelector('[data-testid="nc-app"]') || document.body;
+  
+  if (root) {
+    root.classList.add('cms-loaded');
+    root.style.background = 'linear-gradient(135deg, #4A7C7E 0%, #6B9FA1 100%)';
+    root.style.minHeight = '100vh';
+  }
+  
+  // Aplicar estilos al sidebar
+  const sidebar = document.querySelector('[class*="Sidebar"]') || document.querySelector('nav[role="navigation"]');
+  if (sidebar) {
+    sidebar.style.background = 'rgba(248, 249, 250, 0.95)';
+    sidebar.style.backdropFilter = 'blur(10px)';
+    sidebar.style.borderRight = '1px solid rgba(74, 124, 126, 0.2)';
+  }
+  
+  // Aplicar estilos al contenido principal
+  const mainContent = document.querySelector('[class*="MainContent"]') || document.querySelector('main');
+  if (mainContent) {
+    mainContent.style.background = 'white';
+    mainContent.style.borderRadius = '12px 0 0 0';
+  }
+}
+
+// Inicializar todo
 window.addEventListener('load', () => {
-  setTimeout(() => {
-    const root = document.getElementById('nc-root');
-    if (root) {
-      root.classList.add('loaded');
-      root.style.background = 'linear-gradient(135deg, #4A7C7E 0%, #6B9FA1 100%)';
-    }
-  }, 500);
+  setTimeout(setupNetlifyIdentity, 1000);
+  setTimeout(forceStyles, 1500);
 });
 
 // Observador para aplicar estilos cuando el DOM cambie
 const observer = new MutationObserver(() => {
-  const sidebar = document.querySelector('[class*="Sidebar"]');
-  const mainContent = document.querySelector('[class*="MainContent"]');
-  
-  if (sidebar) {
-    sidebar.style.background = 'rgba(248, 249, 250, 0.95)';
-    sidebar.style.backdropFilter = 'blur(10px)';
-  }
-  
-  if (mainContent) {
-    mainContent.style.background = 'white';
-  }
+  forceStyles();
 });
 
-// Iniciar observador cuando se cargue el CMS
+// Aplicar estilos repetidamente para asegurar que se mantengan
 setTimeout(() => {
   if (document.body) {
     observer.observe(document.body, { childList: true, subtree: true });
+    
+    // Aplicar estilos cada 2 segundos inicialmente
+    const styleInterval = setInterval(() => {
+      forceStyles();
+    }, 2000);
+    
+    // Detener después de 30 segundos
+    setTimeout(() => {
+      clearInterval(styleInterval);
+    }, 30000);
   }
 }, 1000);
 </script>
