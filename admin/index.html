@@ -9,7 +9,6 @@
 
   <!-- CONFIGURACIÓN NETLIFY IDENTITY CORREGIDA -->
   <script>
-    // Configurar Netlify Identity ANTES de cargar el widget
     if (window.location.hostname === 'vidarelax.com.co') {
       window.netlifyIdentityConfig = {
         url: 'https://radiant-kashata-fa9673.netlify.app/.netlify/identity'
@@ -20,124 +19,143 @@
   <!-- Netlify Identity Widget -->
   <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
 
-  <!-- Estilos personalizados MEJORADOS para el CMS -->
+  <!-- Estilos INMEDIATOS y AGRESIVOS -->
   <style>
-/* Variables globales */
-:root {
-  --primary-color: #4A7C7E;
-  --secondary-color: #C4A962;
-  --accent-color: #6B9FA1;
-  --text-color: #2c3e50;
-  --bg-color: #ffffff;
-  --sidebar-bg: #f8f9fa;
-}
-
-/* Reset básico FORZADO */
-* {
-  box-sizing: border-box;
-}
-
-body {
+/* APLICAR INMEDIATAMENTE AL BODY */
+html, body {
   margin: 0 !important;
   padding: 0 !important;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif !important;
-  background: #f8f9fa !important;
-}
-
-/* Contenedor principal del CMS - MÁS ESPECÍFICO */
-#nc-root,
-div[data-testid="nc-app"],
-div[class*="App"],
-div[role="application"] {
   background: linear-gradient(135deg, #4A7C7E 0%, #6B9FA1 100%) !important;
   min-height: 100vh !important;
 }
 
-/* Header superior - MÁS ESPECÍFICO */
+/* Variables globales */
+:root {
+  --primary-color: #4A7C7E !important;
+  --secondary-color: #C4A962 !important;
+  --accent-color: #6B9FA1 !important;
+  --text-color: #2c3e50 !important;
+  --bg-color: #ffffff !important;
+  --sidebar-bg: rgba(248, 249, 250, 0.95) !important;
+}
+
+/* ESTILOS INMEDIATOS - Aplicar a TODO */
+* {
+  box-sizing: border-box !important;
+}
+
+/* Contenedor principal - CUALQUIER CONTENEDOR */
+#nc-root,
+div[data-testid="nc-app"],
+div[class*="App"],
+div[role="application"],
+body > div,
+.cms-wrapper {
+  background: linear-gradient(135deg, #4A7C7E 0%, #6B9FA1 100%) !important;
+  min-height: 100vh !important;
+}
+
+/* Header - CUALQUIER HEADER */
 div[class*="AppHeader"],
 header[class*="AppHeader"],
 div[class*="TopBar"],
-nav[role="banner"] {
+nav[role="banner"],
+header,
+.header {
   background: linear-gradient(135deg, #4A7C7E 0%, #6B9FA1 100%) !important;
   color: white !important;
   box-shadow: 0 2px 8px rgba(0,0,0,0.1) !important;
   border-bottom: none !important;
 }
 
-/* Texto del header */
+/* TODO EL TEXTO DEL HEADER */
 div[class*="AppHeader"] *,
 header[class*="AppHeader"] *,
-nav[role="banner"] * {
+nav[role="banner"] *,
+header *,
+.header * {
   color: white !important;
 }
 
-/* Sidebar/Panel lateral - MÁS ESPECÍFICO */
+/* Sidebar - CUALQUIER SIDEBAR */
 nav[class*="Sidebar"],
 div[class*="Sidebar"],
 aside[class*="Sidebar"],
-nav[role="navigation"] {
+nav[role="navigation"],
+.sidebar,
+aside {
   background: rgba(248, 249, 250, 0.95) !important;
   backdrop-filter: blur(10px) !important;
   border-right: 1px solid rgba(74, 124, 126, 0.2) !important;
   box-shadow: 2px 0 10px rgba(0,0,0,0.1) !important;
 }
 
-/* Título del panel lateral */
+/* Títulos del sidebar */
 div[class*="SidebarTitle"],
 h1[class*="SidebarTitle"],
-h2[class*="SidebarTitle"] {
+h2[class*="SidebarTitle"],
+h1, h2, h3 {
   color: #4A7C7E !important;
   font-weight: 600 !important;
 }
 
-/* Enlaces del sidebar - MÁS ESPECÍFICO */
+/* Enlaces del sidebar - MUY ESPECÍFICO */
 nav[class*="Sidebar"] a,
 nav[class*="Sidebar"] button,
 nav[class*="Sidebar"] span,
 div[class*="Sidebar"] a,
-aside[class*="Sidebar"] a {
+aside[class*="Sidebar"] a,
+.sidebar a,
+aside a,
+nav a {
   color: #4A7C7E !important;
   transition: all 0.3s ease !important;
 }
 
-/* Enlaces activos del sidebar */
+/* Enlaces activos - MUY ESPECÍFICO */
 nav[class*="Sidebar"] a[aria-current="page"],
 nav[class*="Sidebar"] a.active,
 div[class*="SidebarItem-active"],
 li[class*="active"],
-a[aria-current="page"] {
+a[aria-current="page"],
+.active {
   background: #4A7C7E !important;
   color: white !important;
   border-radius: 8px !important;
   margin: 2px 8px !important;
 }
 
-/* Hover en elementos del sidebar */
+/* Hover en sidebar */
 nav[class*="Sidebar"] a:hover,
 nav[class*="Sidebar"] button:hover,
-div[class*="Sidebar"] a:hover {
+div[class*="Sidebar"] a:hover,
+.sidebar a:hover,
+nav a:hover {
   background: rgba(74, 124, 126, 0.1) !important;
   border-radius: 6px !important;
   transform: translateX(4px) !important;
 }
 
-/* Área principal de contenido */
+/* Área principal - CUALQUIER MAIN */
 main,
 div[class*="MainContent"],
 div[class*="Content"],
-section[role="main"] {
+section[role="main"],
+.main-content {
   background: white !important;
   border-radius: 12px 0 0 0 !important;
   box-shadow: -2px 0 10px rgba(0,0,0,0.1) !important;
   margin-left: 0 !important;
 }
 
-/* Botones primarios - MÁS ESPECÍFICO */
+/* Botones - TODOS LOS BOTONES */
 button,
 input[type="submit"],
 a[class*="Button"],
 button[class*="Button"],
-button[type="button"] {
+button[type="button"],
+.button {
   background: #4A7C7E !important;
   border-color: #4A7C7E !important;
   color: white !important;
@@ -145,24 +163,27 @@ button[type="button"] {
   transition: all 0.3s ease !important;
   font-weight: 500 !important;
   padding: 8px 16px !important;
+  border: 1px solid #4A7C7E !important;
 }
 
 /* Hover en botones */
 button:hover,
 input[type="submit"]:hover,
 a[class*="Button"]:hover,
-button[class*="Button"]:hover {
+button[class*="Button"]:hover,
+.button:hover {
   background: #6B9FA1 !important;
   border-color: #6B9FA1 !important;
   transform: translateY(-2px) !important;
   box-shadow: 0 4px 12px rgba(74, 124, 126, 0.3) !important;
 }
 
-/* Cards de colecciones */
+/* Cards */
 div[class*="CollectionCard"],
 div[class*="Card"],
 div[class*="FileCard"],
-article {
+article,
+.card {
   background: white !important;
   border-radius: 12px !important;
   box-shadow: 0 2px 8px rgba(0,0,0,0.08) !important;
@@ -170,16 +191,7 @@ article {
   border: 1px solid rgba(74, 124, 126, 0.1) !important;
 }
 
-/* Hover en cards */
-div[class*="CollectionCard"]:hover,
-div[class*="Card"]:hover,
-div[class*="FileCard"]:hover {
-  transform: translateY(-4px) !important;
-  box-shadow: 0 8px 24px rgba(74, 124, 126, 0.2) !important;
-  border-color: #4A7C7E !important;
-}
-
-/* Inputs y formularios */
+/* Inputs */
 input,
 textarea,
 select {
@@ -190,7 +202,6 @@ select {
   background: white !important;
 }
 
-/* Focus en inputs */
 input:focus,
 textarea:focus,
 select:focus {
@@ -199,34 +210,7 @@ select:focus {
   outline: none !important;
 }
 
-/* Tabs */
-div[class*="Tab"],
-button[class*="Tab"] {
-  border-radius: 8px 8px 0 0 !important;
-  transition: all 0.3s ease !important;
-}
-
-div[class*="Tab-active"],
-button[class*="Tab-active"] {
-  background: #4A7C7E !important;
-  color: white !important;
-}
-
-/* Logo/Icono del sidebar */
-div[class*="SidebarIcon"],
-div[class*="Icon"] {
-  background: #4A7C7E !important;
-  border-radius: 50% !important;
-  color: white !important;
-}
-
-/* Mensajes de estado */
-div[class*="StatusMessage"] {
-  border-radius: 8px !important;
-  border-left: 4px solid #4A7C7E !important;
-}
-
-/* Scrollbar personalizada */
+/* Scrollbar */
 ::-webkit-scrollbar {
   width: 10px;
   height: 10px;
@@ -246,69 +230,29 @@ div[class*="StatusMessage"] {
   background: #6B9FA1;
 }
 
-/* Dropdown menus */
-div[class*="Dropdown"],
-div[class*="Menu"] {
-  border-radius: 8px !important;
-  box-shadow: 0 4px 16px rgba(0,0,0,0.15) !important;
-  border: 1px solid rgba(74, 124, 126, 0.2) !important;
-}
-
-/* Animación de entrada */
-@keyframes fadeIn {
-  from { 
-    opacity: 0; 
-    transform: translateY(20px); 
-  }
-  to { 
-    opacity: 1; 
-    transform: translateY(0); 
-  }
-}
-
-#nc-root {
-  animation: fadeIn 0.5s ease !important;
-}
-
-/* Loader personalizado */
-div[class*="Loader"],
-div[class*="Loading"] {
-  color: white !important;
-}
-
-/* FORZAR estilos después de carga */
-.cms-loaded {
-  background: linear-gradient(135deg, #4A7C7E 0%, #6B9FA1 100%) !important;
-}
-
-.cms-loaded [class*="Sidebar"] {
-  background: rgba(248, 249, 250, 0.95) !important;
-}
-
-.cms-loaded [class*="MainContent"] {
-  background: white !important;
-}
-
-/* Responsive */
-@media (max-width: 768px) {
-  nav[class*="Sidebar"] {
-    transform: translateX(-100%);
-    transition: transform 0.3s ease !important;
-  }
-
-  nav[class*="Sidebar-open"] {
-    transform: translateX(0);
-  }
+/* FORZAR estilos desde el primer momento */
+.vidarelax-loaded,
+.vidarelax-loaded * {
+  transition: all 0.3s ease !important;
 }
 </style>
+
+  <!-- Script INMEDIATO para aplicar estilos -->
+  <script>
+    // APLICAR ESTILOS INMEDIATAMENTE
+    document.addEventListener('DOMContentLoaded', function() {
+      document.body.classList.add('vidarelax-loaded');
+      document.body.style.background = 'linear-gradient(135deg, #4A7C7E 0%, #6B9FA1 100%)';
+    });
+  </script>
 </head>
-<body>
-  <!-- Decap CMS - VERSIÓN ESTABLE -->
+<body class="vidarelax-loaded">
+  <!-- Decap CMS -->
   <script src="https://unpkg.com/decap-cms@^3.1.2/dist/decap-cms.js"></script>
 
-  <!-- Scripts de autenticación y estilos MEJORADOS -->
+  <!-- Scripts principales -->
   <script>
-// Configurar Netlify Identity con la URL correcta
+// Configurar Netlify Identity
 if (window.netlifyIdentity) {
   if (window.location.hostname === 'vidarelax.com.co') {
     window.netlifyIdentity.init({
@@ -317,134 +261,84 @@ if (window.netlifyIdentity) {
   }
 }
 
+// APLICAR ESTILOS INMEDIATAMENTE Y CONSTANTEMENTE
+function applyVidarelaxStyles() {
+  // Aplicar al body y html
+  document.documentElement.style.background = 'linear-gradient(135deg, #4A7C7E 0%, #6B9FA1 100%)';
+  document.body.style.background = 'linear-gradient(135deg, #4A7C7E 0%, #6B9FA1 100%)';
+  document.body.classList.add('vidarelax-loaded');
+  
+  // Aplicar a contenedores principales
+  const containers = document.querySelectorAll('#nc-root, [data-testid="nc-app"], [class*="App"], body > div');
+  containers.forEach(el => {
+    el.style.background = 'linear-gradient(135deg, #4A7C7E 0%, #6B9FA1 100%)';
+    el.style.minHeight = '100vh';
+  });
+  
+  // Sidebar
+  const sidebars = document.querySelectorAll('[class*="Sidebar"], nav[role="navigation"], aside');
+  sidebars.forEach(el => {
+    el.style.background = 'rgba(248, 249, 250, 0.95)';
+    el.style.backdropFilter = 'blur(10px)';
+    el.style.borderRight = '1px solid rgba(74, 124, 126, 0.2)';
+  });
+  
+  // Main content
+  const mains = document.querySelectorAll('[class*="MainContent"], main, [role="main"]');
+  mains.forEach(el => {
+    el.style.background = 'white';
+    el.style.borderRadius = '12px 0 0 0';
+  });
+  
+  // Headers
+  const headers = document.querySelectorAll('[class*="AppHeader"], header, [role="banner"]');
+  headers.forEach(el => {
+    el.style.background = 'linear-gradient(135deg, #4A7C7E 0%, #6B9FA1 100%)';
+    el.style.color = 'white';
+  });
+}
+
+// Aplicar estilos cada vez que algo cambie
+const observer = new MutationObserver(applyVidarelaxStyles);
+
 // Configurar autenticación
-function setupNetlifyIdentity() {
+function setupAuth() {
   if (window.netlifyIdentity) {
-    console.log("Netlify Identity detected");
-    
     window.netlifyIdentity.on("init", user => {
-      console.log("Identity initialized", user);
       if (!user) {
         window.netlifyIdentity.on("login", () => {
-          console.log("User logged in, redirecting to admin");
           document.location.href = "/admin/";
         });
       }
     });
     
-    // LOGOUT CON REDIRECCIÓN CORREGIDA
     window.netlifyIdentity.on("logout", () => {
-      console.log("Logout event detected");
-      handleLogout();
+      alert("Sesión cerrada. Regresando a la página principal de VIDARELAX...");
+      setTimeout(() => {
+        window.location.href = "https://www.vidarelax.com.co/";
+      }, 1000);
     });
-    
-    // Backup: detectar cambio en el estado del usuario
-    window.netlifyIdentity.on("init", user => {
-      if (!user) {
-        setTimeout(() => {
-          const currentUser = window.netlifyIdentity.currentUser();
-          if (!currentUser && window.location.pathname.includes('/admin')) {
-            console.log("No user found, handling logout");
-            handleLogout();
-          }
-        }, 100);
-      }
-    });
-    
-  } else {
-    console.log("Netlify Identity not ready, retrying...");
-    setTimeout(setupNetlifyIdentity, 500);
   }
 }
 
-// Función para manejar el logout CON REDIRECCIÓN CORREGIDA
-function handleLogout() {
-  console.log("Processing logout...");
-  
-  // Mostrar mensaje
-  alert("Sesión cerrada. Regresando a la página principal de VIDARELAX...");
-  
-  // Redirigir después de un momento - URL CORREGIDA
-  setTimeout(() => {
-    console.log("Redirecting to main website");
-    window.location.href = "https://www.vidarelax.com.co/";
-  }, 1000);
+// INICIALIZAR TODO INMEDIATAMENTE
+applyVidarelaxStyles();
+setupAuth();
+
+// Aplicar estilos constantemente
+setInterval(applyVidarelaxStyles, 1000);
+
+// Observar cambios
+if (document.body) {
+  observer.observe(document.body, { childList: true, subtree: true });
 }
 
-// Backup: detectar clicks en botones de logout
-document.addEventListener('click', (event) => {
-  const target = event.target;
-  
-  if (target.textContent?.includes('Cerrar') || 
-      target.textContent?.includes('Logout') ||
-      target.textContent?.includes('Sign out') ||
-      target.closest('[class*="logout"]') ||
-      target.closest('[class*="signout"]')) {
-    
-    console.log("Logout button clicked detected");
-    
-    setTimeout(() => {
-      if (window.netlifyIdentity?.currentUser && !window.netlifyIdentity.currentUser()) {
-        console.log("User no longer logged in, triggering logout handler");
-        handleLogout();
-      }
-    }, 500);
-  }
-});
+// Aplicar cuando cargue
+window.addEventListener('load', applyVidarelaxStyles);
+document.addEventListener('DOMContentLoaded', applyVidarelaxStyles);
 
-// FORZAR aplicación de estilos
-function forceStyles() {
-  const root = document.getElementById('nc-root') || document.querySelector('[data-testid="nc-app"]') || document.body;
-  
-  if (root) {
-    root.classList.add('cms-loaded');
-    root.style.background = 'linear-gradient(135deg, #4A7C7E 0%, #6B9FA1 100%)';
-    root.style.minHeight = '100vh';
-  }
-  
-  // Aplicar estilos al sidebar
-  const sidebar = document.querySelector('[class*="Sidebar"]') || document.querySelector('nav[role="navigation"]');
-  if (sidebar) {
-    sidebar.style.background = 'rgba(248, 249, 250, 0.95)';
-    sidebar.style.backdropFilter = 'blur(10px)';
-    sidebar.style.borderRight = '1px solid rgba(74, 124, 126, 0.2)';
-  }
-  
-  // Aplicar estilos al contenido principal
-  const mainContent = document.querySelector('[class*="MainContent"]') || document.querySelector('main');
-  if (mainContent) {
-    mainContent.style.background = 'white';
-    mainContent.style.borderRadius = '12px 0 0 0';
-  }
-}
-
-// Inicializar todo
-window.addEventListener('load', () => {
-  setTimeout(setupNetlifyIdentity, 1000);
-  setTimeout(forceStyles, 1500);
-});
-
-// Observador para aplicar estilos cuando el DOM cambie
-const observer = new MutationObserver(() => {
-  forceStyles();
-});
-
-// Aplicar estilos repetidamente para asegurar que se mantengan
-setTimeout(() => {
-  if (document.body) {
-    observer.observe(document.body, { childList: true, subtree: true });
-    
-    // Aplicar estilos cada 2 segundos inicialmente
-    const styleInterval = setInterval(() => {
-      forceStyles();
-    }, 2000);
-    
-    // Detener después de 30 segundos
-    setTimeout(() => {
-      clearInterval(styleInterval);
-    }, 30000);
-  }
-}, 1000);
+// Aplicar al hacer focus en la ventana
+window.addEventListener('focus', applyVidarelaxStyles);
 </script>
 </body>
 </html>
