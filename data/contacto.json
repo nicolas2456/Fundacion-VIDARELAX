@@ -1,21 +1,11 @@
 {
-  "direccion": {
-    "completa": "Carrera 25 #37-13, Barrio Bolívar",
-    "ciudad": "Bucaramanga",
-    "departamento": "Santander",
-    "pais": "Colombia"
-  },
   "telefono": "+57 (314) 817 9078",
-  "whatsapp": "573148179078",
-  "email": "cvidarelax@gmail.com",
-  "redes_sociales": {
-    "instagram": "https://instagram.com/cvidarelax",
-    "facebook": "",
-    "youtube": "",
-    "tiktok": "",
-    "linkedin": ""
-  },
-  "mapa": {
-    "iframe_url": "https://www.google.com/maps/embed?pb=..."
-  }
+  "email_general": "contactanos@vidarelax.com.co",
+  "email_donaciones": "donaciones@vidarelax.com.co",
+  "email_voluntariado": "voluntarios@vidarelax.com.co",
+  "email_pqrs": "pqrs@vidarelax.com.co",
+  "email_juridico": "juridico@vidarelax.com.co",
+  "direccion": "Carrera 25 #37-13, Barrio Bolívar",
+  "ciudad": "Bucaramanga, Santander",
+  "horario": "Lunes a Viernes: 8:00 AM - 5:00 PM"
 }

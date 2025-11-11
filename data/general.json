@@ -1,8 +1,6 @@
 {
-  "nombre": "Fundación Refugio Casa Vida Relax",
-  "siglas": "VIDARELAX",
+  "nombre": "VIDARELAX",
   "nit": "901.999.007-7",
-  "eslogan": "Refugio para el cuerpo, alivio para el alma",
-  "logo_url": "https://i.imgur.com/ld93iFO.png",
-  "fecha_constitucion": "06/10/2025"
+  "slogan": "Refugio para el cuerpo, alivio para el alma",
+  "descripcion": "Fundación sin ánimo de lucro que brinda apoyo a pacientes oncológicos"
 }
