@@ -1,0 +1,12 @@
+{
+  "donaciones": {
+    "titulo": "Donaciones",
+    "descripcion": "Tu aporte hace la diferencia",
+    "cuenta": "Por definir",
+    "nequi": "314 817 9078"
+  },
+  "voluntariado": {
+    "titulo": "Voluntariado",
+    "descripcion": "Únete a nuestro equipo"
+  }
+}
