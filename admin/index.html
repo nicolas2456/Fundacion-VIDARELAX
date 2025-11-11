@@ -5,302 +5,184 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="robots" content="noindex" />
   <title>Admin - VIDARELAX</title>
-  <link rel="icon" type="image/png" href="../imagenes/logo.png" />
+  <link rel="icon" type="image/png" href="../images/logo.png" />
 
-  <!-- CONFIGURACIÓN NETLIFY IDENTITY -->
-  <script>
-    if (window.location.hostname === 'vidarelax.com.co') {
-      window.netlifyIdentityConfig = {
-        url: 'https://radiant-kashata-fa9673.netlify.app/.netlify/identity'
-      };
-    }
-  </script>
-  
-  <!-- Netlify Identity Widget -->
+  <!-- Netlify Identity -->
   <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+
+  <style>
+    /* Reset básico */
+    * {
+      box-sizing: border-box;
+    }
+
+    html, body {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+      background: #f8f9fa;
+    }
+
+    /* Contenedor principal del CMS */
+    #nc-root {
+      width: 100%;
+      height: 100vh;
+      position: relative;
+      background: #f8f9fa;
+    }
+
+    /* IMPORTANTE: Remover loader que causa problemas */
+    /* No usar ::before ni ::after en #nc-root */
+
+    /* Variables de color personalizadas */
+    :root {
+      --primary-color: #4A7C7E;
+      --secondary-color: #C4A962;
+      --accent-color: #6B9FA1;
+      --text-color: #2c3e50;
+      --bg-color: #ffffff;
+      --sidebar-bg: #f8f9fa;
+    }
+
+    /* Personalización del header */
+    [class*="AppHeader"],
+    [class*="TopBar"] {
+      background: linear-gradient(135deg, var(--primary-color) 0%, var(--accent-color) 100%) !important;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1) !important;
+    }
+
+    /* Sidebar */
+    [class*="Sidebar"],
+    [class*="SidebarContainer"] {
+      background: var(--sidebar-bg) !important;
+      border-right: 1px solid #e0e0e0 !important;
+    }
+
+    /* Botones primarios */
+    button[class*="Button"][class*="primary"],
+    a[class*="Button"][class*="primary"] {
+      background: var(--primary-color) !important;
+      border-color: var(--primary-color) !important;
+      transition: all 0.3s ease !important;
+    }
+
+    button[class*="Button"][class*="primary"]:hover,
+    a[class*="Button"][class*="primary"]:hover {
+      background: var(--accent-color) !important;
+      border-color: var(--accent-color) !important;
+      transform: translateY(-2px) !important;
+      box-shadow: 0 4px 12px rgba(74, 124, 126, 0.3) !important;
+    }
+
+    /* Items activos del sidebar */
+    [class*="SidebarItem"][class*="active"],
+    [class*="NavLink"][class*="active"] {
+      background: var(--primary-color) !important;
+      color: white !important;
+    }
+
+    /* Cards de colección */
+    [class*="CollectionCard"],
+    [class*="Card"] {
+      border-radius: 12px !important;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08) !important;
+      transition: all 0.3s ease !important;
+      background: white !important;
+    }
+
+    [class*="CollectionCard"]:hover,
+    [class*="Card"]:hover {
+      transform: translateY(-4px) !important;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.12) !important;
+    }
+
+    /* Inputs */
+    input[type="text"],
+    input[type="email"],
+    input[type="password"],
+    input[type="search"],
+    textarea,
+    select {
+      border: 1px solid #e0e0e0 !important;
+      border-radius: 8px !important;
+      padding: 0.75rem !important;
+      transition: all 0.3s ease !important;
+      background: white !important;
+    }
+
+    input:focus,
+    textarea:focus,
+    select:focus {
+      border-color: var(--primary-color) !important;
+      box-shadow: 0 0 0 3px rgba(74, 124, 126, 0.1) !important;
+      outline: none !important;
+    }
+
+    /* Tabs */
+    [class*="Tab"] {
+      border-radius: 8px 8px 0 0 !important;
+    }
+
+    [class*="Tab"][class*="active"] {
+      background: var(--primary-color) !important;
+      color: white !important;
+    }
+
+    /* Área de contenido principal */
+    [class*="MainContent"],
+    [class*="ContentContainer"] {
+      background: white !important;
+      min-height: 100vh !important;
+    }
+
+    /* Scrollbar personalizada */
+    ::-webkit-scrollbar {
+      width: 10px;
+      height: 10px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: #f1f1f1;
+      border-radius: 10px;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: var(--primary-color);
+      border-radius: 10px;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+      background: var(--accent-color);
+    }
+
+    /* Fix para que el contenido no desaparezca */
+    [class*="App"],
+    [class*="Container"] {
+      width: 100% !important;
+      height: 100% !important;
+      position: relative !important;
+      z-index: 1 !important;
+    }
+
+    /* Asegurar que todos los elementos sean visibles */
+    div, section, main, aside {
+      position: relative !important;
+    }
+  </style>
 </head>
 <body>
   <!-- Decap CMS -->
-  <script src="https://unpkg.com/decap-cms@^3.1.2/dist/decap-cms.js"></script>
+  <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
 
-  <!-- ESTILOS VIDARELAX POST-CARGA -->
   <script>
-(function() {
-  'use strict';
-
-  // Esperar a que el CMS cargue completamente
-  function waitForCMSAndApplyStyles() {
-    const checkInterval = setInterval(() => {
-      const cmsRoot = document.getElementById('nc-root');
-      const sidebar = document.querySelector('[class*="Sidebar"]');
-      const mainContent = document.querySelector('[class*="MainContent"]');
-      
-      if (cmsRoot && (sidebar || mainContent || cmsRoot.children.length > 0)) {
-        console.log('✅ CMS cargado - aplicando estilos VIDARELAX');
-        clearInterval(checkInterval);
-        
-        setTimeout(() => {
-          applyVidarelaxStyles();
-          startContinuousApplication();
-        }, 500);
-      }
-    }, 500);
-    
-    // Timeout de seguridad
-    setTimeout(() => {
-      clearInterval(checkInterval);
-      applyVidarelaxStyles();
-      startContinuousApplication();
-    }, 15000);
-  }
-
-  function applyVidarelaxStyles() {
-    // Inyectar estilos dinámicamente
-    if (!document.getElementById('vidarelax-styles')) {
-      const style = document.createElement('style');
-      style.id = 'vidarelax-styles';
-      style.innerHTML = `
-        /* FORZAR FONDO PRINCIPAL */
-        html, body {
-          background: linear-gradient(135deg, #4A7C7E 0%, #6B9FA1 100%) !important;
-          margin: 0 !important;
-          padding: 0 !important;
-          min-height: 100vh !important;
-          font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
-        }
-
-        /* CONTENEDOR PRINCIPAL DEL CMS */
-        #nc-root,
-        [data-testid="nc-app"],
-        [class*="App"] {
-          background: linear-gradient(135deg, #4A7C7E 0%, #6B9FA1 100%) !important;
-          min-height: 100vh !important;
-        }
-
-        /* HEADER/BARRA SUPERIOR */
-        [class*="AppHeader"],
-        [class*="TopBar"],
-        header {
-          background: linear-gradient(135deg, #4A7C7E 0%, #6B9FA1 100%) !important;
-          color: white !important;
-          box-shadow: 0 2px 8px rgba(0,0,0,0.1) !important;
-        }
-
-        [class*="AppHeader"] *,
-        [class*="TopBar"] *,
-        header * {
-          color: white !important;
-          fill: white !important;
-        }
-
-        /* SIDEBAR */
-        [class*="Sidebar"],
-        nav[role="navigation"],
-        aside {
-          background: rgba(248, 249, 250, 0.95) !important;
-          backdrop-filter: blur(10px) !important;
-          border-right: 1px solid rgba(74, 124, 126, 0.2) !important;
-          box-shadow: 2px 0 10px rgba(0,0,0,0.1) !important;
-        }
-
-        /* ENLACES DEL SIDEBAR */
-        [class*="Sidebar"] a,
-        [class*="Sidebar"] button,
-        nav[role="navigation"] a,
-        nav[role="navigation"] button,
-        aside a,
-        aside button {
-          color: #4A7C7E !important;
-          transition: all 0.3s ease !important;
-          text-decoration: none !important;
-        }
-
-        /* ENLACES ACTIVOS */
-        [class*="Sidebar"] a[aria-current="page"],
-        [class*="Sidebar"] .active,
-        [class*="Sidebar"] [class*="active"],
-        nav[role="navigation"] [aria-current="page"],
-        aside [aria-current="page"] {
-          background: #4A7C7E !important;
-          color: white !important;
-          border-radius: 8px !important;
-        }
-
-        /* HOVER EN SIDEBAR */
-        [class*="Sidebar"] a:hover,
-        [class*="Sidebar"] button:hover,
-        nav[role="navigation"] a:hover,
-        aside a:hover {
-          background: rgba(74, 124, 126, 0.1) !important;
-          border-radius: 6px !important;
-        }
-
-        /* ÁREA PRINCIPAL */
-        [class*="MainContent"],
-        [class*="Content"],
-        main,
-        [role="main"] {
-          background: white !important;
-          border-radius: 12px 0 0 0 !important;
-          box-shadow: -2px 0 10px rgba(0,0,0,0.1) !important;
-        }
-
-        /* BOTONES */
-        button,
-        [role="button"],
-        input[type="submit"],
-        input[type="button"] {
-          background: #4A7C7E !important;
-          color: white !important;
-          border: 1px solid #4A7C7E !important;
-          border-radius: 8px !important;
-          padding: 8px 16px !important;
-          transition: all 0.3s ease !important;
-        }
-
-        button:hover,
-        [role="button"]:hover,
-        input[type="submit"]:hover {
-          background: #6B9FA1 !important;
-          transform: translateY(-2px) !important;
-          box-shadow: 0 4px 12px rgba(74, 124, 126, 0.3) !important;
-        }
-
-        /* CARDS */
-        [class*="Card"],
-        [class*="CollectionCard"],
-        article {
-          background: white !important;
-          border-radius: 12px !important;
-          box-shadow: 0 2px 8px rgba(0,0,0,0.08) !important;
-          border: 1px solid rgba(74, 124, 126, 0.1) !important;
-          transition: all 0.3s ease !important;
-        }
-
-        [class*="Card"]:hover,
-        [class*="CollectionCard"]:hover {
-          transform: translateY(-4px) !important;
-          box-shadow: 0 8px 24px rgba(74, 124, 126, 0.2) !important;
-        }
-
-        /* INPUTS */
-        input, textarea, select {
-          border: 1px solid #e0e0e0 !important;
-          border-radius: 8px !important;
-          padding: 0.75rem !important;
-          background: white !important;
-          transition: all 0.3s ease !important;
-        }
-
-        input:focus, textarea:focus, select:focus {
-          border-color: #4A7C7E !important;
-          box-shadow: 0 0 0 3px rgba(74, 124, 126, 0.1) !important;
-          outline: none !important;
-        }
-
-        /* SCROLLBAR */
-        ::-webkit-scrollbar {
-          width: 10px !important;
-        }
-        ::-webkit-scrollbar-track {
-          background: #f1f1f1 !important;
-          border-radius: 10px !important;
-        }
-        ::-webkit-scrollbar-thumb {
-          background: #4A7C7E !important;
-          border-radius: 10px !important;
-        }
-        ::-webkit-scrollbar-thumb:hover {
-          background: #6B9FA1 !important;
-        }
-      `;
-      document.head.appendChild(style);
-    }
-
-    // Aplicar estilos directamente
-    applyDirectStyles();
-  }
-
-  function applyDirectStyles() {
-    const gradient = 'linear-gradient(135deg, #4A7C7E 0%, #6B9FA1 100%)';
-    
-    // HTML y BODY
-    document.documentElement.style.background = gradient;
-    document.body.style.background = gradient;
-    document.body.style.margin = '0';
-    document.body.style.padding = '0';
-    document.body.style.minHeight = '100vh';
-    
-    // Contenedores principales
-    const containers = document.querySelectorAll('#nc-root, [data-testid="nc-app"], [class*="App"]');
-    containers.forEach(el => {
-      if (el) {
-        el.style.background = gradient;
-        el.style.minHeight = '100vh';
-        el.style.width = '100%';
-      }
-    });
-
-    // Headers
-    const headers = document.querySelectorAll('[class*="AppHeader"], [class*="TopBar"], header');
-    headers.forEach(el => {
-      if (el) {
-        el.style.background = gradient;
-        el.style.color = 'white';
-        
-        const headerChildren = el.querySelectorAll('*');
-        headerChildren.forEach(child => {
-          child.style.color = 'white';
-          child.style.fill = 'white';
-        });
-      }
-    });
-
-    // Sidebars
-    const sidebars = document.querySelectorAll('[class*="Sidebar"], nav[role="navigation"], aside');
-    sidebars.forEach(el => {
-      if (el && el.offsetWidth < 400) {
-        el.style.background = 'rgba(248, 249, 250, 0.95)';
-        el.style.backdropFilter = 'blur(10px)';
-        el.style.borderRight = '1px solid rgba(74, 124, 126, 0.2)';
-        el.style.boxShadow = '2px 0 10px rgba(0,0,0,0.1)';
-      }
-    });
-
-    // Contenido principal
-    const mainContent = document.querySelectorAll('[class*="MainContent"], [class*="Content"], main, [role="main"]');
-    mainContent.forEach(el => {
-      if (el && el.offsetWidth > 400) {
-        el.style.background = 'white';
-        el.style.borderRadius = '12px 0 0 0';
-        el.style.boxShadow = '-2px 0 10px rgba(0,0,0,0.1)';
-      }
-    });
-  }
-
-  function startContinuousApplication() {
-    // Aplicar cada 3 segundos por 2 minutos
-    let count = 0;
-    const interval = setInterval(() => {
-      applyDirectStyles();
-      count++;
-      if (count >= 40) {
-        clearInterval(interval);
-        // Continuar cada 10 segundos
-        setInterval(applyDirectStyles, 10000);
-      }
-    }, 3000);
-  }
-
-  // CONFIGURAR NETLIFY IDENTITY
-  function setupIdentity() {
+    // Manejar autenticación
     if (window.netlifyIdentity) {
-      if (window.location.hostname === 'vidarelax.com.co') {
-        window.netlifyIdentity.init({
-          APIUrl: 'https://radiant-kashata-fa9673.netlify.app/.netlify/identity'
-        });
-      }
-
       window.netlifyIdentity.on("init", user => {
         if (!user) {
           window.netlifyIdentity.on("login", () => {
@@ -308,23 +190,42 @@
           });
         }
       });
-      
-      window.netlifyIdentity.on("logout", () => {
-        alert("Sesión cerrada. Regresando a la página principal de VIDARELAX...");
-        setTimeout(() => {
-          window.location.href = "https://www.vidarelax.com.co/";
-        }, 1000);
-      });
     }
-  }
 
-  // INICIALIZAR TODO
-  waitForCMSAndApplyStyles();
-  setupIdentity();
+    // Asegurar que el CMS se renderice correctamente
+    window.addEventListener('load', () => {
+      console.log('CMS loaded successfully');
 
-  console.log('🎨 VIDARELAX CMS - Sistema simplificado activado');
+      // Verificar que el root existe
+      const root = document.getElementById('nc-root');
+      if (root) {
+        console.log('CMS root found');
+        root.style.display = 'block';
+        root.style.visibility = 'visible';
+        root.style.opacity = '1';
+      }
+    });
 
-})();
-</script>
+    // Prevenir que los estilos se sobrescriban
+    const observer = new MutationObserver(() => {
+      const root = document.getElementById('nc-root');
+      if (root && root.style.display === 'none') {
+        root.style.display = 'block';
+      }
+    });
+
+    // Observar cambios en el DOM
+    observer.observe(document.body, {
+      childList: true,
+      subtree: true,
+      attributes: true,
+      attributeFilter: ['style']
+    });
+
+    // Registrar preview styles (opcional)
+    if (window.CMS) {
+      CMS.registerPreviewStyle('/css/style.css');
+    }
+  </script>
 </body>
 </html>
