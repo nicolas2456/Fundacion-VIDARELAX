@@ -1,5 +1,5 @@
 <!doctype html>
-<html>
+<html lang="es">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -17,28 +17,29 @@
     }
 
     html, body {
-      margin: 0;
-      padding: 0;
-      width: 100%;
-      height: 100%;
-      overflow: hidden;
+      margin: 0 !important;
+      padding: 0 !important;
+      width: 100% !important;
+      height: 100% !important;
+      overflow-x: hidden !important;
     }
 
     body {
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-      background: #f8f9fa;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif !important;
+      background: #f8f9fa !important;
     }
 
-    /* Contenedor principal del CMS */
+    /* CRÍTICO: Forzar visibilidad del contenedor principal */
     #nc-root {
-      width: 100%;
-      height: 100vh;
-      position: relative;
-      background: #f8f9fa;
+      display: block !important;
+      visibility: visible !important;
+      opacity: 1 !important;
+      width: 100% !important;
+      height: 100vh !important;
+      min-height: 100vh !important;
+      position: relative !important;
+      background: #f8f9fa !important;
     }
-
-    /* IMPORTANTE: Remover loader que causa problemas */
-    /* No usar ::before ni ::after en #nc-root */
 
     /* Variables de color personalizadas */
     :root {
@@ -50,18 +51,54 @@
       --sidebar-bg: #f8f9fa;
     }
 
+    /* CRÍTICO: Forzar visibilidad de componentes principales del CMS */
+    [class*="App"],
+    [class*="AppContainer"],
+    [data-testid="nc-app"] {
+      display: flex !important;
+      visibility: visible !important;
+      opacity: 1 !important;
+      width: 100% !important;
+      height: 100% !important;
+      min-height: 100vh !important;
+    }
+
     /* Personalización del header */
     [class*="AppHeader"],
-    [class*="TopBar"] {
+    [class*="TopBar"],
+    header[class*="Header"] {
+      display: flex !important;
+      visibility: visible !important;
       background: linear-gradient(135deg, var(--primary-color) 0%, var(--accent-color) 100%) !important;
       box-shadow: 0 2px 8px rgba(0,0,0,0.1) !important;
     }
 
-    /* Sidebar */
+    /* CRÍTICO: Sidebar debe ser visible */
     [class*="Sidebar"],
-    [class*="SidebarContainer"] {
+    [class*="SidebarContainer"],
+    aside,
+    nav[class*="Sidebar"] {
+      display: flex !important;
+      visibility: visible !important;
+      opacity: 1 !important;
+      flex-direction: column !important;
       background: var(--sidebar-bg) !important;
       border-right: 1px solid #e0e0e0 !important;
+      width: auto !important;
+      min-width: 250px !important;
+    }
+
+    /* CRÍTICO: Área de contenido principal debe ser visible */
+    [class*="MainContent"],
+    [class*="ContentContainer"],
+    main,
+    [role="main"] {
+      display: block !important;
+      visibility: visible !important;
+      opacity: 1 !important;
+      background: white !important;
+      min-height: 100vh !important;
+      flex: 1 !important;
     }
 
     /* Botones primarios */
@@ -134,13 +171,6 @@
       color: white !important;
     }
 
-    /* Área de contenido principal */
-    [class*="MainContent"],
-    [class*="ContentContainer"] {
-      background: white !important;
-      min-height: 100vh !important;
-    }
-
     /* Scrollbar personalizada */
     ::-webkit-scrollbar {
       width: 10px;
@@ -160,20 +190,6 @@
     ::-webkit-scrollbar-thumb:hover {
       background: var(--accent-color);
     }
-
-    /* Fix para que el contenido no desaparezca */
-    [class*="App"],
-    [class*="Container"] {
-      width: 100% !important;
-      height: 100% !important;
-      position: relative !important;
-      z-index: 1 !important;
-    }
-
-    /* Asegurar que todos los elementos sean visibles */
-    div, section, main, aside {
-      position: relative !important;
-    }
   </style>
 </head>
 <body>
@@ -181,51 +197,234 @@
   <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
 
   <script>
-    // Manejar autenticación
-    if (window.netlifyIdentity) {
-      window.netlifyIdentity.on("init", user => {
-        if (!user) {
-          window.netlifyIdentity.on("login", () => {
-            document.location.href = "/admin/";
+    (function() {
+      'use strict';
+
+      console.log('🎨 VIDARELAX Admin Panel - Inicializando...');
+
+      // ═══════════════════════════════════════════════════════════
+      // PASO 1: CONFIGURAR NETLIFY IDENTITY
+      // ═══════════════════════════════════════════════════════════
+      if (window.netlifyIdentity) {
+        window.netlifyIdentity.on("init", user => {
+          console.log('🔐 Netlify Identity inicializado', user ? '(Usuario autenticado)' : '(Sin usuario)');
+
+          if (!user) {
+            // Si no hay usuario, configurar redirect después de login
+            window.netlifyIdentity.on("login", () => {
+              console.log('✅ Login exitoso - Recargando página...');
+              document.location.href = "/admin/";
+            });
+          } else {
+            // Usuario ya autenticado, iniciar carga del CMS
+            console.log('👤 Usuario ya autenticado, esperando carga del CMS...');
+            initializeCMS();
+          }
+        });
+      }
+
+      // ═══════════════════════════════════════════════════════════
+      // PASO 2: ESPERAR CARGA COMPLETA DEL CMS
+      // ═══════════════════════════════════════════════════════════
+      function initializeCMS() {
+        console.log('⏳ Esperando que el CMS se renderice completamente...');
+
+        let attempts = 0;
+        const maxAttempts = 50; // 10 segundos máximo (50 * 200ms)
+
+        const checkCMSReady = setInterval(() => {
+          attempts++;
+
+          // Buscar elementos críticos del CMS
+          const root = document.getElementById('nc-root');
+          const app = document.querySelector('[class*="App"], [data-testid="nc-app"]');
+          const sidebar = document.querySelector('[class*="Sidebar"], aside');
+          const mainContent = document.querySelector('[class*="MainContent"], main, [role="main"]');
+
+          console.log(`🔍 Intento ${attempts}/${maxAttempts}:`, {
+            root: !!root,
+            app: !!app,
+            sidebar: !!sidebar,
+            mainContent: !!mainContent
           });
+
+          // Verificar si TODOS los elementos críticos existen
+          if (root && app && (sidebar || mainContent)) {
+            clearInterval(checkCMSReady);
+            console.log('✅ CMS completamente cargado - Aplicando estilos y configuración');
+
+            // Aplicar estilos y configuración
+            forceCMSVisibility();
+            startContinuousMonitoring();
+
+            // Notificar éxito
+            console.log('🎉 VIDARELAX Admin Panel - Listo para usar');
+
+          } else if (attempts >= maxAttempts) {
+            clearInterval(checkCMSReady);
+            console.error('❌ Timeout: El CMS no se cargó completamente');
+
+            // Intentar forzar visibilidad de todos modos
+            forceCMSVisibility();
+          }
+        }, 200); // Verificar cada 200ms
+      }
+
+      // ═══════════════════════════════════════════════════════════
+      // PASO 3: FORZAR VISIBILIDAD DE TODOS LOS ELEMENTOS
+      // ═══════════════════════════════════════════════════════════
+      function forceCMSVisibility() {
+        console.log('🔧 Forzando visibilidad de elementos del CMS...');
+
+        // Root container
+        const root = document.getElementById('nc-root');
+        if (root) {
+          root.style.cssText = `
+            display: block !important;
+            visibility: visible !important;
+            opacity: 1 !important;
+            width: 100% !important;
+            height: 100vh !important;
+            position: relative !important;
+          `;
+          console.log('  ✓ nc-root visible');
+        }
+
+        // App containers
+        const apps = document.querySelectorAll('[class*="App"], [class*="AppContainer"], [data-testid="nc-app"]');
+        apps.forEach((el, index) => {
+          el.style.cssText = `
+            display: flex !important;
+            visibility: visible !important;
+            opacity: 1 !important;
+            width: 100% !important;
+            height: 100% !important;
+            flex-direction: row !important;
+          `;
+          console.log(`  ✓ App container ${index + 1} visible`);
+        });
+
+        // Sidebar
+        const sidebars = document.querySelectorAll('[class*="Sidebar"], aside, nav[class*="Sidebar"]');
+        sidebars.forEach((el, index) => {
+          el.style.cssText = `
+            display: flex !important;
+            visibility: visible !important;
+            opacity: 1 !important;
+            flex-direction: column !important;
+            width: auto !important;
+            min-width: 250px !important;
+          `;
+          console.log(`  ✓ Sidebar ${index + 1} visible`);
+        });
+
+        // Main content
+        const mains = document.querySelectorAll('[class*="MainContent"], [class*="ContentContainer"], main, [role="main"]');
+        mains.forEach((el, index) => {
+          el.style.cssText = `
+            display: block !important;
+            visibility: visible !important;
+            opacity: 1 !important;
+            flex: 1 !important;
+            width: 100% !important;
+          `;
+          console.log(`  ✓ Main content ${index + 1} visible`);
+        });
+
+        // Headers
+        const headers = document.querySelectorAll('[class*="AppHeader"], [class*="TopBar"], header');
+        headers.forEach((el, index) => {
+          el.style.cssText = `
+            display: flex !important;
+            visibility: visible !important;
+            opacity: 1 !important;
+          `;
+          console.log(`  ✓ Header ${index + 1} visible`);
+        });
+
+        console.log('✅ Todos los estilos de visibilidad aplicados');
+      }
+
+      // ═══════════════════════════════════════════════════════════
+      // PASO 4: MONITOREO CONTINUO (Sistema de recuperación)
+      // ═══════════════════════════════════════════════════════════
+      function startContinuousMonitoring() {
+        console.log('👁️ Iniciando monitoreo continuo del DOM...');
+
+        // Re-aplicar estilos cada 2 segundos durante el primer minuto
+        let monitoringCount = 0;
+        const maxMonitoring = 30; // 30 veces = 1 minuto
+
+        const monitoringInterval = setInterval(() => {
+          monitoringCount++;
+          forceCMSVisibility();
+
+          if (monitoringCount >= maxMonitoring) {
+            clearInterval(monitoringInterval);
+            console.log('✅ Monitoreo intensivo completado - Cambiando a monitoreo ligero');
+            startLightMonitoring();
+          }
+        }, 2000); // Cada 2 segundos
+
+        // MutationObserver para detectar cambios
+        const observer = new MutationObserver((mutations) => {
+          // Verificar si algún elemento crítico fue ocultado
+          const root = document.getElementById('nc-root');
+          if (root && (root.style.display === 'none' || root.style.visibility === 'hidden')) {
+            console.warn('⚠️ Elemento crítico ocultado detectado - Restaurando...');
+            forceCMSVisibility();
+          }
+        });
+
+        observer.observe(document.body, {
+          childList: true,
+          subtree: true,
+          attributes: true,
+          attributeFilter: ['style', 'class']
+        });
+
+        console.log('✅ MutationObserver activo');
+      }
+
+      // Monitoreo ligero cada 10 segundos indefinidamente
+      function startLightMonitoring() {
+        setInterval(() => {
+          const root = document.getElementById('nc-root');
+          const app = document.querySelector('[class*="App"]');
+
+          if (root && app) {
+            // Solo verificar visibilidad, no forzar
+            if (root.style.display === 'none' || !app.offsetParent) {
+              console.warn('⚠️ Problema de visibilidad detectado - Restaurando...');
+              forceCMSVisibility();
+            }
+          }
+        }, 10000); // Cada 10 segundos
+      }
+
+      // ═══════════════════════════════════════════════════════════
+      // PASO 5: INICIALIZAR EN CARGA DE PÁGINA
+      // ═══════════════════════════════════════════════════════════
+      window.addEventListener('load', () => {
+        console.log('📄 Página cargada - Verificando estado de autenticación...');
+
+        // Si Netlify Identity no está disponible, inicializar de todos modos
+        if (!window.netlifyIdentity) {
+          console.warn('⚠️ Netlify Identity no disponible - Inicializando CMS de todos modos');
+          setTimeout(initializeCMS, 500);
         }
       });
-    }
 
-    // Asegurar que el CMS se renderice correctamente
-    window.addEventListener('load', () => {
-      console.log('CMS loaded successfully');
+      // Backup: Inicializar después de 2 segundos si nada más funciona
+      setTimeout(() => {
+        const root = document.getElementById('nc-root');
+        if (root && !root.querySelector('[class*="App"]')) {
+          console.warn('⚠️ Iniciando carga de emergencia del CMS...');
+          initializeCMS();
+        }
+      }, 2000);
 
-      // Verificar que el root existe
-      const root = document.getElementById('nc-root');
-      if (root) {
-        console.log('CMS root found');
-        root.style.display = 'block';
-        root.style.visibility = 'visible';
-        root.style.opacity = '1';
-      }
-    });
-
-    // Prevenir que los estilos se sobrescriban
-    const observer = new MutationObserver(() => {
-      const root = document.getElementById('nc-root');
-      if (root && root.style.display === 'none') {
-        root.style.display = 'block';
-      }
-    });
-
-    // Observar cambios en el DOM
-    observer.observe(document.body, {
-      childList: true,
-      subtree: true,
-      attributes: true,
-      attributeFilter: ['style']
-    });
-
-    // Registrar preview styles (opcional)
-    if (window.CMS) {
-      CMS.registerPreviewStyle('/css/style.css');
-    }
+    })();
   </script>
 </body>
 </html>
