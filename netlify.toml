@@ -2,6 +2,16 @@
 # CONFIGURACIÓN DE NETLIFY
 # Fundación Refugio Casa Vida Relax - VIDARELAX
 # ═══════════════════════════════════════════════════════════════
+#
+# INFORMACIÓN DEL SITIO:
+# - URL Netlify: https://radiant-kashata-fa9673.netlify.app
+# - Dominio personalizado: https://vidarelax.com.co
+# - CMS: Decap CMS con Netlify Identity + Git Gateway
+# - Deploy: Automático desde rama main en GitHub
+#
+# PLATAFORMA ÚNICA: Este sitio está SOLO en Netlify
+# No usar Vercel, GitHub Pages u otras plataformas para evitar conflictos
+# ═══════════════════════════════════════════════════════════════
 
 # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 # CONFIGURACIÓN DE BUILD
