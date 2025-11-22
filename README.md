@@ -1,481 +1,457 @@
-# 🏥 Fundación Refugio Casa Vida Relax - VIDARELAX
+# 🏥 Guía de Edición - Fundación VIDARELAX
 
 **"Refugio para el cuerpo, alivio para el alma"**
 
-Sitio web oficial de la Fundación Refugio Casa Vida Relax, albergue oncológico en Bucaramanga que brinda alojamiento digno y acompañamiento integral a pacientes oncológicos y sus familias.
+Esta guía te ayudará a editar el contenido del sitio web de la Fundación VIDARELAX de manera fácil y segura, **sin necesidad de conocimientos técnicos**.
 
 ---
 
 ## 📋 Tabla de Contenidos
 
-- [Características del Sitio](#-características-del-sitio)
-- [Estructura del Proyecto](#-estructura-del-proyecto)
-- [Despliegue en Netlify](#-despliegue-en-netlify)
-- [Configuración de Netlify Identity](#-configuración-de-netlify-identity)
-- [Acceso al Panel Administrativo](#-acceso-al-panel-administrativo)
-- [Gestión de Contenidos](#-gestión-de-contenidos)
-- [Conectar Dominio Personalizado](#-conectar-dominio-personalizado)
-- [Solución de Problemas](#-solución-de-problemas)
-- [Mantenimiento y Actualizaciones](#-mantenimiento-y-actualizaciones)
-- [Soporte Técnico](#-soporte-técnico)
+1. [¿Cómo editar el sitio web?](#-cómo-editar-el-sitio-web)
+2. [Estructura del proyecto](#-estructura-del-proyecto)
+3. [Edición mediante el Panel Administrativo](#-edición-mediante-el-panel-administrativo)
+4. [Edición directa de archivos JSON](#-edición-directa-de-archivos-json)
+5. [Archivos editables](#-archivos-editables)
+6. [Reglas importantes](#-reglas-importantes)
+7. [Preguntas frecuentes](#-preguntas-frecuentes)
 
 ---
 
-## ✨ Características del Sitio
+## 🎯 ¿Cómo editar el sitio web?
 
-### 🎨 Diseño y Experiencia
-- ✅ Diseño responsive (móvil, tablet, desktop)
-- ✅ Animaciones suaves y modernas
-- ✅ Paleta de colores institucionales (Turquesa, Lavanda, Dorado)
-- ✅ Tipografía profesional (Montserrat + Open Sans)
-- ✅ Botón flotante de WhatsApp
+Hay **DOS formas** de editar el contenido del sitio:
 
-### ⚙️ Funcionalidades Técnicas
-- ✅ **Formulario de contacto funcional** con Netlify Forms
-- ✅ **Panel administrativo completo** con Netlify CMS
-- ✅ **Gestión de documentos PDF** descargables
-- ✅ **Sistema de autenticación** con Netlify Identity
-- ✅ **Optimización automática** de imágenes y assets
-- ✅ **SSL automático** (HTTPS)
-- ✅ **Headers de seguridad** configurados
+### ✅ **Opción 1: Panel Administrativo (MÁS FÁCIL - RECOMENDADO)**
+- Interfaz visual amigable
+- No necesitas conocimientos técnicos
+- Cambios se publican automáticamente
+- **URL:** https://cute-dusk-de1148.netlify.app/admin/
 
-### 📝 Contenidos Editables desde el Panel Admin
-- Información general de la fundación
-- Misión, Visión y Valores
-- Junta Directiva (fotos, nombres, cargos)
-- Servicios ofrecidos
-- Documentos PDF institucionales
-- Información bancaria para donaciones
-- Datos de contacto y redes sociales
-- Colores institucionales
+### ✅ **Opción 2: Editar archivos JSON en GitHub**
+- Para usuarios con más experiencia
+- Editas directamente los archivos de datos
+- Requiere conocimientos básicos de JSON
+- **URL:** https://github.com/nicolas2456/Fundacion-VIDARELAX
 
 ---
 
 ## 📁 Estructura del Proyecto
 
 ```
-fundacion-vidarelax/
-├── 📄 index.html                 # Página principal del sitio
-├── 📄 README.md                  # Este archivo de instrucciones
-├── 📄 netlify.toml               # Configuración de Netlify
-├── 📄 _redirects                 # Redirects y rewrites
+Fundacion-VIDARELAX/
 │
-├── 📁 admin/                     # Panel administrativo (Netlify CMS)
-│   ├── 📄 index.html             # Interfaz del CMS
-│   └── 📄 config.yml             # Configuración del CMS
+├── 📄 index.html              # Página principal del sitio web
+├── 📄 README.md               # Este archivo (guía de edición)
+├── 📄 netlify.toml            # Configuración de despliegue
 │
-├── 📁 _data/                     # Datos editables desde el CMS
-│   ├── 📄 general.json           # Información general
-│   ├── 📄 identidad.json         # Misión, Visión, Valores
-│   ├── 📄 contacto.json          # Datos de contacto
-│   ├── 📄 donaciones.json        # Info de donaciones y voluntariado
-│   ├── 📄 estilos.json           # Colores institucionales
-│   ├── 📁 junta/                 # Miembros de la junta directiva
-│   ├── 📁 servicios/             # Servicios ofrecidos
-│   └── 📁 documentos/            # Referencias a PDFs
+├── 📁 admin/                  # Panel administrativo
+│   ├── index.html             # Interfaz del CMS
+│   └── config.yml             # Configuración del CMS
 │
-├── 📁 documentos/                # Archivos PDF institucionales
-│   └── 📄 .gitkeep
+├── 📁 data/                   # ⭐ ARCHIVOS EDITABLES ⭐
+│   ├── general.json           # Información general de la fundación
+│   ├── contacto.json          # Datos de contacto
+│   ├── mision-vision.json     # Misión, visión y valores
+│   ├── como-ayudar.json       # Información de donaciones
+│   ├── colores.json           # Paleta de colores del sitio
+│   │
+│   ├── 📁 junta/              # Miembros de la junta directiva
+│   ├── 📁 servicios/          # Servicios ofrecidos
+│   └── 📁 documentos/         # Documentos PDF institucionales
 │
-└── 📁 assets/                    # Archivos multimedia
-    └── 📁 uploads/               # Imágenes y archivos subidos desde el CMS
-        └── 📄 .gitkeep
+└── 📁 images/                 # Imágenes y archivos multimedia
+    ├── logo.png               # Logo de la fundación
+    └── 📁 uploads/            # Imágenes subidas desde el CMS
 ```
 
 ---
 
-## 🚀 Despliegue en Netlify
+## 🖥️ Edición mediante el Panel Administrativo
 
-### **Paso 1: Subir el Código a GitHub**
+### **Paso 1: Acceder al Panel**
 
-1. **Crear un repositorio en GitHub:**
-   - Ve a [github.com](https://github.com) e inicia sesión
-   - Haz clic en el botón `+` (arriba a la derecha) → **New repository**
-   - Nombre del repositorio: `fundacion-vidarelax-website` (o el que prefieras)
-   - Visibilidad: **Public** (recomendado) o **Private**
-   - **NO** marques "Initialize with README" (ya tienes este README)
-   - Haz clic en **Create repository**
+1. Abre tu navegador y ve a: **https://cute-dusk-de1148.netlify.app/admin/**
+2. Inicia sesión con tu correo y contraseña
+3. Si es tu primera vez, usa el enlace de invitación que recibiste por correo
 
-2. **Subir el código desde tu computadora:**
+### **Paso 2: Seleccionar qué editar**
 
-   ```bash
-   # Navega a la carpeta del proyecto
-   cd ruta/a/fundacion-vidarelax
+Una vez dentro, verás las siguientes secciones en el menú lateral:
 
-   # Inicializar Git (si no está inicializado)
-   git init
+- **⚙️ Configuración General** - Nombre, NIT, slogan de la fundación
+- **🎯 Misión, Visión y Valores** - Identidad institucional
+- **👥 Junta Directiva** - Miembros del equipo directivo
+- **🏥 Servicios Ofrecidos** - Servicios que presta la fundación
+- **📄 Documentos Institucionales** - PDFs y documentos legales
+- **🤝 Cómo Ayudar** - Información de donaciones y voluntariado
+- **📞 Información de Contacto** - Teléfonos, correos, dirección
+- **🎨 Colores y Estilo Visual** - Paleta de colores del sitio
 
-   # Agregar todos los archivos
-   git add .
+### **Paso 3: Editar el contenido**
 
-   # Crear el primer commit
-   git commit -m "Sitio web inicial de Fundación VIDARELAX con Netlify CMS"
+1. Haz clic en la sección que quieres editar
+2. Haz clic en el elemento específico (verás una vista previa)
+3. Edita los campos que necesites cambiar
+4. Haz clic en **"Guardar"** (botón verde arriba a la derecha)
+5. Luego haz clic en **"Publicar"** para que los cambios sean visibles
 
-   # Conectar con tu repositorio de GitHub (reemplaza con tu URL)
-   git remote add origin https://github.com/TU-USUARIO/fundacion-vidarelax-website.git
+### **Paso 4: Verificar los cambios**
 
-   # Subir a GitHub
-   git branch -M main
-   git push -u origin main
-   ```
-
-### **Paso 2: Conectar con Netlify**
-
-1. **Crear cuenta en Netlify:**
-   - Ve a [netlify.com](https://netlify.com)
-   - Haz clic en **Sign up** (si no tienes cuenta)
-   - Regístrate con tu cuenta de GitHub (recomendado)
-
-2. **Importar el sitio:**
-   - En el dashboard de Netlify, haz clic en **Add new site** → **Import an existing project**
-   - Selecciona **Deploy with GitHub**
-   - Autoriza a Netlify para acceder a tu cuenta de GitHub
-   - Selecciona el repositorio `fundacion-vidarelax-website`
-
-3. **Configurar el despliegue:**
-   - **Branch to deploy:** `main`
-   - **Build command:** (dejar vacío)
-   - **Publish directory:** `.` (punto)
-   - Haz clic en **Deploy site**
-
-4. **Esperar el despliegue:**
-   - Netlify comenzará a construir y desplegar tu sitio
-   - Esto tomará 1-2 minutos
-   - Una vez completado, verás un mensaje de **Published** ✅
-
-5. **Tu sitio está en línea:**
-   - Netlify te asignará una URL temporal como: `https://random-name-123456.netlify.app`
-   - Puedes visitar esta URL para ver tu sitio funcionando
-
-### **Paso 3: Cambiar el Nombre del Sitio (Opcional)**
-
-1. En el dashboard de tu sitio en Netlify
-2. Ve a **Site settings** → **General** → **Site details**
-3. Haz clic en **Change site name**
-4. Ingresa un nombre personalizado, por ejemplo: `vidarelax` o `fundacion-vidarelax`
-5. Tu URL será: `https://vidarelax.netlify.app`
+1. Espera 1-2 minutos para que el sitio se actualice automáticamente
+2. Abre el sitio web en una nueva pestaña: https://cute-dusk-de1148.netlify.app
+3. Recarga la página (`F5` o `Ctrl + R`) para ver los cambios
 
 ---
 
-## 🔐 Configuración de Netlify Identity
+## 📝 Edición Directa de Archivos JSON
 
-Para que el panel administrativo (`/admin`) funcione, debes habilitar **Netlify Identity**:
+Si prefieres editar directamente los archivos de datos en GitHub:
 
-### **Paso 1: Habilitar Identity**
+### **Paso 1: Acceder a GitHub**
 
-1. En el dashboard de Netlify, ve a tu sitio
-2. Haz clic en **Identity** (en el menú superior)
-3. Haz clic en **Enable Identity**
+1. Ve a: https://github.com/nicolas2456/Fundacion-VIDARELAX
+2. Inicia sesión con tu cuenta de GitHub
+3. Navega a la carpeta **`data/`**
 
-### **Paso 2: Configurar Git Gateway**
+### **Paso 2: Editar un archivo**
 
-1. En la misma página de **Identity**, baja hasta **Services**
-2. Haz clic en **Enable Git Gateway**
-3. Esto permite que el CMS guarde cambios directamente en GitHub
+1. Haz clic en el archivo que quieres editar (ej: `contacto.json`)
+2. Haz clic en el ícono del **lápiz** (✏️) arriba a la derecha
+3. Edita el contenido respetando el formato JSON
+4. Baja hasta el final de la página
+5. Escribe un mensaje describiendo el cambio (ej: "Actualizar teléfono de contacto")
+6. Haz clic en **"Commit changes"** (botón verde)
 
-### **Paso 3: Configurar Registro de Usuarios**
+### **⚠️ Reglas para editar JSON:**
 
-1. Ve a **Identity** → **Settings and usage**
-2. En **Registration preferences**, selecciona:
-   - **Invite only** (Solo por invitación) ← **Recomendado para seguridad**
-3. En **External providers** (opcional):
-   - Puedes habilitar login con Google, GitHub, etc.
+- **NO elimines las comillas** (`"`)
+- **NO elimines las llaves** (`{`, `}`)
+- **NO elimines las comas** (`,`)
+- Solo edita el **contenido entre comillas**
+- Respeta las mayúsculas/minúsculas
+- Si tienes dudas, usa el Panel Administrativo en su lugar
 
-### **Paso 4: Invitar al Primer Usuario Administrativo**
+### **Ejemplo de edición correcta:**
 
-1. Ve a **Identity** → **Invite users**
-2. Ingresa el correo electrónico del administrador
-3. Haz clic en **Send**
-4. El administrador recibirá un correo con un enlace de invitación
-5. Al hacer clic, podrá crear su contraseña
+```json
+// ✅ CORRECTO
+{
+  "telefono": "+57 (314) 817 9078"
+}
 
----
+// ❌ INCORRECTO (falta comilla de cierre)
+{
+  "telefono": "+57 (314) 817 9078
+}
 
-## 🖥️ Acceso al Panel Administrativo
-
-### **Método 1: Desde el Sitio Web**
-
-1. Visita tu sitio: `https://tu-sitio.netlify.app`
-2. Haz clic en el botón **"Acceso Administrativo"** (arriba a la derecha)
-3. Serás redirigido a: `https://tu-sitio.netlify.app/admin`
-4. Inicia sesión con tu correo y contraseña (configurados en Identity)
-
-### **Método 2: Acceso Directo**
-
-1. Ve directamente a: `https://tu-sitio.netlify.app/admin`
-2. Inicia sesión con tus credenciales
-
-### **Primera Vez Ingresando:**
-
-1. Si es tu primera vez, usa el enlace de invitación que recibiste por correo
-2. Crea una contraseña segura
-3. Confirma tu cuenta
-4. Ya podrás acceder al panel administrativo
+// ❌ INCORRECTO (falta coma entre campos)
+{
+  "telefono": "+57 (314) 817 9078"
+  "email": "contacto@vidarelax.com.co"
+}
+```
 
 ---
 
-## 📝 Gestión de Contenidos
+## 📄 Archivos Editables
 
-Una vez dentro del panel administrativo (`/admin`), puedes editar:
+### **1. `/data/general.json` - Información General**
 
-### **⚙️ Configuración General**
-- Nombre de la fundación
-- NIT
-- Logo (URL)
-- Eslogan
-- Fecha de constitución
+Contiene los datos básicos de la fundación.
 
-### **🎯 Misión, Visión y Valores**
-- Editar textos completos
-- Cambiar iconos (usando Font Awesome)
+**Campos editables:**
+- `nombre` - Nombre oficial de la fundación
+- `nit` - Número de identificación tributaria
+- `slogan` - Frase que identifica a la fundación
+- `descripcion` - Descripción breve de la fundación
 
-### **👥 Junta Directiva**
-- Agregar/Eliminar miembros
-- Subir fotos (o usar ícono predeterminado)
-- Editar nombres, cargos, cédulas
-
-### **🏥 Servicios Ofrecidos**
-- Agregar nuevos servicios
-- Editar descripciones
-- Cambiar iconos y orden de aparición
-
-### **📄 Documentos Institucionales**
-- Subir archivos PDF
-- Editar nombres y descripciones
-- Eliminar documentos obsoletos
-
-### **💝 Cómo Ayudar**
-- Actualizar información bancaria
-- Editar textos de donaciones, voluntariado y alianzas
-
-### **📞 Información de Contacto**
-- Dirección física
-- Teléfonos
-- Correo electrónico
-- Redes sociales
-
-### **🎨 Colores Institucionales**
-- Modificar la paleta de colores del sitio (en formato hexadecimal)
-
-### **Guardar Cambios:**
-
-1. Haz clic en el contenido que deseas editar
-2. Realiza las modificaciones
-3. Haz clic en **Publish** o **Save** (arriba a la derecha)
-4. Los cambios se guardarán automáticamente en GitHub
-5. Netlify re-desplegará el sitio automáticamente (1-2 minutos)
+**Ejemplo:**
+```json
+{
+  "nombre": "VIDARELAX",
+  "nit": "901.999.007-7",
+  "slogan": "Refugio para el cuerpo, alivio para el alma",
+  "descripcion": "Fundación sin ánimo de lucro que brinda apoyo a pacientes oncológicos"
+}
+```
 
 ---
 
-## 🌐 Conectar Dominio Personalizado
+### **2. `/data/contacto.json` - Información de Contacto**
 
-Si tienes un dominio (ej: `vidarelax.com.co`), puedes conectarlo a Netlify:
+Datos de contacto de la fundación.
 
-### **Paso 1: Agregar el Dominio en Netlify**
+**Campos editables:**
+- `telefono` - Teléfono principal
+- `email_general` - Correo electrónico general
+- `email_donaciones` - Correo para donaciones
+- `email_voluntariado` - Correo para voluntarios
+- `email_pqrs` - Correo para quejas y reclamos
+- `email_juridico` - Correo del área jurídica
+- `direccion` - Dirección física
+- `ciudad` - Ciudad y departamento
+- `horario` - Horario de atención
 
-1. En el dashboard de Netlify, ve a tu sitio
-2. **Site settings** → **Domain management**
-3. Haz clic en **Add custom domain**
-4. Ingresa tu dominio: `vidarelax.com.co`
-5. Haz clic en **Verify**
-
-### **Paso 2: Configurar DNS**
-
-Netlify te mostrará instrucciones específicas. Hay dos opciones:
-
-#### **Opción A: Usar Netlify DNS (Recomendado - Más Fácil)**
-
-1. Netlify te dará **nameservers** como:
-   ```
-   dns1.p03.nsone.net
-   dns2.p03.nsone.net
-   dns3.p03.nsone.net
-   dns4.p03.nsone.net
-   ```
-
-2. Ve al sitio donde compraste tu dominio (ej: mi.com.co, GoDaddy, Namecheap)
-3. Busca la sección **DNS** o **Nameservers**
-4. Reemplaza los nameservers actuales por los de Netlify
-5. Guarda los cambios
-6. **Espera 24-48 horas** (propagación DNS)
-
-#### **Opción B: Usar DNS de tu Proveedor Actual**
-
-1. En tu proveedor de dominio, agrega un registro **A** apuntando a:
-   ```
-   75.2.60.5
-   ```
-
-2. Agrega un registro **CNAME** para `www` apuntando a:
-   ```
-   tu-sitio.netlify.app
-   ```
-
-3. Guarda los cambios
-4. **Espera 1-24 horas** (propagación DNS)
-
-### **Paso 3: Habilitar HTTPS**
-
-1. Una vez conectado el dominio, Netlify habilitará automáticamente **HTTPS**
-2. Esto puede tomar algunos minutos
-3. Una vez listo, tu sitio será accesible como: `https://vidarelax.com.co` 🔒
+**Ejemplo:**
+```json
+{
+  "telefono": "+57 (314) 817 9078",
+  "email_general": "contactanos@vidarelax.com.co",
+  "email_donaciones": "donaciones@vidarelax.com.co",
+  "direccion": "Carrera 25 #37-13, Barrio Bolívar",
+  "ciudad": "Bucaramanga, Santander",
+  "horario": "Lunes a Viernes: 8:00 AM - 5:00 PM"
+}
+```
 
 ---
 
-## 🔧 Solución de Problemas
+### **3. `/data/mision-vision.json` - Misión, Visión y Valores**
 
-### **❌ El formulario de contacto no funciona**
+Define la identidad institucional de la fundación.
 
-**Problema:** Al enviar el formulario, no pasa nada o muestra error.
+**Campos editables:**
+- `mision` - Razón de ser de la fundación
+- `vision` - Aspiración a futuro
+- `valores` - Lista de valores institucionales
+  - `valor` - Nombre del valor
+  - `descripcion` - Explicación del valor
 
-**Solución:**
-1. Asegúrate de que el sitio esté desplegado en Netlify (no funcionará en localhost)
-2. Verifica que el formulario tenga el atributo `data-netlify="true"`
-3. En Netlify, ve a **Forms** en el dashboard para ver las sumisiones
-
-### **❌ No puedo acceder a `/admin`**
-
-**Problema:** La página `/admin` muestra "Not Found" o "Page not found".
-
-**Solución:**
-1. Verifica que Netlify Identity esté habilitado (ver sección anterior)
-2. Verifica que Git Gateway esté habilitado
-3. Limpia el caché del navegador (`Ctrl + Shift + R`)
-4. Verifica que el archivo `admin/index.html` exista en tu repositorio
-
-### **❌ No puedo iniciar sesión en `/admin`**
-
-**Problema:** No aparece el formulario de login o muestra error.
-
-**Solución:**
-1. Asegúrate de haber recibido y completado el correo de invitación
-2. Ve a Netlify → **Identity** → **Users** y verifica que tu usuario esté activo
-3. Haz clic en **Resend invite** si no recibiste el correo
-4. Revisa tu carpeta de spam
-
-### **❌ Los cambios desde `/admin` no se guardan**
-
-**Problema:** Edito el contenido pero no se refleja en el sitio.
-
-**Solución:**
-1. Verifica que Git Gateway esté habilitado en Netlify Identity
-2. Asegúrate de hacer clic en **Publish** (no solo Save)
-3. Espera 2-3 minutos para que Netlify re-despliegue el sitio
-4. Limpia el caché del navegador
-
-### **❌ Las imágenes no cargan**
-
-**Problema:** Imágenes rotas o que no se muestran.
-
-**Solución:**
-1. Verifica que las URLs de las imágenes sean correctas
-2. Si subes imágenes desde el CMS, asegúrate de que se guarden en `assets/uploads/`
-3. Verifica que la carpeta `assets/uploads/` exista en GitHub
-
-### **❌ El dominio personalizado no funciona**
-
-**Problema:** El dominio muestra error o no carga el sitio.
-
-**Solución:**
-1. Verifica que los nameservers o registros DNS estén configurados correctamente
-2. Espera al menos 24 horas (propagación DNS puede tomar tiempo)
-3. Usa [DNS Checker](https://dnschecker.org) para verificar la propagación
-4. En Netlify, ve a **Domain settings** y verifica que el dominio esté verificado
-
-### **❌ Error 404 en algunas páginas**
-
-**Problema:** Algunas rutas muestran error 404.
-
-**Solución:**
-1. Verifica que el archivo `_redirects` esté en la raíz del proyecto
-2. Verifica que `netlify.toml` tenga las configuraciones de redirects
-3. Re-despliega el sitio en Netlify
+**Ejemplo:**
+```json
+{
+  "mision": "Brindar alojamiento digno y acompañamiento integral a pacientes oncológicos",
+  "vision": "Ser la fundación líder en apoyo oncológico en Santander",
+  "valores": [
+    {
+      "valor": "Empatía",
+      "descripcion": "Nos ponemos en el lugar de nuestros beneficiarios"
+    },
+    {
+      "valor": "Transparencia",
+      "descripcion": "Rendimos cuentas claras de cada donación"
+    }
+  ]
+}
+```
 
 ---
 
-## 🛠️ Mantenimiento y Actualizaciones
+### **4. `/data/como-ayudar.json` - Cómo Ayudar**
 
-### **Actualizar el Sitio desde GitHub:**
+Información sobre donaciones y voluntariado.
 
-1. Clona el repositorio en tu computadora:
-   ```bash
-   git clone https://github.com/TU-USUARIO/fundacion-vidarelax-website.git
-   cd fundacion-vidarelax-website
-   ```
+**Campos editables:**
+- **Sección Donaciones:**
+  - `titulo` - Título de la sección
+  - `descripcion` - Descripción de cómo donar
+  - `cuenta` - Número de cuenta bancaria
+  - `nequi` - Número de Nequi
 
-2. Realiza los cambios en el código
+- **Sección Voluntariado:**
+  - `titulo` - Título de la sección
+  - `descripcion` - Descripción de cómo ser voluntario
 
-3. Guarda y sube los cambios:
-   ```bash
-   git add .
-   git commit -m "Descripción de los cambios"
-   git push origin main
-   ```
-
-4. Netlify detectará los cambios automáticamente y re-desplegará el sitio
-
-### **Backup de Contenidos:**
-
-- Todos los contenidos se guardan en GitHub automáticamente
-- Para hacer un backup manual:
-  1. Ve a tu repositorio en GitHub
-  2. Haz clic en **Code** → **Download ZIP**
-  3. Guarda el archivo ZIP en un lugar seguro
-
-### **Revisar Logs de Despliegue:**
-
-1. En Netlify, ve a tu sitio
-2. Haz clic en **Deploys**
-3. Selecciona el deploy más reciente
-4. Haz clic en **Deploy log** para ver detalles
+**Ejemplo:**
+```json
+{
+  "donaciones": {
+    "titulo": "Donaciones",
+    "descripcion": "Tu aporte hace la diferencia",
+    "cuenta": "Por definir",
+    "nequi": "314 817 9078"
+  },
+  "voluntariado": {
+    "titulo": "Voluntariado",
+    "descripcion": "Únete a nuestro equipo"
+  }
+}
+```
 
 ---
 
-## 📞 Soporte Técnico
+### **5. `/data/colores.json` - Paleta de Colores**
 
-### **Recursos de Ayuda:**
+Define los colores institucionales del sitio web.
 
-- **Documentación de Netlify:** [docs.netlify.com](https://docs.netlify.com)
-- **Documentación de Netlify CMS:** [netlifycms.org/docs](https://www.netlifycms.org/docs/)
-- **Comunidad de Netlify:** [answers.netlify.com](https://answers.netlify.com)
+**⚠️ IMPORTANTE:** Solo edita esto si sabes de códigos de color hexadecimal.
 
-### **Contacto de la Fundación:**
+**Campos editables:**
+- `color_primario` - Color principal (turquesa)
+- `color_secundario` - Color secundario (dorado)
+- `color_acento` - Color de acentos (turquesa claro)
+- `color_texto` - Color del texto (gris oscuro)
 
-- **Email:** cvidarelax@gmail.com
+**Ejemplo:**
+```json
+{
+  "color_primario": "#4A7C7E",
+  "color_secundario": "#C4A962",
+  "color_acento": "#6B9FA1",
+  "color_texto": "#2c3e50"
+}
+```
+
+**📚 Referencia de colores hexadecimales:**
+- Los colores se escriben con `#` seguido de 6 caracteres
+- Ejemplos: `#FF0000` (rojo), `#00FF00` (verde), `#0000FF` (azul)
+- Usa un selector de colores en línea: https://htmlcolorcodes.com/es/
+
+---
+
+### **6. Carpeta `/data/junta/` - Junta Directiva**
+
+Cada miembro de la junta directiva tiene su propio archivo JSON.
+
+**Campos editables:**
+- `nombre` - Nombre completo del miembro
+- `cargo` - Cargo en la junta directiva
+- `foto` - URL de la foto (opcional)
+- `bio` - Biografía breve (opcional)
+
+**Ejemplo de archivo:** `/data/junta/presidente.json`
+```json
+{
+  "nombre": "Juan Pérez Gómez",
+  "cargo": "Presidente",
+  "foto": "/images/uploads/juan-perez.jpg",
+  "bio": "Médico oncólogo con 20 años de experiencia"
+}
+```
+
+---
+
+### **7. Carpeta `/data/servicios/` - Servicios Ofrecidos**
+
+Cada servicio que ofrece la fundación tiene su propio archivo JSON.
+
+**Campos editables:**
+- `nombre` - Nombre del servicio
+- `icono` - Emoji que representa el servicio
+- `descripcion` - Descripción del servicio
+- `activo` - Si el servicio está activo (`true` o `false`)
+
+**Ejemplo de archivo:** `/data/servicios/alojamiento.json`
+```json
+{
+  "nombre": "Alojamiento Digno",
+  "icono": "🏠",
+  "descripcion": "Habitaciones cómodas y seguras para pacientes",
+  "activo": true
+}
+```
+
+**📚 Emojis útiles:**
+- 🏠 Casa/Alojamiento
+- 🍲 Alimentación
+- 🚑 Salud/Médico
+- 💊 Medicamentos
+- 🤝 Apoyo/Compañía
+- 👨‍⚕️ Doctor
+- 🧘 Bienestar
+
+---
+
+### **8. Carpeta `/data/documentos/` - Documentos Institucionales**
+
+Cada documento PDF tiene su archivo JSON de referencia.
+
+**Campos editables:**
+- `titulo` - Nombre del documento
+- `archivo` - Ruta al archivo PDF
+- `descripcion` - Descripción del documento
+- `categoria` - Categoría (`"Legal"`, `"Transparencia"`, `"Políticas"`, `"Informes"`)
+
+**Ejemplo de archivo:** `/data/documentos/estatutos.json`
+```json
+{
+  "titulo": "Estatutos de la Fundación",
+  "archivo": "/documentos/estatutos-vidarelax.pdf",
+  "descripcion": "Documento legal que rige el funcionamiento de la fundación",
+  "categoria": "Legal"
+}
+```
+
+---
+
+## ⚠️ Reglas Importantes
+
+### **🚫 NO HAGAS ESTO:**
+
+1. **NO elimines archivos sin consultar** - Podrías romper el sitio web
+2. **NO edites archivos `.html`, `.toml`, `.yml`** a menos que sepas lo que haces
+3. **NO elimines comillas, llaves o comas en archivos JSON**
+4. **NO uses caracteres especiales** en nombres de archivos (usa solo letras, números, guiones)
+5. **NO subas archivos muy pesados** (máximo 5 MB por imagen)
+
+### **✅ SÍ DEBES HACER ESTO:**
+
+1. **Usa el Panel Administrativo** siempre que sea posible (es más seguro)
+2. **Describe tus cambios** cuando hagas commit en GitHub
+3. **Verifica los cambios** en el sitio web después de editar
+4. **Haz copias de seguridad** antes de cambios importantes
+5. **Pide ayuda** si no estás seguro de algo
+
+---
+
+## ❓ Preguntas Frecuentes
+
+### **¿Cuánto tiempo tardan en verse los cambios?**
+Entre 1 y 2 minutos después de guardar. El sitio se actualiza automáticamente.
+
+### **¿Puedo deshacer un cambio?**
+Sí, en GitHub puedes ver el historial de cambios y revertir si es necesario.
+
+### **¿Qué pasa si cometo un error?**
+No te preocupes. Todos los cambios se guardan en el historial de GitHub. Se puede restaurar versiones anteriores.
+
+### **¿Necesito instalar algo en mi computadora?**
+No. Todo se edita en línea a través del navegador (Chrome, Firefox, Edge, etc.).
+
+### **¿Puedo editar desde mi celular?**
+Sí, pero es más cómodo hacerlo desde una computadora.
+
+### **¿Quién puede editar el sitio?**
+Solo las personas que tengan acceso al Panel Administrativo o a la cuenta de GitHub.
+
+### **¿Cómo agrego una nueva foto?**
+Desde el Panel Administrativo, usa el botón "Subir imagen" en cualquier campo de tipo imagen.
+
+### **¿Puedo cambiar los colores del sitio?**
+Sí, editando el archivo `/data/colores.json`, pero debes conocer códigos hexadecimales de colores.
+
+### **¿Qué hago si el sitio web deja de funcionar?**
+Contacta al desarrollador o revisa el último cambio realizado para revertirlo.
+
+---
+
+## 📞 Contacto y Soporte
+
+**Sitio web:** https://cute-dusk-de1148.netlify.app
+**Panel administrativo:** https://cute-dusk-de1148.netlify.app/admin/
+**Repositorio GitHub:** https://github.com/nicolas2456/Fundacion-VIDARELAX
+
+**Fundación VIDARELAX:**
 - **Teléfono:** +57 (314) 817 9078
-- **WhatsApp:** [Enviar mensaje](https://wa.me/573148179078)
+- **Email:** contactanos@vidarelax.com.co
+- **Ubicación:** Carrera 25 #37-13, Bucaramanga
 
 ---
 
-## 📄 Licencia
+## ✅ Checklist de Edición
 
-Este sitio web es propiedad de la **Fundación Refugio Casa Vida Relax (VIDARELAX)**.
+Antes de hacer cambios importantes, verifica:
 
-- **NIT:** 901.999.007-7
-- **Constituida:** 6 de octubre de 2025
-- **Ubicación:** Bucaramanga, Santander, Colombia
-
-Todos los derechos reservados © 2025
-
----
-
-## ✅ Checklist de Deployment
-
-- [ ] Código subido a GitHub
-- [ ] Sitio conectado con Netlify
-- [ ] Sitio desplegado correctamente
-- [ ] Netlify Identity habilitado
-- [ ] Git Gateway habilitado
-- [ ] Primer usuario administrativo invitado
-- [ ] Acceso a `/admin` funcionando
-- [ ] Formulario de contacto probado
-- [ ] Contenidos editados desde el CMS
-- [ ] Dominio personalizado conectado (si aplica)
-- [ ] HTTPS habilitado
-- [ ] Backup del código realizado
+- [ ] Tengo acceso al Panel Administrativo o a GitHub
+- [ ] Sé exactamente qué archivo debo editar
+- [ ] He leído la documentación de ese archivo
+- [ ] Tengo una copia de seguridad (si es un cambio grande)
+- [ ] Voy a describir claramente el cambio en el commit
+- [ ] Voy a verificar los cambios en el sitio web después
 
 ---
 
-**¡Felicidades! 🎉 Tu sitio web está completamente funcional y listo para ayudar a transformar vidas.**
+**¡Listo! Ahora puedes editar el sitio web de forma segura y sencilla. 🎉**
 
 *"Refugio para el cuerpo, alivio para el alma"*
